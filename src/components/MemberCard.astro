@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import type { Lang } from '../i18n';
+import { assetPath, type Lang } from '../i18n';
 
 interface Props {
   member: CollectionEntry<'team'>;
@@ -8,7 +8,7 @@ interface Props {
 }
 
 const { member, lang } = Astro.props;
-const { name, role, topic, affiliation, email } = member.data;
+const { name, role, topic, affiliation, email, photo } = member.data;
 const initials = name
   .split(/\s+/)
   .map((p) => p[0])
@@ -18,17 +18,23 @@ const initials = name
 ---
 
 <div class="card member">
-  <svg class="avatar" width="56" height="56" viewBox="0 0 56 56" aria-hidden="true">
-    <circle cx="28" cy="28" r="28" fill="var(--blue-100)" />
-    <text
-      x="28"
-      y="36"
-      text-anchor="middle"
-      font-size="20"
-      font-weight="700"
-      fill="var(--blue-700)"
-      font-family="system-ui, sans-serif">{initials}</text>
-  </svg>
+  {photo ? (
+    <span class="avatar avatar--photo">
+      <img src={assetPath(photo)} alt={name} loading="lazy" />
+    </span>
+  ) : (
+    <svg class="avatar" width="72" height="72" viewBox="0 0 72 72" aria-hidden="true">
+      <circle cx="36" cy="36" r="36" fill="var(--blue-100)" />
+      <text
+        x="36"
+        y="46"
+        text-anchor="middle"
+        font-size="26"
+        font-weight="700"
+        fill="var(--blue-700)"
+        font-family="system-ui, sans-serif">{initials}</text>
+    </svg>
+  )}
   <div>
     <h3>{name}</h3>
     <div class="role">{role[lang]}</div>

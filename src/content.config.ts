@@ -13,6 +13,7 @@ const team = defineCollection({
     affiliation: z.string().optional(),
     email: z.string().optional(),
     phone: z.string().optional(),
+    photo: z.string().optional(),
     order: z.number().default(100),
   }),
 });

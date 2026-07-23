@@ -49,6 +49,7 @@ collections:
       - { name: affiliation, label: Affiliation, widget: string, required: false }
       - { name: email, label: Courriel, widget: string, required: false }
       - { name: phone, label: Téléphone, widget: string, required: false }
+      - { name: photo, label: Photo, widget: image, required: false }
       - { name: order, label: "Ordre d'affichage", widget: number, default: 100 }
 
   - name: publications

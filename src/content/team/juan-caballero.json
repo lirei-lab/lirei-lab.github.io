@@ -9,5 +9,6 @@
     "fr": "Commande prédictive des systèmes CVC fondée sur l'occupation",
     "en": "Occupancy-driven predictive control of HVAC systems"
   },
-  "order": 41
+  "order": 41,
+  "photo": "/images/team/juan-caballero.png"
 }
