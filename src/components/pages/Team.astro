@@ -1,0 +1,35 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import MemberCard from '../MemberCard.astro';
+import { useTranslations, type Lang } from '../../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const categories = ['direction', 'professor', 'staff', 'postdoc', 'student'] as const;
+const team = (await getCollection('team')).sort((a, b) => a.data.order - b.data.order);
+const groups = categories
+  .map((cat) => ({ cat, members: team.filter((m) => m.data.category === cat) }))
+  .filter((g) => g.members.length > 0);
+---
+
+<Base lang={lang} routeKey="team" title={t('team.title')} description={t('team.lead')}>
+  <div class="container">
+    <h1>{t('team.title')}</h1>
+    <p class="lead">{t('team.lead')}</p>
+
+    {groups.map(({ cat, members }) => (
+      <section>
+        <h2>{t(`team.groups.${cat}`)}</h2>
+        <div class="grid-3">
+          {members.map((member) => <MemberCard member={member} lang={lang} />)}
+        </div>
+      </section>
+    ))}
+  </div>
+</Base>

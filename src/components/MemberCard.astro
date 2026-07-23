@@ -1,0 +1,39 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import type { Lang } from '../i18n';
+
+interface Props {
+  member: CollectionEntry<'team'>;
+  lang: Lang;
+}
+
+const { member, lang } = Astro.props;
+const { name, role, topic, affiliation, email } = member.data;
+const initials = name
+  .split(/\s+/)
+  .map((p) => p[0])
+  .slice(0, 2)
+  .join('')
+  .toUpperCase();
+---
+
+<div class="card member">
+  <svg class="avatar" width="56" height="56" viewBox="0 0 56 56" aria-hidden="true">
+    <circle cx="28" cy="28" r="28" fill="var(--blue-100)" />
+    <text
+      x="28"
+      y="36"
+      text-anchor="middle"
+      font-size="20"
+      font-weight="700"
+      fill="var(--blue-700)"
+      font-family="system-ui, sans-serif">{initials}</text>
+  </svg>
+  <div>
+    <h3>{name}</h3>
+    <div class="role">{role[lang]}</div>
+    {topic && <div class="topic">{topic[lang]}</div>}
+    {affiliation && <div class="topic">{affiliation}</div>}
+    {email && <div class="topic"><a href={`mailto:${email}`}>{email}</a></div>}
+  </div>
+</div>
