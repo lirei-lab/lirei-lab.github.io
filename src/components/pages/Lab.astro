@@ -63,7 +63,7 @@ const infraAxis = { residential: 'residential', simulation: 'smartgrids', data: 
       <p class="muted" style="max-width:46rem">{t('lab.programsLead')}</p>
       <div class="grid-3">
         {programs.map(({ program, axis, flagship }) => (
-          <a class="card" href={`${href(lang, 'projects')}/${flagship!.id}`} style="text-decoration:none">
+          <a class="card" href={`${href(lang, 'research')}/${flagship!.id}`} style="text-decoration:none">
             <div class="axis-head">
               <AxisIcon axis={axis} />
               <h3>{t(`projects.programs.${program}`)}</h3>

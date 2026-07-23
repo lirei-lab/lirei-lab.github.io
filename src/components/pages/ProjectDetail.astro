@@ -11,18 +11,18 @@ interface Props {
 const { project, lang } = Astro.props;
 const t = useTranslations(lang);
 const { title, summary, description, axis, status, partners, team, image, imageAlt } = project.data;
-const switchHref = `${href(otherLang(lang), 'projects')}/${project.id}`;
+const switchHref = `${href(otherLang(lang), 'research')}/${project.id}`;
 const paragraphs = (description?.[lang] ?? summary[lang]).split(/\n\n+/);
 ---
 
 <Base
   lang={lang}
-  routeKey="projects"
+  routeKey="research"
   title={title[lang]}
   description={summary[lang]}
   switchHref={switchHref}>
   <div class="container project-detail">
-    <p style="margin-top:2rem"><a href={href(lang, 'projects')}>{t('projects.back')}</a></p>
+    <p style="margin-top:2rem"><a href={href(lang, 'research')}>{t('projects.back')}</a></p>
     <h1>{title[lang]}</h1>
     <p>
       <span class="tag">{t(`research.axes.${axis}.title`)}</span>

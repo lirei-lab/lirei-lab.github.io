@@ -80,7 +80,10 @@
   },
   "research": {
     "title": "Research",
-    "lead": "Our work focuses on intelligent energy management, from power grids to buildings and vehicles.",
+    "lead": "LIREI structures its work around three major research programs, expressed through doctoral projects and collaborations, and spanning a broad range of areas of expertise.",
+    "programsTitle": "Research programs",
+    "axesTitle": "Areas of expertise",
+    "axesLead": "Our programs build on a foundation of cross-cutting technical expertise.",
     "axes": {
       "smartgrids": {
         "title": "Smart grids and simulation platforms",

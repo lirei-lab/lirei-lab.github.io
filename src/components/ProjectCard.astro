@@ -11,7 +11,7 @@ interface Props {
 const { project, lang, compact = false } = Astro.props;
 const t = useTranslations(lang);
 const { title, summary, axis, status, partners, team, image, imageAlt } = project.data;
-const detailUrl = `${href(lang, 'projects')}/${project.id}`;
+const detailUrl = `${href(lang, 'research')}/${project.id}`;
 const showImage = image && !compact;
 ---
 

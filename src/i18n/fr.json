@@ -80,7 +80,10 @@
   },
   "research": {
     "title": "Recherche",
-    "lead": "Nos travaux portent sur la gestion intelligente de l'énergie, des réseaux électriques aux bâtiments et aux véhicules.",
+    "lead": "Le LIREI structure ses travaux autour de trois grands programmes de recherche, déclinés en projets doctoraux et en collaborations, et couvrant un large éventail de domaines d'expertise.",
+    "programsTitle": "Programmes de recherche",
+    "axesTitle": "Domaines d'expertise",
+    "axesLead": "Nos programmes s'appuient sur un socle de compétences techniques transversales.",
     "axes": {
       "smartgrids": {
         "title": "Réseaux intelligents et plateformes de simulation",

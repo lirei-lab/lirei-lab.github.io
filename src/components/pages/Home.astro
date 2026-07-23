@@ -74,7 +74,7 @@ const partners = [
       {featured.map((project) => (
         <a
           class="card featured-project"
-          href={`${href(lang, 'projects')}/${project.id}`}
+          href={`${href(lang, 'research')}/${project.id}`}
           style="text-decoration:none">
           {project.data.image && (
             <span class="project-img">
@@ -90,7 +90,7 @@ const partners = [
         </a>
       ))}
     </div>
-    <p><a href={href(lang, 'projects')}>{t('home.viewAll')} →</a></p>
+    <p><a href={href(lang, 'research')}>{t('home.viewAll')} →</a></p>
   </div>
 
   {news.length > 0 && (
