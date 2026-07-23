@@ -1,0 +1,78 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PublicationItem from '../PublicationItem.astro';
+import { useTranslations, type Lang } from '../../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const pubs = (await getCollection('publications')).sort(
+  (a, b) => b.data.year - a.data.year || a.data.title.localeCompare(b.data.title)
+);
+const years = [...new Set(pubs.map((p) => p.data.year))].sort((a, b) => b - a);
+const types = ['journal', 'conference', 'other'] as const;
+---
+
+<Base lang={lang} routeKey="publications" title={t('pubs.title')} description={t('pubs.lead')}>
+  <div class="container">
+    <h1>{t('pubs.title')}</h1>
+    <p class="lead">{t('pubs.lead')}</p>
+
+    <div class="filters">
+      <label for="f-type">{t('pubs.filterType')}</label>
+      <select id="f-type">
+        <option value="">{t('pubs.all')}</option>
+        {types.map((type) => <option value={type}>{t(`pubs.${type}`)}</option>)}
+      </select>
+      <label for="f-year">{t('pubs.filterYear')}</label>
+      <select id="f-year">
+        <option value="">{t('pubs.all')}</option>
+        {years.map((year) => <option value={String(year)}>{year}</option>)}
+      </select>
+    </div>
+
+    {years.map((year) => (
+      <section class="year-group" data-year={year}>
+        <h2>{year}</h2>
+        <ul class="pub-list">
+          {pubs
+            .filter((p) => p.data.year === year)
+            .map((pub) => <PublicationItem pub={pub} lang={lang} />)}
+        </ul>
+      </section>
+    ))}
+    <p id="no-results" class="muted" hidden>{t('pubs.noResults')}</p>
+  </div>
+
+  <script>
+    const typeSel = document.getElementById('f-type') as HTMLSelectElement;
+    const yearSel = document.getElementById('f-year') as HTMLSelectElement;
+    const noResults = document.getElementById('no-results')!;
+
+    function apply() {
+      const type = typeSel.value;
+      const year = yearSel.value;
+      let any = false;
+      document.querySelectorAll<HTMLElement>('.year-group').forEach((group) => {
+        let visible = 0;
+        group.querySelectorAll<HTMLElement>('li').forEach((li) => {
+          const show =
+            (!type || li.dataset.type === type) && (!year || li.dataset.year === year);
+          li.hidden = !show;
+          if (show) visible++;
+        });
+        group.hidden = visible === 0;
+        if (visible > 0) any = true;
+      });
+      noResults.hidden = any;
+    }
+
+    typeSel.addEventListener('change', apply);
+    yearSel.addEventListener('change', apply);
+  </script>
+</Base>

@@ -1,0 +1,50 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import ProjectCard from '../ProjectCard.astro';
+import { useTranslations, type Lang } from '../../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const projects = await getCollection('projects');
+const axes = ['smartgrids', 'residential', 'ml', 'hydrogen', 'flexibility', 'ev'] as const;
+---
+
+<Base lang={lang} routeKey="projects" title={t('projects.title')} description={t('projects.lead')}>
+  <div class="container">
+    <h1>{t('projects.title')}</h1>
+    <p class="lead">{t('projects.lead')}</p>
+
+    <div class="filters" role="group" aria-label={t('projects.filterAxis')}>
+      <span style="font-weight:600; font-size:0.9rem">{t('projects.filterAxis')}</span>
+      <button data-axis="" aria-pressed="true">{t('projects.all')}</button>
+      {axes.map((axis) => (
+        <button data-axis={axis} aria-pressed="false">{t(`research.axes.${axis}.title`)}</button>
+      ))}
+    </div>
+
+    <div class="grid-2" id="project-grid">
+      {projects.map((project) => <ProjectCard project={project} lang={lang} />)}
+    </div>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll<HTMLButtonElement>('.filters button');
+    buttons.forEach((btn) =>
+      btn.addEventListener('click', () => {
+        buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+        const axis = btn.dataset.axis ?? '';
+        document
+          .querySelectorAll<HTMLElement>('#project-grid [data-axis]')
+          .forEach((card) => {
+            card.hidden = axis !== '' && card.dataset.axis !== axis;
+          });
+      })
+    );
+  </script>
+</Base>
