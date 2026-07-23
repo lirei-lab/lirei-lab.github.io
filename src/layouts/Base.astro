@@ -39,5 +39,31 @@ const pageTitle = `${title} | ${t('site.name')} — ${t('site.uqtr')}`;
       <slot />
     </main>
     <Footer lang={lang} />
+    <script>
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!reduced && 'IntersectionObserver' in window) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                io.unobserve(entry.target);
+              }
+            }
+          },
+          { threshold: 0.12 }
+        );
+        const targets = document.querySelectorAll<HTMLElement>(
+          'main .card, main .stats > div, main .pub-list li, main section.band, main h2'
+        );
+        // Only animate elements below the fold: content visible on load stays visible.
+        targets.forEach((el, i) => {
+          if (el.getBoundingClientRect().top < window.innerHeight * 0.92) return;
+          el.classList.add('reveal');
+          el.style.setProperty('--reveal-delay', `${(i % 5) * 70}ms`);
+          io.observe(el);
+        });
+      }
+    </script>
   </body>
 </html>

@@ -1,0 +1,37 @@
+---
+interface Props {
+  axis: 'smartgrids' | 'residential' | 'ml' | 'hydrogen' | 'flexibility' | 'ev';
+}
+
+const { axis } = Astro.props;
+
+const paths: Record<Props['axis'], string> = {
+  // network: three nodes connected
+  smartgrids:
+    'M5 7a2 2 0 1 0 0.001 0 M19 7a2 2 0 1 0 0.001 0 M12 18a2 2 0 1 0 0.001 0 M6.5 8.5l4.5 8 M17.5 8.5l-4.5 8 M7 7h10',
+  // house
+  residential: 'M3 11l9-7 9 7 M5 10v9h14v-9 M10 19v-5h4v5',
+  // chip
+  ml: 'M7 7h10v10H7z M10 10h4v4h-4z M12 3v4 M12 17v4 M3 12h4 M17 12h4 M5.5 5.5L8 8 M16 16l2.5 2.5 M18.5 5.5L16 8 M8 16l-2.5 2.5',
+  // droplet with bubbles
+  hydrogen: 'M12 3c3.5 4.2 6 7.2 6 10.2A6 6 0 0 1 6 13.2C6 10.2 8.5 7.2 12 3z M10 13.5a2 2 0 1 0 0.001 0',
+  // exchange arrows
+  flexibility: 'M4 8h13 M14 4.5L17.5 8 14 11.5 M20 16H7 M10 12.5L6.5 16 10 19.5',
+  // lightning bolt
+  ev: 'M13 3L5 13h5l-1 8 8-10h-5l1-8z',
+};
+---
+
+<span class="axis-icon" aria-hidden="true">
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.8"
+    stroke-linecap="round"
+    stroke-linejoin="round">
+    <path d={paths[axis]} />
+  </svg>
+</span>

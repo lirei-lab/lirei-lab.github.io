@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import AxisIcon from '../AxisIcon.astro';
 import { useTranslations, type Lang } from '../../i18n';
 
 interface Props {
@@ -19,7 +20,10 @@ const axes = ['smartgrids', 'residential', 'ml', 'hydrogen', 'flexibility', 'ev'
     <div class="grid-2">
       {axes.map((axis) => (
         <section class="card" id={axis}>
-          <h2 style="margin-top:0">{t(`research.axes.${axis}.title`)}</h2>
+          <div class="axis-head">
+            <AxisIcon axis={axis} />
+            <h2>{t(`research.axes.${axis}.title`)}</h2>
+          </div>
           <p>{t(`research.axes.${axis}.desc`)}</p>
           <p>
             {t(`research.axes.${axis}.tags`)

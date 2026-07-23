@@ -2,6 +2,8 @@
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import PublicationItem from '../PublicationItem.astro';
+import EnergyGrid from '../EnergyGrid.astro';
+import AxisIcon from '../AxisIcon.astro';
 import { useTranslations, href, type Lang } from '../../i18n';
 
 interface Props {
@@ -27,6 +29,7 @@ const partners = [
 
 <Base lang={lang} routeKey="home" title={t('nav.home')} description={t('site.description')}>
   <div class="hero">
+    <EnergyGrid />
     <div class="container">
       <h1>{t('site.fullname')}</h1>
       <p class="tagline">{t('home.tagline')}</p>
@@ -50,7 +53,10 @@ const partners = [
     <div class="grid-3">
       {axes.map((axis) => (
         <a class="card" href={`${href(lang, 'research')}#${axis}`} style="text-decoration:none">
-          <h3>{t(`research.axes.${axis}.title`)}</h3>
+          <div class="axis-head">
+            <AxisIcon axis={axis} />
+            <h3>{t(`research.axes.${axis}.title`)}</h3>
+          </div>
           <p class="muted" style="font-size:0.92rem">{t(`research.axes.${axis}.desc`).slice(0, 110)}…</p>
         </a>
       ))}
@@ -71,4 +77,32 @@ const partners = [
       </div>
     </div>
   </section>
+
+  <script>
+    const nums = document.querySelectorAll<HTMLElement>('.stats .num');
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduced && 'IntersectionObserver' in window) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (!entry.isIntersecting) continue;
+            io.unobserve(entry.target);
+            const el = entry.target as HTMLElement;
+            const end = parseInt(el.textContent ?? '', 10);
+            if (!Number.isFinite(end) || end > 1000) continue; // skip the founding year
+            const start = performance.now();
+            const duration = 1100;
+            const tick = (now: number) => {
+              const p = Math.min(1, (now - start) / duration);
+              el.textContent = String(Math.round(end * (1 - Math.pow(1 - p, 3))));
+              if (p < 1) requestAnimationFrame(tick);
+            };
+            requestAnimationFrame(tick);
+          }
+        },
+        { threshold: 0.5 }
+      );
+      nums.forEach((n) => io.observe(n));
+    }
+  </script>
 </Base>

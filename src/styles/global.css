@@ -413,3 +413,213 @@ main {
 main > .container > h1:first-child {
   margin-top: 2.5rem;
 }
+
+/* ===== Motion & life ===== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 2px 14px rgba(13, 43, 69, 0.25);
+}
+
+.site-nav a {
+  position: relative;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* Hero: animated gradient + energy network backdrop */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(120deg, var(--blue-900) 0%, var(--blue-700) 55%, #0f6b52 140%);
+  background-size: 180% 180%;
+  animation: hero-shift 14s ease-in-out infinite alternate;
+}
+
+@keyframes hero-shift {
+  to { background-position: 100% 60%; }
+}
+
+.hero > .container {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+
+.hero h1 { animation: fade-up 0.7s ease both; }
+.hero .tagline { animation: fade-up 0.7s ease 0.15s both; }
+.hero .intro { animation: fade-up 0.7s ease 0.3s both; }
+.hero .container > p:last-child { animation: fade-up 0.7s ease 0.45s both; }
+
+.hero .energy-grid {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.energy-grid .link {
+  stroke: var(--green-400);
+  stroke-width: 1.2;
+  fill: none;
+  stroke-dasharray: 6 10;
+  animation: dash-flow 3.2s linear infinite;
+  opacity: 0.55;
+}
+
+.energy-grid .link:nth-of-type(2n) { animation-duration: 4.4s; }
+.energy-grid .link:nth-of-type(3n) { animation-duration: 5.6s; animation-direction: reverse; }
+
+@keyframes dash-flow {
+  to { stroke-dashoffset: -64; }
+}
+
+.energy-grid .node {
+  fill: var(--green-400);
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: node-pulse 3s ease-in-out infinite;
+}
+
+.energy-grid .node:nth-of-type(2n) { animation-delay: 0.7s; }
+.energy-grid .node:nth-of-type(3n) { animation-delay: 1.4s; }
+
+@keyframes node-pulse {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.6); }
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition-delay: var(--reveal-delay, 0s);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Hover lifts */
+.card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(13, 43, 69, 0.12);
+  border-color: var(--green-400);
+}
+
+.btn {
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.tag {
+  transition: transform 0.2s ease;
+}
+
+.card:hover .tag {
+  transform: translateY(-1px);
+}
+
+.pub-list li {
+  transition: background 0.2s ease, padding-left 0.25s ease;
+  border-left: 3px solid transparent;
+}
+
+.pub-list li:hover {
+  background: var(--bg-alt);
+  border-left-color: var(--green-400);
+  padding-left: 0.6rem;
+}
+
+/* Section headings: animated accent underline */
+h2 {
+  position: relative;
+  padding-bottom: 0.35rem;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 2.2rem;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--green-600), var(--green-400));
+  transition: width 0.4s ease;
+}
+
+section:hover > h2::after,
+.container:hover > h2::after {
+  width: 4.5rem;
+}
+
+.site-footer h2::after,
+.site-footer h3::after {
+  display: none;
+}
+
+/* Axis icons */
+.axis-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--green-100);
+  color: var(--green-600);
+  flex: 0 0 auto;
+  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.card:hover .axis-icon,
+section.card:hover .axis-icon {
+  transform: rotate(-6deg) scale(1.08);
+  background: var(--green-600);
+  color: #fff;
+}
+
+.axis-head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.axis-head h2, .axis-head h3 {
+  margin: 0;
+}
+
+/* Reduced motion: keep it calm */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
