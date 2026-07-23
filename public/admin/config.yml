@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: novastdev/lireiweb
+  repo: lirei-lab/lireiweb
   branch: main
   # Une fois le worker d'authentification déployé (voir README), décommentez :
   # base_url: https://sveltia-cms-auth.<votre-compte>.workers.dev
@@ -8,7 +8,7 @@ backend:
 media_folder: public/images
 public_folder: /images
 
-site_url: https://novastdev.github.io/lireiweb
+site_url: https://lirei-lab.github.io/lireiweb
 
 collections:
   - name: team

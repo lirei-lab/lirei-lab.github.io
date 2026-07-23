@@ -21,7 +21,7 @@ npm run preview    # prévisualise le contenu de dist/
 
 ### Automatique (GitHub Pages)
 
-Chaque `git push` sur `main` déclenche le workflow [.github/workflows/deploy.yml](.github/workflows/deploy.yml) qui construit et publie le site sur **https://novastdev.github.io/lireiweb/**.
+Chaque `git push` sur `main` déclenche le workflow [.github/workflows/deploy.yml](.github/workflows/deploy.yml) qui construit et publie le site sur **https://lirei-lab.github.io/lireiweb/**.
 
 ### Manuel (serveur de l'UQTR ou autre)
 
@@ -43,7 +43,7 @@ Pour que les membres puissent se connecter à `/admin/` depuis leur navigateur, 
 
 1. Déployez [sveltia-cms-auth](https://github.com/sveltia/sveltia-cms-auth) sur Cloudflare Workers (bouton « Deploy » du dépôt, compte Cloudflare gratuit).
 2. Créez une **GitHub OAuth App** (Settings → Developer settings → OAuth Apps) avec comme *callback URL* l'adresse du worker.
-3. Renseignez `GITHUB_CLIENT_ID` / `GITHUB_CLIENT_SECRET` dans le worker et `ALLOWED_DOMAINS=novastdev.github.io`.
+3. Renseignez `GITHUB_CLIENT_ID` / `GITHUB_CLIENT_SECRET` dans le worker et `ALLOWED_DOMAINS=lirei-lab.github.io`.
 4. Décommentez `base_url` dans [public/admin/config.yml](public/admin/config.yml) avec l'URL du worker.
 
 Chaque membre du labo doit ensuite avoir un compte GitHub avec accès en écriture au dépôt (Settings → Collaborators).
