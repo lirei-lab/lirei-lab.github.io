@@ -1,0 +1,37 @@
+---
+import Base from '../../layouts/Base.astro';
+import { useTranslations, type Lang } from '../../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<Base lang={lang} routeKey="lab" title={t('lab.title')} description={t('lab.lead')}>
+  <div class="container">
+    <h1>{t('lab.title')}</h1>
+    <p class="lead">{t('lab.lead')}</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <h2 style="margin-top:0">{t('lab.historyTitle')}</h2>
+        <p>{t('lab.history1')}</p>
+        <p>{t('lab.history2')}</p>
+      </div>
+      <div>
+        <div class="card">
+          <h2 style="margin-top:0">{t('lab.infraTitle')}</h2>
+          <p>{t('lab.infra1')}</p>
+        </div>
+        <div class="card" style="margin-top:1.25rem">
+          <h2 style="margin-top:0">{t('lab.envTitle')}</h2>
+          <p>{t('lab.env1')}</p>
+          <p>{t('lab.env2')}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</Base>
