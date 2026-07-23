@@ -1,0 +1,58 @@
+---
+import Base from '../../layouts/Base.astro';
+import { useTranslations, type Lang } from '../../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const partners = [
+  'Hydro-Québec',
+  'Ressources naturelles Canada',
+  'Mitacs',
+  'Université Laval',
+  'Institut de recherche sur l’hydrogène (IRH)',
+];
+---
+
+<Base lang={lang} routeKey="contact" title={t('contact.title')} description={t('contact.lead')}>
+  <div class="container">
+    <h1>{t('contact.title')}</h1>
+    <p class="lead">{t('contact.lead')}</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <h2 style="margin-top:0">{t('contact.coordTitle')}</h2>
+        <p>
+          <strong>{t('contact.emailLabel')}</strong> :
+          <a href="mailto:lirei@irh.ca">lirei@irh.ca</a>
+        </p>
+        <p><strong>{t('contact.phoneLabel')}</strong> : {t('footer.phone')}</p>
+        <p>
+          <strong>{t('contact.addressLabel')}</strong> :<br />
+          {t('site.uqtr')}<br />
+          {t('footer.address')}
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-top:0">{t('contact.partnersTitle')}</h2>
+        <p>{t('contact.partnersDesc')}</p>
+        <p>
+          {partners.map((p) => <span class="tag">{p}</span>)}
+        </p>
+      </div>
+    </div>
+
+    <section class="band" style="border-radius:8px">
+      <div class="container">
+        <h2 style="margin-top:0">{t('contact.recruitTitle')}</h2>
+        <p style="max-width:46rem">{t('contact.recruitText')}</p>
+        <p><a class="btn" href="mailto:lirei@irh.ca">{t('contact.recruitCta')}</a></p>
+      </div>
+    </section>
+  </div>
+</Base>
