@@ -37,6 +37,7 @@ const projects = defineCollection({
     summary: bilingual,
     description: bilingual.optional(),
     axis: z.enum(['smartgrids', 'residential', 'ml', 'hydrogen', 'flexibility', 'ev']),
+    program: z.enum(['flexibilite', 'serres', 'communautes']).optional(),
     status: z.enum(['active', 'completed']),
     partners: z.array(z.string()).default([]),
     team: z.string().optional(),

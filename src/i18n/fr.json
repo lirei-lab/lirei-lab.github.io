@@ -39,15 +39,43 @@
   },
   "lab": {
     "title": "Le laboratoire",
-    "lead": "Un centre d'innovation et d'exploration au cœur de l'Institut de recherche sur l'hydrogène.",
+    "lead": "Un centre d'innovation et d'exploration au cœur de l'Institut de recherche sur l'hydrogène, où une équipe multidisciplinaire conçoit les solutions énergétiques intelligentes de demain.",
+    "statFounded": "Fondé en",
+    "statMember": "Au sein de l'IRH depuis",
+    "statMembers": "Membres de l'équipe",
+    "statPrograms": "Programmes de recherche",
+    "intro1": "Le LIREI réunit professeurs, professionnels de recherche et étudiants aux cycles supérieurs autour d'une même mission : proposer des solutions pour une gestion intelligente de l'énergie, du réseau électrique jusqu'aux bâtiments et aux véhicules. Nos travaux allient optimisation, apprentissage automatique, modélisation et expérimentation sur des données réelles.",
     "historyTitle": "Historique",
     "history1": "L'Institut de recherche sur l'hydrogène (IRH) de l'UQTR a été inauguré publiquement en 1996. Trois ans plus tard, en 1999, le LIREI voit le jour comme équipe multidisciplinaire au sein de l'Institut, avec la mission de proposer des solutions pour gérer l'énergie de façon intelligente.",
     "history2": "Aujourd'hui, le laboratoire poursuit ses activités à Trois-Rivières et bénéficie des nouvelles installations de recherche du pavillon Pellerin-Marmen de l'UQTR.",
-    "infraTitle": "Infrastructures",
-    "infra1": "Le LIREI met à la disposition de ses membres des installations à la fine pointe de la technologie : bancs d'essai pour la gestion énergétique résidentielle, plateformes de simulation de réseaux intelligents, équipements de mesure et espaces de travail dédiés.",
+    "programsTitle": "Nos programmes de recherche",
+    "programsLead": "Nos activités s'organisent autour de trois grands programmes qui structurent les projets doctoraux et les collaborations du laboratoire.",
+    "infraTitle": "Infrastructures et expertise",
+    "infraLead": "Le LIREI met à la disposition de ses membres des installations à la fine pointe de la technologie et un savoir-faire méthodologique unique.",
+    "infra": {
+      "residential": {
+        "title": "Bancs d'essai résidentiels",
+        "desc": "Instrumentation de bâtiments et de charges (chauffage, chauffe-eau, stockage thermique) pour valider les stratégies de gestion en conditions réelles de climat froid."
+      },
+      "simulation": {
+        "title": "Plateformes de simulation",
+        "desc": "Co-simulation des réseaux de distribution et de communication (OpenDSS, systèmes multi-agents) pour tester les mécanismes transactionnels à grande échelle."
+      },
+      "data": {
+        "title": "Données et apprentissage",
+        "desc": "Jeux de données réelles de consommation, de recharge et d'occupation, et outils d'apprentissage automatique pour la modélisation et la prévision énergétiques."
+      },
+      "optimization": {
+        "title": "Optimisation et calcul",
+        "desc": "Méthodes d'optimisation convexe et stochastique et calcul distribué pour le dimensionnement et l'exploitation optimale des ressources énergétiques."
+      }
+    },
     "envTitle": "Milieu de travail",
     "env1": "Le laboratoire offre un environnement inclusif et innovant qui favorise la collaboration interdisciplinaire, le mentorat et la diffusion scientifique. Les étudiantes et étudiants y trouvent un encadrement propice au développement professionnel et à la publication.",
-    "env2": "Les travaux du LIREI suscitent un fort intérêt industriel au Québec : notre réseau de partenaires constitue la principale source de financement des projets."
+    "env2": "Les travaux du LIREI suscitent un fort intérêt industriel au Québec : notre réseau de partenaires constitue la principale source de financement des projets.",
+    "ctaTitle": "Se joindre au laboratoire",
+    "ctaText": "Le LIREI est toujours à la recherche d'étudiantes et d'étudiants motivés, intéressés par la gestion intelligente de l'énergie.",
+    "ctaBtn": "Nous joindre"
   },
   "research": {
     "title": "Recherche",
@@ -117,7 +145,15 @@
     "partners": "Partenaires",
     "more": "En savoir plus",
     "back": "← Tous les projets",
-    "featuredTitle": "Projets phares"
+    "featuredTitle": "Projets phares",
+    "programsLead": "Nos travaux s'organisent autour de trois grands programmes de recherche. Chaque programme regroupe des projets doctoraux et des collaborations qui en explorent les différentes facettes.",
+    "discover": "Découvrir le programme",
+    "subprojects": "Projets associés",
+    "programs": {
+      "flexibilite": "Flexibilité énergétique",
+      "serres": "Serres du Québec",
+      "communautes": "Communautés isolées"
+    }
   },
   "contact": {
     "title": "Nous joindre",

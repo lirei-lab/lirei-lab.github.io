@@ -1,6 +1,8 @@
 ---
+import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
-import { useTranslations, type Lang } from '../../i18n';
+import AxisIcon from '../AxisIcon.astro';
+import { useTranslations, href, assetPath, type Lang } from '../../i18n';
 
 interface Props {
   lang: Lang;
@@ -8,30 +10,98 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
+
+const team = await getCollection('team');
+const projects = await getCollection('projects');
+
+// Flagship project per program, in a fixed order, for the "programs" cards.
+const programOrder = ['flexibilite', 'serres', 'communautes'] as const;
+const programAxis = { flexibilite: 'flexibility', serres: 'smartgrids', communautes: 'hydrogen' } as const;
+const programs = programOrder
+  .map((program) => ({
+    program,
+    axis: programAxis[program],
+    flagship: projects.find((p) => p.data.program === program && p.data.featured),
+  }))
+  .filter((p) => p.flagship);
+
+const infraKeys = ['residential', 'simulation', 'data', 'optimization'] as const;
+const infraAxis = { residential: 'residential', simulation: 'smartgrids', data: 'ml', optimization: 'flexibility' } as const;
 ---
 
 <Base lang={lang} routeKey="lab" title={t('lab.title')} description={t('lab.lead')}>
-  <div class="container">
-    <h1>{t('lab.title')}</h1>
-    <p class="lead">{t('lab.lead')}</p>
+  <div class="hero hero--compact">
+    <div class="container">
+      <h1>{t('lab.title')}</h1>
+      <p class="intro">{t('lab.lead')}</p>
+    </div>
+  </div>
 
-    <div class="grid-2">
+  <div class="container">
+    <div class="stats">
+      <div><span class="num">1999</span><span class="label">{t('lab.statFounded')}</span></div>
+      <div><span class="num">1996</span><span class="label">{t('lab.statMember')}</span></div>
+      <div><span class="num">{team.length}</span><span class="label">{t('lab.statMembers')}</span></div>
+      <div><span class="num">{programs.length}</span><span class="label">{t('lab.statPrograms')}</span></div>
+    </div>
+
+    <div class="grid-2 lab-history">
+      <div>
+        <p class="lead" style="margin-top:0">{t('lab.intro1')}</p>
+      </div>
       <div class="card">
         <h2 style="margin-top:0">{t('lab.historyTitle')}</h2>
         <p>{t('lab.history1')}</p>
         <p>{t('lab.history2')}</p>
       </div>
-      <div>
-        <div class="card">
-          <h2 style="margin-top:0">{t('lab.infraTitle')}</h2>
-          <p>{t('lab.infra1')}</p>
-        </div>
-        <div class="card" style="margin-top:1.25rem">
-          <h2 style="margin-top:0">{t('lab.envTitle')}</h2>
-          <p>{t('lab.env1')}</p>
-          <p>{t('lab.env2')}</p>
-        </div>
-      </div>
     </div>
   </div>
+
+  <section class="band">
+    <div class="container">
+      <h2 style="margin-top:0">{t('lab.programsTitle')}</h2>
+      <p class="muted" style="max-width:46rem">{t('lab.programsLead')}</p>
+      <div class="grid-3">
+        {programs.map(({ program, axis, flagship }) => (
+          <a class="card" href={`${href(lang, 'projects')}/${flagship!.id}`} style="text-decoration:none">
+            <div class="axis-head">
+              <AxisIcon axis={axis} />
+              <h3>{t(`projects.programs.${program}`)}</h3>
+            </div>
+            <p class="muted" style="font-size:0.92rem">{flagship!.data.summary[lang]}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <h2>{t('lab.infraTitle')}</h2>
+    <p class="muted" style="max-width:46rem">{t('lab.infraLead')}</p>
+    <div class="grid-2">
+      {infraKeys.map((key) => (
+        <div class="card">
+          <div class="axis-head">
+            <AxisIcon axis={infraAxis[key]} />
+            <h3>{t(`lab.infra.${key}.title`)}</h3>
+          </div>
+          <p class="muted" style="font-size:0.94rem">{t(`lab.infra.${key}.desc`)}</p>
+        </div>
+      ))}
+    </div>
+
+    <h2>{t('lab.envTitle')}</h2>
+    <div class="grid-2">
+      <p>{t('lab.env1')}</p>
+      <p>{t('lab.env2')}</p>
+    </div>
+  </div>
+
+  <section class="band cta-band">
+    <div class="container">
+      <h2 style="margin-top:0">{t('lab.ctaTitle')}</h2>
+      <p style="max-width:44rem">{t('lab.ctaText')}</p>
+      <p><a class="btn" href={href(lang, 'contact')}>{t('lab.ctaBtn')} →</a></p>
+    </div>
+  </section>
 </Base>

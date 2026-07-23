@@ -113,6 +113,15 @@ collections:
           - { label: Hydrogène et piles à combustible, value: hydrogen }
           - { label: Marchés de flexibilité, value: flexibility }
           - { label: Véhicules électriques, value: ev }
+      - name: program
+        label: Programme de recherche
+        widget: select
+        required: false
+        hint: "Grand programme auquel ce projet est rattaché"
+        options:
+          - { label: Flexibilité énergétique, value: flexibilite }
+          - { label: Serres du Québec, value: serres }
+          - { label: Communautés isolées, value: communautes }
       - name: status
         label: Statut
         widget: select

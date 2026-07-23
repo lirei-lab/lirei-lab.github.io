@@ -39,15 +39,43 @@
   },
   "lab": {
     "title": "The laboratory",
-    "lead": "A centre of innovation and exploration at the heart of the Hydrogen Research Institute.",
+    "lead": "A centre of innovation and exploration at the heart of the Hydrogen Research Institute, where a multidisciplinary team designs tomorrow's intelligent energy solutions.",
+    "statFounded": "Founded in",
+    "statMember": "Within the IRH since",
+    "statMembers": "Team members",
+    "statPrograms": "Research programs",
+    "intro1": "LIREI brings together professors, research professionals and graduate students around a shared mission: proposing solutions for intelligent energy management, from the power grid to buildings and vehicles. Our work combines optimization, machine learning, modeling and experimentation on real-world data.",
     "historyTitle": "History",
     "history1": "The Hydrogen Research Institute (IRH) at UQTR was publicly inaugurated in 1996. Three years later, in 1999, LIREI was created as a multidisciplinary team within the Institute, with the mission of proposing solutions to manage energy intelligently.",
     "history2": "Today, the laboratory pursues its activities in Trois-Rivières and benefits from the new research facilities of UQTR's Pellerin-Marmen building.",
-    "infraTitle": "Infrastructure",
-    "infra1": "LIREI provides its members with state-of-the-art facilities: residential energy management test benches, smart grid simulation platforms, measurement equipment and dedicated workspaces.",
+    "programsTitle": "Our research programs",
+    "programsLead": "Our activities are organized around three major programs that structure the laboratory's doctoral projects and collaborations.",
+    "infraTitle": "Infrastructure and expertise",
+    "infraLead": "LIREI provides its members with state-of-the-art facilities and unique methodological know-how.",
+    "infra": {
+      "residential": {
+        "title": "Residential test benches",
+        "desc": "Instrumentation of buildings and loads (heating, water heaters, thermal storage) to validate management strategies under real cold-climate conditions."
+      },
+      "simulation": {
+        "title": "Simulation platforms",
+        "desc": "Co-simulation of distribution and communication networks (OpenDSS, multi-agent systems) to test transactive mechanisms at scale."
+      },
+      "data": {
+        "title": "Data and learning",
+        "desc": "Real-world consumption, charging and occupancy datasets, and machine-learning tools for energy modeling and forecasting."
+      },
+      "optimization": {
+        "title": "Optimization and computing",
+        "desc": "Convex and stochastic optimization methods and distributed computing for the sizing and optimal operation of energy resources."
+      }
+    },
     "envTitle": "Work environment",
     "env1": "The laboratory offers an inclusive and innovative environment that fosters interdisciplinary collaboration, mentorship and scientific dissemination. Graduate students benefit from supervision conducive to professional development and publication.",
-    "env2": "LIREI's work attracts strong industrial interest in Quebec: our network of partners is the main source of project funding."
+    "env2": "LIREI's work attracts strong industrial interest in Quebec: our network of partners is the main source of project funding.",
+    "ctaTitle": "Join the laboratory",
+    "ctaText": "LIREI is always looking for motivated graduate students interested in intelligent energy management.",
+    "ctaBtn": "Contact us"
   },
   "research": {
     "title": "Research",
@@ -117,7 +145,15 @@
     "partners": "Partners",
     "more": "Learn more",
     "back": "← All projects",
-    "featuredTitle": "Featured projects"
+    "featuredTitle": "Featured projects",
+    "programsLead": "Our work is organized around three major research programs. Each program brings together doctoral projects and collaborations that explore its different facets.",
+    "discover": "Explore the program",
+    "subprojects": "Related projects",
+    "programs": {
+      "flexibilite": "Energy flexibility",
+      "serres": "Quebec greenhouses",
+      "communautes": "Remote communities"
+    }
   },
   "contact": {
     "title": "Contact",

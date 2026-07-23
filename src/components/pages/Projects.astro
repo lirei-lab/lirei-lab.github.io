@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import ProjectCard from '../ProjectCard.astro';
-import { useTranslations, type Lang } from '../../i18n';
+import { useTranslations, href, assetPath, type Lang } from '../../i18n';
 
 interface Props {
   lang: Lang;
@@ -11,42 +11,70 @@ interface Props {
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 
-const projects = (await getCollection('projects')).sort(
-  (a, b) => a.data.order - b.data.order || a.data.title.fr.localeCompare(b.data.title.fr)
-);
-const axes = ['smartgrids', 'residential', 'ml', 'hydrogen', 'flexibility', 'ev'] as const;
+const programOrder = ['flexibilite', 'serres', 'communautes'] as const;
+type Program = (typeof programOrder)[number];
+
+const all = await getCollection('projects');
+
+const groups = programOrder.map((program) => {
+  const inProgram = all.filter((p) => p.data.program === program);
+  const flagship = inProgram.find((p) => p.data.featured);
+  const subs = inProgram
+    .filter((p) => !p.data.featured)
+    .sort((a, b) => a.data.title[lang].localeCompare(b.data.title[lang]));
+  return { program, flagship, subs };
+});
 ---
 
 <Base lang={lang} routeKey="projects" title={t('projects.title')} description={t('projects.lead')}>
   <div class="container">
     <h1>{t('projects.title')}</h1>
-    <p class="lead">{t('projects.lead')}</p>
+    <p class="lead">{t('projects.programsLead')}</p>
 
-    <div class="filters" role="group" aria-label={t('projects.filterAxis')}>
-      <span style="font-weight:600; font-size:0.9rem">{t('projects.filterAxis')}</span>
-      <button data-axis="" aria-pressed="true">{t('projects.all')}</button>
-      {axes.map((axis) => (
-        <button data-axis={axis} aria-pressed="false">{t(`research.axes.${axis}.title`)}</button>
+    <nav class="program-nav" aria-label={t('projects.title')}>
+      {groups.map(({ program }) => (
+        <a href={`#${program}`}>{t(`projects.programs.${program}`)}</a>
       ))}
-    </div>
-
-    <div class="grid-2" id="project-grid">
-      {projects.map((project) => <ProjectCard project={project} lang={lang} />)}
-    </div>
+    </nav>
   </div>
 
-  <script>
-    const buttons = document.querySelectorAll<HTMLButtonElement>('.filters button');
-    buttons.forEach((btn) =>
-      btn.addEventListener('click', () => {
-        buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
-        const axis = btn.dataset.axis ?? '';
-        document
-          .querySelectorAll<HTMLElement>('#project-grid [data-axis]')
-          .forEach((card) => {
-            card.hidden = axis !== '' && card.dataset.axis !== axis;
-          });
-      })
-    );
-  </script>
+  {groups.map(({ program, flagship, subs }, i) => (
+    <section id={program} class={i % 2 === 1 ? 'band program-section' : 'program-section'}>
+      <div class="container">
+        {flagship && (
+          <div class="program-head">
+            {flagship.data.image && (
+              <a class="program-illus" href={`${href(lang, 'projects')}/${flagship.id}`}>
+                <img
+                  src={assetPath(flagship.data.image)}
+                  alt={flagship.data.imageAlt?.[lang] ?? flagship.data.title[lang]}
+                  loading="lazy"
+                />
+              </a>
+            )}
+            <div class="program-intro">
+              <span class="tag">{t(`projects.programs.${program}`)}</span>
+              <h2><a href={`${href(lang, 'projects')}/${flagship.id}`}>{flagship.data.title[lang]}</a></h2>
+              <p>{flagship.data.summary[lang]}</p>
+              {flagship.data.partners.length > 0 && (
+                <p class="muted" style="font-size:0.9rem">
+                  <strong>{t('projects.partners')} :</strong> {flagship.data.partners.join(', ')}
+                </p>
+              )}
+              <p><a class="btn" href={`${href(lang, 'projects')}/${flagship.id}`}>{t('projects.discover')} →</a></p>
+            </div>
+          </div>
+        )}
+
+        {subs.length > 0 && (
+          <>
+            <h3 class="subprojects-title">{t('projects.subprojects')}</h3>
+            <div class="grid-3">
+              {subs.map((project) => <ProjectCard project={project} lang={lang} compact />)}
+            </div>
+          </>
+        )}
+      </div>
+    </section>
+  ))}
 </Base>
