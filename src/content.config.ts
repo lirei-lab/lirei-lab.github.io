@@ -43,6 +43,7 @@ const projects = defineCollection({
     image: z.string().optional(),
     imageAlt: bilingual.optional(),
     featured: z.boolean().default(false),
+    order: z.number().default(100),
   }),
 });
 

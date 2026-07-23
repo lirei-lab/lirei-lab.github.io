@@ -142,4 +142,5 @@ collections:
           - { name: fr, label: 'Alt (FR)', widget: string, required: false }
           - { name: en, label: 'Alt (EN)', widget: string, required: false }
       - { name: featured, label: "Projet phare (page d'accueil)", widget: boolean, default: false, required: false }
+      - { name: order, label: "Ordre d'affichage", widget: number, default: 100, required: false }
       - { name: body, label: 'Notes internes (non affichées)', widget: markdown, required: false }

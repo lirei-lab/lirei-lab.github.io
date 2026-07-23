@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="night" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0d2b45"/>
+      <stop offset="1" stop-color="#14456e"/>
+    </linearGradient>
+    <linearGradient id="aurora" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2fbf83" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#2fbf83" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#2fbf83" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#night)"/>
+
+  <!-- aurora -->
+  <path d="M60 120 Q250 30 420 90 T760 60 L740 110 Q520 140 380 120 T90 170 Z" fill="url(#aurora)"/>
+
+  <!-- stars -->
+  <g fill="#e8f0f7" opacity="0.9">
+    <circle cx="110" cy="60" r="2.5"/><circle cx="210" cy="120" r="2"/><circle cx="330" cy="50" r="2"/>
+    <circle cx="470" cy="130" r="2.5"/><circle cx="580" cy="45" r="2"/><circle cx="700" cy="120" r="2"/>
+    <circle cx="760" cy="180" r="2"/><circle cx="60 " cy="200" r="2"/>
+  </g>
+
+  <!-- snow ground -->
+  <path d="M0 325 Q220 300 430 322 T800 318 V400 H0 Z" fill="#e8f0f7" opacity="0.94"/>
+
+  <!-- wind turbine -->
+  <g stroke="#e8f0f7" stroke-width="5" stroke-linecap="round">
+    <path d="M170 318V180"/>
+    <g transform="translate(170,180)">
+      <path d="M0 0L0 -62"/>
+      <path d="M0 0L54 30"/>
+      <path d="M0 0L-54 30"/>
+    </g>
+    <circle cx="170" cy="180" r="7" fill="#2fbf83" stroke="none"/>
+  </g>
+
+  <!-- houses -->
+  <g stroke="#e8f0f7" stroke-width="4" fill="none" stroke-linejoin="round">
+    <g transform="translate(300,240)">
+      <path d="M0 40L35 12L70 40"/><path d="M8 38v42h54V38"/><path d="M26 80V60h18v20"/>
+    </g>
+    <g transform="translate(410,255)">
+      <path d="M0 32L28 10L56 32"/><path d="M6 30v34h44V30"/>
+    </g>
+    <g transform="translate(495,245)">
+      <path d="M0 36L31 11L62 36"/><path d="M7 34v38h48V34"/>
+    </g>
+  </g>
+  <!-- warm windows -->
+  <g fill="#2fbf83" opacity="0.9">
+    <rect x="316" y="292" width="12" height="12" rx="2"/>
+    <rect x="428" y="295" width="11" height="11" rx="2"/>
+    <rect x="514" y="291" width="11" height="11" rx="2"/>
+  </g>
+
+  <!-- solar panel -->
+  <g transform="translate(620,262)" stroke="#e8f0f7" stroke-width="4" fill="none" stroke-linejoin="round">
+    <path d="M10 44L26 14h58L68 44z"/>
+    <path d="M22 25h54M16 35h54M46 14L38 44"/>
+    <path d="M40 44v14M28 58h24"/>
+  </g>
+
+  <!-- battery / storage -->
+  <g transform="translate(220,300)" stroke="#e8f0f7" stroke-width="4" fill="none">
+    <rect x="0" y="0" width="56" height="30" rx="4"/>
+    <path d="M10 8v14M22 8v14" stroke="#2fbf83"/>
+  </g>
+
+  <!-- microgrid link -->
+  <path d="M248 316 Q300 280 335 300 M395 305 Q420 290 438 300 M470 302 Q500 288 520 298 M560 300 Q600 285 640 306"
+        stroke="#2fbf83" stroke-width="2.5" stroke-dasharray="6 7" fill="none" opacity="0.9"/>
+</svg>

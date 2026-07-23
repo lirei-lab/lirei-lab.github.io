@@ -15,5 +15,6 @@ image: /images/projects/gate-dashboard.png
 imageAlt:
   fr: "Tableau de bord temps réel de la plateforme GATE"
   en: "Real-time dashboard of the GATE platform"
-featured: true
+featured: false
+order: 10
 ---

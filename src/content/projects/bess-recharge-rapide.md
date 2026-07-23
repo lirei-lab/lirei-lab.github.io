@@ -15,5 +15,6 @@ image: /images/projects/bess-ev.png
 imageAlt:
   fr: "Système de stockage par batteries alimentant des bornes de recharge rapide"
   en: "Battery storage system supplying fast-charging stations"
-featured: true
+featured: false
+order: 10
 ---

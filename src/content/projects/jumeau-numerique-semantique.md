@@ -15,5 +15,6 @@ image: /images/projects/building-graph.png
 imageAlt:
   fr: "Graphe de connaissances du bâtiment (visualisation de nœuds et de liens)"
   en: "Building knowledge graph (nodes and links visualization)"
-featured: true
+featured: false
+order: 10
 ---

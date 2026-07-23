@@ -16,7 +16,9 @@ const t = useTranslations(lang);
 const team = await getCollection('team');
 const pubs = (await getCollection('publications')).sort((a, b) => b.data.year - a.data.year);
 const latest = pubs.slice(0, 5);
-const featured = (await getCollection('projects')).filter((p) => p.data.featured);
+const featured = (await getCollection('projects'))
+  .filter((p) => p.data.featured)
+  .sort((a, b) => a.data.order - b.data.order);
 
 const axes = ['smartgrids', 'residential', 'ml', 'hydrogen', 'flexibility', 'ev'] as const;
 const partners = [
