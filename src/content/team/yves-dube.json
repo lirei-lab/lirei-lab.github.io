@@ -1,0 +1,14 @@
+{
+  "name": "Yves Dubé",
+  "category": "professor",
+  "role": {
+    "fr": "Professeur associé",
+    "en": "Associate Professor"
+  },
+  "topic": {
+    "fr": "Systèmes thermiques",
+    "en": "Thermal systems"
+  },
+  "affiliation": "UQTR — Génie mécanique",
+  "order": 12
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Jersson Garcia",
+  "category": "student",
+  "role": {
+    "fr": "Étudiant(e) aux cycles supérieurs",
+    "en": "Graduate Student"
+  },
+  "topic": {
+    "fr": "Décarbonation du secteur minier",
+    "en": "Mining sector decarbonization"
+  },
+  "order": 50
+}

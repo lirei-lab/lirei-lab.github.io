@@ -1,0 +1,14 @@
+{
+  "name": "Roland Malhamé",
+  "category": "professor",
+  "role": {
+    "fr": "Professeur",
+    "en": "Professor"
+  },
+  "topic": {
+    "fr": "Commande et jeux à champ moyen",
+    "en": "Control and mean-field games"
+  },
+  "affiliation": "Polytechnique Montréal",
+  "order": 11
+}

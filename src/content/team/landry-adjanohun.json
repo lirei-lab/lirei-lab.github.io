@@ -1,0 +1,13 @@
+{
+  "name": "Landry Adjanohun",
+  "category": "student",
+  "role": {
+    "fr": "Étudiant(e) aux cycles supérieurs",
+    "en": "Graduate Student"
+  },
+  "topic": {
+    "fr": "Gestion énergétique des serres",
+    "en": "Greenhouse energy management"
+  },
+  "order": 45
+}

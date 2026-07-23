@@ -1,0 +1,13 @@
+{
+  "name": "Juan Caballero",
+  "category": "student",
+  "role": {
+    "fr": "Étudiant(e) aux cycles supérieurs",
+    "en": "Graduate Student"
+  },
+  "topic": {
+    "fr": "Détection et modélisation de l'occupation",
+    "en": "Occupancy detection and modeling"
+  },
+  "order": 41
+}

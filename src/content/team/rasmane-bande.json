@@ -1,0 +1,13 @@
+{
+  "name": "Rasmane Bande",
+  "category": "student",
+  "role": {
+    "fr": "Étudiant(e) aux cycles supérieurs",
+    "en": "Graduate Student"
+  },
+  "topic": {
+    "fr": "Véhicules électriques comme source de flexibilité pour le réseau",
+    "en": "Electric vehicles as grid flexibility providers"
+  },
+  "order": 44
+}

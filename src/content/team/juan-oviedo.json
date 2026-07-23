@@ -1,0 +1,13 @@
+{
+  "name": "Juan Oviedo",
+  "category": "professor",
+  "role": {
+    "fr": "Professeur associé",
+    "en": "Associate Professor"
+  },
+  "topic": {
+    "fr": "Optimisation des systèmes énergétiques",
+    "en": "Energy systems optimization"
+  },
+  "order": 13
+}

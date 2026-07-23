@@ -1,0 +1,13 @@
+{
+  "name": "Juan Dominguez",
+  "category": "postdoc",
+  "role": {
+    "fr": "Chercheur postdoctoral",
+    "en": "Postdoctoral Researcher"
+  },
+  "topic": {
+    "fr": "Systèmes multi-agents appliqués à l'énergie",
+    "en": "Multi-agent energy systems"
+  },
+  "order": 32
+}

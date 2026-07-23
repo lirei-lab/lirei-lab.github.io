@@ -1,0 +1,13 @@
+{
+  "name": "Amen Bakpo",
+  "category": "student",
+  "role": {
+    "fr": "Étudiant(e) aux cycles supérieurs",
+    "en": "Graduate Student"
+  },
+  "topic": {
+    "fr": "Ontologies pour l'énergie transactive",
+    "en": "Ontologies for transactive energy"
+  },
+  "order": 47
+}

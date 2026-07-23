@@ -1,0 +1,13 @@
+{
+  "name": "Zahra Farahzadi",
+  "category": "student",
+  "role": {
+    "fr": "Étudiant(e) aux cycles supérieurs",
+    "en": "Graduate Student"
+  },
+  "topic": {
+    "fr": "Efficacité énergétique des serres",
+    "en": "Greenhouse energy efficiency"
+  },
+  "order": 49
+}

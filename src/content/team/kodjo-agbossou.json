@@ -1,0 +1,14 @@
+{
+  "name": "Kodjo Agbossou",
+  "category": "direction",
+  "role": {
+    "fr": "Professeur titulaire et directeur du LIREI",
+    "en": "Full Professor and Director of LIREI"
+  },
+  "topic": {
+    "fr": "Énergies renouvelables, hydrogène et réseaux intelligents",
+    "en": "Renewable energy, hydrogen and smart grids"
+  },
+  "affiliation": "UQTR — Génie électrique et génie informatique",
+  "order": 1
+}

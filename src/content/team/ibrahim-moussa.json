@@ -1,0 +1,13 @@
+{
+  "name": "Ibrahim Moussa",
+  "category": "student",
+  "role": {
+    "fr": "Étudiant(e) aux cycles supérieurs",
+    "en": "Graduate Student"
+  },
+  "topic": {
+    "fr": "Problèmes inverses pour la réponse à la demande",
+    "en": "Inverse problems for demand response"
+  },
+  "order": 42
+}

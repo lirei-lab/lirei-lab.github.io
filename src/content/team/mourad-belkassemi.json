@@ -1,0 +1,13 @@
+{
+  "name": "Mourad Belkassemi",
+  "category": "student",
+  "role": {
+    "fr": "Étudiant(e) aux cycles supérieurs",
+    "en": "Graduate Student"
+  },
+  "topic": {
+    "fr": "Modèles économiques de l'énergie",
+    "en": "Energy economic models"
+  },
+  "order": 51
+}

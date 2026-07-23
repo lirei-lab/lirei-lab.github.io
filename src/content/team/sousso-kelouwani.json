@@ -1,0 +1,14 @@
+{
+  "name": "Sousso Kelouwani",
+  "category": "professor",
+  "role": {
+    "fr": "Professeur titulaire",
+    "en": "Full Professor"
+  },
+  "topic": {
+    "fr": "Mobilité intelligente et systèmes véhiculaires",
+    "en": "Intelligent mobility and vehicular systems"
+  },
+  "affiliation": "UQTR — Génie mécanique",
+  "order": 10
+}

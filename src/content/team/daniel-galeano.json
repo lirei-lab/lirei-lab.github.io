@@ -1,0 +1,13 @@
+{
+  "name": "Daniel Galeano",
+  "category": "student",
+  "role": {
+    "fr": "Étudiant(e) aux cycles supérieurs",
+    "en": "Graduate Student"
+  },
+  "topic": {
+    "fr": "Équité dans les mécanismes d'énergie transactive",
+    "en": "Equity in transactive energy mechanisms"
+  },
+  "order": 40
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Farshad Etedadi",
+  "category": "postdoc",
+  "role": {
+    "fr": "Chercheur postdoctoral",
+    "en": "Postdoctoral Researcher"
+  },
+  "topic": {
+    "fr": "Coordination des charges résidentielles",
+    "en": "Residential load coordination"
+  },
+  "order": 31
+}

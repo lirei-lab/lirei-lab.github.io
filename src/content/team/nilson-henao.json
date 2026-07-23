@@ -1,0 +1,16 @@
+{
+  "name": "Nilson Henao",
+  "category": "staff",
+  "role": {
+    "fr": "Agent de recherche",
+    "en": "Research Agent"
+  },
+  "topic": {
+    "fr": "Gestion énergétique résidentielle et apprentissage automatique",
+    "en": "Residential energy management and machine learning"
+  },
+  "affiliation": "Institut de recherche sur l’hydrogène (IRH)",
+  "email": "Nilson.Henao@uqtr.ca",
+  "phone": "819 376-5011, poste 4457",
+  "order": 20
+}

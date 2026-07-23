@@ -1,0 +1,13 @@
+{
+  "name": "Rihab Hanfi",
+  "category": "student",
+  "role": {
+    "fr": "Étudiant(e) aux cycles supérieurs",
+    "en": "Graduate Student"
+  },
+  "topic": {
+    "fr": "Infonuagique pour la gestion énergétique",
+    "en": "Cloud computing for energy management"
+  },
+  "order": 48
+}

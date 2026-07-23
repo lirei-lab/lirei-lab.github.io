@@ -1,0 +1,13 @@
+{
+  "name": "Michael Arenas",
+  "category": "student",
+  "role": {
+    "fr": "Étudiant(e) aux cycles supérieurs",
+    "en": "Graduate Student"
+  },
+  "topic": {
+    "fr": "Coordination multi-agents",
+    "en": "Multi-agent coordination"
+  },
+  "order": 46
+}
