@@ -1,0 +1,128 @@
+backend:
+  name: github
+  repo: novastdev/lireiweb
+  branch: main
+  # Une fois le worker d'authentification déployé (voir README), décommentez :
+  # base_url: https://sveltia-cms-auth.<votre-compte>.workers.dev
+
+media_folder: public/images
+public_folder: /images
+
+site_url: https://novastdev.github.io/lireiweb
+
+collections:
+  - name: team
+    label: Équipe
+    label_singular: Membre
+    folder: src/content/team
+    create: true
+    extension: json
+    format: json
+    identifier_field: name
+    slug: '{{name}}'
+    summary: '{{name}} — {{category}}'
+    sortable_fields: [order, name]
+    fields:
+      - { name: name, label: Nom complet, widget: string }
+      - name: category
+        label: Catégorie
+        widget: select
+        options:
+          - { label: Direction, value: direction }
+          - { label: Professeur, value: professor }
+          - { label: Professionnel de recherche, value: staff }
+          - { label: Stagiaire postdoctoral, value: postdoc }
+          - { label: Étudiant(e), value: student }
+      - name: role
+        label: Rôle
+        widget: object
+        fields:
+          - { name: fr, label: 'Rôle (FR)', widget: string }
+          - { name: en, label: 'Role (EN)', widget: string }
+      - name: topic
+        label: Sujet de recherche
+        widget: object
+        required: false
+        fields:
+          - { name: fr, label: 'Sujet (FR)', widget: string, required: false }
+          - { name: en, label: 'Topic (EN)', widget: string, required: false }
+      - { name: affiliation, label: Affiliation, widget: string, required: false }
+      - { name: email, label: Courriel, widget: string, required: false }
+      - { name: phone, label: Téléphone, widget: string, required: false }
+      - { name: order, label: "Ordre d'affichage", widget: number, default: 100 }
+
+  - name: publications
+    label: Publications
+    label_singular: Publication
+    folder: src/content/publications
+    create: true
+    extension: json
+    format: json
+    identifier_field: title
+    slug: '{{year}}-{{title}}'
+    summary: '{{year}} — {{title}}'
+    sortable_fields: [year, title]
+    fields:
+      - { name: title, label: Titre, widget: string }
+      - name: authors
+        label: Auteurs
+        widget: list
+        field: { name: author, label: Auteur, widget: string }
+      - { name: venue, label: Revue / Conférence, widget: string, required: false }
+      - { name: year, label: Année, widget: number, value_type: int }
+      - name: type
+        label: Type
+        widget: select
+        options:
+          - { label: Revue, value: journal }
+          - { label: Conférence, value: conference }
+          - { label: Autre, value: other }
+      - { name: doi, label: DOI, widget: string, required: false, hint: 'Ex. : 10.1109/TSG.2024.1234567' }
+      - { name: url, label: URL, widget: string, required: false }
+
+  - name: projects
+    label: Projets
+    label_singular: Projet
+    folder: src/content/projects
+    create: true
+    extension: md
+    format: frontmatter
+    identifier_field: title
+    slug: '{{fields.title.fr}}'
+    summary: '{{title.fr}}'
+    fields:
+      - name: title
+        label: Titre
+        widget: object
+        fields:
+          - { name: fr, label: 'Titre (FR)', widget: string }
+          - { name: en, label: 'Title (EN)', widget: string }
+      - name: summary
+        label: Résumé
+        widget: object
+        fields:
+          - { name: fr, label: 'Résumé (FR)', widget: text }
+          - { name: en, label: 'Summary (EN)', widget: text }
+      - name: axis
+        label: Axe de recherche
+        widget: select
+        options:
+          - { label: Réseaux intelligents, value: smartgrids }
+          - { label: Gestion résidentielle, value: residential }
+          - { label: Apprentissage automatique, value: ml }
+          - { label: Hydrogène et piles à combustible, value: hydrogen }
+          - { label: Marchés de flexibilité, value: flexibility }
+          - { label: Véhicules électriques, value: ev }
+      - name: status
+        label: Statut
+        widget: select
+        options:
+          - { label: En cours, value: active }
+          - { label: Terminé, value: completed }
+      - name: partners
+        label: Partenaires
+        widget: list
+        required: false
+        default: []
+        field: { name: partner, label: Partenaire, widget: string }
+      - { name: body, label: Description détaillée, widget: markdown, required: false }
