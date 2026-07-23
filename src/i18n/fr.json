@@ -1,0 +1,132 @@
+{
+  "site": {
+    "name": "LIREI",
+    "fullname": "Laboratoire d'innovation et de recherche en énergie intelligente",
+    "uqtr": "Université du Québec à Trois-Rivières",
+    "description": "Le LIREI est une équipe multidisciplinaire de l'Institut de recherche sur l'hydrogène (UQTR) qui développe des solutions pour une gestion intelligente de l'énergie."
+  },
+  "nav": {
+    "home": "Accueil",
+    "lab": "Laboratoire",
+    "team": "Équipe",
+    "research": "Recherche",
+    "projects": "Projets",
+    "publications": "Publications",
+    "contact": "Nous joindre",
+    "menuLabel": "Navigation principale",
+    "langLabel": "English version"
+  },
+  "footer": {
+    "affiliation": "Membre de l'Institut de recherche sur l'hydrogène (IRH)",
+    "address": "3351, boul. des Forges, C.P. 500, Trois-Rivières (Québec) G9A 5H7, Canada",
+    "phone": "819 376-5011, poste 4457",
+    "contactTitle": "Coordonnées",
+    "rights": "Tous droits réservés."
+  },
+  "home": {
+    "tagline": "Des solutions pour une gestion intelligente de l'énergie",
+    "intro": "Le LIREI est une équipe multidisciplinaire de chercheuses et de chercheurs membres de l'Institut de recherche sur l'hydrogène (IRH) de l'Université du Québec à Trois-Rivières. Depuis 1999, nous travaillons à optimiser l'utilisation de l'énergie dans les bâtiments et les véhicules, avec un intérêt particulier pour l'hydrogène et les énergies renouvelables.",
+    "ctaResearch": "Nos axes de recherche",
+    "ctaPubs": "Nos publications",
+    "statFounded": "Année de fondation",
+    "statMembers": "Membres de l'équipe",
+    "statPubs": "Publications récentes",
+    "statAxes": "Axes de recherche",
+    "axesTitle": "Axes de recherche",
+    "pubsTitle": "Publications récentes",
+    "viewAll": "Voir tout",
+    "partnersTitle": "Nos partenaires"
+  },
+  "lab": {
+    "title": "Le laboratoire",
+    "lead": "Un centre d'innovation et d'exploration au cœur de l'Institut de recherche sur l'hydrogène.",
+    "historyTitle": "Historique",
+    "history1": "L'Institut de recherche sur l'hydrogène (IRH) de l'UQTR a été inauguré publiquement en 1996. Trois ans plus tard, en 1999, le LIREI voit le jour comme équipe multidisciplinaire au sein de l'Institut, avec la mission de proposer des solutions pour gérer l'énergie de façon intelligente.",
+    "history2": "Aujourd'hui, le laboratoire poursuit ses activités à Trois-Rivières et bénéficie des nouvelles installations de recherche du pavillon Pellerin-Marmen de l'UQTR.",
+    "infraTitle": "Infrastructures",
+    "infra1": "Le LIREI met à la disposition de ses membres des installations à la fine pointe de la technologie : bancs d'essai pour la gestion énergétique résidentielle, plateformes de simulation de réseaux intelligents, équipements de mesure et espaces de travail dédiés.",
+    "envTitle": "Milieu de travail",
+    "env1": "Le laboratoire offre un environnement inclusif et innovant qui favorise la collaboration interdisciplinaire, le mentorat et la diffusion scientifique. Les étudiantes et étudiants y trouvent un encadrement propice au développement professionnel et à la publication.",
+    "env2": "Les travaux du LIREI suscitent un fort intérêt industriel au Québec : notre réseau de partenaires constitue la principale source de financement des projets."
+  },
+  "research": {
+    "title": "Recherche",
+    "lead": "Nos travaux portent sur la gestion intelligente de l'énergie, des réseaux électriques aux bâtiments et aux véhicules.",
+    "axes": {
+      "smartgrids": {
+        "title": "Réseaux intelligents et plateformes de simulation",
+        "desc": "Conception et simulation de réseaux électriques intelligents qui utilisent l'informatique pour mieux gérer la consommation et les échanges d'énergie entre fournisseurs et consommateurs. Coordination à deux niveaux et commande de systèmes distribués.",
+        "tags": "réseaux intelligents, simulation, coordination, commande"
+      },
+      "residential": {
+        "title": "Gestion énergétique résidentielle",
+        "desc": "Systèmes de gestion de l'énergie pour les bâtiments résidentiels : réponse à la demande, stockage thermique, suivi de la consommation et confort des occupants.",
+        "tags": "réponse à la demande, stockage thermique, efficacité énergétique"
+      },
+      "ml": {
+        "title": "Apprentissage automatique et suivi de la consommation",
+        "desc": "Application de l'apprentissage automatique au suivi non intrusif de la consommation, à la détection de l'occupation et à la modélisation stochastique des charges électriques.",
+        "tags": "apprentissage automatique, détection d'occupation, modélisation stochastique"
+      },
+      "hydrogen": {
+        "title": "Hydrogène et piles à combustible",
+        "desc": "Intégration de l'hydrogène et des piles à combustible dans les systèmes énergétiques, en synergie avec les énergies renouvelables et les travaux de l'Institut de recherche sur l'hydrogène.",
+        "tags": "hydrogène, piles à combustible, énergies renouvelables"
+      },
+      "flexibility": {
+        "title": "Marchés de flexibilité et énergie transactive",
+        "desc": "Mécanismes d'énergie transactive et marchés locaux de flexibilité : optimisation convexe, analyse économique, équité et coordination multi-agents des ressources énergétiques distribuées.",
+        "tags": "énergie transactive, optimisation convexe, marchés de flexibilité, multi-agents"
+      },
+      "ev": {
+        "title": "Véhicules électriques et mobilité intelligente",
+        "desc": "Optimisation de l'utilisation de l'énergie dans les véhicules électriques et à hydrogène, et intégration des véhicules au réseau comme sources de flexibilité.",
+        "tags": "véhicules électriques, recharge intelligente, mobilité durable"
+      }
+    }
+  },
+  "team": {
+    "title": "L'équipe",
+    "lead": "Une équipe multidisciplinaire de professeurs, de professionnels de recherche et d'étudiants aux cycles supérieurs.",
+    "groups": {
+      "direction": "Direction",
+      "professor": "Professeurs",
+      "staff": "Professionnels de recherche",
+      "postdoc": "Stagiaires postdoctoraux",
+      "student": "Étudiantes et étudiants"
+    }
+  },
+  "pubs": {
+    "title": "Publications",
+    "lead": "Contributions scientifiques récentes des membres du LIREI.",
+    "filterType": "Type",
+    "filterYear": "Année",
+    "all": "Tous",
+    "journal": "Revue",
+    "conference": "Conférence",
+    "other": "Autre",
+    "noResults": "Aucune publication ne correspond aux filtres."
+  },
+  "projects": {
+    "title": "Projets",
+    "lead": "Aperçu des projets de recherche menés au laboratoire avec nos partenaires.",
+    "filterAxis": "Filtrer par axe",
+    "all": "Tous",
+    "active": "En cours",
+    "completed": "Terminé",
+    "partners": "Partenaires"
+  },
+  "contact": {
+    "title": "Nous joindre",
+    "lead": "Pour toute question sur nos activités de recherche ou pour joindre l'équipe.",
+    "coordTitle": "Coordonnées",
+    "emailLabel": "Courriel",
+    "phoneLabel": "Téléphone",
+    "addressLabel": "Adresse",
+    "partnersTitle": "Partenaires",
+    "partnersDesc": "Les travaux du LIREI sont rendus possibles grâce à la collaboration de partenaires institutionnels et industriels.",
+    "recruitTitle": "Se joindre au LIREI",
+    "recruitText": "Le LIREI est toujours à la recherche d'étudiantes et d'étudiants motivés aux cycles supérieurs (maîtrise, doctorat, postdoctorat) intéressés par la gestion intelligente de l'énergie. Écrivez-nous pour discuter des possibilités de recherche.",
+    "recruitCta": "Écrivez-nous"
+  }
+}

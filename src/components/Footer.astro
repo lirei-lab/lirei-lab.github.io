@@ -1,0 +1,40 @@
+---
+import { useTranslations, href, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="cols">
+      <div>
+        <h3>{t('site.name')}</h3>
+        <p>{t('site.fullname')}<br />{t('site.uqtr')}</p>
+        <p>{t('footer.affiliation')}</p>
+      </div>
+      <div>
+        <h3>{t('footer.contactTitle')}</h3>
+        <p>
+          <a href="mailto:lirei@irh.ca">lirei@irh.ca</a><br />
+          {t('footer.phone')}
+        </p>
+        <p>{t('footer.address')}</p>
+      </div>
+      <div>
+        <h3>{t('nav.research')}</h3>
+        <p>
+          <a href={href(lang, 'research')}>{t('nav.research')}</a><br />
+          <a href={href(lang, 'publications')}>{t('nav.publications')}</a><br />
+          <a href={href(lang, 'projects')}>{t('nav.projects')}</a>
+        </p>
+      </div>
+    </div>
+    <p class="fine">© {year} {t('site.name')} — {t('site.uqtr')}. {t('footer.rights')}</p>
+  </div>
+</footer>

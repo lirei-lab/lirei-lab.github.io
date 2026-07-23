@@ -1,0 +1,132 @@
+{
+  "site": {
+    "name": "LIREI",
+    "fullname": "Laboratory of Innovation and Research in Intelligent Energy",
+    "uqtr": "Université du Québec à Trois-Rivières",
+    "description": "LIREI is a multidisciplinary team of the Hydrogen Research Institute (UQTR) developing solutions for intelligent energy management."
+  },
+  "nav": {
+    "home": "Home",
+    "lab": "Laboratory",
+    "team": "Team",
+    "research": "Research",
+    "projects": "Projects",
+    "publications": "Publications",
+    "contact": "Contact",
+    "menuLabel": "Main navigation",
+    "langLabel": "Version française"
+  },
+  "footer": {
+    "affiliation": "Member of the Hydrogen Research Institute (IRH)",
+    "address": "3351 boul. des Forges, C.P. 500, Trois-Rivières (Québec) G9A 5H7, Canada",
+    "phone": "819-376-5011, ext. 4457",
+    "contactTitle": "Contact",
+    "rights": "All rights reserved."
+  },
+  "home": {
+    "tagline": "Solutions for intelligent energy management",
+    "intro": "LIREI is a multidisciplinary team of researchers, members of the Hydrogen Research Institute (IRH) at the Université du Québec à Trois-Rivières. Since 1999, we have been working to optimize energy use in buildings and vehicles, with a particular interest in hydrogen and renewable energy.",
+    "ctaResearch": "Our research areas",
+    "ctaPubs": "Our publications",
+    "statFounded": "Founded",
+    "statMembers": "Team members",
+    "statPubs": "Recent publications",
+    "statAxes": "Research areas",
+    "axesTitle": "Research areas",
+    "pubsTitle": "Recent publications",
+    "viewAll": "View all",
+    "partnersTitle": "Our partners"
+  },
+  "lab": {
+    "title": "The laboratory",
+    "lead": "A centre of innovation and exploration at the heart of the Hydrogen Research Institute.",
+    "historyTitle": "History",
+    "history1": "The Hydrogen Research Institute (IRH) at UQTR was publicly inaugurated in 1996. Three years later, in 1999, LIREI was created as a multidisciplinary team within the Institute, with the mission of proposing solutions to manage energy intelligently.",
+    "history2": "Today, the laboratory pursues its activities in Trois-Rivières and benefits from the new research facilities of UQTR's Pellerin-Marmen building.",
+    "infraTitle": "Infrastructure",
+    "infra1": "LIREI provides its members with state-of-the-art facilities: residential energy management test benches, smart grid simulation platforms, measurement equipment and dedicated workspaces.",
+    "envTitle": "Work environment",
+    "env1": "The laboratory offers an inclusive and innovative environment that fosters interdisciplinary collaboration, mentorship and scientific dissemination. Graduate students benefit from supervision conducive to professional development and publication.",
+    "env2": "LIREI's work attracts strong industrial interest in Quebec: our network of partners is the main source of project funding."
+  },
+  "research": {
+    "title": "Research",
+    "lead": "Our work focuses on intelligent energy management, from power grids to buildings and vehicles.",
+    "axes": {
+      "smartgrids": {
+        "title": "Smart grids and simulation platforms",
+        "desc": "Design and simulation of smart power grids that use computing to better manage consumption and energy exchanges between suppliers and consumers. Two-level coordination and control of distributed systems.",
+        "tags": "smart grids, simulation, coordination, control"
+      },
+      "residential": {
+        "title": "Residential energy management",
+        "desc": "Energy management systems for residential buildings: demand response, thermal storage, consumption monitoring and occupant comfort.",
+        "tags": "demand response, thermal storage, energy efficiency"
+      },
+      "ml": {
+        "title": "Machine learning and consumption monitoring",
+        "desc": "Application of machine learning to non-intrusive load monitoring, occupancy detection and stochastic modeling of electrical loads.",
+        "tags": "machine learning, occupancy detection, stochastic modeling"
+      },
+      "hydrogen": {
+        "title": "Hydrogen and fuel cells",
+        "desc": "Integration of hydrogen and fuel cells into energy systems, in synergy with renewable energy and the work of the Hydrogen Research Institute.",
+        "tags": "hydrogen, fuel cells, renewable energy"
+      },
+      "flexibility": {
+        "title": "Flexibility markets and transactive energy",
+        "desc": "Transactive energy mechanisms and local flexibility markets: convex optimization, economic analysis, equity and multi-agent coordination of distributed energy resources.",
+        "tags": "transactive energy, convex optimization, flexibility markets, multi-agent"
+      },
+      "ev": {
+        "title": "Electric vehicles and smart mobility",
+        "desc": "Optimization of energy use in electric and hydrogen vehicles, and integration of vehicles into the grid as flexibility providers.",
+        "tags": "electric vehicles, smart charging, sustainable mobility"
+      }
+    }
+  },
+  "team": {
+    "title": "The team",
+    "lead": "A multidisciplinary team of professors, research professionals and graduate students.",
+    "groups": {
+      "direction": "Direction",
+      "professor": "Professors",
+      "staff": "Research Staff",
+      "postdoc": "Postdoctoral Fellows",
+      "student": "Graduate Students"
+    }
+  },
+  "pubs": {
+    "title": "Publications",
+    "lead": "Recent scientific contributions by LIREI members.",
+    "filterType": "Type",
+    "filterYear": "Year",
+    "all": "All",
+    "journal": "Journal",
+    "conference": "Conference",
+    "other": "Other",
+    "noResults": "No publications match the selected filters."
+  },
+  "projects": {
+    "title": "Projects",
+    "lead": "Overview of the research projects carried out at the laboratory with our partners.",
+    "filterAxis": "Filter by area",
+    "all": "All",
+    "active": "Active",
+    "completed": "Completed",
+    "partners": "Partners"
+  },
+  "contact": {
+    "title": "Contact",
+    "lead": "For any question about our research activities or to reach the team.",
+    "coordTitle": "Contact information",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone",
+    "addressLabel": "Address",
+    "partnersTitle": "Partners",
+    "partnersDesc": "LIREI's work is made possible through the collaboration of institutional and industrial partners.",
+    "recruitTitle": "Join LIREI",
+    "recruitText": "LIREI is always looking for motivated graduate students (master's, PhD, postdoc) interested in intelligent energy management. Write to us to discuss research opportunities.",
+    "recruitCta": "Write to us"
+  }
+}

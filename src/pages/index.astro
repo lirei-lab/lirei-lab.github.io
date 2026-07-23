@@ -1,1 +1,15 @@
-<h1>LIREI</h1>
+---
+import Base from '../layouts/Base.astro';
+import { useTranslations } from '../i18n';
+
+const t = useTranslations('fr');
+---
+
+<Base lang="fr" routeKey="home" title={t('nav.home')} description={t('site.description')}>
+  <div class="hero">
+    <div class="container">
+      <h1>{t('site.fullname')}</h1>
+      <p class="tagline">{t('home.tagline')}</p>
+    </div>
+  </div>
+</Base>
