@@ -90,6 +90,8 @@ Créez `src/content/publications/2026-titre-court.json` :
 
 `type` : `journal`, `conference` ou `other`. `doi` et `venue` sont optionnels.
 
+> **Critère d'inclusion :** le catalogue ne recense que les publications dont **le professeur Kodjo Agbossou est coauteur** (au moins un auteur nommé « Agbossou »).
+
 ### Ajouter un projet
 
 Créez `src/content/projects/mon-projet.md` :
