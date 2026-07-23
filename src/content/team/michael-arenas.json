@@ -1,13 +1,13 @@
 {
-  "name": "Michael Arenas",
+  "name": "Michael Arenas Florez",
   "category": "student",
   "role": {
     "fr": "Étudiant(e) aux cycles supérieurs",
     "en": "Graduate Student"
   },
   "topic": {
-    "fr": "Coordination multi-agents",
-    "en": "Multi-agent coordination"
+    "fr": "Coordination des marchés locaux de flexibilité",
+    "en": "Coordination of local flexibility markets"
   },
   "order": 46
 }

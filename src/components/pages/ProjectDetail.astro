@@ -1,0 +1,50 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { useTranslations, href, otherLang, assetPath, type Lang } from '../../i18n';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+  lang: Lang;
+}
+
+const { project, lang } = Astro.props;
+const t = useTranslations(lang);
+const { title, summary, description, axis, status, partners, team, image, imageAlt } = project.data;
+const switchHref = `${href(otherLang(lang), 'projects')}/${project.id}`;
+const paragraphs = (description?.[lang] ?? summary[lang]).split(/\n\n+/);
+---
+
+<Base
+  lang={lang}
+  routeKey="projects"
+  title={title[lang]}
+  description={summary[lang]}
+  switchHref={switchHref}>
+  <div class="container project-detail">
+    <p style="margin-top:2rem"><a href={href(lang, 'projects')}>{t('projects.back')}</a></p>
+    <h1>{title[lang]}</h1>
+    <p>
+      <span class="tag">{t(`research.axes.${axis}.title`)}</span>
+      <span class="tag blue">{t(`projects.${status}`)}</span>
+    </p>
+    {team && <p class="muted">{team}</p>}
+
+    {image && (
+      <figure class="project-figure">
+        <img src={assetPath(image)} alt={imageAlt?.[lang] ?? title[lang]} />
+        {imageAlt && <figcaption class="muted">{imageAlt[lang]}</figcaption>}
+      </figure>
+    )}
+
+    <div class="project-body">
+      {paragraphs.map((p) => <p>{p}</p>)}
+    </div>
+
+    {partners.length > 0 && (
+      <p>
+        <strong>{t('projects.partners')} :</strong> {partners.join(', ')}
+      </p>
+    )}
+  </div>
+</Base>

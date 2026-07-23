@@ -46,3 +46,8 @@ export function href(lang: Lang, key: RouteKey): string {
   const prefix = lang === 'fr' ? '' : '/en';
   return `${BASE}${prefix}/${slug}` || '/';
 }
+
+// Prefix a public asset path (e.g. /images/…) with the configured base path.
+export function assetPath(path: string): string {
+  return `${BASE}${path}`;
+}

@@ -1,13 +1,13 @@
 {
-  "name": "Landry Adjanohun",
+  "name": "Kossi Landry Adjanohun",
   "category": "student",
   "role": {
     "fr": "Étudiant(e) aux cycles supérieurs",
     "en": "Graduate Student"
   },
   "topic": {
-    "fr": "Gestion énergétique des serres",
-    "en": "Greenhouse energy management"
+    "fr": "Gestion énergétique robuste et résiliente des serres",
+    "en": "Robust and resilient greenhouse energy management"
   },
   "order": 45
 }

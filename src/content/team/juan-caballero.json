@@ -1,13 +1,13 @@
 {
-  "name": "Juan Caballero",
+  "name": "Juan Diego Caballero Peña",
   "category": "student",
   "role": {
     "fr": "Étudiant(e) aux cycles supérieurs",
     "en": "Graduate Student"
   },
   "topic": {
-    "fr": "Détection et modélisation de l'occupation",
-    "en": "Occupancy detection and modeling"
+    "fr": "Commande prédictive des systèmes CVC fondée sur l'occupation",
+    "en": "Occupancy-driven predictive control of HVAC systems"
   },
   "order": 41
 }

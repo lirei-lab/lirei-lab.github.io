@@ -125,4 +125,21 @@ collections:
         required: false
         default: []
         field: { name: partner, label: Partenaire, widget: string }
-      - { name: body, label: Description détaillée, widget: markdown, required: false }
+      - name: description
+        label: Description détaillée
+        widget: object
+        required: false
+        fields:
+          - { name: fr, label: 'Description (FR)', widget: text, required: false }
+          - { name: en, label: 'Description (EN)', widget: text, required: false }
+      - { name: team, label: 'Équipe (étudiant·e et direction)', widget: string, required: false, hint: 'Ex. : Prénom Nom — dir. Prof. Kodjo Agbossou' }
+      - { name: image, label: Image, widget: image, required: false }
+      - name: imageAlt
+        label: "Texte alternatif de l'image"
+        widget: object
+        required: false
+        fields:
+          - { name: fr, label: 'Alt (FR)', widget: string, required: false }
+          - { name: en, label: 'Alt (EN)', widget: string, required: false }
+      - { name: featured, label: "Projet phare (page d'accueil)", widget: boolean, default: false, required: false }
+      - { name: body, label: 'Notes internes (non affichées)', widget: markdown, required: false }

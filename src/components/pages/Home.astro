@@ -4,7 +4,7 @@ import Base from '../../layouts/Base.astro';
 import PublicationItem from '../PublicationItem.astro';
 import EnergyGrid from '../EnergyGrid.astro';
 import AxisIcon from '../AxisIcon.astro';
-import { useTranslations, href, type Lang } from '../../i18n';
+import { useTranslations, href, assetPath, type Lang } from '../../i18n';
 
 interface Props {
   lang: Lang;
@@ -16,6 +16,7 @@ const t = useTranslations(lang);
 const team = await getCollection('team');
 const pubs = (await getCollection('publications')).sort((a, b) => b.data.year - a.data.year);
 const latest = pubs.slice(0, 5);
+const featured = (await getCollection('projects')).filter((p) => p.data.featured);
 
 const axes = ['smartgrids', 'residential', 'ml', 'hydrogen', 'flexibility', 'ev'] as const;
 const partners = [
@@ -61,6 +62,29 @@ const partners = [
         </a>
       ))}
     </div>
+
+    <h2>{t('projects.featuredTitle')}</h2>
+    <div class="grid-3">
+      {featured.map((project) => (
+        <a
+          class="card featured-project"
+          href={`${href(lang, 'projects')}/${project.id}`}
+          style="text-decoration:none">
+          {project.data.image && (
+            <span class="project-img">
+              <img
+                src={assetPath(project.data.image)}
+                alt={project.data.imageAlt?.[lang] ?? project.data.title[lang]}
+                loading="lazy"
+              />
+            </span>
+          )}
+          <h3>{project.data.title[lang]}</h3>
+          <p class="muted" style="font-size:0.92rem">{project.data.summary[lang]}</p>
+        </a>
+      ))}
+    </div>
+    <p><a href={href(lang, 'projects')}>{t('home.viewAll')} →</a></p>
 
     <h2>{t('home.pubsTitle')}</h2>
     <ul class="pub-list">

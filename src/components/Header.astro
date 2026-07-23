@@ -4,9 +4,10 @@ import { useTranslations, navOrder, href, otherLang, type Lang, type RouteKey } 
 interface Props {
   lang: Lang;
   routeKey: RouteKey;
+  switchHref?: string;
 }
 
-const { lang, routeKey } = Astro.props;
+const { lang, routeKey, switchHref } = Astro.props;
 const t = useTranslations(lang);
 const other = otherLang(lang);
 ---
@@ -23,7 +24,7 @@ const other = otherLang(lang);
           {t(`nav.${key}`)}
         </a>
       ))}
-      <a class="lang" href={href(other, routeKey)} lang={other} aria-label={t('nav.langLabel')}>
+      <a class="lang" href={switchHref ?? href(other, routeKey)} lang={other} aria-label={t('nav.langLabel')}>
         {other.toUpperCase()}
       </a>
     </nav>

@@ -35,9 +35,14 @@ const projects = defineCollection({
   schema: z.object({
     title: bilingual,
     summary: bilingual,
+    description: bilingual.optional(),
     axis: z.enum(['smartgrids', 'residential', 'ml', 'hydrogen', 'flexibility', 'ev']),
     status: z.enum(['active', 'completed']),
     partners: z.array(z.string()).default([]),
+    team: z.string().optional(),
+    image: z.string().optional(),
+    imageAlt: bilingual.optional(),
+    featured: z.boolean().default(false),
   }),
 });
 

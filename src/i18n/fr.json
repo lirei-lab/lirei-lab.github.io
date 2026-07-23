@@ -114,7 +114,10 @@
     "all": "Tous",
     "active": "En cours",
     "completed": "Terminé",
-    "partners": "Partenaires"
+    "partners": "Partenaires",
+    "more": "En savoir plus",
+    "back": "← Tous les projets",
+    "featuredTitle": "Projets phares"
   },
   "contact": {
     "title": "Nous joindre",

@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { useTranslations, type Lang } from '../i18n';
+import { useTranslations, href, assetPath, type Lang } from '../i18n';
 
 interface Props {
   project: CollectionEntry<'projects'>;
@@ -9,19 +9,27 @@ interface Props {
 
 const { project, lang } = Astro.props;
 const t = useTranslations(lang);
-const { title, summary, axis, status, partners } = project.data;
+const { title, summary, axis, status, partners, team, image, imageAlt } = project.data;
+const detailUrl = `${href(lang, 'projects')}/${project.id}`;
 ---
 
-<article class="card" data-axis={axis}>
-  <h3 style="margin-top:0">{title[lang]}</h3>
+<article class="card project-card" data-axis={axis}>
+  {image && (
+    <a href={detailUrl} class="project-img">
+      <img src={assetPath(image)} alt={imageAlt?.[lang] ?? title[lang]} loading="lazy" />
+    </a>
+  )}
+  <h3 style="margin-top:0"><a href={detailUrl}>{title[lang]}</a></h3>
   <p>
     <span class="tag">{t(`research.axes.${axis}.title`)}</span>
     <span class="tag blue">{t(`projects.${status}`)}</span>
   </p>
   <p class="muted" style="font-size:0.94rem">{summary[lang]}</p>
+  {team && <p class="muted" style="font-size:0.85rem">{team}</p>}
   {partners.length > 0 && (
     <p class="muted" style="font-size:0.88rem">
       <strong>{t('projects.partners')} :</strong> {partners.join(', ')}
     </p>
   )}
+  <p style="margin-bottom:0"><a href={detailUrl}>{t('projects.more')} →</a></p>
 </article>

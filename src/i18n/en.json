@@ -114,7 +114,10 @@
     "all": "All",
     "active": "Active",
     "completed": "Completed",
-    "partners": "Partners"
+    "partners": "Partners",
+    "more": "Learn more",
+    "back": "← All projects",
+    "featuredTitle": "Featured projects"
   },
   "contact": {
     "title": "Contact",
