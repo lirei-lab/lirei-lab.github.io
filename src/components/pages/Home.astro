@@ -1,0 +1,74 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PublicationItem from '../PublicationItem.astro';
+import { useTranslations, href, type Lang } from '../../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const team = await getCollection('team');
+const pubs = (await getCollection('publications')).sort((a, b) => b.data.year - a.data.year);
+const latest = pubs.slice(0, 5);
+
+const axes = ['smartgrids', 'residential', 'ml', 'hydrogen', 'flexibility', 'ev'] as const;
+const partners = [
+  'Hydro-Québec',
+  'Ressources naturelles Canada',
+  'Mitacs',
+  'Université Laval',
+  'Institut de recherche sur l’hydrogène (IRH)',
+];
+---
+
+<Base lang={lang} routeKey="home" title={t('nav.home')} description={t('site.description')}>
+  <div class="hero">
+    <div class="container">
+      <h1>{t('site.fullname')}</h1>
+      <p class="tagline">{t('home.tagline')}</p>
+      <p class="intro">{t('home.intro')}</p>
+      <p>
+        <a class="btn" href={href(lang, 'research')}>{t('home.ctaResearch')}</a>
+        <a class="btn outline" href={href(lang, 'publications')}>{t('home.ctaPubs')}</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="stats">
+      <div><span class="num">1999</span><span class="label">{t('home.statFounded')}</span></div>
+      <div><span class="num">{team.length}</span><span class="label">{t('home.statMembers')}</span></div>
+      <div><span class="num">{pubs.length}</span><span class="label">{t('home.statPubs')}</span></div>
+      <div><span class="num">{axes.length}</span><span class="label">{t('home.statAxes')}</span></div>
+    </div>
+
+    <h2>{t('home.axesTitle')}</h2>
+    <div class="grid-3">
+      {axes.map((axis) => (
+        <a class="card" href={`${href(lang, 'research')}#${axis}`} style="text-decoration:none">
+          <h3>{t(`research.axes.${axis}.title`)}</h3>
+          <p class="muted" style="font-size:0.92rem">{t(`research.axes.${axis}.desc`).slice(0, 110)}…</p>
+        </a>
+      ))}
+    </div>
+
+    <h2>{t('home.pubsTitle')}</h2>
+    <ul class="pub-list">
+      {latest.map((pub) => <PublicationItem pub={pub} lang={lang} />)}
+    </ul>
+    <p><a href={href(lang, 'publications')}>{t('home.viewAll')} →</a></p>
+  </div>
+
+  <section class="band">
+    <div class="container">
+      <h2 style="margin-top:0">{t('home.partnersTitle')}</h2>
+      <div class="partners-row">
+        {partners.map((p) => <span>{p}</span>)}
+      </div>
+    </div>
+  </section>
+</Base>

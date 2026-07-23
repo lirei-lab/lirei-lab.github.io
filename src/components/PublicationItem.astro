@@ -1,0 +1,25 @@
+---
+import { useTranslations, type Lang } from '../i18n';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  pub: CollectionEntry<'publications'>;
+  lang: Lang;
+}
+
+const { pub, lang } = Astro.props;
+const t = useTranslations(lang);
+const { title, authors, venue, year, type, doi, url } = pub.data;
+const link = doi ? `https://doi.org/${doi}` : url;
+---
+
+<li data-type={type} data-year={year}>
+  <span class="authors">{authors.join(', ')} ({year}).</span>
+  {link ? (
+    <a href={link} target="_blank" rel="noopener"><strong>{title}</strong></a>
+  ) : (
+    <strong>{title}</strong>
+  )}
+  {venue && <span class="venue"> — {venue}</span>}
+  <span class="tag blue">{t(`pubs.${type}`)}</span>
+</li>
