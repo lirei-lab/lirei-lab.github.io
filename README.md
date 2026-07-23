@@ -19,6 +19,12 @@ npm run preview    # prévisualise le contenu de dist/
 
 ## Déploiement
 
+### Automatique (GitHub Pages)
+
+Chaque `git push` sur `main` déclenche le workflow [.github/workflows/deploy.yml](.github/workflows/deploy.yml) qui construit et publie le site sur **https://novastdev.github.io/lireiweb/**.
+
+### Manuel (serveur de l'UQTR ou autre)
+
 Le site est entièrement statique : copiez le contenu de `dist/` sur n'importe quel serveur web (Apache, Nginx, serveur de l'UQTR…). Aucun environnement d'exécution n'est requis.
 
 Si le site est servi sous un sous-chemin (par ex. `https://exemple.ca/lirei/`), construisez avec :
@@ -26,6 +32,25 @@ Si le site est servi sous un sous-chemin (par ex. `https://exemple.ca/lirei/`), 
 ```bash
 BASE_PATH=/lirei npm run build
 ```
+
+## CMS (interface d'administration)
+
+Le site intègre [Sveltia CMS](https://github.com/sveltia/sveltia-cms) : une interface web à l'adresse `/admin/` qui permet aux membres du laboratoire d'ajouter ou modifier l'équipe, les publications et les projets **sans toucher au code**. Chaque sauvegarde crée un commit git, ce qui redéploie le site automatiquement.
+
+### Activer la connexion GitHub (à faire une seule fois)
+
+Pour que les membres puissent se connecter à `/admin/` depuis leur navigateur, il faut un petit service OAuth gratuit :
+
+1. Déployez [sveltia-cms-auth](https://github.com/sveltia/sveltia-cms-auth) sur Cloudflare Workers (bouton « Deploy » du dépôt, compte Cloudflare gratuit).
+2. Créez une **GitHub OAuth App** (Settings → Developer settings → OAuth Apps) avec comme *callback URL* l'adresse du worker.
+3. Renseignez `GITHUB_CLIENT_ID` / `GITHUB_CLIENT_SECRET` dans le worker et `ALLOWED_DOMAINS=novastdev.github.io`.
+4. Décommentez `base_url` dans [public/admin/config.yml](public/admin/config.yml) avec l'URL du worker.
+
+Chaque membre du labo doit ensuite avoir un compte GitHub avec accès en écriture au dépôt (Settings → Collaborators).
+
+### Mode local (sans configuration)
+
+En développement, ouvrez `http://localhost:4321/admin/` : Sveltia propose « Work with Local Repository » et modifie directement les fichiers du projet (navigateurs Chromium). Ensuite `git commit` + `git push` comme d'habitude.
 
 ## Gérer le contenu
 
