@@ -12,6 +12,7 @@
     "research": "Research",
     "projects": "Projects",
     "publications": "Publications",
+    "news": "News",
     "contact": "Contact",
     "menuLabel": "Main navigation",
     "langLabel": "Version française"
@@ -134,6 +135,13 @@
     "conference": "Conference",
     "other": "Other",
     "noResults": "No publications match the selected filters."
+  },
+  "news": {
+    "title": "News",
+    "lead": "The latest news from the laboratory, the Hydrogen Research Institute and our partners.",
+    "read": "Read the article",
+    "homeTitle": "News",
+    "via": "via"
   },
   "projects": {
     "title": "Projects",

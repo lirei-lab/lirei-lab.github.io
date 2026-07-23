@@ -25,6 +25,7 @@ export const routes = {
   research: { fr: 'recherche', en: 'research' },
   projects: { fr: 'projets', en: 'projects' },
   publications: { fr: 'publications', en: 'publications' },
+  news: { fr: 'actualites', en: 'news' },
   contact: { fr: 'contact', en: 'contact' },
 } as const;
 export type RouteKey = keyof typeof routes;
@@ -36,6 +37,7 @@ export const navOrder: RouteKey[] = [
   'research',
   'projects',
   'publications',
+  'news',
   'contact',
 ];
 
@@ -50,4 +52,11 @@ export function href(lang: Lang, key: RouteKey): string {
 // Prefix a public asset path (e.g. /images/…) with the configured base path.
 export function assetPath(path: string): string {
   return `${BASE}${path}`;
+}
+
+// Format an ISO date (YYYY-MM-DD) into a long localized date.
+export function formatDate(iso: string, lang: Lang): string {
+  const locale = lang === 'fr' ? 'fr-CA' : 'en-CA';
+  const d = new Date(`${iso}T12:00:00`);
+  return d.toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric' });
 }

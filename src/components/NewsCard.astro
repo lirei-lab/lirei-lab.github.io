@@ -1,0 +1,38 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { useTranslations, assetPath, formatDate, type Lang } from '../i18n';
+
+interface Props {
+  item: CollectionEntry<'news'>;
+  lang: Lang;
+}
+
+const { item, lang } = Astro.props;
+const t = useTranslations(lang);
+const { title, date, summary, source, url, image } = item.data;
+---
+
+<article class="card news-card">
+  {image && (
+    <span class="news-img">
+      <img src={assetPath(image)} alt={title[lang]} loading="lazy" />
+    </span>
+  )}
+  <div class="news-body">
+    <div class="news-meta">
+      <time datetime={date}>{formatDate(date, lang)}</time>
+      {source && <span class="news-source">{t('news.via')} {source}</span>}
+    </div>
+    <h3>
+      {url ? (
+        <a href={url} target="_blank" rel="noopener">{title[lang]}</a>
+      ) : (
+        title[lang]
+      )}
+    </h3>
+    <p class="muted">{summary[lang]}</p>
+    {url && (
+      <a class="news-link" href={url} target="_blank" rel="noopener">{t('news.read')} →</a>
+    )}
+  </div>
+</article>

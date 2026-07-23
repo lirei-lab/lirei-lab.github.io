@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import PublicationItem from '../PublicationItem.astro';
+import NewsCard from '../NewsCard.astro';
 import EnergyGrid from '../EnergyGrid.astro';
 import AxisIcon from '../AxisIcon.astro';
 import { useTranslations, href, assetPath, type Lang } from '../../i18n';
@@ -19,6 +20,9 @@ const latest = pubs.slice(0, 5);
 const featured = (await getCollection('projects'))
   .filter((p) => p.data.featured)
   .sort((a, b) => a.data.order - b.data.order);
+const news = (await getCollection('news'))
+  .sort((a, b) => b.data.date.localeCompare(a.data.date))
+  .slice(0, 3);
 
 const axes = ['smartgrids', 'residential', 'ml', 'hydrogen', 'flexibility', 'ev'] as const;
 const partners = [
@@ -87,7 +91,21 @@ const partners = [
       ))}
     </div>
     <p><a href={href(lang, 'projects')}>{t('home.viewAll')} →</a></p>
+  </div>
 
+  {news.length > 0 && (
+    <section class="band">
+      <div class="container">
+        <h2 style="margin-top:0">{t('news.homeTitle')}</h2>
+        <div class="news-grid">
+          {news.map((item) => <NewsCard item={item} lang={lang} />)}
+        </div>
+        <p style="margin-bottom:0"><a href={href(lang, 'news')}>{t('home.viewAll')} →</a></p>
+      </div>
+    </section>
+  )}
+
+  <div class="container">
     <h2>{t('home.pubsTitle')}</h2>
     <ul class="pub-list">
       {latest.map((pub) => <PublicationItem pub={pub} lang={lang} />)}

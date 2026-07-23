@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import NewsCard from '../NewsCard.astro';
+import { useTranslations, type Lang } from '../../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const items = (await getCollection('news')).sort(
+  (a, b) => b.data.date.localeCompare(a.data.date)
+);
+---
+
+<Base lang={lang} routeKey="news" title={t('news.title')} description={t('news.lead')}>
+  <div class="hero hero--compact">
+    <div class="container">
+      <h1>{t('news.title')}</h1>
+      <p class="intro">{t('news.lead')}</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="news-grid">
+      {items.map((item) => <NewsCard item={item} lang={lang} />)}
+    </div>
+  </div>
+</Base>

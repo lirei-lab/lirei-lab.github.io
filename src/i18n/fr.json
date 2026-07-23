@@ -12,6 +12,7 @@
     "research": "Recherche",
     "projects": "Projets",
     "publications": "Publications",
+    "news": "Actualités",
     "contact": "Nous joindre",
     "menuLabel": "Navigation principale",
     "langLabel": "English version"
@@ -134,6 +135,13 @@
     "conference": "Conférence",
     "other": "Autre",
     "noResults": "Aucune publication ne correspond aux filtres."
+  },
+  "news": {
+    "title": "Actualités",
+    "lead": "Les dernières nouvelles du laboratoire, de l'Institut de recherche sur l'hydrogène et de nos partenaires.",
+    "read": "Lire l'article",
+    "homeTitle": "Actualités",
+    "via": "via"
   },
   "projects": {
     "title": "Projets",

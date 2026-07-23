@@ -154,3 +154,32 @@ collections:
       - { name: featured, label: "Projet phare (page d'accueil)", widget: boolean, default: false, required: false }
       - { name: order, label: "Ordre d'affichage", widget: number, default: 100, required: false }
       - { name: body, label: 'Notes internes (non affichées)', widget: markdown, required: false }
+
+  - name: news
+    label: Actualités
+    label_singular: Actualité
+    folder: src/content/news
+    create: true
+    extension: md
+    format: frontmatter
+    identifier_field: title
+    slug: '{{year}}-{{month}}-{{fields.title.fr}}'
+    summary: '{{date}} — {{title.fr}}'
+    sortable_fields: [date]
+    fields:
+      - name: title
+        label: Titre
+        widget: object
+        fields:
+          - { name: fr, label: 'Titre (FR)', widget: string }
+          - { name: en, label: 'Title (EN)', widget: string }
+      - { name: date, label: Date, widget: datetime, date_format: 'YYYY-MM-DD', time_format: false, picker_utc: true }
+      - name: summary
+        label: Résumé
+        widget: object
+        fields:
+          - { name: fr, label: 'Résumé (FR)', widget: text }
+          - { name: en, label: 'Summary (EN)', widget: text }
+      - { name: source, label: Source, widget: string, required: false, hint: 'Ex. : Néo UQTR' }
+      - { name: url, label: "Lien vers l'article", widget: string, required: false }
+      - { name: image, label: Image, widget: image, required: false }
