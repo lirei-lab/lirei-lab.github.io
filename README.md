@@ -37,20 +37,31 @@ BASE_PATH=/lirei npm run build
 
 Le site intègre [Sveltia CMS](https://github.com/sveltia/sveltia-cms) : une interface visuelle à l'adresse `/admin/` pour modifier l'équipe, les publications, les projets et les actualités **sans toucher au code**.
 
-### Mode local (approche retenue — aucune configuration)
+Deux façons de se connecter, **aucune ne nécessite de serveur OAuth** :
 
-Le contenu est maintenu localement, sans aucun serveur d'authentification :
+### A. Jeton d'accès GitHub — recommandé (fonctionne depuis n'importe quel poste)
+
+À privilégier si vous éditez depuis un poste **différent** de celui où vit le dépôt (par ex. navigateur sur Windows, code sur un serveur Linux en SSH) : cette méthode parle directement à GitHub, sans fichiers locaux.
+
+1. Sur GitHub : **Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token**. Portée : dépôt `lirei-lab/lireiweb`, permission **Contents : Read and write**. Copier le jeton.
+2. Ouvrir `/admin/` — soit en production (**https://lirei-lab.github.io/lireiweb/admin/**, aucun `npm` requis), soit en local (`npm run dev` → `http://localhost:4321/admin/`).
+3. Cliquer sur **« Sign In Using Access Token »** et coller le jeton.
+4. Éditer avec les formulaires : chaque sauvegarde crée un commit sur GitHub, ce qui redéploie le site automatiquement.
+
+### B. Dépôt local (« Work with Local Repository »)
+
+Fonctionne uniquement quand **le navigateur et les fichiers du dépôt sont sur la même machine** (l'API navigateur d'accès aux fichiers ne peut pas atteindre un dossier distant en SSH). Sur ce poste :
 
 1. `npm run dev`
 2. Ouvrir `http://localhost:4321/admin/` (navigateur basé sur Chromium : Chrome, Edge).
 3. Cliquer sur **« Work with Local Repository »** et sélectionner le dossier du projet.
-4. Éditer avec les formulaires, puis `git commit` + `git push` : le site se reconstruit et se redéploie automatiquement.
+4. Éditer, puis `git commit` + `git push`.
 
-C'est tout — pas d'OAuth, pas de service externe. La configuration des collections vit dans [public/admin/config.yml](public/admin/config.yml).
+La configuration des collections vit dans [public/admin/config.yml](public/admin/config.yml).
 
-### Option — édition web par plusieurs personnes (facultatif)
+### Option — connexion GitHub OAuth pour plusieurs éditeurs (facultatif)
 
-Si, plus tard, plusieurs membres non techniques doivent éditer depuis leur navigateur en production, il faudra un petit relais OAuth (le secret GitHub ne peut pas vivre dans un site statique). Ce relais peut être hébergé n'importe où — un worker [sveltia-cms-auth](https://github.com/sveltia/sveltia-cms-auth) gratuit sur Cloudflare, une fonction serverless, ou le serveur de l'UQTR — puis renseigné via `base_url` dans `config.yml`. Non nécessaire pour le mode local ci-dessus.
+Le bouton « Sign In with GitHub » (flux OAuth classique) exige un petit relais qui garde le secret GitHub (impossible dans un site statique). Ce relais peut être hébergé n'importe où — un worker [sveltia-cms-auth](https://github.com/sveltia/sveltia-cms-auth) gratuit sur Cloudflare, une fonction serverless, ou le serveur de l'UQTR — puis renseigné via `base_url` dans `config.yml`. Inutile pour les méthodes A et B ci-dessus.
 
 ## Gérer le contenu
 
