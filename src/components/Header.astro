@@ -1,5 +1,6 @@
 ---
 import { useTranslations, navOrder, href, otherLang, type Lang, type RouteKey } from '../i18n';
+import LireiMark from './LireiMark.astro';
 
 interface Props {
   lang: Lang;
@@ -15,7 +16,10 @@ const other = otherLang(lang);
 <header class="site-header">
   <div class="container">
     <div class="brand">
-      <a href={href(lang, 'home')}>{t('site.name')}</a>
+      <a class="brand-link" href={href(lang, 'home')}>
+        <LireiMark class="brand-mark" />
+        <span class="brand-name">{t('site.name')}</span>
+      </a>
       <span class="fullname">{t('site.fullname')} · {t('site.uqtr')}</span>
     </div>
     <nav class="site-nav" aria-label={t('nav.menuLabel')}>
