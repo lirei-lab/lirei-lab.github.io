@@ -429,6 +429,49 @@ a:hover {
   font-size: 0.95rem;
 }
 
+/* Member profile */
+.profile-head {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.profile-photo {
+  width: 104px;
+  height: 104px;
+  flex: 0 0 auto;
+  border: 3px solid var(--green-400);
+}
+
+.profile-head h1 {
+  color: #fff;
+  margin: 0;
+}
+
+.profile-role {
+  color: var(--green-400);
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  margin: 0.3rem 0 0;
+}
+
+.profile-aff {
+  color: var(--blue-100);
+  margin: 0.25rem 0 0;
+  font-size: 0.95rem;
+}
+
+.profile-project {
+  display: block;
+  text-decoration: none;
+  max-width: 46rem;
+}
+
+.profile-project h3 {
+  margin-top: 0;
+}
+
 /* Sections */
 section.band {
   background: var(--bg-alt);
@@ -816,6 +859,12 @@ section:hover > h2::after,
 
 .hero--compact h1 {
   margin-bottom: 0.5rem;
+}
+
+/* Interior heroes are static — the entrance animation is only for the home hero */
+.hero--compact h1,
+.hero--compact .intro {
+  animation: none;
 }
 
 /* Lab page */

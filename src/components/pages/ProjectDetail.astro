@@ -69,7 +69,7 @@ const initials = (name: string) =>
     </div>
 
     {student && (
-      <a class="card person-card" href={`${href(lang, 'team')}#${student.data.category}`}>
+      <a class="card person-card" href={`${href(lang, 'team')}/${student.id}`}>
         {student.data.photo ? (
           <span class="avatar avatar--photo">
             <img src={assetPath(student.data.photo)} alt={student.data.name} loading="lazy" />

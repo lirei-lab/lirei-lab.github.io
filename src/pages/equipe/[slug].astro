@@ -1,0 +1,13 @@
+---
+import { getCollection } from 'astro:content';
+import MemberProfile from '../../components/pages/MemberProfile.astro';
+
+export async function getStaticPaths() {
+  const team = await getCollection('team');
+  return team.map((member) => ({ params: { slug: member.id }, props: { member } }));
+}
+
+const { member } = Astro.props;
+---
+
+<MemberProfile member={member} lang="fr" />

@@ -9,18 +9,17 @@ interface Props {
 
 const { member, lang } = Astro.props;
 const t = useTranslations(lang);
-const { name, role, topic, affiliation, email, photo, project } = member.data;
+const { name, role, topic, affiliation, photo } = member.data;
 const initials = name
   .split(/\s+/)
   .map((p) => p[0])
   .slice(0, 2)
   .join('')
   .toUpperCase();
-const projectUrl = project ? `${href(lang, 'research')}/${project}` : undefined;
-const Tag = projectUrl ? 'a' : 'div';
+const profileUrl = `${href(lang, 'team')}/${member.id}`;
 ---
 
-<Tag class:list={['card', 'member', { 'member--link': projectUrl }]} href={projectUrl}>
+<a class="card member member--link" href={profileUrl}>
   {photo ? (
     <span class="avatar avatar--photo">
       <img src={assetPath(photo)} alt={name} loading="lazy" />
@@ -43,7 +42,6 @@ const Tag = projectUrl ? 'a' : 'div';
     <div class="role">{role[lang]}</div>
     {topic && <div class="topic">{topic[lang]}</div>}
     {affiliation && <div class="topic">{affiliation}</div>}
-    {email && !projectUrl && <div class="topic"><a href={`mailto:${email}`}>{email}</a></div>}
-    {projectUrl && <div class="member-cta">{t('team.viewProject')} →</div>}
+    <div class="member-cta">{t('team.viewProfile')} →</div>
   </div>
-</Tag>
+</a>

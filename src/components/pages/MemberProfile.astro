@@ -1,0 +1,80 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PublicationItem from '../PublicationItem.astro';
+import { useTranslations, href, otherLang, assetPath, type Lang } from '../../i18n';
+import { authorMatchesMember } from '../../utils/authors';
+
+interface Props {
+  member: CollectionEntry<'team'>;
+  lang: Lang;
+}
+
+const { member, lang } = Astro.props;
+const t = useTranslations(lang);
+const { name, role, topic, affiliation, email, photo, project } = member.data;
+const switchHref = `${href(otherLang(lang), 'team')}/${member.id}`;
+
+const publications = (await getCollection('publications'))
+  .filter((p) => p.data.authors.some((a) => authorMatchesMember(name, a)))
+  .sort((a, b) => b.data.year - a.data.year || a.data.title.localeCompare(b.data.title));
+
+const projectEntry = project
+  ? (await getCollection('projects')).find((p) => p.id === project)
+  : undefined;
+
+const initials = name.split(/\s+/).map((p) => p[0]).slice(0, 2).join('').toUpperCase();
+---
+
+<Base lang={lang} routeKey="team" title={name} description={`${role[lang]} — ${name}`} switchHref={switchHref}>
+  <div class="hero hero--compact">
+    <div class="container">
+      <div class="profile-head">
+        {photo ? (
+          <span class="avatar avatar--photo profile-photo">
+            <img src={assetPath(photo)} alt={name} />
+          </span>
+        ) : (
+          <svg class="avatar profile-photo" viewBox="0 0 72 72" aria-hidden="true">
+            <circle cx="36" cy="36" r="36" fill="var(--blue-100)" />
+            <text x="36" y="46" text-anchor="middle" font-size="26" font-weight="700"
+              fill="var(--blue-700)" font-family="system-ui, sans-serif">{initials}</text>
+          </svg>
+        )}
+        <div>
+          <h1>{name}</h1>
+          <p class="profile-role">{role[lang]}</p>
+          {affiliation && <p class="profile-aff">{affiliation}</p>}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <p style="margin-top:1.5rem"><a href={href(lang, 'team')}>{t('team.back')}</a></p>
+
+    {topic && <p class="lead">{topic[lang]}</p>}
+    {email && <p><a href={`mailto:${email}`}>{email}</a></p>}
+
+    {projectEntry && (
+      <section>
+        <h2>{t('team.projectTitle')}</h2>
+        <a class="card profile-project" href={`${href(lang, 'research')}/${projectEntry.id}`}>
+          <h3>{projectEntry.data.title[lang]}</h3>
+          <p class="muted">{projectEntry.data.summary[lang]}</p>
+          <span class="member-cta">{t('projects.more')} →</span>
+        </a>
+      </section>
+    )}
+
+    {publications.length > 0 && (
+      <section>
+        <h2>{t('team.pubsTitle')} ({publications.length})</h2>
+        <ul class="pub-list">
+          {publications.map((pub) => <PublicationItem pub={pub} lang={lang} />)}
+        </ul>
+      </section>
+    )}
+  </div>
+</Base>
