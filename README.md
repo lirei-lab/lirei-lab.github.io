@@ -35,22 +35,22 @@ BASE_PATH=/lirei npm run build
 
 ## CMS (interface d'administration)
 
-Le site intègre [Sveltia CMS](https://github.com/sveltia/sveltia-cms) : une interface web à l'adresse `/admin/` qui permet aux membres du laboratoire d'ajouter ou modifier l'équipe, les publications et les projets **sans toucher au code**. Chaque sauvegarde crée un commit git, ce qui redéploie le site automatiquement.
+Le site intègre [Sveltia CMS](https://github.com/sveltia/sveltia-cms) : une interface visuelle à l'adresse `/admin/` pour modifier l'équipe, les publications, les projets et les actualités **sans toucher au code**.
 
-### Activer la connexion GitHub (à faire une seule fois)
+### Mode local (approche retenue — aucune configuration)
 
-Pour que les membres puissent se connecter à `/admin/` depuis leur navigateur, il faut un petit service OAuth gratuit :
+Le contenu est maintenu localement, sans aucun serveur d'authentification :
 
-1. Déployez [sveltia-cms-auth](https://github.com/sveltia/sveltia-cms-auth) sur Cloudflare Workers (bouton « Deploy » du dépôt, compte Cloudflare gratuit).
-2. Créez une **GitHub OAuth App** (Settings → Developer settings → OAuth Apps) avec comme *callback URL* l'adresse du worker.
-3. Renseignez `GITHUB_CLIENT_ID` / `GITHUB_CLIENT_SECRET` dans le worker et `ALLOWED_DOMAINS=lirei-lab.github.io`.
-4. Décommentez `base_url` dans [public/admin/config.yml](public/admin/config.yml) avec l'URL du worker.
+1. `npm run dev`
+2. Ouvrir `http://localhost:4321/admin/` (navigateur basé sur Chromium : Chrome, Edge).
+3. Cliquer sur **« Work with Local Repository »** et sélectionner le dossier du projet.
+4. Éditer avec les formulaires, puis `git commit` + `git push` : le site se reconstruit et se redéploie automatiquement.
 
-Chaque membre du labo doit ensuite avoir un compte GitHub avec accès en écriture au dépôt (Settings → Collaborators).
+C'est tout — pas d'OAuth, pas de service externe. La configuration des collections vit dans [public/admin/config.yml](public/admin/config.yml).
 
-### Mode local (sans configuration)
+### Option — édition web par plusieurs personnes (facultatif)
 
-En développement, ouvrez `http://localhost:4321/admin/` : Sveltia propose « Work with Local Repository » et modifie directement les fichiers du projet (navigateurs Chromium). Ensuite `git commit` + `git push` comme d'habitude.
+Si, plus tard, plusieurs membres non techniques doivent éditer depuis leur navigateur en production, il faudra un petit relais OAuth (le secret GitHub ne peut pas vivre dans un site statique). Ce relais peut être hébergé n'importe où — un worker [sveltia-cms-auth](https://github.com/sveltia/sveltia-cms-auth) gratuit sur Cloudflare, une fonction serverless, ou le serveur de l'UQTR — puis renseigné via `base_url` dans `config.yml`. Non nécessaire pour le mode local ci-dessus.
 
 ## Gérer le contenu
 

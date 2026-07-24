@@ -26,7 +26,12 @@ const programs = programOrder
   .filter((p) => p.flagship);
 
 const infraKeys = ['residential', 'simulation', 'data', 'optimization'] as const;
-const infraAxis = { residential: 'residential', simulation: 'smartgrids', data: 'ml', optimization: 'flexibility' } as const;
+const infraPhoto = {
+  residential: '/images/lab/lab2.jpg',
+  simulation: '/images/lab/lab5.jpg',
+  data: '/images/lab/lab6.jpg',
+  optimization: '/images/lab/lab3.jpg',
+} as const;
 ---
 
 <Base lang={lang} routeKey="lab" title={t('lab.title')} description={t('lab.lead')}>
@@ -45,15 +50,17 @@ const infraAxis = { residential: 'residential', simulation: 'smartgrids', data: 
       <div><span class="num">{programs.length}</span><span class="label">{t('lab.statPrograms')}</span></div>
     </div>
 
-    <div class="grid-2 lab-history">
+    <p class="lead">{t('lab.intro1')}</p>
+
+    <div class="grid-2 lab-feature">
       <div>
-        <p class="lead" style="margin-top:0">{t('lab.intro1')}</p>
-      </div>
-      <div class="card">
         <h2 style="margin-top:0">{t('lab.historyTitle')}</h2>
         <p>{t('lab.history1')}</p>
         <p>{t('lab.history2')}</p>
       </div>
+      <figure class="lab-photo">
+        <img src={assetPath('/images/lab/lab1.jpg')} alt={t('lab.featureAlt')} loading="lazy" />
+      </figure>
     </div>
   </div>
 
@@ -80,12 +87,14 @@ const infraAxis = { residential: 'residential', simulation: 'smartgrids', data: 
     <p class="muted" style="max-width:46rem">{t('lab.infraLead')}</p>
     <div class="grid-2">
       {infraKeys.map((key) => (
-        <div class="card">
-          <div class="axis-head">
-            <AxisIcon axis={infraAxis[key]} />
+        <div class="card infra-card">
+          <span class="infra-photo">
+            <img src={assetPath(infraPhoto[key])} alt={t(`lab.infra.${key}.title`)} loading="lazy" />
+          </span>
+          <div class="infra-body">
             <h3>{t(`lab.infra.${key}.title`)}</h3>
+            <p class="muted" style="font-size:0.94rem">{t(`lab.infra.${key}.desc`)}</p>
           </div>
-          <p class="muted" style="font-size:0.94rem">{t(`lab.infra.${key}.desc`)}</p>
         </div>
       ))}
     </div>
