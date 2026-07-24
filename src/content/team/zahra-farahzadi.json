@@ -10,5 +10,6 @@
     "en": "Anomaly detection and diagnosis in smart greenhouses"
   },
   "order": 49,
-  "photo": "/images/team/zahra-farahzadi.png"
+  "photo": "/images/team/zahra-farahzadi.png",
+  "project": "serres-detection-anomalies"
 }

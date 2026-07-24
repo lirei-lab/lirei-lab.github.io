@@ -14,6 +14,7 @@ const team = defineCollection({
     email: z.string().optional(),
     phone: z.string().optional(),
     photo: z.string().optional(),
+    project: z.string().optional(),
     order: z.number().default(100),
   }),
 });
@@ -37,6 +38,8 @@ const projects = defineCollection({
     title: bilingual,
     summary: bilingual,
     description: bilingual.optional(),
+    objective: bilingual.optional(),
+    methodology: bilingual.optional(),
     axis: z.enum(['smartgrids', 'residential', 'ml', 'hydrogen', 'flexibility', 'ev']),
     program: z.enum(['flexibilite', 'serres', 'communautes']).optional(),
     status: z.enum(['active', 'completed']),

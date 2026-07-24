@@ -10,5 +10,6 @@
     "en": "Occupancy-driven predictive control of HVAC systems"
   },
   "order": 41,
-  "photo": "/images/team/juan-caballero.png"
+  "photo": "/images/team/juan-caballero.png",
+  "project": "cvc-occupation"
 }

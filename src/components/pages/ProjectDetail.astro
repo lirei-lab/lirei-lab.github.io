@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import { useTranslations, href, otherLang, assetPath, type Lang } from '../../i18n';
 
@@ -10,9 +11,15 @@ interface Props {
 
 const { project, lang } = Astro.props;
 const t = useTranslations(lang);
-const { title, summary, description, axis, status, partners, team, image, imageAlt } = project.data;
+const { title, summary, description, objective, methodology, axis, status, partners, team, image, imageAlt } =
+  project.data;
 const switchHref = `${href(otherLang(lang), 'research')}/${project.id}`;
 const paragraphs = (description?.[lang] ?? summary[lang]).split(/\n\n+/);
+
+// Two-way link: find the student whose profile points to this project.
+const student = (await getCollection('team')).find((m) => m.data.project === project.id);
+const initials = (name: string) =>
+  name.split(/\s+/).map((p) => p[0]).slice(0, 2).join('').toUpperCase();
 ---
 
 <Base
@@ -28,7 +35,7 @@ const paragraphs = (description?.[lang] ?? summary[lang]).split(/\n\n+/);
       <span class="tag">{t(`research.axes.${axis}.title`)}</span>
       <span class="tag blue">{t(`projects.${status}`)}</span>
     </p>
-    {team && <p class="muted">{team}</p>}
+    {team && <p class="muted project-team">{team}</p>}
 
     {image && (
       <figure class="project-figure">
@@ -39,12 +46,47 @@ const paragraphs = (description?.[lang] ?? summary[lang]).split(/\n\n+/);
 
     <div class="project-body">
       {paragraphs.map((p) => <p>{p}</p>)}
+
+      {objective && (
+        <>
+          <h2>{t('projects.objective')}</h2>
+          <p>{objective[lang]}</p>
+        </>
+      )}
+
+      {methodology && (
+        <>
+          <h2>{t('projects.methodology')}</h2>
+          <p>{methodology[lang]}</p>
+        </>
+      )}
+
+      {partners.length > 0 && (
+        <p>
+          <strong>{t('projects.partners')} :</strong> {partners.join(', ')}
+        </p>
+      )}
     </div>
 
-    {partners.length > 0 && (
-      <p>
-        <strong>{t('projects.partners')} :</strong> {partners.join(', ')}
-      </p>
+    {student && (
+      <a class="card person-card" href={`${href(lang, 'team')}#${student.data.category}`}>
+        {student.data.photo ? (
+          <span class="avatar avatar--photo">
+            <img src={assetPath(student.data.photo)} alt={student.data.name} loading="lazy" />
+          </span>
+        ) : (
+          <svg class="avatar" width="72" height="72" viewBox="0 0 72 72" aria-hidden="true">
+            <circle cx="36" cy="36" r="36" fill="var(--blue-100)" />
+            <text x="36" y="46" text-anchor="middle" font-size="26" font-weight="700"
+              fill="var(--blue-700)" font-family="system-ui, sans-serif">{initials(student.data.name)}</text>
+          </svg>
+        )}
+        <span>
+          <span class="person-label">{t('projects.student')}</span>
+          <strong class="person-name">{student.data.name}</strong>
+          <span class="muted">{student.data.role[lang]}</span>
+        </span>
+      </a>
     )}
   </div>
 </Base>

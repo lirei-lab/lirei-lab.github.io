@@ -127,7 +127,8 @@
       "staff": "Professionnels de recherche",
       "postdoc": "Stagiaires postdoctoraux",
       "student": "Étudiantes et étudiants"
-    }
+    },
+    "viewProject": "Voir le projet"
   },
   "pubs": {
     "title": "Publications",
@@ -158,6 +159,9 @@
     "more": "En savoir plus",
     "back": "← Tous les projets",
     "featuredTitle": "Projets phares",
+    "objective": "Objectif principal",
+    "methodology": "Méthodologie",
+    "student": "Étudiant·e",
     "programsLead": "Nos travaux s'organisent autour de trois grands programmes de recherche. Chaque programme regroupe des projets doctoraux et des collaborations qui en explorent les différentes facettes.",
     "discover": "Découvrir le programme",
     "subprojects": "Projets associés",

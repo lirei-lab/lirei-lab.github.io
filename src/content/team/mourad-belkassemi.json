@@ -10,5 +10,6 @@
     "en": "Strategies for coordinated post-outage recovery"
   },
   "order": 51,
-  "photo": "/images/team/mourad-belkassemi.png"
+  "photo": "/images/team/mourad-belkassemi.png",
+  "project": "reprise-apres-pannes"
 }

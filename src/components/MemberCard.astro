@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { assetPath, type Lang } from '../i18n';
+import { useTranslations, href, assetPath, type Lang } from '../i18n';
 
 interface Props {
   member: CollectionEntry<'team'>;
@@ -8,16 +8,19 @@ interface Props {
 }
 
 const { member, lang } = Astro.props;
-const { name, role, topic, affiliation, email, photo } = member.data;
+const t = useTranslations(lang);
+const { name, role, topic, affiliation, email, photo, project } = member.data;
 const initials = name
   .split(/\s+/)
   .map((p) => p[0])
   .slice(0, 2)
   .join('')
   .toUpperCase();
+const projectUrl = project ? `${href(lang, 'research')}/${project}` : undefined;
+const Tag = projectUrl ? 'a' : 'div';
 ---
 
-<div class="card member">
+<Tag class:list={['card', 'member', { 'member--link': projectUrl }]} href={projectUrl}>
   {photo ? (
     <span class="avatar avatar--photo">
       <img src={assetPath(photo)} alt={name} loading="lazy" />
@@ -40,6 +43,7 @@ const initials = name
     <div class="role">{role[lang]}</div>
     {topic && <div class="topic">{topic[lang]}</div>}
     {affiliation && <div class="topic">{affiliation}</div>}
-    {email && <div class="topic"><a href={`mailto:${email}`}>{email}</a></div>}
+    {email && !projectUrl && <div class="topic"><a href={`mailto:${email}`}>{email}</a></div>}
+    {projectUrl && <div class="member-cta">{t('team.viewProject')} →</div>}
   </div>
-</div>
+</Tag>

@@ -127,7 +127,8 @@
       "staff": "Research Staff",
       "postdoc": "Postdoctoral Fellows",
       "student": "Graduate Students"
-    }
+    },
+    "viewProject": "View the project"
   },
   "pubs": {
     "title": "Publications",
@@ -158,6 +159,9 @@
     "more": "Learn more",
     "back": "← All projects",
     "featuredTitle": "Featured projects",
+    "objective": "Main objective",
+    "methodology": "Methodology",
+    "student": "Student",
     "programsLead": "Our work is organized around three major research programs. Each program brings together doctoral projects and collaborations that explore its different facets.",
     "discover": "Explore the program",
     "subprojects": "Related projects",

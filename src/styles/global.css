@@ -382,6 +382,53 @@ a:hover {
   margin-top: 0.2rem;
 }
 
+.member--link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.member-cta {
+  margin-top: 0.55rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--green-600);
+}
+
+/* Student card on a project detail page */
+.person-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.person-card .person-label {
+  display: block;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.person-card .person-name {
+  display: block;
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  color: var(--blue-900);
+  margin: 0.1rem 0;
+}
+
+.person-card .muted {
+  font-size: 0.9rem;
+}
+
+.project-team {
+  font-size: 0.95rem;
+}
+
 /* Sections */
 section.band {
   background: var(--bg-alt);

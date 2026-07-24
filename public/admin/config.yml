@@ -50,6 +50,7 @@ collections:
       - { name: email, label: Courriel, widget: string, required: false }
       - { name: phone, label: Téléphone, widget: string, required: false }
       - { name: photo, label: Photo, widget: image, required: false }
+      - { name: project, label: "Projet lié (identifiant)", widget: string, required: false, hint: "Nom du fichier du projet sans .md, ex. : cvc-occupation" }
       - { name: order, label: "Ordre d'affichage", widget: number, default: 100 }
 
   - name: publications
@@ -142,6 +143,20 @@ collections:
         fields:
           - { name: fr, label: 'Description (FR)', widget: text, required: false }
           - { name: en, label: 'Description (EN)', widget: text, required: false }
+      - name: objective
+        label: Objectif principal
+        widget: object
+        required: false
+        fields:
+          - { name: fr, label: 'Objectif (FR)', widget: text, required: false }
+          - { name: en, label: 'Objective (EN)', widget: text, required: false }
+      - name: methodology
+        label: Méthodologie
+        widget: object
+        required: false
+        fields:
+          - { name: fr, label: 'Méthodologie (FR)', widget: text, required: false }
+          - { name: en, label: 'Methodology (EN)', widget: text, required: false }
       - { name: team, label: 'Équipe (étudiant·e et direction)', widget: string, required: false, hint: 'Ex. : Prénom Nom — dir. Prof. Kodjo Agbossou' }
       - { name: image, label: Image, widget: image, required: false }
       - name: imageAlt
