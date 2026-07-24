@@ -1,0 +1,21 @@
+---
+// Sveltia CMS admin panel, served as a real route so /admin/ works in
+// dev too (the Astro dev server does not resolve directory indexes for
+// files placed in public/). The config lives in public/admin/config.yml.
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Administration — LIREI</title>
+    <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
+    <link href={`${base}/admin/config.yml`} type="text/yaml" rel="cms-config-url" />
+  </head>
+  <body>
+    <script is:inline type="module" src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
+  </body>
+</html>
