@@ -1,5 +1,6 @@
 ---
 import { useTranslations, href, type Lang } from '../i18n';
+import LireiMark from './LireiMark.astro';
 
 interface Props {
   lang: Lang;
@@ -14,7 +15,10 @@ const year = new Date().getFullYear();
   <div class="container">
     <div class="cols">
       <div>
-        <h3>{t('site.name')}</h3>
+        <a class="footer-brand" href={href(lang, 'home')}>
+          <LireiMark class="footer-mark" />
+          <span class="footer-name">{t('site.name')}</span>
+        </a>
         <p>{t('site.fullname')}<br />{t('site.uqtr')}</p>
         <p>{t('footer.affiliation')}</p>
       </div>
