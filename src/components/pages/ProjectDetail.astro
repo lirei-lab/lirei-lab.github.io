@@ -2,7 +2,11 @@
 import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import ProjectCard from '../ProjectCard.astro';
+import MemberCard from '../MemberCard.astro';
+import PublicationItem from '../PublicationItem.astro';
 import { useTranslations, href, otherLang, assetPath, type Lang } from '../../i18n';
+import { authorMatchesMember } from '../../utils/authors';
 
 interface Props {
   project: CollectionEntry<'projects'>;
@@ -16,10 +20,35 @@ const { title, summary, description, objective, methodology, axis, status, partn
 const switchHref = `${href(otherLang(lang), 'research')}/${project.id}`;
 const paragraphs = (description?.[lang] ?? summary[lang]).split(/\n\n+/);
 
+const allTeam = await getCollection('team');
+
 // Two-way link: find the student whose profile points to this project.
-const student = (await getCollection('team')).find((m) => m.data.project === project.id);
+const student = allTeam.find((m) => m.data.project === project.id);
 const initials = (name: string) =>
   name.split(/\s+/).map((p) => p[0]).slice(0, 2).join('').toUpperCase();
+
+// Program hub: a featured project that heads a research program.
+const isProgram = project.data.featured && !!project.data.program;
+let subProjects: CollectionEntry<'projects'>[] = [];
+let programMembers: CollectionEntry<'team'>[] = [];
+let programPublications: CollectionEntry<'publications'>[] = [];
+
+if (isProgram) {
+  const allProjects = await getCollection('projects');
+  subProjects = allProjects
+    .filter((p) => p.data.program === project.data.program && !p.data.featured)
+    .sort((a, b) => a.data.title[lang].localeCompare(b.data.title[lang]));
+
+  const subIds = new Set(subProjects.map((p) => p.id));
+  programMembers = allTeam
+    .filter((m) => m.data.project && subIds.has(m.data.project))
+    .sort((a, b) => a.data.order - b.data.order);
+
+  const names = programMembers.map((m) => m.data.name);
+  programPublications = (await getCollection('publications'))
+    .filter((p) => p.data.authors.some((a) => names.some((n) => authorMatchesMember(n, a))))
+    .sort((a, b) => b.data.year - a.data.year || a.data.title.localeCompare(b.data.title));
+}
 ---
 
 <Base
@@ -68,7 +97,34 @@ const initials = (name: string) =>
       )}
     </div>
 
-    {student && (
+    {isProgram && subProjects.length > 0 && (
+      <section>
+        <h2>{t('projects.programProjects')}</h2>
+        <div class="grid-3">
+          {subProjects.map((p) => <ProjectCard project={p} lang={lang} compact />)}
+        </div>
+      </section>
+    )}
+
+    {isProgram && programMembers.length > 0 && (
+      <section>
+        <h2>{t('projects.programTeam')}</h2>
+        <div class="grid-3">
+          {programMembers.map((m) => <MemberCard member={m} lang={lang} />)}
+        </div>
+      </section>
+    )}
+
+    {isProgram && programPublications.length > 0 && (
+      <section>
+        <h2>{t('projects.programPubs')} ({programPublications.length})</h2>
+        <ul class="pub-list">
+          {programPublications.map((pub) => <PublicationItem pub={pub} lang={lang} />)}
+        </ul>
+      </section>
+    )}
+
+    {!isProgram && student && (
       <a class="card person-card" href={`${href(lang, 'team')}/${student.id}`}>
         {student.data.photo ? (
           <span class="avatar avatar--photo">
