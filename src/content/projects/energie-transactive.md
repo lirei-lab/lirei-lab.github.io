@@ -37,13 +37,13 @@ program: flexibilite
 status: active
 partners:
   - { name: "CRSNG (programme Alliance)", url: "https://www.nserc-crsng.gc.ca/" }
-  - { name: "Mitacs", url: "https://www.mitacs.ca/" }
+  - { name: "Mitacs", url: "https://www.mitacs.ca/", logo: "/images/partners/mitacs.png" }
   - { name: "Hydro-Québec (LTE/IREQ)", url: "https://www.hydroquebec.com/recherche/" }
   - { name: "Polytechnique Montréal", url: "https://www.polymtl.ca/" }
-  - { name: "Hilo", url: "https://www.hilo.ca/" }
-  - { name: "Ecosystem", url: "https://ecosystem-energy.com/" }
-  - { name: "Stelpro", url: "https://www.stelpro.com/" }
-  - { name: "Elmec", url: "https://www.elmec.ca/" }
+  - { name: "Hilo", url: "https://www.hilo.ca/", logo: "/images/partners/hilo.svg" }
+  - { name: "Ecosystem", url: "https://ecosystem-energy.com/", logo: "/images/partners/ecosystem.svg" }
+  - { name: "Stelpro", url: "https://www.stelpro.com/", logo: "/images/partners/stelpro.png" }
+  - { name: "Elmec", url: "https://www.elmec.ca/", logo: "/images/partners/elmec.svg" }
 team: "Chercheur principal : Prof. Kodjo Agbossou · Cocandidats : Sousso Kelouwani, Roland P. Malhamé (Polytechnique Montréal) · Collaborateurs : Yves Dubé, Nilson Henao (UQTR), Michaël Fournier, Fatima Amara, Juan Oviedo (LTE — Hydro-Québec)"
 image: /images/projects/flexibilite-transactionnelle.svg
 imageAlt:

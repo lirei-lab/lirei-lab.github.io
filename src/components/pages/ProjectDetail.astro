@@ -105,23 +105,29 @@ if (isProgram) {
         </>
       )}
 
-      {partners.length > 0 && (
-        <>
-          <h2>{t('projects.partners')}</h2>
-          <ul class="partner-list">
-            {normalizePartners(partners).map((p) => (
-              <li>
+    </div>
+
+    {partners.length > 0 && (
+      <section>
+        <h2>{t('projects.partners')}</h2>
+        <ul class="partner-grid">
+          {normalizePartners(partners).map((p) => {
+            const Inner = p.logo
+              ? <img src={assetPath(p.logo)} alt={p.name} loading="lazy" />
+              : <span class="partner-name">{p.name}</span>;
+            return (
+              <li class="partner-tile" title={p.name}>
                 {p.url ? (
-                  <a href={p.url} target="_blank" rel="noopener">{p.name}</a>
+                  <a href={p.url} target="_blank" rel="noopener">{Inner}</a>
                 ) : (
-                  p.name
+                  Inner
                 )}
               </li>
-            ))}
-          </ul>
-        </>
-      )}
-    </div>
+            );
+          })}
+        </ul>
+      </section>
+    )}
 
     {volets && volets.length > 0 && (
       <section>

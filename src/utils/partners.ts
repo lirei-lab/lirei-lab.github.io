@@ -1,8 +1,9 @@
-export type Partner = string | { name: string; url?: string };
+export type Partner = string | { name: string; url?: string; logo?: string };
 
 export interface NormalizedPartner {
   name: string;
   url?: string;
+  logo?: string;
 }
 
 export function normalizePartners(partners: Partner[]): NormalizedPartner[] {

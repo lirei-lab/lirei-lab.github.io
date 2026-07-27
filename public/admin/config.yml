@@ -139,6 +139,7 @@ collections:
         fields:
           - { name: name, label: Nom, widget: string }
           - { name: url, label: 'Site web (optionnel)', widget: string, required: false }
+          - { name: logo, label: 'Logo (optionnel)', widget: image, required: false }
       - name: description
         label: Description détaillée
         widget: object
