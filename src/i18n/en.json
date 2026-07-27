@@ -78,7 +78,66 @@
     "env2": "LIREI's work attracts strong industrial interest in Quebec: our network of partners is the main source of project funding.",
     "ctaTitle": "Join the laboratory",
     "ctaText": "LIREI is always looking for motivated graduate students interested in intelligent energy management.",
-    "ctaBtn": "Contact us"
+    "ctaBtn": "Contact us",
+    "timelineTitle": "Our history",
+    "timelineLead": "Thirty years of research, reconstructed from the lab's publications, defended theses and major agreements.",
+    "timeline": [
+      {
+        "year": "1996",
+        "title": "The IRH is inaugurated",
+        "desc": "UQTR's Hydrogen Research Institute is publicly inaugurated."
+      },
+      {
+        "year": "1999",
+        "title": "LIREI is founded",
+        "desc": "The laboratory is created as a multidisciplinary team within the IRH, with the mission of proposing solutions to manage energy intelligently."
+      },
+      {
+        "year": "2000-2011",
+        "title": "Hydrogen and remote sites",
+        "desc": "Early work centres on standalone renewable systems coupled with hydrogen: electrolyzers, fuel cells and storage for remote sites. More than half the period's publications deal with hydrogen."
+      },
+      {
+        "year": "2012",
+        "title": "The lab's first doctorate",
+        "desc": "Alben Cardenas Gonzalez defends a thesis on integrating decentralized energy sources into the local grid. He is now a professor at UQTR."
+      },
+      {
+        "year": "2012-2017",
+        "title": "Transport electrification",
+        "desc": "Energy management for electric and fuel-cell vehicles joins the agenda, accounting for over a third of the period's publications."
+      },
+      {
+        "year": "2017",
+        "title": "An experimental apartment",
+        "desc": "The lab commissions an instrumented apartment — communicating thermostats and smart loads — to test, model and optimize residential energy under real conditions."
+      },
+      {
+        "year": "2018-2021",
+        "title": "The turn to residential buildings",
+        "desc": "Demand forecasting, thermal storage, non-intrusive load monitoring and occupant-behaviour modelling become the core of the work: residential rises to 41% of publications."
+      },
+      {
+        "year": "2019",
+        "title": "First Hydro-Québec Research Chair",
+        "desc": "Creation of the Hydro-Québec Research Chair on Transactive Management of Residential Power and Energy Demand, held by Professor Kodjo Agbossou."
+      },
+      {
+        "year": "2023",
+        "title": "Alliance program 2023-2028",
+        "desc": "Launch of the research program on transactive flexibility management with Hydro-Québec's LTE/IREQ and Polytechnique Montréal, backed by NSERC, Mitacs and four industrial partners."
+      },
+      {
+        "year": "2024",
+        "title": "A second Chair, broader in scope",
+        "desc": "The chair is renewed for five years ($3.28M) and becomes the Hydro-Québec Research Chair on Transactive Management of Electrical Energy. It adopts an open intellectual-property approach: results, including code, are released freely."
+      },
+      {
+        "year": "2022-2026",
+        "title": "Transactive energy and flexibility markets",
+        "desc": "Market mechanisms, multi-agent coordination and machine learning now dominate — 35% of recent publications address transactive energy and markets — extending to greenhouses and remote communities."
+      }
+    ]
   },
   "research": {
     "title": "Research",

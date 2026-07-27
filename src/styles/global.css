@@ -1309,6 +1309,89 @@ section:hover > h2::after,
   box-shadow: 0 10px 26px rgba(13, 43, 69, 0.12);
 }
 
+/* History timeline */
+.timeline-section {
+  margin-top: 3rem;
+}
+
+.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 1.75rem 0 0;
+  position: relative;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 5.75rem;
+  top: 0.6rem;
+  bottom: 0.6rem;
+  width: 2px;
+  background: linear-gradient(var(--green-400), var(--blue-100));
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: 1.75rem;
+  padding-bottom: 1.75rem;
+  position: relative;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 5.35rem;
+  top: 0.5rem;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--green-600);
+  border: 2px solid var(--bg);
+  z-index: 1;
+}
+
+.timeline-year {
+  text-align: right;
+  font-family: var(--serif);
+  font-weight: 700;
+  color: var(--blue-700);
+  font-size: 0.98rem;
+  line-height: 1.4;
+  padding-top: 0.05rem;
+}
+
+.timeline-body h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1.08rem;
+}
+
+.timeline-body p {
+  margin: 0;
+  font-size: 0.94rem;
+  max-width: 44rem;
+}
+
+@media (max-width: 620px) {
+  .timeline::before,
+  .timeline-item::before {
+    display: none;
+  }
+
+  .timeline-item {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+    padding-left: 0.9rem;
+    border-left: 3px solid var(--green-400);
+    margin-bottom: 1.25rem;
+  }
+
+  .timeline-year {
+    text-align: left;
+  }
+}
+
 /* Infrastructure photo cards */
 .infra-card {
   padding: 0;

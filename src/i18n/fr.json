@@ -78,7 +78,66 @@
     "env2": "Les travaux du LIREI suscitent un fort intérêt industriel au Québec : notre réseau de partenaires constitue la principale source de financement des projets.",
     "ctaTitle": "Se joindre au laboratoire",
     "ctaText": "Le LIREI est toujours à la recherche d'étudiantes et d'étudiants motivés, intéressés par la gestion intelligente de l'énergie.",
-    "ctaBtn": "Nous joindre"
+    "ctaBtn": "Nous joindre",
+    "timelineTitle": "Notre histoire",
+    "timelineLead": "Trente ans de recherche, reconstitués à partir des publications, des thèses soutenues et des grandes ententes du laboratoire.",
+    "timeline": [
+      {
+        "year": "1996",
+        "title": "Inauguration de l'IRH",
+        "desc": "L'Institut de recherche sur l'hydrogène de l'UQTR est inauguré publiquement."
+      },
+      {
+        "year": "1999",
+        "title": "Création du LIREI",
+        "desc": "Le laboratoire naît comme équipe multidisciplinaire au sein de l'IRH, avec la mission de proposer des solutions pour gérer l'énergie de façon intelligente."
+      },
+      {
+        "year": "2000-2011",
+        "title": "Hydrogène et sites isolés",
+        "desc": "Les premiers travaux portent sur les systèmes autonomes à énergies renouvelables couplés à l'hydrogène : électrolyseurs, piles à combustible et stockage pour sites éloignés. Plus de la moitié des publications de la période traitent d'hydrogène."
+      },
+      {
+        "year": "2012",
+        "title": "Premier doctorat du laboratoire",
+        "desc": "Alben Cardenas Gonzalez soutient une thèse sur l'intégration des sources d'énergie décentralisées au réseau local. Il est aujourd'hui professeur à l'UQTR."
+      },
+      {
+        "year": "2012-2017",
+        "title": "L'électrification des transports",
+        "desc": "La gestion énergétique des véhicules électriques et à pile à combustible s'ajoute aux travaux : elle représente plus du tiers des publications de la période."
+      },
+      {
+        "year": "2017",
+        "title": "Un appartement expérimental",
+        "desc": "Le laboratoire se dote d'un appartement instrumenté — thermostats communicants et charges intelligentes — pour tester, modéliser et optimiser l'énergie résidentielle en conditions réelles."
+      },
+      {
+        "year": "2018-2021",
+        "title": "Virage vers le bâtiment résidentiel",
+        "desc": "Prévision de la demande, stockage thermique, suivi non intrusif des charges et modélisation du comportement des occupants deviennent le cœur des travaux : le résidentiel passe à 41 % des publications."
+      },
+      {
+        "year": "2019",
+        "title": "Première Chaire de recherche Hydro-Québec",
+        "desc": "Création de la Chaire de recherche Hydro-Québec sur la gestion transactionnelle de la demande résidentielle en puissance et en énergie, dont le titulaire est le professeur Kodjo Agbossou."
+      },
+      {
+        "year": "2023",
+        "title": "Programme Alliance 2023-2028",
+        "desc": "Lancement du programme de recherche sur la gestion transactionnelle de la flexibilité, avec le LTE/IREQ d'Hydro-Québec et Polytechnique Montréal, soutenu par le CRSNG, Mitacs et quatre partenaires industriels."
+      },
+      {
+        "year": "2024",
+        "title": "Seconde Chaire, au périmètre élargi",
+        "desc": "La chaire est renouvelée pour cinq ans (3,28 M$) et devient la Chaire de recherche Hydro-Québec sur la gestion transactionnelle de l'énergie électrique. Elle adopte une approche de propriété intellectuelle ouverte : les résultats, y compris le code, sont diffusés librement."
+      },
+      {
+        "year": "2022-2026",
+        "title": "Énergie transactive et marchés de flexibilité",
+        "desc": "Mécanismes de marché, coordination multi-agents et apprentissage automatique dominent désormais les travaux — 35 % des publications récentes portent sur l'énergie transactive et les marchés — et s'étendent aux serres et aux communautés isolées."
+      }
+    ]
   },
   "research": {
     "title": "Recherche",

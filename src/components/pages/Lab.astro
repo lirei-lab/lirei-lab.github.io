@@ -25,6 +25,10 @@ const programs = programOrder
   }))
   .filter((p) => p.flagship);
 
+// The timeline lives in the dictionaries as a list of {year, title, desc}.
+const dict = (await import(`../../i18n/${lang}.json`)).default as any;
+const timeline = dict.lab.timeline as { year: string; title: string; desc: string }[];
+
 const infraKeys = ['residential', 'simulation', 'data', 'optimization'] as const;
 const infraPhoto = {
   residential: '/images/lab/lab2.jpg',
@@ -62,6 +66,22 @@ const infraPhoto = {
         <img src={assetPath('/images/lab/lab1.jpg')} alt={t('lab.featureAlt')} loading="lazy" />
       </figure>
     </div>
+
+    <section class="timeline-section">
+      <h2>{t('lab.timelineTitle')}</h2>
+      <p class="muted" style="max-width:46rem">{t('lab.timelineLead')}</p>
+      <ol class="timeline">
+        {timeline.map((item) => (
+          <li class="timeline-item">
+            <span class="timeline-year">{item.year}</span>
+            <div class="timeline-body">
+              <h3>{item.title}</h3>
+              <p class="muted">{item.desc}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </section>
   </div>
 
   <section class="band">
