@@ -1,0 +1,11 @@
+{
+  "name": "Universidad Industrial de Santander — GISEL",
+  "region": "latam",
+  "order": 1,
+  "url": "https://investigacion.uis.edu.co/en/research-groups/electrical-energy-systems-research-group-gisel/index.html",
+  "people": ["Prof. César Antonio Duarte Gualdrón", "Prof. Juan Manuel Rey", "Prof. Iván David Serna Suárez"],
+  "note": {
+    "fr": "Grupo de Investigación en Sistemas de Energía Eléctrica (GISEL), à l'école de génie électrique, électronique et télécommunications — marchés de l'électricité, qualité de l'onde, exploitation des réseaux et transition énergétique. Coauthorat soutenu et accueil réciproque d'étudiants.",
+    "en": "Grupo de Investigación en Sistemas de Energía Eléctrica (GISEL), in the school of electrical, electronic and telecommunications engineering — electricity markets, power quality, grid operation and the energy transition. Sustained co-authorship and reciprocal student exchange."
+  }
+}
