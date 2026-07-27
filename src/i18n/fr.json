@@ -136,7 +136,7 @@
   },
   "pubs": {
     "title": "Publications",
-    "lead": "Contributions scientifiques récentes des membres du LIREI.",
+    "lead": "L'ensemble des travaux scientifiques du laboratoire depuis 1992, dont le professeur Kodjo Agbossou est coauteur.",
     "filterType": "Type",
     "filterYear": "Année",
     "all": "Tous",
@@ -154,7 +154,7 @@
   },
   "projects": {
     "title": "Projets",
-    "lead": "Aperçu des projets de recherche menés au laboratoire avec nos partenaires.",
+    "lead": "Responsable scientifique",
     "filterAxis": "Filtrer par axe",
     "all": "Tous",
     "active": "En cours",
@@ -167,7 +167,6 @@
     "methodology": "Méthodologie",
     "student": "Étudiant·e",
     "period": "Période",
-    "lead": "Responsable scientifique",
     "funding": "Financement",
     "volets": "Volets du programme",
     "programProjects": "Projets du programme",

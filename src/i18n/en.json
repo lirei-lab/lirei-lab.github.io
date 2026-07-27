@@ -136,7 +136,7 @@
   },
   "pubs": {
     "title": "Publications",
-    "lead": "Recent scientific contributions by LIREI members.",
+    "lead": "The laboratory's complete scientific output since 1992, co-authored by Professor Kodjo Agbossou.",
     "filterType": "Type",
     "filterYear": "Year",
     "all": "All",
@@ -154,7 +154,7 @@
   },
   "projects": {
     "title": "Projects",
-    "lead": "Overview of the research projects carried out at the laboratory with our partners.",
+    "lead": "Scientific lead",
     "filterAxis": "Filter by area",
     "all": "All",
     "active": "Active",
@@ -167,7 +167,6 @@
     "methodology": "Methodology",
     "student": "Student",
     "period": "Period",
-    "lead": "Scientific lead",
     "funding": "Funding",
     "volets": "Program components",
     "programProjects": "Program projects",
