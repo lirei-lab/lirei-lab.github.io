@@ -1,0 +1,13 @@
+{
+  "name": "Université de Douala — ENSET",
+  "region": "afrique",
+  "order": 3,
+  "url": "https://univ-douala.cm/",
+  "note": {
+    "fr": "Département de génie électrique ; le professeur Sosso Mayi est docteur de l'UQTR.",
+    "en": "Electrical engineering department; Professor Sosso Mayi holds a PhD from UQTR."
+  },
+  "people": [
+    "Prof. Olivier Thierry Sosso Mayi"
+  ]
+}

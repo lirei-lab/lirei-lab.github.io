@@ -1,0 +1,10 @@
+{
+  "name": "Université de Sherbrooke",
+  "region": "canada",
+  "order": 6,
+  "url": "https://www.usherbrooke.ca/",
+  "note": {
+    "fr": "Coauthorat en génie électrique et informatique.",
+    "en": "Co-authorship in electrical and computer engineering."
+  }
+}

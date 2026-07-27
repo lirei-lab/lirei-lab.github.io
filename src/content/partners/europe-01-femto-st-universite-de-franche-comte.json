@@ -1,0 +1,13 @@
+{
+  "name": "FEMTO-ST — Université de Franche-Comté",
+  "region": "europe",
+  "order": 1,
+  "url": "https://www.femto-st.fr/",
+  "note": {
+    "fr": "Collaboration soutenue sur les piles à combustible : une dizaine de publications communes.",
+    "en": "Sustained collaboration on fuel cells: about ten joint publications."
+  },
+  "people": [
+    "Prof. Daniel Hissel"
+  ]
+}

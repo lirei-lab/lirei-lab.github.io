@@ -1,0 +1,13 @@
+{
+  "name": "Polytechnique Montréal",
+  "region": "canada",
+  "order": 1,
+  "url": "https://www.polymtl.ca/",
+  "note": {
+    "fr": "Cocandidat du programme de recherche 2023-2028 et codirection de thèses ; travaux communs en commande stochastique et jeux à champ moyen.",
+    "en": "Co-applicant on the 2023-2028 research program and thesis co-supervision; joint work on stochastic control and mean-field games."
+  },
+  "people": [
+    "Prof. Roland P. Malhamé"
+  ]
+}

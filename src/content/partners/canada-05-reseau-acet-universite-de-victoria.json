@@ -1,0 +1,10 @@
+{
+  "name": "Réseau ACET — Université de Victoria",
+  "region": "canada",
+  "order": 5,
+  "url": "https://www.uvic.ca/acet/index.php",
+  "note": {
+    "fr": "Accelerating Community Energy Transformation, avec Royal Roads, UBC et Yukon University : socle de notre programme sur les communautés isolées.",
+    "en": "Accelerating Community Energy Transformation, with Royal Roads, UBC and Yukon University: the backbone of our remote-communities program."
+  }
+}

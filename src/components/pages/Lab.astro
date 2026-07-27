@@ -29,6 +29,11 @@ const programs = programOrder
 const dict = (await import(`../../i18n/${lang}.json`)).default as any;
 const timeline = dict.lab.timeline as { year: string; title: string; desc: string }[];
 
+const regions = ['canada', 'europe', 'latam', 'afrique'] as const;
+const partners = (await getCollection('partners')).sort(
+  (a, b) => a.data.order - b.data.order || a.data.name.localeCompare(b.data.name)
+);
+
 const infraKeys = ['residential', 'simulation', 'data', 'optimization'] as const;
 const infraPhoto = {
   residential: '/images/lab/lab2.jpg',
@@ -118,6 +123,37 @@ const infraPhoto = {
         </div>
       ))}
     </div>
+
+    <section class="acad-section">
+      <h2>{t('lab.acadTitle')}</h2>
+      <p class="muted" style="max-width:46rem">{t('lab.acadLead')}</p>
+      {regions.map((region) => {
+        const list = partners.filter((p) => p.data.region === region);
+        if (!list.length) return null;
+        return (
+          <>
+            <h3 class="acad-region">{t(`lab.regions.${region}`)}</h3>
+            <div class="grid-2">
+              {list.map((p) => (
+                <div class="card acad-card">
+                  <h4>
+                    {p.data.url ? (
+                      <a href={p.data.url} target="_blank" rel="noopener">{p.data.name}</a>
+                    ) : (
+                      p.data.name
+                    )}
+                  </h4>
+                  {p.data.people && (
+                    <p class="acad-people">{p.data.people.join(' · ')}</p>
+                  )}
+                  <p class="muted">{p.data.note[lang]}</p>
+                </div>
+              ))}
+            </div>
+          </>
+        );
+      })}
+    </section>
 
     <h2>{t('lab.envTitle')}</h2>
     <div class="grid-2">

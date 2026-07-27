@@ -137,7 +137,15 @@
         "title": "Transactive energy and flexibility markets",
         "desc": "Market mechanisms, multi-agent coordination and machine learning now dominate — 35% of recent publications address transactive energy and markets — extending to greenhouses and remote communities."
       }
-    ]
+    ],
+    "acadTitle": "Academic partners",
+    "acadLead": "Our collaborations take the form of co-authorship, student co-supervision, joint projects and research networks.",
+    "regions": {
+      "canada": "Canada",
+      "europe": "Europe",
+      "latam": "Latin America",
+      "afrique": "Africa"
+    }
   },
   "research": {
     "title": "Research",

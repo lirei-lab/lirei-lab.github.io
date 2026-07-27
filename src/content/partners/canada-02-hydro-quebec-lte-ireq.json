@@ -1,0 +1,15 @@
+{
+  "name": "Hydro-Québec — LTE / IREQ",
+  "region": "canada",
+  "order": 2,
+  "url": "https://www.hydroquebec.com/recherche/",
+  "note": {
+    "fr": "Partenaire de la Chaire de recherche Hydro-Québec ; l'affiliation externe la plus fréquente dans nos publications.",
+    "en": "Partner of the Hydro-Québec Research Chair; the most frequent external affiliation in our publications."
+  },
+  "people": [
+    "Michaël Fournier",
+    "Fatima Amara",
+    "Juan C. Oviedo-Cepeda"
+  ]
+}

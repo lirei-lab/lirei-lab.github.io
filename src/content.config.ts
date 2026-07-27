@@ -93,4 +93,16 @@ const alumni = defineCollection({
   }),
 });
 
-export const collections = { team, publications, projects, news, alumni };
+const partners = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/partners' }),
+  schema: z.object({
+    name: z.string(),
+    region: z.enum(['canada', 'europe', 'latam', 'afrique']),
+    order: z.number().default(50),
+    url: z.string().url().optional(),
+    people: z.array(z.string()).optional(),
+    note: bilingual,
+  }),
+});
+
+export const collections = { team, publications, projects, news, alumni, partners };

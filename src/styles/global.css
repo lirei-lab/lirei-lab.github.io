@@ -1309,6 +1309,51 @@ section:hover > h2::after,
   box-shadow: 0 10px 26px rgba(13, 43, 69, 0.12);
 }
 
+/* Academic partners */
+.acad-section {
+  margin-top: 3rem;
+}
+
+.acad-region {
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--green-600);
+}
+
+.acad-region::after {
+  display: none;
+}
+
+.acad-card h4 {
+  margin: 0 0 0.3rem;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  color: var(--blue-900);
+}
+
+.acad-card h4 a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.acad-card h4 a:hover {
+  color: var(--green-600);
+}
+
+.acad-people {
+  margin: 0 0 0.4rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--blue-700);
+}
+
+.acad-card p.muted {
+  margin: 0;
+  font-size: 0.92rem;
+}
+
 /* History timeline */
 .timeline-section {
   margin-top: 3rem;

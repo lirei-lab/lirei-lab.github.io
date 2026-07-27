@@ -1,0 +1,10 @@
+{
+  "name": "Université Laval",
+  "region": "canada",
+  "order": 3,
+  "url": "https://cleecs.fsaa.ulaval.ca/",
+  "note": {
+    "fr": "Chaire de leadership en enseignement sur l'optimisation et la gestion de l'énergie et du climat des serres au Québec, au cœur de notre programme sur les serres.",
+    "en": "Teaching leadership chair on the optimization and management of greenhouse energy and climate in Quebec, central to our greenhouse program."
+  }
+}

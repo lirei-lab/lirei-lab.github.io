@@ -137,7 +137,15 @@
         "title": "Énergie transactive et marchés de flexibilité",
         "desc": "Mécanismes de marché, coordination multi-agents et apprentissage automatique dominent désormais les travaux — 35 % des publications récentes portent sur l'énergie transactive et les marchés — et s'étendent aux serres et aux communautés isolées."
       }
-    ]
+    ],
+    "acadTitle": "Partenaires académiques",
+    "acadLead": "Nos collaborations prennent la forme de coauthorat, de codirection d'étudiantes et d'étudiants, de projets conjoints et de réseaux de recherche.",
+    "regions": {
+      "canada": "Canada",
+      "europe": "Europe",
+      "latam": "Amérique latine",
+      "afrique": "Afrique"
+    }
   },
   "research": {
     "title": "Recherche",

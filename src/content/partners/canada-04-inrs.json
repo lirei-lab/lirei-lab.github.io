@@ -1,0 +1,10 @@
+{
+  "name": "INRS",
+  "region": "canada",
+  "order": 4,
+  "url": "https://inrs.ca/",
+  "note": {
+    "fr": "Unité mixte de recherche INRS-UQTR sur les matériaux et technologies pour la transition énergétique.",
+    "en": "INRS-UQTR joint research unit on materials and technologies for the energy transition."
+  }
+}
