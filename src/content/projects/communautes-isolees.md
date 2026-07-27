@@ -19,7 +19,7 @@ program: communautes
 status: active
 partners:
   - { name: "Accelerating Community Energy Transformation (ACET), Université de Victoria", url: "https://www.uvic.ca/acet/index.php", logo: "/images/partners/acet.png" }
-  - { name: "CRSNG", url: "https://www.nserc-crsng.gc.ca/" }
+  - { name: "CRSNG", url: "https://www.nserc-crsng.gc.ca/", logo: "/images/partners/crsng.svg" }
   - { name: "Institut de recherche sur l'hydrogène (IRH)" }
 team: "Prof. Kodjo Agbossou · Jersson Garcia"
 image: /images/projects/communautes-isolees.svg
