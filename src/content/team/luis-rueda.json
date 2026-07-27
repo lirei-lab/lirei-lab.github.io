@@ -13,5 +13,6 @@
     "fr": "Professeur associé au LIREI, où il a soutenu sa thèse de doctorat en génie électrique en 2021 : « Modélisation du comportement des occupants pour des applications de gestion de la demande d'électricité dans le secteur résidentiel ». Ses travaux portent sur la façon dont les habitudes et les préférences des occupants influencent la consommation, et sur leur intégration aux stratégies de gestion de la demande. Il compte 13 publications au catalogue du laboratoire, échelonnées de 2018 à 2025.",
     "en": "Associate professor at LIREI, where he defended his PhD in electrical engineering in 2021: “Modelling occupant behaviour for residential electricity demand management applications”. His work examines how occupants' habits and preferences shape consumption, and how to fold that into demand-side management strategies. He has 13 publications in the laboratory's catalog, spanning 2018 to 2025."
   },
-  "order": 14
+  "order": 14,
+  "photo": "/images/team/luis-rueda.png"
 }
