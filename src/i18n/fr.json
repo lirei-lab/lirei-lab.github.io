@@ -143,7 +143,14 @@
     "journal": "Revue",
     "conference": "Conférence",
     "other": "Autre",
-    "noResults": "Aucune publication ne correspond aux filtres."
+    "noResults": "Aucune publication ne correspond aux filtres.",
+    "statsTitle": "Les dix dernières années en chiffres",
+    "statsLead": "Période 2016-2025 (années complètes ; 2026 est en cours d'indexation).",
+    "statTotal": "publications sur dix ans",
+    "statPerYear": "publications par année en moyenne",
+    "statJournalShare": "parues dans des revues",
+    "chartAlt": "Nombre de publications par année, de 2016 à 2025 :",
+    "chartCaption": "Publications par année. Sommet à {peak} en {year}."
   },
   "news": {
     "title": "Actualités",

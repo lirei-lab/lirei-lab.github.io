@@ -143,7 +143,14 @@
     "journal": "Journal",
     "conference": "Conference",
     "other": "Other",
-    "noResults": "No publications match the selected filters."
+    "noResults": "No publications match the selected filters.",
+    "statsTitle": "The last ten years in figures",
+    "statsLead": "2016-2025 (complete years; 2026 is still being indexed).",
+    "statTotal": "publications over ten years",
+    "statPerYear": "publications per year on average",
+    "statJournalShare": "published in journals",
+    "chartAlt": "Number of publications per year, from 2016 to 2025:",
+    "chartCaption": "Publications per year. Peak of {peak} in {year}."
   },
   "news": {
     "title": "News",

@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import PublicationItem from '../PublicationItem.astro';
+import PubStats from '../PubStats.astro';
 import { useTranslations, type Lang } from '../../i18n';
 
 interface Props {
@@ -27,6 +28,8 @@ const types = ['journal', 'conference', 'other'] as const;
   </div>
 
   <div class="container">
+    <PubStats lang={lang} />
+
     <div class="filters">
       <label for="f-type">{t('pubs.filterType')}</label>
       <select id="f-type">

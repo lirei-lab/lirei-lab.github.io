@@ -1,0 +1,111 @@
+---
+import { getCollection } from 'astro:content';
+import { useTranslations, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+// Ten complete years: the current year is still being indexed and would read
+// as a collapse rather than as a partial count.
+const END = 2025;
+const START = END - 9;
+
+const pubs = await getCollection('publications');
+const window = pubs.filter((p) => p.data.year >= START && p.data.year <= END);
+const years = Array.from({ length: 10 }, (_, i) => START + i);
+const counts = years.map((y) => window.filter((p) => p.data.year === y).length);
+
+const total = window.length;
+const perYear = (total / 10).toFixed(1).replace('.', lang === 'fr' ? ',' : '.');
+const journals = window.filter((p) => p.data.type === 'journal').length;
+const journalShare = Math.round((journals / total) * 100);
+
+const peak = Math.max(...counts);
+const peakYear = years[counts.indexOf(peak)];
+
+// Chart geometry (viewBox units = px at 1×).
+const W = 720;
+const H = 260;
+const padL = 34;
+const padR = 8;
+const padT = 24;
+const padB = 34;
+const plotW = W - padL - padR;
+const plotH = H - padT - padB;
+const band = plotW / years.length;
+const barW = Math.min(24, band - 14); // cap thickness; leftover band is air
+const yMax = 25; // headroom above the peak, round gridlines
+const ticks = [0, 5, 10, 15, 20, 25];
+const yOf = (v: number) => padT + plotH - (v / yMax) * plotH;
+const xOf = (i: number) => padL + band * i + (band - barW) / 2;
+---
+
+<section class="pub-stats" aria-labelledby="pub-stats-title">
+  <h2 id="pub-stats-title">{t('pubs.statsTitle')}</h2>
+  <p class="muted pub-stats-lead">{t('pubs.statsLead')}</p>
+
+  <div class="kpi-row">
+    <div class="kpi">
+      <span class="kpi-value">{total}</span>
+      <span class="kpi-label">{t('pubs.statTotal')}</span>
+    </div>
+    <div class="kpi">
+      <span class="kpi-value">{perYear}</span>
+      <span class="kpi-label">{t('pubs.statPerYear')}</span>
+    </div>
+    <div class="kpi">
+      <span class="kpi-value">{journalShare} %</span>
+      <span class="kpi-label">{t('pubs.statJournalShare')}</span>
+    </div>
+  </div>
+
+  <figure class="chart-figure">
+    <div class="chart-scroll">
+    <svg
+      class="pub-chart"
+      viewBox={`0 0 ${W} ${H}`}
+      role="img"
+      aria-label={`${t('pubs.chartAlt')} ${years.map((y, i) => `${y}: ${counts[i]}`).join(', ')}.`}>
+      <!-- recessive gridlines + value axis -->
+      {ticks.map((v) => (
+        <g>
+          <line x1={padL} x2={W - padR} y1={yOf(v)} y2={yOf(v)} class="grid" />
+          <text x={padL - 8} y={yOf(v) + 4} class="axis-label" text-anchor="end">{v}</text>
+        </g>
+      ))}
+
+      {years.map((y, i) => {
+        const v = counts[i];
+        const h = (v / yMax) * plotH;
+        const isPeak = v === peak;
+        return (
+          <g>
+            <title>{`${y} : ${v}`}</title>
+            <rect
+              class:list={['bar', { 'bar--peak': isPeak }]}
+              x={xOf(i)}
+              y={yOf(v)}
+              width={barW}
+              height={h}
+              rx="4"
+            />
+            <!-- square off the rounded corners at the baseline -->
+            <rect class:list={['bar', { 'bar--peak': isPeak }]} x={xOf(i)} y={yOf(v) + h - 6} width={barW} height="6" />
+            {isPeak && (
+              <text x={xOf(i) + barW / 2} y={yOf(v) - 8} class="bar-label" text-anchor="middle">{v}</text>
+            )}
+            <text x={xOf(i) + barW / 2} y={H - 12} class="axis-label" text-anchor="middle">{y}</text>
+          </g>
+        );
+      })}
+    </svg>
+    </div>
+    <figcaption class="muted">
+      {t('pubs.chartCaption').replace('{peak}', String(peak)).replace('{year}', String(peakYear))}
+    </figcaption>
+  </figure>
+</section>

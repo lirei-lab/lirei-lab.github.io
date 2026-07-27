@@ -363,6 +363,105 @@ a:hover {
   max-width: 46rem;
 }
 
+/* Publication statistics */
+.pub-stats {
+  margin-block: 2.5rem 3rem;
+}
+
+.pub-stats-lead {
+  max-width: 46rem;
+  margin-top: -0.25rem;
+}
+
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-block: 1.5rem;
+}
+
+@media (max-width: 620px) {
+  .kpi-row { grid-template-columns: 1fr; }
+}
+
+.kpi {
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--green-400);
+  border-radius: 10px;
+  padding: 1.1rem 1.25rem;
+  background: var(--bg-alt);
+}
+
+.kpi-value {
+  display: block;
+  font-family: var(--serif);
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--blue-900);
+}
+
+.kpi-label {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.chart-figure {
+  margin: 1.5rem 0 0;
+}
+
+/* Below ~560px the chart would shrink until its labels are unreadable,
+   so it scrolls inside its own container instead. */
+.chart-scroll {
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+}
+
+.pub-chart {
+  width: 100%;
+  min-width: 560px;
+  height: auto;
+  overflow: visible;
+}
+
+.pub-chart .grid {
+  stroke: var(--line);
+  stroke-width: 1;
+}
+
+.pub-chart .axis-label {
+  fill: var(--muted);
+  font-size: 12px;
+  font-family: var(--sans);
+}
+
+.pub-chart .bar {
+  fill: var(--blue-700);
+  transition: fill 0.2s ease;
+}
+
+.pub-chart .bar--peak {
+  fill: var(--green-600);
+}
+
+.pub-chart g:hover .bar {
+  fill: var(--green-400);
+}
+
+.pub-chart .bar-label {
+  fill: var(--green-600);
+  font-size: 13px;
+  font-weight: 700;
+  font-family: var(--sans);
+}
+
+.chart-figure figcaption {
+  font-size: 0.88rem;
+  margin-top: 0.6rem;
+}
+
 /* Publications list */
 .pub-list {
   list-style: none;
