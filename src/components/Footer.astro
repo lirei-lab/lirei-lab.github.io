@@ -1,5 +1,5 @@
 ---
-import { useTranslations, href, type Lang } from '../i18n';
+import { useTranslations, href, assetPath, type Lang } from '../i18n';
 import LireiMark from './LireiMark.astro';
 
 interface Props {
@@ -19,8 +19,16 @@ const year = new Date().getFullYear();
           <LireiMark class="footer-mark" />
           <span class="footer-name">{t('site.name')}</span>
         </a>
-        <p>{t('site.fullname')}<br />{t('site.uqtr')}</p>
+        <p>{t('site.fullname')}</p>
         <p>{t('footer.affiliation')}</p>
+        <a
+          class="uqtr-link footer-uqtr"
+          href="https://www.uqtr.ca/"
+          target="_blank"
+          rel="noopener"
+          title={t('site.uqtr')}>
+          <img src={assetPath('/images/uqtr-logo.png')} alt={t('site.uqtr')} width="360" height="140" loading="lazy" />
+        </a>
       </div>
       <div>
         <h3>{t('footer.contactTitle')}</h3>

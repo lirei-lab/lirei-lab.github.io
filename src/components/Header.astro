@@ -1,5 +1,5 @@
 ---
-import { useTranslations, navOrder, href, otherLang, type Lang, type RouteKey } from '../i18n';
+import { useTranslations, navOrder, href, otherLang, assetPath, type Lang, type RouteKey } from '../i18n';
 import LireiMark from './LireiMark.astro';
 
 interface Props {
@@ -20,7 +20,17 @@ const other = otherLang(lang);
         <LireiMark class="brand-mark" />
         <span class="brand-name">{t('site.name')}</span>
       </a>
-      <span class="fullname">{t('site.fullname')} · {t('site.uqtr')}</span>
+      <span class="brand-text">
+        <span class="fullname">{t('site.fullname')}</span>
+        <a
+          class="uqtr-link"
+          href="https://www.uqtr.ca/"
+          target="_blank"
+          rel="noopener"
+          title={t('site.uqtr')}>
+          <img src={assetPath('/images/uqtr-logo.png')} alt={t('site.uqtr')} width="360" height="140" />
+        </a>
+      </span>
       <button
         class="nav-toggle"
         type="button"
