@@ -11,7 +11,15 @@ description:
 axis: flexibility
 program: flexibilite
 status: active
-partners: ["Hydro-Québec (LTE/IREQ)", "Polytechnique Montréal", "Hilo", "Ecosystem", "Stelpro", "Elmec", "CRSNG"]
+partners:
+  - { name: "CRSNG (programme Alliance)", url: "https://www.nserc-crsng.gc.ca/" }
+  - { name: "Mitacs", url: "https://www.mitacs.ca/" }
+  - { name: "Hydro-Québec (LTE/IREQ)", url: "https://www.hydroquebec.com/recherche/" }
+  - { name: "Polytechnique Montréal", url: "https://www.polymtl.ca/" }
+  - { name: "Hilo", url: "https://www.hilo.ca/" }
+  - { name: "Ecosystem", url: "https://ecosystem-energy.com/" }
+  - { name: "Stelpro", url: "https://www.stelpro.com/" }
+  - { name: "Elmec", url: "https://www.elmec.ca/" }
 team: "Chercheur principal : Prof. Kodjo Agbossou · Nilson Henao, avec Roland Malhamé, Sousso Kelouwani et Yves Dubé"
 image: /images/projects/flexibilite-transactionnelle.svg
 imageAlt:

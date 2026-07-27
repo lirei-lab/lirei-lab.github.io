@@ -4,6 +4,7 @@ import Base from '../../layouts/Base.astro';
 import AxisIcon from '../AxisIcon.astro';
 import ProjectCard from '../ProjectCard.astro';
 import { useTranslations, href, assetPath, type Lang } from '../../i18n';
+import { normalizePartners } from '../../utils/partners';
 
 interface Props {
   lang: Lang;
@@ -64,7 +65,7 @@ const groups = programOrder.map((program) => {
               <p>{flagship.data.summary[lang]}</p>
               {flagship.data.partners.length > 0 && (
                 <p class="muted" style="font-size:0.9rem">
-                  <strong>{t('projects.partners')} :</strong> {flagship.data.partners.join(', ')}
+                  <strong>{t('projects.partners')} :</strong> {normalizePartners(flagship.data.partners).map((p) => p.name).join(', ')}
                 </p>
               )}
               <p><a class="btn" href={`${href(lang, 'research')}/${flagship.id}`}>{t('projects.discover')} →</a></p>

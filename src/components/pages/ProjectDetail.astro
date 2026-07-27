@@ -7,6 +7,7 @@ import MemberCard from '../MemberCard.astro';
 import PublicationItem from '../PublicationItem.astro';
 import { useTranslations, href, otherLang, assetPath, type Lang } from '../../i18n';
 import { authorMatchesMember } from '../../utils/authors';
+import { normalizePartners } from '../../utils/partners';
 
 interface Props {
   project: CollectionEntry<'projects'>;
@@ -91,9 +92,20 @@ if (isProgram) {
       )}
 
       {partners.length > 0 && (
-        <p>
-          <strong>{t('projects.partners')} :</strong> {partners.join(', ')}
-        </p>
+        <>
+          <h2>{t('projects.partners')}</h2>
+          <ul class="partner-list">
+            {normalizePartners(partners).map((p) => (
+              <li>
+                {p.url ? (
+                  <a href={p.url} target="_blank" rel="noopener">{p.name}</a>
+                ) : (
+                  p.name
+                )}
+              </li>
+            ))}
+          </ul>
+        </>
       )}
     </div>
 

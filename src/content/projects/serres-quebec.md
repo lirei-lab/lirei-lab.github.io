@@ -11,7 +11,9 @@ description:
 axis: smartgrids
 program: serres
 status: active
-partners: []
+partners:
+  - { name: "Chaire de leadership en enseignement sur l'optimisation et la gestion de l'énergie et du climat des serres au Québec (Université Laval)", url: "https://cleecs.fsaa.ulaval.ca/" }
+  - { name: "Université Laval", url: "https://www.ulaval.ca/" }
 team: "Prof. Sousso Kelouwani et Prof. Kodjo Agbossou · Kossi Landry Adjanohun, Zahra Farahzadi"
 image: /images/projects/serres-quebec.svg
 imageAlt:

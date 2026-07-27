@@ -43,7 +43,10 @@ const projects = defineCollection({
     axis: z.enum(['smartgrids', 'residential', 'ml', 'hydrogen', 'flexibility', 'ev']),
     program: z.enum(['flexibilite', 'serres', 'communautes']).optional(),
     status: z.enum(['active', 'completed']),
-    partners: z.array(z.string()).default([]),
+    // A partner is either a plain name or a name with a link.
+    partners: z
+      .array(z.union([z.string(), z.object({ name: z.string(), url: z.string().url().optional() })]))
+      .default([]),
     team: z.string().optional(),
     image: z.string().optional(),
     imageAlt: bilingual.optional(),

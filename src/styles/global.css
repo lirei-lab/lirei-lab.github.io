@@ -848,6 +848,29 @@ section:hover > h2::after,
   max-width: 46rem;
 }
 
+.partner-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+}
+
+.partner-list li {
+  padding: 0.4rem 0 0.4rem 1.1rem;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+
+.partner-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.95rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green-400);
+}
+
 .featured-project h3 {
   margin-top: 0;
 }

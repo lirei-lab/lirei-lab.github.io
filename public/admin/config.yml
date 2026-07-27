@@ -135,7 +135,10 @@ collections:
         widget: list
         required: false
         default: []
-        field: { name: partner, label: Partenaire, widget: string }
+        summary: '{{fields.name}}'
+        fields:
+          - { name: name, label: Nom, widget: string }
+          - { name: url, label: 'Site web (optionnel)', widget: string, required: false }
       - name: description
         label: Description détaillée
         widget: object
