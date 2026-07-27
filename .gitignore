@@ -4,3 +4,6 @@ dist/
 
 # Documents internes (fiches de projet, demandes de subvention) — jamais publiés
 projets/
+
+# Notes de conception internes
+docs/superpowers/
