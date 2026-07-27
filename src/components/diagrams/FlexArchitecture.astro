@@ -21,6 +21,17 @@ const layers = [
   { y: 312, h: 78, label: d('layerClients') },
 ];
 
+// Band edges, so the arrows can start and end on the layers themselves.
+const bandTop = (i: number) => layers[i].y - 22;
+const bandBottom = (i: number) => layers[i].y - 22 + layers[i].h + 34;
+const band1Bottom = bandBottom(0);
+const band2Top = bandTop(1);
+const band2Bottom = bandBottom(1);
+const band3Top = bandTop(2);
+const gapUpper = (band1Bottom + band2Top) / 2 + 4;
+const upX = cx - 150;
+const downX = cx + 150;
+
 const top = [
   { x: 128, w: 232, label: d('market') },
   { x: 396, w: 232, label: d('dso') },
@@ -69,14 +80,15 @@ const clients = [
       </g>
     ))}
 
-    <!-- flows: offers rise on the left, prices descend on the right -->
-    <path class="flow up" d={`M ${cx - 150} 312 L ${cx - 150} 240`} marker-end="url(#arrow-up)" />
-    <path class="flow up" d={`M ${cx - 150} 168 L ${cx - 150} 100`} marker-end="url(#arrow-up)" />
-    <text class="flow-label up" x={cx - 142} y="150">{d('flowUp')}</text>
+    <!-- Flows connect one layer to the next, not individual blocks: each arrow
+         lives entirely in the gap between two bands and stops at their edges. -->
+    <path class="flow up" d={`M ${upX} ${band3Top} L ${upX} ${band2Bottom}`} marker-end="url(#arrow-up)" />
+    <path class="flow up" d={`M ${upX} ${band2Top} L ${upX} ${band1Bottom}`} marker-end="url(#arrow-up)" />
+    <text class="flow-label up" x={upX + 10} y={gapUpper}>{d('flowUp')}</text>
 
-    <path class="flow down" d={`M ${cx + 150} 100 L ${cx + 150} 168`} marker-end="url(#arrow-down)" />
-    <path class="flow down" d={`M ${cx + 150} 240 L ${cx + 150} 312`} marker-end="url(#arrow-down)" />
-    <text class="flow-label down" x={cx + 142} y="150" text-anchor="end">{d('flowDown')}</text>
+    <path class="flow down" d={`M ${downX} ${band1Bottom} L ${downX} ${band2Top}`} marker-end="url(#arrow-down)" />
+    <path class="flow down" d={`M ${downX} ${band2Bottom} L ${downX} ${band3Top}`} marker-end="url(#arrow-down)" />
+    <text class="flow-label down" x={downX - 10} y={gapUpper} text-anchor="end">{d('flowDown')}</text>
 
     <!-- top layer -->
     {top.map((n) => (
