@@ -147,6 +147,87 @@ a:hover {
   font-weight: 600;
 }
 
+/* Mobile navigation toggle */
+.nav-toggle {
+  display: none;
+  margin-left: auto;
+  background: transparent;
+  border: 1px solid var(--blue-700);
+  border-radius: 8px;
+  padding: 0.55rem 0.6rem;
+  cursor: pointer;
+  line-height: 0;
+}
+
+.nav-toggle-bars {
+  display: inline-block;
+  width: 22px;
+}
+
+.nav-toggle-bars span {
+  display: block;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+.nav-toggle-bars span + span {
+  margin-top: 5px;
+}
+
+.nav-toggle[aria-expanded='true'] .nav-toggle-bars span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded='true'] .nav-toggle-bars span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle[aria-expanded='true'] .nav-toggle-bars span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (max-width: 860px) {
+  .site-header .brand {
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 0.6rem;
+    padding-block: 0.7rem;
+  }
+
+  .site-header .fullname {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .site-nav {
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding-bottom: 0.6rem;
+  }
+
+  .site-nav.is-open {
+    display: flex;
+  }
+
+  .site-nav a {
+    padding: 0.75rem 0.7rem;
+    border-radius: 6px;
+  }
+
+  .site-nav .lang {
+    margin-left: 0;
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+}
+
 /* Hero */
 .hero {
   background: linear-gradient(135deg, var(--blue-900), var(--blue-700));
@@ -596,10 +677,11 @@ main > .container > h1:first-child {
   to { opacity: 1; transform: none; }
 }
 
-.hero h1 { animation: fade-up 0.7s ease both; }
-.hero .tagline { animation: fade-up 0.7s ease 0.15s both; }
-.hero .intro { animation: fade-up 0.7s ease 0.3s both; }
-.hero .container > p:last-child { animation: fade-up 0.7s ease 0.45s both; }
+/* The title is painted immediately; the rest follows in a quick, subtle stagger
+   so the hero never reads as an empty band on first paint. */
+.hero .tagline { animation: fade-up 0.4s ease both; }
+.hero .intro { animation: fade-up 0.4s ease 0.08s both; }
+.hero .container > p:last-child { animation: fade-up 0.4s ease 0.16s both; }
 
 .hero .energy-grid {
   position: absolute;
@@ -972,13 +1054,39 @@ section:hover > h2::after,
   padding-block: 2.5rem;
 }
 
+.hero-back {
+  margin: 0 0 0.75rem;
+  font-size: 0.92rem;
+}
+
+.hero-back a {
+  color: var(--green-400);
+  text-decoration: none;
+}
+
+.hero-back a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.hero--compact .tag {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.hero--compact .tag.blue {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--green-400);
+}
+
 .hero--compact h1 {
   margin-bottom: 0.5rem;
 }
 
 /* Interior heroes are static — the entrance animation is only for the home hero */
 .hero--compact h1,
-.hero--compact .intro {
+.hero--compact .intro,
+.hero--compact .tagline {
   animation: none;
 }
 

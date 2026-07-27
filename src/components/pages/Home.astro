@@ -131,6 +131,9 @@ const partners = [
           for (const entry of entries) {
             if (!entry.isIntersecting) continue;
             io.unobserve(entry.target);
+            // Figures already on screen at first paint keep their final value:
+            // counting up from zero would flash "0" before the user reads them.
+            if (!(entry.target as HTMLElement).dataset.countable) continue;
             const el = entry.target as HTMLElement;
             const end = parseInt(el.textContent ?? '', 10);
             if (!Number.isFinite(end) || end > 1000) continue; // skip the founding year
@@ -146,7 +149,12 @@ const partners = [
         },
         { threshold: 0.5 }
       );
-      nums.forEach((n) => io.observe(n));
+      nums.forEach((n) => {
+        if (n.getBoundingClientRect().top > window.innerHeight * 0.9) {
+          n.dataset.countable = 'true';
+        }
+        io.observe(n);
+      });
     }
   </script>
 </Base>

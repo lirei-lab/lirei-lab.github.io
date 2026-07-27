@@ -19,10 +19,14 @@ const partners = [
 ---
 
 <Base lang={lang} routeKey="contact" title={t('contact.title')} description={t('contact.lead')}>
-  <div class="container">
-    <h1>{t('contact.title')}</h1>
-    <p class="lead">{t('contact.lead')}</p>
+  <div class="hero hero--compact">
+    <div class="container">
+      <h1>{t('contact.title')}</h1>
+      <p class="intro">{t('contact.lead')}</p>
+    </div>
+  </div>
 
+  <div class="container">
     <div class="grid-2">
       <div class="card">
         <h2 style="margin-top:0">{t('contact.coordTitle')}</h2>

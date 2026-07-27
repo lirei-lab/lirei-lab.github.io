@@ -19,10 +19,14 @@ const groups = categories
 ---
 
 <Base lang={lang} routeKey="team" title={t('team.title')} description={t('team.lead')}>
-  <div class="container">
-    <h1>{t('team.title')}</h1>
-    <p class="lead">{t('team.lead')}</p>
+  <div class="hero hero--compact">
+    <div class="container">
+      <h1>{t('team.title')}</h1>
+      <p class="intro">{t('team.lead')}</p>
+    </div>
+  </div>
 
+  <div class="container">
     {groups.map(({ cat, members }) => (
       <section>
         <h2>{t(`team.groups.${cat}`)}</h2>

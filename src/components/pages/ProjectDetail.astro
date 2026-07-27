@@ -58,15 +58,19 @@ if (isProgram) {
   title={title[lang]}
   description={summary[lang]}
   switchHref={switchHref}>
-  <div class="container project-detail">
-    <p style="margin-top:2rem"><a href={href(lang, 'research')}>{t('projects.back')}</a></p>
-    <h1>{title[lang]}</h1>
-    <p>
-      <span class="tag">{t(`research.axes.${axis}.title`)}</span>
-      <span class="tag blue">{t(`projects.${status}`)}</span>
-    </p>
-    {team && <p class="muted project-team">{team}</p>}
+  <div class="hero hero--compact">
+    <div class="container">
+      <p class="hero-back"><a href={href(lang, 'research')}>{t('projects.back')}</a></p>
+      <h1>{title[lang]}</h1>
+      <p>
+        <span class="tag">{t(`research.axes.${axis}.title`)}</span>
+        <span class="tag blue">{t(`projects.${status}`)}</span>
+      </p>
+      {team && <p class="intro project-team">{team}</p>}
+    </div>
+  </div>
 
+  <div class="container project-detail">
     {(period || lead || funding) && (
       <dl class="fiche">
         {period && (

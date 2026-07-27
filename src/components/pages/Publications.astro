@@ -19,10 +19,14 @@ const types = ['journal', 'conference', 'other'] as const;
 ---
 
 <Base lang={lang} routeKey="publications" title={t('pubs.title')} description={t('pubs.lead')}>
-  <div class="container">
-    <h1>{t('pubs.title')}</h1>
-    <p class="lead">{t('pubs.lead')}</p>
+  <div class="hero hero--compact">
+    <div class="container">
+      <h1>{t('pubs.title')}</h1>
+      <p class="intro">{t('pubs.lead')}</p>
+    </div>
+  </div>
 
+  <div class="container">
     <div class="filters">
       <label for="f-type">{t('pubs.filterType')}</label>
       <select id="f-type">
