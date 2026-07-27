@@ -16,8 +16,8 @@ interface Props {
 
 const { project, lang } = Astro.props;
 const t = useTranslations(lang);
-const { title, summary, description, objective, methodology, axis, status, partners, team, image, imageAlt } =
-  project.data;
+const { title, summary, description, objective, methodology, period, lead, funding, volets,
+  axis, status, partners, team, image, imageAlt } = project.data;
 const switchHref = `${href(otherLang(lang), 'research')}/${project.id}`;
 const paragraphs = (description?.[lang] ?? summary[lang]).split(/\n\n+/);
 
@@ -67,6 +67,20 @@ if (isProgram) {
     </p>
     {team && <p class="muted project-team">{team}</p>}
 
+    {(period || lead || funding) && (
+      <dl class="fiche">
+        {period && (
+          <div><dt>{t('projects.period')}</dt><dd>{period}</dd></div>
+        )}
+        {lead && (
+          <div><dt>{t('projects.lead')}</dt><dd>{lead}</dd></div>
+        )}
+        {funding && (
+          <div><dt>{t('projects.funding')}</dt><dd>{funding[lang]}</dd></div>
+        )}
+      </dl>
+    )}
+
     {image && (
       <figure class="project-figure">
         <img src={assetPath(image)} alt={imageAlt?.[lang] ?? title[lang]} />
@@ -108,6 +122,20 @@ if (isProgram) {
         </>
       )}
     </div>
+
+    {volets && volets.length > 0 && (
+      <section>
+        <h2>{t('projects.volets')}</h2>
+        <ol class="volet-list">
+          {volets.map((v) => (
+            <li class="card volet">
+              <h3>{v.title[lang]}</h3>
+              <p class="muted">{v.desc[lang]}</p>
+            </li>
+          ))}
+        </ol>
+      </section>
+    )}
 
     {isProgram && subProjects.length > 0 && (
       <section>

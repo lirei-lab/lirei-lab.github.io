@@ -40,6 +40,11 @@ const projects = defineCollection({
     description: bilingual.optional(),
     objective: bilingual.optional(),
     methodology: bilingual.optional(),
+    // Program fiche (flagship programs)
+    period: z.string().optional(),
+    lead: z.string().optional(),
+    funding: bilingual.optional(),
+    volets: z.array(z.object({ title: bilingual, desc: bilingual })).optional(),
     axis: z.enum(['smartgrids', 'residential', 'ml', 'hydrogen', 'flexibility', 'ev']),
     program: z.enum(['flexibilite', 'serres', 'communautes']).optional(),
     status: z.enum(['active', 'completed']),

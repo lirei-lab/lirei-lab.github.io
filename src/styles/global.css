@@ -848,6 +848,72 @@ section:hover > h2::after,
   max-width: 46rem;
 }
 
+/* Program fiche */
+.fiche {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  padding: 1.15rem 1.35rem;
+  background: var(--bg-alt);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--green-400);
+  border-radius: 10px;
+}
+
+.fiche dt {
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.fiche dd {
+  margin: 0.25rem 0 0;
+  font-size: 0.95rem;
+}
+
+/* Program volets */
+.volet-list {
+  list-style: none;
+  counter-reset: volet;
+  padding: 0;
+  display: grid;
+  gap: 1.25rem;
+  margin-block: 1.5rem;
+}
+
+.volet {
+  counter-increment: volet;
+  position: relative;
+  padding-left: 3.75rem;
+}
+
+.volet::before {
+  content: counter(volet);
+  position: absolute;
+  left: 1.35rem;
+  top: 1.35rem;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 50%;
+  background: var(--green-600);
+  color: #fff;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  font-size: 0.95rem;
+}
+
+.volet h3 {
+  margin-top: 0;
+}
+
+.volet p {
+  margin-bottom: 0;
+}
+
 .partner-list {
   list-style: none;
   padding: 0;
