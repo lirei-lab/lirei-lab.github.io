@@ -10,5 +10,9 @@
     "en": "Residential load coordination"
   },
   "order": 31,
-  "photo": "/images/team/farshad-etedadi.png"
+  "photo": "/images/team/farshad-etedadi.png",
+  "bio": {
+    "fr": "Chercheur postdoctoral au LIREI. Il a soutenu sa thèse de doctorat en génie électrique à l'UQTR en 2023 : « Stratégie de gestion optimale de l'énergie et de la puissance pour un groupe de bâtiments résidentiels basé sur des multi-agents coopératifs ». Il compte 4 publications au catalogue du laboratoire.",
+    "en": "Postdoctoral researcher at LIREI. He defended his PhD in electrical engineering at UQTR in 2023: “Stratégie de gestion optimale de l'énergie et de la puissance pour un groupe de bâtiments résidentiels basé sur des multi-agents coopératifs”. He has 4 publications in the laboratory's catalog."
+  }
 }

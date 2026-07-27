@@ -13,7 +13,7 @@ interface Props {
 
 const { member, lang } = Astro.props;
 const t = useTranslations(lang);
-const { name, role, topic, affiliation, email, photo, project } = member.data;
+const { name, role, topic, affiliation, email, photo, project, bio } = member.data;
 const switchHref = `${href(otherLang(lang), 'team')}/${member.id}`;
 
 const publications = (await getCollection('publications'))
@@ -55,6 +55,7 @@ const initials = name.split(/\s+/).map((p) => p[0]).slice(0, 2).join('').toUpper
     <p style="margin-top:1.5rem"><a href={href(lang, 'team')}>{t('team.back')}</a></p>
 
     {topic && <p class="lead">{topic[lang]}</p>}
+    {bio && <p class="member-bio">{bio[lang]}</p>}
     {email && <p><a href={`mailto:${email}`}>{email}</a></p>}
 
     {projectEntry && (

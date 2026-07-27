@@ -13,5 +13,9 @@
   "email": "Nilson.Henao@uqtr.ca",
   "phone": "819 376-5011, poste 4457",
   "order": 20,
-  "photo": "/images/team/nilson-henao.png"
+  "photo": "/images/team/nilson-henao.png",
+  "bio": {
+    "fr": "Agent de recherche à l'Institut de recherche sur l'hydrogène et chercheur affilié à l'UQTR. Titulaire d'un doctorat en génie électrique de l'UQTR, ses travaux portent sur les réseaux intelligents, l'optimisation énergétique, l'intelligence artificielle appliquée aux systèmes énergétiques et l'analyse de données. Ses recherches couvrent la gestion des ressources énergétiques distribuées, les micro-réseaux, les systèmes photovoltaïques et le stockage par batteries.",
+    "en": "Research agent at the Hydrogen Research Institute and affiliated researcher at UQTR. He holds a PhD in electrical engineering from UQTR, and his work addresses smart grids, energy optimization, artificial intelligence applied to energy systems and energy data analysis. His research spans distributed energy resource management, microgrids, photovoltaic systems and battery storage."
+  }
 }

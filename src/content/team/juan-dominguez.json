@@ -10,5 +10,9 @@
     "en": "Multi-agent energy systems"
   },
   "order": 32,
-  "photo": "/images/team/juan-dominguez.png"
+  "photo": "/images/team/juan-dominguez.png",
+  "bio": {
+    "fr": "Chercheur postdoctoral au LIREI. Il a soutenu sa thèse de doctorat en génie électrique à l'UQTR en 2025 : « Modélisation des communautés énergétiques basée sur la cosimulation et méthodes pour leur gestion optimale distribuée avec énergie renouvelable et stockage thermique sous incertitude ». Il compte 10 publications au catalogue du laboratoire.",
+    "en": "Postdoctoral researcher at LIREI. He defended his PhD in electrical engineering at UQTR in 2025: “Modélisation des communautés énergétiques basée sur la cosimulation et méthodes pour leur gestion optimale distribuée avec énergie renouvelable et stockage thermique sous incertitude”. He has 10 publications in the laboratory's catalog."
+  }
 }

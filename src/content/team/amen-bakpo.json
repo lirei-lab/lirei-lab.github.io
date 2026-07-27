@@ -10,5 +10,9 @@
     "en": "Ontologies for transactive energy"
   },
   "order": 47,
-  "photo": "/images/team/amen-bakpo.png"
+  "photo": "/images/team/amen-bakpo.png",
+  "bio": {
+    "fr": "Étudiant·e aux cycles supérieurs au LIREI. Sujet de recherche : ontologies pour l'énergie transactive.",
+    "en": "Graduate student at LIREI. Research topic: ontologies for transactive energy."
+  }
 }

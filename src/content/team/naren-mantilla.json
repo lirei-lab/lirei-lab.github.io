@@ -11,5 +11,9 @@
   },
   "order": 43,
   "photo": "/images/team/naren-mantilla.png",
-  "project": "marches-flexibilite-regroupement"
+  "project": "marches-flexibilite-regroupement",
+  "bio": {
+    "fr": "Étudiant·e aux cycles supérieurs au LIREI. Sujet de recherche : regroupement (clustering) pour les marchés de flexibilité. Objectif du projet : développer un algorithme de regroupement adaptatif des fournisseurs de flexibilité, du point de vue de l'opérateur de marché, afin d'améliorer la fiabilité du marché, la faisabilité de sa compensation et l'adaptabilité du système. 2 publications au catalogue.",
+    "en": "Graduate student at LIREI. Research topic: clustering for flexibility markets. 2 publications in the catalog."
+  }
 }

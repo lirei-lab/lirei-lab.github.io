@@ -10,5 +10,9 @@
     "en": "Transactive energy markets"
   },
   "order": 30,
-  "photo": "/images/team/david-toquica.png"
+  "photo": "/images/team/david-toquica.png",
+  "bio": {
+    "fr": "Chercheur postdoctoral au LIREI. Il a soutenu sa thèse de doctorat en génie électrique à l'UQTR en 2022 : « Modélisation adaptative des systèmes énergétiques résidentiels dans un contexte de gestion transactionnelle de la demande ». Il compte 21 publications au catalogue du laboratoire.",
+    "en": "Postdoctoral researcher at LIREI. He defended his PhD in electrical engineering at UQTR in 2022: “Modélisation adaptative des systèmes énergétiques résidentiels dans un contexte de gestion transactionnelle de la demande”. He has 21 publications in the laboratory's catalog."
+  }
 }
