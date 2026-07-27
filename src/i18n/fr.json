@@ -301,6 +301,34 @@
       "flowUp": "Offres de flexibilité",
       "flowDown": "Prix et consignes",
       "alt": "Diagramme en trois niveaux : les clients résidentiels et leurs ressources flexibles offrent de la flexibilité aux agrégateurs, qui la regroupent et la présentent au marché local de flexibilité et au gestionnaire de réseau ; en retour, prix et consignes redescendent vers les clients."
+    },
+    "serres": {
+      "title": "Boucle de commande prédictive d'une serre",
+      "caption": "Les prévisions et le modèle de culture alimentent un contrôleur robuste aux incertitudes ; les mesures reviennent en boucle et servent aussi au diagnostic des anomalies.",
+      "inputs": "Prévisions météo et modèle de culture",
+      "controller": "Commande prédictive robuste aux incertitudes",
+      "actuators": "Chauffage · Ventilation · Éclairage",
+      "plant": "Serre : climat et croissance",
+      "anomaly": "Détection et diagnostic d'anomalies",
+      "feedback": "Mesures",
+      "alt": "Boucle fermée : les prévisions météo et le modèle de culture alimentent une commande prédictive robuste, qui pilote le chauffage, la ventilation et l'éclairage de la serre ; les mesures de climat et de croissance reviennent au contrôleur et alimentent la détection d'anomalies."
+    },
+    "comm": {
+      "title": "Gestion à deux niveaux d'un micro-réseau isolé",
+      "caption": "Une planification journalière fixe des limites de puissance sûres ; à l'intérieur de ces limites, des agents apprennent à coordonner les ressources en temps réel.",
+      "layerPlan": "Planification — horizon 24 h",
+      "layerReal": "Temps réel",
+      "layerRes": "Ressources du micro-réseau",
+      "doe": "Enveloppes opérationnelles dynamiques",
+      "stoch": "Optimisation stochastique",
+      "marl": "Apprentissage par renforcement multi-agents",
+      "wind": "Éolien",
+      "solar": "Solaire",
+      "storage": "Stockage hybride",
+      "loads": "Charges résidentielles",
+      "flowDown": "Limites de puissance",
+      "flowUp": "États et mesures",
+      "alt": "Architecture à deux niveaux : une planification par enveloppes opérationnelles dynamiques, calculées par optimisation stochastique sur un horizon de 24 heures, fixe des limites de puissance ; en dessous, des agents d'apprentissage par renforcement coordonnent en temps réel l'éolien, le solaire, le stockage hybride et les charges résidentielles, qui remontent leurs états."
     }
   }
 }

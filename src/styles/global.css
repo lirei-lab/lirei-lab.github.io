@@ -1144,6 +1144,32 @@ section:hover > h2::after,
   font-weight: 600;
 }
 
+.diagram .node-sub {
+  fill: var(--muted);
+  font-size: 11.5px;
+}
+
+.diagram .flow.branch {
+  stroke: var(--green-600);
+  stroke-dasharray: 4 4;
+  fill: none;
+  stroke-width: 2;
+}
+
+.diagram .node--input,
+.diagram .node--plant {
+  stroke: var(--blue-700);
+}
+
+.diagram .node--ctrl {
+  stroke: var(--green-600);
+  stroke-width: 2;
+}
+
+.diagram .node--act {
+  stroke: var(--line);
+}
+
 .diagram .node-label.small {
   font-size: 12px;
   fill: var(--ink);

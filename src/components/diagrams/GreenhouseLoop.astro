@@ -1,0 +1,82 @@
+---
+import { useTranslations, type Lang } from '../../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const d = (k: string) => t(`diagrams.serres.${k}`);
+
+// A closed control loop read top to bottom, with the measurement path
+// returning up the left-hand side.
+const W = 780;
+const H = 420;
+const nx = 232; // main column
+const nw = 336;
+
+const nodes = [
+  { y: 18, h: 58, label: d('inputs'), kind: 'input' },
+  { y: 116, h: 66, label: d('controller'), kind: 'ctrl' },
+  { y: 222, h: 58, label: d('actuators'), kind: 'act' },
+  { y: 320, h: 58, label: d('plant'), kind: 'plant' },
+];
+
+const lane = 168; // x of the feedback lane
+const anomaly = { x: 592, y: 222, w: 170, h: 58 };
+---
+
+<figure class="diagram-figure">
+  <svg class="diagram" viewBox={`0 0 ${W} ${H}`} role="img" aria-label={d('alt')}>
+    <title>{d('title')}</title>
+    <desc>{d('alt')}</desc>
+
+    <defs>
+      <marker id="gh-up" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+        <path d="M0 0L10 5L0 10z" class="mk-up" />
+      </marker>
+      <marker id="gh-down" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+        <path d="M0 0L10 5L0 10z" class="mk-down" />
+      </marker>
+    </defs>
+
+    <!-- forward path -->
+    {nodes.slice(0, -1).map((n, i) => (
+      <path
+        class="flow down"
+        d={`M ${nx + nw / 2} ${n.y + n.h} L ${nx + nw / 2} ${nodes[i + 1].y - 6}`}
+        marker-end="url(#gh-down)"
+      />
+    ))}
+
+    <!-- feedback: plant → controller, up the left lane -->
+    <path
+      class="flow up"
+      d={`M ${nx} ${nodes[3].y + nodes[3].h / 2} L ${lane} ${nodes[3].y + nodes[3].h / 2} L ${lane} ${nodes[1].y + nodes[1].h / 2} L ${nx - 6} ${nodes[1].y + nodes[1].h / 2}`}
+      marker-end="url(#gh-up)"
+    />
+    <text class="flow-label up" x={lane - 8} y={(nodes[1].y + nodes[3].y) / 2 + 34} text-anchor="end">{d('feedback')}</text>
+
+    <!-- measurement branch to anomaly diagnosis -->
+    <path
+      class="flow branch"
+      d={`M ${nx + nw} ${nodes[3].y + nodes[3].h / 2} L ${anomaly.x + anomaly.w / 2} ${nodes[3].y + nodes[3].h / 2} L ${anomaly.x + anomaly.w / 2} ${anomaly.y + anomaly.h + 6}`}
+      marker-end="url(#gh-up)"
+    />
+
+    {nodes.map((n) => (
+      <g>
+        <rect class:list={['node', `node--${n.kind}`]} x={nx} y={n.y} width={nw} height={n.h} rx="8" />
+        <text class="node-label" x={nx + nw / 2} y={n.y + n.h / 2 + 5} text-anchor="middle">{n.label}</text>
+      </g>
+    ))}
+
+    <g>
+      <rect class="node node--aggreg" x={anomaly.x} y={anomaly.y} width={anomaly.w} height={anomaly.h} rx="8" />
+      <text class="node-label small" x={anomaly.x + anomaly.w / 2} y={anomaly.y + anomaly.h / 2 - 2} text-anchor="middle">{d('anomaly').split(' ').slice(0, 2).join(' ')}</text>
+      <text class="node-label small" x={anomaly.x + anomaly.w / 2} y={anomaly.y + anomaly.h / 2 + 14} text-anchor="middle">{d('anomaly').split(' ').slice(2).join(' ')}</text>
+    </g>
+  </svg>
+  <figcaption class="muted">{d('caption')}</figcaption>
+</figure>

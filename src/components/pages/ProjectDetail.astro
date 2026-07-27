@@ -6,6 +6,8 @@ import ProjectCard from '../ProjectCard.astro';
 import MemberCard from '../MemberCard.astro';
 import PublicationItem from '../PublicationItem.astro';
 import FlexArchitecture from '../diagrams/FlexArchitecture.astro';
+import GreenhouseLoop from '../diagrams/GreenhouseLoop.astro';
+import MicrogridLevels from '../diagrams/MicrogridLevels.astro';
 import { useTranslations, href, otherLang, assetPath, type Lang } from '../../i18n';
 import { authorMatchesMember } from '../../utils/authors';
 import { normalizePartners } from '../../utils/partners';
@@ -26,6 +28,14 @@ const allTeam = await getCollection('team');
 
 // Two-way link: find the student whose profile points to this project.
 const student = allTeam.find((m) => m.data.project === project.id);
+
+// Flagship programs show an explanatory diagram instead of a stock illustration.
+const diagramMap: Record<string, string> = {
+  'energie-transactive': 'flex',
+  'serres-quebec': 'serres',
+  'communautes-isolees': 'comm',
+};
+const diagramFor = diagramMap[project.id];
 const initials = (name: string) =>
   name.split(/\s+/).map((p) => p[0]).slice(0, 2).join('').toUpperCase();
 
@@ -86,10 +96,12 @@ if (isProgram) {
       </dl>
     )}
 
-    {project.id === 'energie-transactive' ? (
-      <div class="diagram-scroll">
-        <FlexArchitecture lang={lang} />
-      </div>
+    {diagramFor === 'flex' ? (
+      <div class="diagram-scroll"><FlexArchitecture lang={lang} /></div>
+    ) : diagramFor === 'serres' ? (
+      <div class="diagram-scroll"><GreenhouseLoop lang={lang} /></div>
+    ) : diagramFor === 'comm' ? (
+      <div class="diagram-scroll"><MicrogridLevels lang={lang} /></div>
     ) : (
       image && (
         <figure class="project-figure">

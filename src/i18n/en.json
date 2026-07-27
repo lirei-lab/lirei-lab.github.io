@@ -301,6 +301,34 @@
       "flowUp": "Flexibility offers",
       "flowDown": "Prices and setpoints",
       "alt": "Three-level diagram: residential customers and their flexible resources offer flexibility to aggregators, which pool it and present it to the local flexibility market and the grid operator; prices and setpoints flow back down to the customers."
+    },
+    "serres": {
+      "title": "Predictive control loop of a greenhouse",
+      "caption": "Forecasts and the crop model feed a controller robust to uncertainty; measurements close the loop and also drive anomaly diagnosis.",
+      "inputs": "Weather forecasts and crop model",
+      "controller": "Predictive control robust to uncertainty",
+      "actuators": "Heating · Ventilation · Lighting",
+      "plant": "Greenhouse: climate and growth",
+      "anomaly": "Anomaly detection and diagnosis",
+      "feedback": "Measurements",
+      "alt": "Closed loop: weather forecasts and the crop model feed a robust predictive controller, which drives the greenhouse's heating, ventilation and lighting; climate and growth measurements return to the controller and feed anomaly detection."
+    },
+    "comm": {
+      "title": "Two-level management of an isolated microgrid",
+      "caption": "Day-ahead planning sets safe power limits; within those limits, agents learn to coordinate the resources in real time.",
+      "layerPlan": "Planning — 24 h horizon",
+      "layerReal": "Real time",
+      "layerRes": "Microgrid resources",
+      "doe": "Dynamic operational envelopes",
+      "stoch": "Stochastic optimization",
+      "marl": "Multi-agent reinforcement learning",
+      "wind": "Wind",
+      "solar": "Solar",
+      "storage": "Hybrid storage",
+      "loads": "Residential loads",
+      "flowDown": "Power limits",
+      "flowUp": "States and measurements",
+      "alt": "Two-level architecture: planning through dynamic operational envelopes, computed by stochastic optimization over a 24-hour horizon, sets power limits; below, reinforcement-learning agents coordinate wind, solar, hybrid storage and residential loads in real time, which report their states."
     }
   }
 }
