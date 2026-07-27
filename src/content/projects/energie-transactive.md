@@ -11,8 +11,8 @@ description:
 period: "2023-2028"
 lead: "Prof. Kodjo Agbossou (chercheur principal)"
 funding:
-  fr: "Programme Alliance du CRSNG et Mitacs, avec cinq partenaires industriels canadiens. Ce programme fait suite au projet CRSNG-RDC « Gestion transactionnelle de la demande résidentielle en puissance et en énergie »."
-  en: "NSERC Alliance program and Mitacs, with five Canadian industrial partners. The program follows the earlier NSERC-CRD project “Transactive management of residential power and energy demand”."
+  fr: "Programme Alliance du CRSNG et Mitacs, avec quatre partenaires industriels canadiens. Ce programme fait suite au projet CRSNG-RDC « Gestion transactionnelle de la demande résidentielle en puissance et en énergie »."
+  en: "NSERC Alliance program and Mitacs, with four Canadian industrial partners. The program follows the earlier NSERC-CRD project “Transactive management of residential power and energy demand”."
 volets:
   - title:
       fr: "Plateforme ouverte et participation des clients"
@@ -40,7 +40,6 @@ partners:
   - { name: "Mitacs", url: "https://www.mitacs.ca/", logo: "/images/partners/mitacs.png" }
   - { name: "Hydro-Québec (LTE/IREQ)", url: "https://www.hydroquebec.com/recherche/" }
   - { name: "Polytechnique Montréal", url: "https://www.polymtl.ca/" }
-  - { name: "Hilo", url: "https://www.hilo.ca/", logo: "/images/partners/hilo.svg" }
   - { name: "Ecosystem", url: "https://ecosystem-energy.com/", logo: "/images/partners/ecosystem.svg" }
   - { name: "Stelpro", url: "https://www.stelpro.com/", logo: "/images/partners/stelpro.png" }
   - { name: "Elmec", url: "https://www.elmec.ca/", logo: "/images/partners/elmec.svg" }
