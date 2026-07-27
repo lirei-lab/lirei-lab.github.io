@@ -5,6 +5,7 @@ import Base from '../../layouts/Base.astro';
 import ProjectCard from '../ProjectCard.astro';
 import MemberCard from '../MemberCard.astro';
 import PublicationItem from '../PublicationItem.astro';
+import FlexArchitecture from '../diagrams/FlexArchitecture.astro';
 import { useTranslations, href, otherLang, assetPath, type Lang } from '../../i18n';
 import { authorMatchesMember } from '../../utils/authors';
 import { normalizePartners } from '../../utils/partners';
@@ -85,11 +86,17 @@ if (isProgram) {
       </dl>
     )}
 
-    {image && (
-      <figure class="project-figure">
-        <img src={assetPath(image)} alt={imageAlt?.[lang] ?? title[lang]} />
-        {imageAlt && <figcaption class="muted">{imageAlt[lang]}</figcaption>}
-      </figure>
+    {project.id === 'energie-transactive' ? (
+      <div class="diagram-scroll">
+        <FlexArchitecture lang={lang} />
+      </div>
+    ) : (
+      image && (
+        <figure class="project-figure">
+          <img src={assetPath(image)} alt={imageAlt?.[lang] ?? title[lang]} />
+          {imageAlt && <figcaption class="muted">{imageAlt[lang]}</figcaption>}
+        </figure>
+      )
     )}
 
     <div class="project-body">

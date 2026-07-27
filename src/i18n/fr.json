@@ -281,5 +281,26 @@
     "pubsSingular": "publication au catalogue",
     "pubsPlural": "publications au catalogue",
     "note": "Cette liste est constituée à partir du dépôt institutionnel de l'UQTR et des annonces de soutenance. Elle est appelée à s'enrichir : écrivez-nous si un diplômé manque à l'appel."
+  },
+  "diagrams": {
+    "flex": {
+      "title": "Architecture de gestion transactionnelle",
+      "caption": "Les trois niveaux du programme : les clients offrent leur flexibilité, les agrégateurs la regroupent, le marché et le gestionnaire de réseau la valorisent sous contrainte physique.",
+      "layerMarket": "Marché et réseau",
+      "layerAggreg": "Agrégation hiérarchisée",
+      "layerClients": "Clients et ressources",
+      "market": "Marché local de flexibilité",
+      "dso": "Gestionnaire de réseau",
+      "aggregator": "Agrégateur",
+      "cluster": "Regroupement",
+      "coalition": "Coalition",
+      "heating": "Chauffage",
+      "waterHeater": "Chauffe-eau",
+      "ev": "Véhicule électrique",
+      "storage": "Stockage thermique",
+      "flowUp": "Offres de flexibilité",
+      "flowDown": "Prix et consignes",
+      "alt": "Diagramme en trois niveaux : les clients résidentiels et leurs ressources flexibles offrent de la flexibilité aux agrégateurs, qui la regroupent et la présentent au marché local de flexibilité et au gestionnaire de réseau ; en retour, prix et consignes redescendent vers les clients."
+    }
   }
 }

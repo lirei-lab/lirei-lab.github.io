@@ -281,5 +281,26 @@
     "pubsSingular": "publication in the catalog",
     "pubsPlural": "publications in the catalog",
     "note": "This list is built from UQTR's institutional repository and defence announcements. It is meant to grow — write to us if an alumnus is missing."
+  },
+  "diagrams": {
+    "flex": {
+      "title": "Transactive management architecture",
+      "caption": "The program's three levels: customers offer their flexibility, aggregators pool it, and the market and grid operator value it under physical constraints.",
+      "layerMarket": "Market and grid",
+      "layerAggreg": "Hierarchical aggregation",
+      "layerClients": "Customers and resources",
+      "market": "Local flexibility market",
+      "dso": "Distribution system operator",
+      "aggregator": "Aggregator",
+      "cluster": "Cluster",
+      "coalition": "Coalition",
+      "heating": "Space heating",
+      "waterHeater": "Water heater",
+      "ev": "Electric vehicle",
+      "storage": "Thermal storage",
+      "flowUp": "Flexibility offers",
+      "flowDown": "Prices and setpoints",
+      "alt": "Three-level diagram: residential customers and their flexible resources offer flexibility to aggregators, which pool it and present it to the local flexibility market and the grid operator; prices and setpoints flow back down to the customers."
+    }
   }
 }

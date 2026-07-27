@@ -1089,6 +1089,115 @@ section:hover > h2::after,
   font-size: 0.9rem;
 }
 
+/* Explanatory diagrams */
+.diagram-figure {
+  margin: 1.75rem 0 0;
+}
+
+.diagram {
+  width: 100%;
+  min-width: 560px;
+  height: auto;
+  font-family: var(--sans);
+}
+
+.diagram-scroll {
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+}
+
+.diagram .band {
+  fill: var(--bg-alt);
+  stroke: var(--line);
+  stroke-width: 1;
+}
+
+.diagram .band-label {
+  fill: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.diagram .node {
+  fill: #fff;
+  stroke: var(--line);
+  stroke-width: 1.5;
+}
+
+.diagram .node--market {
+  stroke: var(--blue-700);
+}
+
+.diagram .node--aggreg {
+  stroke: var(--green-600);
+}
+
+.diagram .node--client {
+  stroke: var(--line);
+}
+
+.diagram .node-label {
+  fill: var(--blue-900);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.diagram .node-label.small {
+  font-size: 12px;
+  fill: var(--ink);
+}
+
+.diagram .client-icon path {
+  fill: none;
+  stroke: var(--green-600);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.diagram .flow {
+  fill: none;
+  stroke-width: 2;
+}
+
+.diagram .flow.up {
+  stroke: var(--green-600);
+}
+
+.diagram .flow.down {
+  stroke: var(--blue-700);
+  stroke-dasharray: 6 5;
+}
+
+.diagram .mk-up {
+  fill: var(--green-600);
+}
+
+.diagram .mk-down {
+  fill: var(--blue-700);
+}
+
+.diagram .flow-label {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.diagram .flow-label.up {
+  fill: var(--green-600);
+}
+
+.diagram .flow-label.down {
+  fill: var(--blue-700);
+}
+
+.diagram-figure figcaption {
+  font-size: 0.9rem;
+  margin-top: 0.7rem;
+  max-width: 46rem;
+}
+
 /* Project images */
 .project-img {
   display: block;

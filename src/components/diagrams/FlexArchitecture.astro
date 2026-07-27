@@ -1,0 +1,109 @@
+---
+import { useTranslations, type Lang } from '../../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const d = (k: string) => t(`diagrams.flex.${k}`);
+
+// Geometry. Three stacked layers; the reader goes bottom-up (offers) and
+// top-down (prices), which is what the transactive loop actually does.
+const W = 780;
+const H = 430;
+const cx = W / 2;
+
+const layers = [
+  { y: 26, h: 62, label: d('layerMarket') },
+  { y: 168, h: 54, label: d('layerAggreg') },
+  { y: 312, h: 78, label: d('layerClients') },
+];
+
+const top = [
+  { x: 128, w: 232, label: d('market') },
+  { x: 396, w: 232, label: d('dso') },
+];
+
+const mid = [
+  { x: 150, w: 150, label: d('aggregator') },
+  { x: 316, w: 150, label: d('cluster') },
+  { x: 482, w: 150, label: d('coalition') },
+];
+
+// Client resources: icon path + label.
+// Cards are wide enough for the longest label in either language.
+const cw = 156;
+const clients = [
+  { x: 40, label: d('heating'), icon: 'M4 14L16 4l12 10 M8 13v12h16V13 M14 25v-7h4v7' },
+  { x: 220, label: d('waterHeater'), icon: 'M16 3c4 5 7 8.5 7 12a7 7 0 0 1-14 0c0-3.5 3-7 7-12z M13 16a3 3 0 1 0 .001 0' },
+  { x: 400, label: d('ev'), icon: 'M5 19h22l-3-6.5a3 3 0 0 0-2.7-1.7H10.7A3 3 0 0 0 8 12.5z M3 19h26v5H3z M9 26a2.5 2.5 0 1 0 .001 0 M23 26a2.5 2.5 0 1 0 .001 0' },
+  { x: 580, label: d('storage'), icon: 'M6 8h20v18H6z M11 12v10 M16 12v10 M21 12v10 M12 4h8v4h-8z' },
+];
+---
+
+<figure class="diagram-figure">
+  <svg
+    class="diagram"
+    viewBox={`0 0 ${W} ${H}`}
+    role="img"
+    aria-label={d('alt')}>
+    <title>{d('title')}</title>
+    <desc>{d('alt')}</desc>
+
+    <defs>
+      <marker id="arrow-up" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+        <path d="M0 0L10 5L0 10z" class="mk-up" />
+      </marker>
+      <marker id="arrow-down" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+        <path d="M0 0L10 5L0 10z" class="mk-down" />
+      </marker>
+    </defs>
+
+    <!-- layer bands -->
+    {layers.map((l) => (
+      <g>
+        <rect class="band" x="8" y={l.y - 22} width={W - 16} height={l.h + 34} rx="10" />
+        <text class="band-label" x="20" y={l.y - 6}>{l.label}</text>
+      </g>
+    ))}
+
+    <!-- flows: offers rise on the left, prices descend on the right -->
+    <path class="flow up" d={`M ${cx - 150} 312 L ${cx - 150} 240`} marker-end="url(#arrow-up)" />
+    <path class="flow up" d={`M ${cx - 150} 168 L ${cx - 150} 100`} marker-end="url(#arrow-up)" />
+    <text class="flow-label up" x={cx - 142} y="150">{d('flowUp')}</text>
+
+    <path class="flow down" d={`M ${cx + 150} 100 L ${cx + 150} 168`} marker-end="url(#arrow-down)" />
+    <path class="flow down" d={`M ${cx + 150} 240 L ${cx + 150} 312`} marker-end="url(#arrow-down)" />
+    <text class="flow-label down" x={cx + 142} y="150" text-anchor="end">{d('flowDown')}</text>
+
+    <!-- top layer -->
+    {top.map((n) => (
+      <g>
+        <rect class="node node--market" x={n.x} y={layers[0].y} width={n.w} height={layers[0].h} rx="8" />
+        <text class="node-label" x={n.x + n.w / 2} y={layers[0].y + layers[0].h / 2 + 5} text-anchor="middle">{n.label}</text>
+      </g>
+    ))}
+
+    <!-- middle layer -->
+    {mid.map((n) => (
+      <g>
+        <rect class="node node--aggreg" x={n.x} y={layers[1].y} width={n.w} height={layers[1].h} rx="8" />
+        <text class="node-label" x={n.x + n.w / 2} y={layers[1].y + layers[1].h / 2 + 5} text-anchor="middle">{n.label}</text>
+      </g>
+    ))}
+
+    <!-- client layer -->
+    {clients.map((c) => (
+      <g>
+        <rect class="node node--client" x={c.x} y={layers[2].y} width={cw} height={layers[2].h} rx="8" />
+        <g class="client-icon" transform={`translate(${c.x + cw / 2 - 16} ${layers[2].y + 12})`}>
+          <path d={c.icon} />
+        </g>
+        <text class="node-label small" x={c.x + cw / 2} y={layers[2].y + 66} text-anchor="middle">{c.label}</text>
+      </g>
+    ))}
+  </svg>
+  <figcaption class="muted">{d('caption')}</figcaption>
+</figure>
