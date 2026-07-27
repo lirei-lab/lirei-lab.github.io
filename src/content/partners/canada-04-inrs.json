@@ -1,10 +1,11 @@
 {
-  "name": "INRS",
+  "name": "INRS — Centre Énergie Matériaux Télécommunications",
   "region": "canada",
   "order": 4,
-  "url": "https://inrs.ca/",
+  "url": "https://inrs.ca/en/research/professors/francois-allard/",
+  "people": ["Prof. François Allard"],
   "note": {
-    "fr": "Unité mixte de recherche INRS-UQTR sur les matériaux et technologies pour la transition énergétique.",
-    "en": "INRS-UQTR joint research unit on materials and technologies for the energy transition."
+    "fr": "Unité mixte de recherche INRS-UQTR sur les matériaux et technologies pour la transition énergétique, dont le professeur Allard est codirecteur — son bureau se trouve à l'Institut de recherche sur l'hydrogène. Ses travaux portent sur les matériaux d'électrode pour batteries à l'état solide, l'électrométallurgie à faibles émissions et l'hydrogène vert.",
+    "en": "INRS-UQTR joint research unit on materials and technologies for the energy transition, which Professor Allard co-directs — his office is at the Hydrogen Research Institute. His work covers electrode materials for solid-state batteries, low-emission electrometallurgy and green hydrogen."
   }
 }
