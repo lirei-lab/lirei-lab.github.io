@@ -115,13 +115,16 @@ a:hover {
   font-size: 0.95rem;
 }
 
-.brand-text {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.45rem;
+/* The lab's full name sits beside the LIREI mark; UQTR is pushed to the
+   opposite end of the row, as a separate institutional signature. */
+.site-header .brand .fullname {
   padding-left: 0.9rem;
   border-left: 1px solid var(--blue-700);
+  max-width: 34rem;
+}
+
+.site-header .uqtr-link {
+  margin-left: auto;
 }
 
 /* The official UQTR logo carries dark text, so it sits on a light chip
@@ -236,7 +239,8 @@ a:hover {
     padding-block: 0.7rem;
   }
 
-  .site-header .brand-text {
+  .site-header .brand .fullname,
+  .site-header .brand .uqtr-link {
     display: none;
   }
 
