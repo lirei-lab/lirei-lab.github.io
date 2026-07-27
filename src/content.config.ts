@@ -81,4 +81,16 @@ const news = defineCollection({
   }),
 });
 
-export const collections = { team, publications, projects, news };
+const alumni = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/alumni' }),
+  schema: z.object({
+    name: z.string(),
+    degree: z.enum(['phd', 'msc']),
+    year: z.number(),
+    thesis: z.string().optional(),
+    url: z.string().url().optional(),
+    now: bilingual.optional(),
+  }),
+});
+
+export const collections = { team, publications, projects, news, alumni };

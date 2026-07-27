@@ -15,7 +15,8 @@
     "news": "News",
     "contact": "Contact",
     "menuLabel": "Main navigation",
-    "langLabel": "Version française"
+    "langLabel": "Version française",
+    "alumni": "Alumni"
   },
   "footer": {
     "affiliation": "Member of the Hydrogen Research Institute (IRH)",
@@ -200,5 +201,18 @@
     "recruitTitle": "Join LIREI",
     "recruitText": "LIREI is always looking for motivated graduate students (master's, PhD, postdoc) interested in intelligent energy management. Write to us to discuss research opportunities.",
     "recruitCta": "Write to us"
+  },
+  "alumni": {
+    "title": "Alumni",
+    "lead": "The researchers trained at LIREI: theses and dissertations defended at UQTR.",
+    "statTotal": "alumni listed",
+    "statPhd": "doctorates",
+    "statMsc": "master's",
+    "statSince": "since",
+    "phd": "PhD",
+    "msc": "Master's",
+    "pubsSingular": "publication in the catalog",
+    "pubsPlural": "publications in the catalog",
+    "note": "This list is built from UQTR's institutional repository and defence announcements. It is meant to grow — write to us if an alumnus is missing."
   }
 }

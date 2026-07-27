@@ -15,7 +15,8 @@
     "news": "Actualités",
     "contact": "Nous joindre",
     "menuLabel": "Navigation principale",
-    "langLabel": "English version"
+    "langLabel": "English version",
+    "alumni": "Diplômés"
   },
   "footer": {
     "affiliation": "Membre de l'Institut de recherche sur l'hydrogène (IRH)",
@@ -200,5 +201,18 @@
     "recruitTitle": "Se joindre au LIREI",
     "recruitText": "Le LIREI est toujours à la recherche d'étudiantes et d'étudiants motivés aux cycles supérieurs (maîtrise, doctorat, postdoctorat) intéressés par la gestion intelligente de l'énergie. Écrivez-nous pour discuter des possibilités de recherche.",
     "recruitCta": "Écrivez-nous"
+  },
+  "alumni": {
+    "title": "Diplômés",
+    "lead": "Les chercheuses et chercheurs formés au LIREI : thèses et mémoires soutenus à l'UQTR.",
+    "statTotal": "diplômés recensés",
+    "statPhd": "doctorats",
+    "statMsc": "maîtrises",
+    "statSince": "depuis",
+    "phd": "Doctorat",
+    "msc": "Maîtrise",
+    "pubsSingular": "publication au catalogue",
+    "pubsPlural": "publications au catalogue",
+    "note": "Cette liste est constituée à partir du dépôt institutionnel de l'UQTR et des annonces de soutenance. Elle est appelée à s'enrichir : écrivez-nous si un diplômé manque à l'appel."
   }
 }

@@ -24,6 +24,7 @@ export const routes = {
   team: { fr: 'equipe', en: 'team' },
   research: { fr: 'recherche', en: 'research' },
   publications: { fr: 'publications', en: 'publications' },
+  alumni: { fr: 'diplomes', en: 'alumni' },
   news: { fr: 'actualites', en: 'news' },
   contact: { fr: 'contact', en: 'contact' },
 } as const;
@@ -35,6 +36,7 @@ export const navOrder: RouteKey[] = [
   'team',
   'research',
   'publications',
+  'alumni',
   'news',
   'contact',
 ];

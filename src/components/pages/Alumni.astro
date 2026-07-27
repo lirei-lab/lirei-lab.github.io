@@ -1,0 +1,88 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { useTranslations, href, type Lang } from '../../i18n';
+import { authorMatchesMember } from '../../utils/authors';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const alumni = (await getCollection('alumni')).sort(
+  (a, b) => b.data.year - a.data.year || a.data.name.localeCompare(b.data.name)
+);
+const pubs = await getCollection('publications');
+
+// Group by year, most recent first.
+const years = [...new Set(alumni.map((a) => a.data.year))];
+const phd = alumni.filter((a) => a.data.degree === 'phd').length;
+const msc = alumni.length - phd;
+---
+
+<Base lang={lang} routeKey="alumni" title={t('alumni.title')} description={t('alumni.lead')}>
+  <div class="hero hero--compact">
+    <div class="container">
+      <h1>{t('alumni.title')}</h1>
+      <p class="intro">{t('alumni.lead')}</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="stats">
+      <div><span class="num">{alumni.length}</span><span class="label">{t('alumni.statTotal')}</span></div>
+      <div><span class="num">{phd}</span><span class="label">{t('alumni.statPhd')}</span></div>
+      <div><span class="num">{msc}</span><span class="label">{t('alumni.statMsc')}</span></div>
+      <div>
+        <span class="num">{years[years.length - 1]}</span>
+        <span class="label">{t('alumni.statSince')}</span>
+      </div>
+    </div>
+
+    {years.map((y) => (
+      <section>
+        <h2>{y}</h2>
+        <ul class="alumni-list">
+          {alumni
+            .filter((a) => a.data.year === y)
+            .map((a) => {
+              const count = pubs.filter((p) =>
+                p.data.authors.some((au) => authorMatchesMember(a.data.name, au))
+              ).length;
+              return (
+                <li class="alumni-item">
+                  <div class="alumni-head">
+                    <strong class="alumni-name">{a.data.name}</strong>
+                    <span class="tag">{t(`alumni.${a.data.degree}`)}</span>
+                  </div>
+                  {a.data.thesis && (
+                    <p class="alumni-thesis">
+                      {a.data.url ? (
+                        <a href={a.data.url} target="_blank" rel="noopener">{a.data.thesis}</a>
+                      ) : (
+                        a.data.thesis
+                      )}
+                    </p>
+                  )}
+                  <p class="alumni-meta muted">
+                    {a.data.now && <span>{a.data.now[lang]}</span>}
+                    {count > 0 && (
+                      <span>
+                        <a href={href(lang, 'publications')}>
+                          {count} {count > 1 ? t('alumni.pubsPlural') : t('alumni.pubsSingular')}
+                        </a>
+                      </span>
+                    )}
+                  </p>
+                </li>
+              );
+            })}
+        </ul>
+      </section>
+    ))}
+
+    <p class="muted alumni-note">{t('alumni.note')}</p>
+  </div>
+</Base>
