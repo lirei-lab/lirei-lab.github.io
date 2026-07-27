@@ -21,7 +21,7 @@ npm run preview    # prévisualise le contenu de dist/
 
 ### Automatique (GitHub Pages)
 
-Chaque `git push` sur `main` déclenche le workflow [.github/workflows/deploy.yml](.github/workflows/deploy.yml) qui construit et publie le site sur **https://lirei-lab.github.io/lireiweb/**.
+Chaque `git push` sur `main` déclenche le workflow [.github/workflows/deploy.yml](.github/workflows/deploy.yml) qui construit et publie le site sur **https://lirei-lab.github.io/**.
 
 ### Manuel (serveur de l'UQTR ou autre)
 
@@ -43,8 +43,8 @@ Deux façons de se connecter, **aucune ne nécessite de serveur OAuth** :
 
 À privilégier si vous éditez depuis un poste **différent** de celui où vit le dépôt (par ex. navigateur sur Windows, code sur un serveur Linux en SSH) : cette méthode parle directement à GitHub, sans fichiers locaux.
 
-1. Sur GitHub : **Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token**. Portée : dépôt `lirei-lab/lireiweb`, permission **Contents : Read and write**. Copier le jeton.
-2. Ouvrir `/admin/` — soit en production (**https://lirei-lab.github.io/lireiweb/admin/**, aucun `npm` requis), soit en local (`npm run dev` → `http://localhost:4321/admin/`).
+1. Sur GitHub : **Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token**. Portée : dépôt `lirei-lab/lirei-lab.github.io`, permission **Contents : Read and write**. Copier le jeton.
+2. Ouvrir `/admin/` — soit en production (**https://lirei-lab.github.io/admin/**, aucun `npm` requis), soit en local (`npm run dev` → `http://localhost:4321/admin/`).
 3. Cliquer sur **« Sign In Using Access Token »** et coller le jeton.
 4. Éditer avec les formulaires : chaque sauvegarde crée un commit sur GitHub, ce qui redéploie le site automatiquement.
 

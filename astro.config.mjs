@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://www.uqtr.ca',
+  site: 'https://lirei-lab.github.io',
   base: process.env.BASE_PATH ?? '/',
   i18n: {
     defaultLocale: 'fr',
