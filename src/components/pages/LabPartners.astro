@@ -1,0 +1,113 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { useTranslations, href, assetPath, type Lang } from '../../i18n';
+import { normalizePartners, type NormalizedPartner } from '../../utils/partners';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const regions = ['canada', 'europe', 'latam', 'afrique'] as const;
+const academic = (await getCollection('partners')).sort(
+  (a, b) => a.data.order - b.data.order || a.data.name.localeCompare(b.data.name)
+);
+
+// Funding bodies and industrial partners are declared per project; collect them
+// once here. The same organisation is named differently across projects
+// ("CRSNG" / "CRSNG (programme Alliance)"), so fold entries together on the
+// name stripped of its parenthetical qualifier — matching on any shared
+// substring would wrongly merge a chair into its host university.
+const declared = (await getCollection('projects')).flatMap((p) =>
+  normalizePartners(p.data.partners)
+);
+
+const baseName = (name: string) => name.replace(/\s*\([^)]*\)/g, '').trim();
+
+const merged: NormalizedPartner[] = [];
+for (const p of declared) {
+  if (p.name === 'UQTR') continue; // that is us
+  const twin = merged.find((m) => baseName(m.name) === baseName(p.name));
+  if (!twin) {
+    merged.push({ ...p });
+    continue;
+  }
+  twin.logo ??= p.logo;
+  twin.url ??= p.url;
+  twin.name = baseName(twin.name);
+}
+const supporters = merged.sort(
+  (a, b) => Number(!!b.logo) - Number(!!a.logo) || a.name.localeCompare(b.name)
+);
+---
+
+<Base lang={lang} routeKey="labPartners" title={t('lab.acadTitle')} description={t('lab.acadLead')}>
+  <div class="hero hero--compact">
+    <div class="container">
+      <p class="hero-back"><a href={href(lang, 'lab')}>← {t('nav.lab')}</a></p>
+      <h1>{t('lab.acadTitle')}</h1>
+      <p class="intro">{t('lab.acadLead')}</p>
+    </div>
+  </div>
+
+  <div class="container">
+    {supporters.length > 0 && (
+      <section class="acad-section">
+        <h2>{t('lab.supportersTitle')}</h2>
+        <p class="muted" style="max-width:46rem">{t('lab.supportersLead')}</p>
+        <ul class="partner-grid">
+          {supporters.map((p) => {
+            const inner = p.logo
+              ? <img src={assetPath(p.logo)} alt={p.name} loading="lazy" />
+              : <span class="partner-name">{p.name}</span>;
+            return (
+              <li class="partner-tile" title={p.name}>
+                {p.url ? <a href={p.url} target="_blank" rel="noopener">{inner}</a> : inner}
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+    )}
+
+    <section class="acad-section">
+      <h2>{t('lab.academicTitle')}</h2>
+      <p class="muted" style="max-width:46rem">{t('lab.academicLead')}</p>
+      {regions.map((region) => {
+        const list = academic.filter((p) => p.data.region === region);
+        if (!list.length) return null;
+        return (
+          <>
+            <h3 class="acad-region">{t(`lab.regions.${region}`)}</h3>
+            <div class="grid-2">
+              {list.map((p) => (
+                <div class="card acad-card">
+                  <h4>
+                    {p.data.url ? (
+                      <a href={p.data.url} target="_blank" rel="noopener">{p.data.name}</a>
+                    ) : (
+                      p.data.name
+                    )}
+                  </h4>
+                  {p.data.people && <p class="acad-people">{p.data.people.join(' · ')}</p>}
+                  <p class="muted">{p.data.note[lang]}</p>
+                </div>
+              ))}
+            </div>
+          </>
+        );
+      })}
+    </section>
+  </div>
+
+  <section class="band cta-band">
+    <div class="container">
+      <h2 style="margin-top:0">{t('lab.ctaTitle')}</h2>
+      <p style="max-width:44rem">{t('lab.ctaText')}</p>
+      <p><a class="btn" href={href(lang, 'contact')}>{t('lab.ctaBtn')} →</a></p>
+    </div>
+  </section>
+</Base>

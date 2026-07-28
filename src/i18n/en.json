@@ -16,7 +16,11 @@
     "contact": "Contact",
     "menuLabel": "Main navigation",
     "langLabel": "Version française",
-    "alumni": "Alumni"
+    "alumni": "Alumni",
+    "overview": "Overview",
+    "members": "Members",
+    "labInfra": "Infrastructure",
+    "labPartners": "Partners"
   },
   "footer": {
     "affiliation": "Member of the Hydrogen Research Institute (IRH)",
@@ -53,8 +57,8 @@
     "programsTitle": "Our research programs",
     "programsLead": "Our activities are organized around three major programs that structure the laboratory's doctoral projects and collaborations.",
     "featureAlt": "The LIREI team in its facilities at the Hydrogen Research Institute",
-    "infraTitle": "Infrastructure and expertise",
-    "infraLead": "LIREI provides its members with state-of-the-art facilities and unique methodological know-how.",
+    "infraTitle": "Research infrastructure and facilities",
+    "infraLead": "LIREI combines experimental facilities, simulation platforms and real-world datasets to validate its work all the way from model to field.",
     "infra": {
       "residential": {
         "title": "Residential test benches",
@@ -138,14 +142,36 @@
         "desc": "Market mechanisms, multi-agent coordination and machine learning now dominate — 35% of recent publications address transactive energy and markets — extending to greenhouses and remote communities."
       }
     ],
-    "acadTitle": "Academic partners",
+    "acadTitle": "Partners",
     "acadLead": "Our collaborations take the form of co-authorship, student co-supervision, joint projects and research networks.",
     "regions": {
       "canada": "Canada",
       "europe": "Europe",
       "latam": "Latin America",
       "afrique": "Africa"
-    }
+    },
+    "infraGroups": {
+      "experimental": {
+        "title": "Experimental facilities",
+        "desc": "Test benches and instrumentation that confront management strategies with real operating conditions."
+      },
+      "numeric": {
+        "title": "Computational facilities",
+        "desc": "Simulation and computing platforms for testing mechanisms at scale before deployment."
+      },
+      "data": {
+        "title": "Data",
+        "desc": "Field measurement sets that feed modelling, forecasting and machine learning."
+      }
+    },
+    "moreTitle": "Continue",
+    "moreInfra": "The test benches, simulation platforms and datasets our work relies on.",
+    "morePartners": "The universities, research centres and industrial partners we work with.",
+    "moreLink": "View",
+    "supportersTitle": "Funding bodies and industrial partners",
+    "supportersLead": "Granting agencies and companies that fund our projects or take part in them directly.",
+    "academicTitle": "Academic partners",
+    "academicLead": "Universities and research centres with whom we publish, co-supervise students or run joint projects."
   },
   "research": {
     "title": "Research",

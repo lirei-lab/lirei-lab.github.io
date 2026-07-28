@@ -16,7 +16,11 @@
     "contact": "Nous joindre",
     "menuLabel": "Navigation principale",
     "langLabel": "English version",
-    "alumni": "Diplômés"
+    "alumni": "Diplômés",
+    "overview": "Présentation",
+    "members": "Membres",
+    "labInfra": "Infrastructures",
+    "labPartners": "Partenaires"
   },
   "footer": {
     "affiliation": "Membre de l'Institut de recherche sur l'hydrogène (IRH)",
@@ -53,8 +57,8 @@
     "programsTitle": "Nos programmes de recherche",
     "programsLead": "Nos activités s'organisent autour de trois grands programmes qui structurent les projets doctoraux et les collaborations du laboratoire.",
     "featureAlt": "L'équipe du LIREI dans ses installations à l'Institut de recherche sur l'hydrogène",
-    "infraTitle": "Infrastructures et expertise",
-    "infraLead": "Le LIREI met à la disposition de ses membres des installations à la fine pointe de la technologie et un savoir-faire méthodologique unique.",
+    "infraTitle": "Infrastructures et moyens de recherche",
+    "infraLead": "Le LIREI combine des moyens expérimentaux, des plateformes de simulation et des jeux de données réelles pour valider ses travaux depuis le modèle jusqu’au terrain.",
     "infra": {
       "residential": {
         "title": "Bancs d'essai résidentiels",
@@ -138,14 +142,36 @@
         "desc": "Mécanismes de marché, coordination multi-agents et apprentissage automatique dominent désormais les travaux — 35 % des publications récentes portent sur l'énergie transactive et les marchés — et s'étendent aux serres et aux communautés isolées."
       }
     ],
-    "acadTitle": "Partenaires académiques",
-    "acadLead": "Nos collaborations prennent la forme de coauthorat, de codirection d'étudiantes et d'étudiants, de projets conjoints et de réseaux de recherche.",
+    "acadTitle": "Partenaires",
+    "acadLead": "Nos collaborations prennent la forme de coauthorat, de codirection d’étudiantes et d’étudiants, de projets conjoints et de réseaux de recherche.",
     "regions": {
       "canada": "Canada",
       "europe": "Europe",
       "latam": "Amérique latine",
       "afrique": "Afrique"
-    }
+    },
+    "infraGroups": {
+      "experimental": {
+        "title": "Moyens expérimentaux",
+        "desc": "Bancs d’essai et instrumentation permettant de confronter les stratégies de gestion aux conditions réelles."
+      },
+      "numeric": {
+        "title": "Moyens numériques",
+        "desc": "Plateformes de simulation et de calcul pour éprouver les mécanismes à grande échelle avant leur déploiement."
+      },
+      "data": {
+        "title": "Données",
+        "desc": "Jeux de mesures issus du terrain, qui alimentent la modélisation, la prévision et l’apprentissage."
+      }
+    },
+    "moreTitle": "Poursuivre la visite",
+    "moreInfra": "Les bancs d’essai, les plateformes de simulation et les jeux de données sur lesquels s’appuient nos travaux.",
+    "morePartners": "Les universités, les centres de recherche et les partenaires industriels avec qui nous travaillons.",
+    "moreLink": "Consulter",
+    "supportersTitle": "Bailleurs de fonds et partenaires industriels",
+    "supportersLead": "Organismes subventionnaires et entreprises qui financent nos projets ou y participent directement.",
+    "academicTitle": "Partenaires académiques",
+    "academicLead": "Universités et centres de recherche avec qui nous publions, codirigeons des étudiantes et étudiants ou menons des projets conjoints."
   },
   "research": {
     "title": "Recherche",

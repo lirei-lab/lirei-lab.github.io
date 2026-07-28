@@ -1,5 +1,5 @@
 ---
-import { useTranslations, navOrder, href, otherLang, assetPath, type Lang, type RouteKey } from '../i18n';
+import { useTranslations, navTree, sectionOf, href, otherLang, assetPath, type Lang, type RouteKey } from '../i18n';
 import LireiMark from './LireiMark.astro';
 
 interface Props {
@@ -11,6 +11,12 @@ interface Props {
 const { lang, routeKey, switchHref } = Astro.props;
 const t = useTranslations(lang);
 const other = otherLang(lang);
+const section = sectionOf(routeKey);
+
+// Inside a submenu a hub is named for its content, not for the section.
+const subLabel: Partial<Record<RouteKey, string>> = { lab: 'overview', team: 'members' };
+const label = (key: RouteKey, inSub = false) =>
+  t(`nav.${inSub ? (subLabel[key] ?? key) : key}`);
 ---
 
 <header class="site-header">
@@ -39,10 +45,31 @@ const other = otherLang(lang);
       </button>
     </div>
     <nav class="site-nav" id="site-nav" aria-label={t('nav.menuLabel')}>
-      {navOrder.map((key) => (
-        <a href={href(lang, key)} aria-current={key === routeKey ? 'page' : undefined}>
-          {t(`nav.${key}`)}
-        </a>
+      {navTree.map((item) => (
+        item.children ? (
+          <div class:list={['nav-group', { 'is-section': item.key === section }]}>
+            <a
+              class="nav-group-link"
+              href={href(lang, item.key)}
+              aria-current={item.key === routeKey ? 'page' : undefined}>
+              {label(item.key)}
+              <svg class="nav-caret" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" /></svg>
+            </a>
+            <ul class="nav-sub">
+              {item.children.map((child) => (
+                <li class:list={{ 'is-self': child === item.key }}>
+                  <a href={href(lang, child)} aria-current={child === routeKey ? 'page' : undefined}>
+                    {label(child, true)}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : (
+          <a href={href(lang, item.key)} aria-current={item.key === routeKey ? 'page' : undefined}>
+            {label(item.key)}
+          </a>
+        )
       ))}
       <a class="lang" href={switchHref ?? href(other, routeKey)} lang={other} aria-label={t('nav.langLabel')}>
         {other.toUpperCase()}

@@ -1,0 +1,74 @@
+---
+import Base from '../../layouts/Base.astro';
+import { useTranslations, href, assetPath, type Lang } from '../../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+// Grouped so that physical facilities, computing platforms and data are not
+// read as one undifferentiated list.
+const groups = [
+  { key: 'experimental', items: ['residential'] },
+  { key: 'numeric', items: ['simulation', 'optimization'] },
+  { key: 'data', items: ['data'] },
+] as const;
+
+const photo: Record<string, string> = {
+  residential: '/images/lab/lab2.jpg',
+  simulation: '/images/lab/lab5.jpg',
+  data: '/images/lab/lab6.jpg',
+  optimization: '/images/lab/lab3.jpg',
+};
+---
+
+<Base lang={lang} routeKey="labInfra" title={t('lab.infraTitle')} description={t('lab.infraLead')}>
+  <div class="hero hero--compact">
+    <div class="container">
+      <p class="hero-back"><a href={href(lang, 'lab')}>← {t('nav.lab')}</a></p>
+      <h1>{t('lab.infraTitle')}</h1>
+      <p class="intro">{t('lab.infraLead')}</p>
+    </div>
+  </div>
+
+  <div class="container">
+    {groups.map((g) => (
+      <section class="infra-group">
+        <h2>{t(`lab.infraGroups.${g.key}.title`)}</h2>
+        <p class="muted" style="max-width:46rem">{t(`lab.infraGroups.${g.key}.desc`)}</p>
+        <div class="grid-2">
+          {g.items.map((key) => (
+            <div class="card infra-card">
+              <span class="infra-photo">
+                <img src={assetPath(photo[key])} alt={t(`lab.infra.${key}.title`)} loading="lazy" />
+              </span>
+              <div class="infra-body">
+                <h3>{t(`lab.infra.${key}.title`)}</h3>
+                <p class="muted" style="font-size:0.94rem">{t(`lab.infra.${key}.desc`)}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    ))}
+
+    <section class="infra-group">
+      <h2>{t('lab.envTitle')}</h2>
+      <div class="grid-2">
+        <p>{t('lab.env1')}</p>
+        <p>{t('lab.env2')}</p>
+      </div>
+    </section>
+  </div>
+
+  <section class="band cta-band">
+    <div class="container">
+      <h2 style="margin-top:0">{t('lab.ctaTitle')}</h2>
+      <p style="max-width:44rem">{t('lab.ctaText')}</p>
+      <p><a class="btn" href={href(lang, 'contact')}>{t('lab.ctaBtn')} →</a></p>
+    </div>
+  </section>
+</Base>

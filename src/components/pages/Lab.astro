@@ -29,18 +29,12 @@ const programs = programOrder
 const dict = (await import(`../../i18n/${lang}.json`)).default as any;
 const timeline = dict.lab.timeline as { year: string; title: string; desc: string }[];
 
-const regions = ['canada', 'europe', 'latam', 'afrique'] as const;
-const partners = (await getCollection('partners')).sort(
-  (a, b) => a.data.order - b.data.order || a.data.name.localeCompare(b.data.name)
-);
-
-const infraKeys = ['residential', 'simulation', 'data', 'optimization'] as const;
-const infraPhoto = {
-  residential: '/images/lab/lab2.jpg',
-  simulation: '/images/lab/lab5.jpg',
-  data: '/images/lab/lab6.jpg',
-  optimization: '/images/lab/lab3.jpg',
-} as const;
+// The hub ends by handing the reader over to its two child pages rather than
+// inlining their content.
+const subpages = [
+  { key: 'labInfra', desc: 'lab.moreInfra', photo: '/images/lab/lab2.jpg' },
+  { key: 'labPartners', desc: 'lab.morePartners', photo: '/images/lab/lab5.jpg' },
+] as const;
 ---
 
 <Base lang={lang} routeKey="lab" title={t('lab.title')} description={t('lab.lead')}>
@@ -108,57 +102,20 @@ const infraPhoto = {
   </section>
 
   <div class="container">
-    <h2>{t('lab.infraTitle')}</h2>
-    <p class="muted" style="max-width:46rem">{t('lab.infraLead')}</p>
+    <h2>{t('lab.moreTitle')}</h2>
     <div class="grid-2">
-      {infraKeys.map((key) => (
-        <div class="card infra-card">
-          <span class="infra-photo">
-            <img src={assetPath(infraPhoto[key])} alt={t(`lab.infra.${key}.title`)} loading="lazy" />
+      {subpages.map((s) => (
+        <a class="card subpage-card" href={href(lang, s.key)}>
+          <span class="subpage-photo">
+            <img src={assetPath(s.photo)} alt={t(`nav.${s.key}`)} loading="lazy" />
           </span>
-          <div class="infra-body">
-            <h3>{t(`lab.infra.${key}.title`)}</h3>
-            <p class="muted" style="font-size:0.94rem">{t(`lab.infra.${key}.desc`)}</p>
-          </div>
-        </div>
+          <span class="subpage-body">
+            <h3>{t(`nav.${s.key}`)}</h3>
+            <p class="muted">{t(s.desc)}</p>
+            <span class="subpage-more">{t('lab.moreLink')} →</span>
+          </span>
+        </a>
       ))}
-    </div>
-
-    <section class="acad-section">
-      <h2>{t('lab.acadTitle')}</h2>
-      <p class="muted" style="max-width:46rem">{t('lab.acadLead')}</p>
-      {regions.map((region) => {
-        const list = partners.filter((p) => p.data.region === region);
-        if (!list.length) return null;
-        return (
-          <>
-            <h3 class="acad-region">{t(`lab.regions.${region}`)}</h3>
-            <div class="grid-2">
-              {list.map((p) => (
-                <div class="card acad-card">
-                  <h4>
-                    {p.data.url ? (
-                      <a href={p.data.url} target="_blank" rel="noopener">{p.data.name}</a>
-                    ) : (
-                      p.data.name
-                    )}
-                  </h4>
-                  {p.data.people && (
-                    <p class="acad-people">{p.data.people.join(' · ')}</p>
-                  )}
-                  <p class="muted">{p.data.note[lang]}</p>
-                </div>
-              ))}
-            </div>
-          </>
-        );
-      })}
-    </section>
-
-    <h2>{t('lab.envTitle')}</h2>
-    <div class="grid-2">
-      <p>{t('lab.env1')}</p>
-      <p>{t('lab.env2')}</p>
     </div>
   </div>
 

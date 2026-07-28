@@ -21,25 +21,39 @@ export function otherLang(lang: Lang): Lang {
 export const routes = {
   home: { fr: '', en: '' },
   lab: { fr: 'laboratoire', en: 'laboratory' },
+  labInfra: { fr: 'laboratoire/infrastructures', en: 'laboratory/infrastructure' },
+  labPartners: { fr: 'laboratoire/partenaires', en: 'laboratory/partners' },
   team: { fr: 'equipe', en: 'team' },
+  alumni: { fr: 'equipe/diplomes', en: 'team/alumni' },
   research: { fr: 'recherche', en: 'research' },
   publications: { fr: 'publications', en: 'publications' },
-  alumni: { fr: 'diplomes', en: 'alumni' },
   news: { fr: 'actualites', en: 'news' },
   contact: { fr: 'contact', en: 'contact' },
 } as const;
 export type RouteKey = keyof typeof routes;
 
-export const navOrder: RouteKey[] = [
-  'home',
-  'lab',
-  'team',
-  'research',
-  'publications',
-  'alumni',
-  'news',
-  'contact',
+// Top-level navigation. A hub with children renders a submenu whose first
+// entry is the hub page itself, so the parent is always reachable.
+export interface NavItem {
+  key: RouteKey;
+  children?: RouteKey[];
+}
+
+export const navTree: NavItem[] = [
+  { key: 'home' },
+  { key: 'lab', children: ['lab', 'labInfra', 'labPartners'] },
+  { key: 'team', children: ['team', 'alumni'] },
+  { key: 'research' },
+  { key: 'publications' },
+  { key: 'news' },
+  { key: 'contact' },
 ];
+
+// Which top-level entry a route belongs to, for the "current section" state.
+export function sectionOf(key: RouteKey): RouteKey {
+  const parent = navTree.find((i) => i.children?.includes(key));
+  return parent ? parent.key : key;
+}
 
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, '');
 

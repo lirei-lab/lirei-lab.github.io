@@ -46,6 +46,15 @@ const year = new Date().getFullYear();
           <a href={href(lang, 'news')}>{t('nav.news')}</a>
         </p>
       </div>
+      <div>
+        <h3>{t('nav.lab')}</h3>
+        <p>
+          <a href={href(lang, 'lab')}>{t('nav.overview')}</a><br />
+          <a href={href(lang, 'labInfra')}>{t('nav.labInfra')}</a><br />
+          <a href={href(lang, 'labPartners')}>{t('nav.labPartners')}</a><br />
+          <a href={href(lang, 'alumni')}>{t('nav.alumni')}</a>
+        </p>
+      </div>
     </div>
     <p class="fine">© {year} {t('site.name')} — {t('site.uqtr')}. {t('footer.rights')}</p>
   </div>
