@@ -182,7 +182,14 @@
     "pavVideoBuildingTitle": "Pavillon Pellerin-Marmen sur les technologies vertes et durables de l'UQTR",
     "pavVideoBuildingCaption": "A presentation of the building and its green technologies.",
     "pavVideoCityTitle": "L’UQTR déploie ses énergies au centre-ville",
-    "pavVideoCityCaption": "The building in its neighbourhood, in downtown Trois-Rivières."
+    "pavVideoCityCaption": "The building in its neighbourhood, in downtown Trois-Rivières.",
+    "galleryTitle": "The laboratory in pictures",
+    "galleryLead": "A few views of the facilities and of work in progress.",
+    "gallery": {
+      "power": "Presentation of a power electronics setup and its instrumentation, at the Hydrogen Research Institute.",
+      "rack": "Test and communication rack used for networked setups.",
+      "visit": "Demonstration of a supervision platform during a visit to the laboratory."
+    }
   },
   "research": {
     "title": "Research",

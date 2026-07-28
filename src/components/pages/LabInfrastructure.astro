@@ -24,6 +24,14 @@ const videos = [
   { id: 'KI72qQmFHwo', key: 'pavVideoCity' },
 ] as const;
 
+// Photographs of the laboratory itself. The last one is portrait, so it is
+// framed low to keep the demonstration in the crop.
+const gallery = [
+  { src: '/images/lab/lab7.jpg', key: 'power', focus: 'center 45%' },
+  { src: '/images/lab/lab8.jpg', key: 'rack', focus: 'center 40%' },
+  { src: '/images/lab/lab9.jpg', key: 'visit', focus: 'center 62%' },
+] as const;
+
 const photo: Record<string, string> = {
   residential: '/images/lab/lab2.jpg',
   simulation: '/images/lab/lab5.jpg',
@@ -88,6 +96,24 @@ const photo: Record<string, string> = {
         </div>
       </section>
     ))}
+
+    <section class="infra-group">
+      <h2>{t('lab.galleryTitle')}</h2>
+      <p class="muted" style="max-width:46rem">{t('lab.galleryLead')}</p>
+      <div class="photo-gallery">
+        {gallery.map((g) => (
+          <figure class="photo-tile">
+            <img
+              src={assetPath(g.src)}
+              alt={t(`lab.gallery.${g.key}`)}
+              style={`object-position:${g.focus}`}
+              loading="lazy"
+            />
+            <figcaption class="muted">{t(`lab.gallery.${g.key}`)}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
 
     <section class="infra-group">
       <h2>{t('lab.envTitle')}</h2>
