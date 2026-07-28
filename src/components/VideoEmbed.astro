@@ -1,0 +1,41 @@
+---
+interface Props {
+  /** YouTube video id, e.g. KI72qQmFHwo */
+  id: string;
+  /** Accessible name for the player, shown if the frame fails to load. */
+  title: string;
+  caption?: string;
+  credit?: string;
+}
+
+const { id, title, caption, credit } = Astro.props;
+
+// youtube-nocookie serves the same player without setting tracking cookies
+// until the visitor actually starts the video; the frame itself only loads
+// once it comes near the viewport.
+const src = `https://www.youtube-nocookie.com/embed/${id}?rel=0`;
+const watchUrl = `https://www.youtube.com/watch?v=${id}`;
+---
+
+<figure class="video-figure">
+  <div class="video-frame">
+    <iframe
+      src={src}
+      title={title}
+      loading="lazy"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen></iframe>
+  </div>
+  {(caption || credit) && (
+    <figcaption class="muted">
+      {caption}
+      {credit && (
+        <>
+          {' '}
+          <a href={watchUrl} target="_blank" rel="noopener">{credit}</a>
+        </>
+      )}
+    </figcaption>
+  )}
+</figure>

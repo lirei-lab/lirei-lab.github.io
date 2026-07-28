@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import VideoEmbed from '../VideoEmbed.astro';
 import { useTranslations, href, assetPath, type Lang } from '../../i18n';
 
 interface Props {
@@ -35,6 +36,29 @@ const photo: Record<string, string> = {
   </div>
 
   <div class="container">
+    <section class="pavillon">
+      <p class="tag blue">{t('lab.pavillonTag')}</p>
+      <h2>{t('lab.pavillonTitle')}</h2>
+      <p class="lead">{t('lab.pavillonLead')}</p>
+      <div class="grid-2">
+        <p>{t('lab.pavillonBody')}</p>
+        <p>
+          {t('lab.pavillonBody2')}
+          <br />
+          <a
+            href="https://oraprdnt.uqtr.uquebec.ca/portail/gscw031?owa_no_site=7812"
+            target="_blank"
+            rel="noopener">{t('lab.pavillonLink')} →</a>
+        </p>
+      </div>
+      <VideoEmbed
+        id="KI72qQmFHwo"
+        title={t('lab.pavillonVideoTitle')}
+        caption={t('lab.pavillonVideo')}
+        credit={t('lab.pavillonCredit')}
+      />
+    </section>
+
     {groups.map((g) => (
       <section class="infra-group">
         <h2>{t(`lab.infraGroups.${g.key}.title`)}</h2>
