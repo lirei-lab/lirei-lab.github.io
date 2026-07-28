@@ -32,7 +32,7 @@ volets:
     desc:
       fr: "Développer des stratégies pour la co-optimisation des marchés hétérogènes (énergie et services complémentaires) et l'amélioration de la fiabilité du réseau : modèles d'interdépendance, algorithmes d'enchères pour les agrégateurs, dynamique des contrats à terme et au comptant, et reprise coordonnée après pannes."
       en: "Develop strategies for co-optimizing heterogeneous markets (energy and ancillary services) and improving grid reliability: interdependency models, bidding algorithms for aggregators, forward- and spot-contract dynamics, and coordinated post-outage recovery."
-axis: flexibility
+competence: flexibility
 program: flexibilite
 status: active
 partners:

@@ -33,7 +33,7 @@ volets:
     desc:
       fr: "Des formes d'accord qui encouragent la participation résidentielle tout en restant utiles à la gestion du réseau."
       en: "Forms of agreement that encourage residential participation while remaining useful for grid management."
-axis: flexibility
+competence: flexibility
 program: flexibilite
 status: active
 partners: []

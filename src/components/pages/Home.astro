@@ -17,14 +17,20 @@ const t = useTranslations(lang);
 const team = await getCollection('team');
 const pubs = (await getCollection('publications')).sort((a, b) => b.data.year - a.data.year);
 const latest = pubs.slice(0, 5);
-const featured = (await getCollection('projects'))
+const allProjects = await getCollection('projects');
+const featured = allProjects
   .filter((p) => p.data.featured)
   .sort((a, b) => a.data.order - b.data.order);
 const news = (await getCollection('news'))
   .sort((a, b) => b.data.date.localeCompare(a.data.date))
   .slice(0, 3);
 
-const axes = ['smartgrids', 'residential', 'ml', 'hydrogen', 'flexibility', 'ev'] as const;
+const competences = ['smartgrids', 'residential', 'ml', 'hydrogen', 'flexibility', 'ev'] as const;
+// How many projects draw on each competence, so a card never sends the reader
+// to an empty filter.
+const counts = Object.fromEntries(
+  competences.map((c) => [c, allProjects.filter((p) => p.data.competence === c).length])
+) as Record<(typeof competences)[number], number>;
 const partners = [
   'Hydro-Québec',
   'Ressources naturelles Canada',
@@ -53,23 +59,12 @@ const partners = [
       <div><span class="num">1999</span><span class="label">{t('home.statFounded')}</span></div>
       <div><span class="num">{team.length}</span><span class="label">{t('home.statMembers')}</span></div>
       <div><span class="num">{pubs.length}</span><span class="label">{t('home.statPubs')}</span></div>
-      <div><span class="num">{axes.length}</span><span class="label">{t('home.statAxes')}</span></div>
+      <div><span class="num">{featured.length}</span><span class="label">{t('home.statPrograms')}</span></div>
     </div>
 
-    <h2>{t('home.axesTitle')}</h2>
-    <div class="grid-3">
-      {axes.map((axis) => (
-        <a class="card" href={`${href(lang, 'research')}#${axis}`} style="text-decoration:none">
-          <div class="axis-head">
-            <AxisIcon axis={axis} />
-            <h3>{t(`research.axes.${axis}.title`)}</h3>
-          </div>
-          <p class="muted" style="font-size:0.92rem">{t(`research.axes.${axis}.desc`).slice(0, 110)}…</p>
-        </a>
-      ))}
-    </div>
-
-    <h2>{t('projects.featuredTitle')}</h2>
+    <!-- Programs first: they are how the laboratory is actually organised.
+         Competences come after, as the technical base they draw on. -->
+    <h2>{t('research.programsTitle')}</h2>
     <div class="grid-3">
       {featured.map((project) => (
         <a
@@ -85,12 +80,27 @@ const partners = [
               />
             </span>
           )}
-          <h3>{project.data.title[lang]}</h3>
+          <h3>{t(`projects.programs.${project.data.program}`)}</h3>
           <p class="muted" style="font-size:0.92rem">{project.data.summary[lang]}</p>
         </a>
       ))}
     </div>
     <p><a href={href(lang, 'research')}>{t('home.viewAll')} →</a></p>
+
+    <h2>{t('research.compTitle')}</h2>
+    <p class="muted" style="max-width:46rem">{t('research.compLead')}</p>
+    <div class="grid-3">
+      {competences.map((c) => (
+        <a class="card" href={`${href(lang, 'research')}/?c=${c}#projets`} style="text-decoration:none">
+          <div class="axis-head">
+            <AxisIcon axis={c} />
+            <h3>{t(`research.competences.${c}.title`)}</h3>
+          </div>
+          <p class="muted" style="font-size:0.92rem">{t(`research.competences.${c}.desc`).slice(0, 110)}…</p>
+          <p class="comp-count muted">{counts[c]} {counts[c] > 1 ? t('projects.plural') : t('projects.singular')}</p>
+        </a>
+      ))}
+    </div>
   </div>
 
   {news.length > 0 && (

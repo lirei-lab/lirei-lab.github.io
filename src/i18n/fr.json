@@ -32,16 +32,15 @@
   "home": {
     "tagline": "Des solutions pour une gestion intelligente de l'énergie",
     "intro": "Le LIREI est une équipe multidisciplinaire de chercheuses et de chercheurs membres de l'Institut de recherche sur l'hydrogène (IRH) de l'Université du Québec à Trois-Rivières. Depuis 1999, nous travaillons à optimiser l'utilisation de l'énergie dans les bâtiments et les véhicules, avec un intérêt particulier pour l'hydrogène et les énergies renouvelables.",
-    "ctaResearch": "Nos axes de recherche",
+    "ctaResearch": "Nos programmes de recherche",
     "ctaPubs": "Nos publications",
     "statFounded": "Année de fondation",
     "statMembers": "Membres de l'équipe",
     "statPubs": "Publications récentes",
-    "statAxes": "Axes de recherche",
-    "axesTitle": "Axes de recherche",
     "pubsTitle": "Publications récentes",
     "viewAll": "Voir tout",
-    "partnersTitle": "Nos partenaires"
+    "partnersTitle": "Nos partenaires",
+    "statPrograms": "programmes de recherche"
   },
   "lab": {
     "title": "Le laboratoire",
@@ -197,9 +196,7 @@
     "title": "Recherche",
     "lead": "Le LIREI structure ses travaux autour de trois grands programmes de recherche, déclinés en projets doctoraux et en collaborations, et couvrant un large éventail de domaines d'expertise.",
     "programsTitle": "Programmes de recherche",
-    "axesTitle": "Domaines d'expertise",
-    "axesLead": "Nos programmes s'appuient sur un socle de compétences techniques transversales.",
-    "axes": {
+    "competences": {
       "smartgrids": {
         "title": "Réseaux intelligents et plateformes de simulation",
         "desc": "Conception et simulation de réseaux électriques intelligents qui utilisent l'informatique pour mieux gérer la consommation et les échanges d'énergie entre fournisseurs et consommateurs. Coordination à deux niveaux et commande de systèmes distribués.",
@@ -221,7 +218,7 @@
         "tags": "hydrogène, piles à combustible, énergies renouvelables"
       },
       "flexibility": {
-        "title": "Marchés de flexibilité et énergie transactive",
+        "title": "Marchés et mécanismes transactionnels",
         "desc": "Mécanismes d'énergie transactive et marchés locaux de flexibilité : optimisation convexe, analyse économique, équité et coordination multi-agents des ressources énergétiques distribuées.",
         "tags": "énergie transactive, optimisation convexe, marchés de flexibilité, multi-agents"
       },
@@ -230,7 +227,17 @@
         "desc": "Optimisation de l'utilisation de l'énergie dans les véhicules électriques et à hydrogène, et intégration des véhicules au réseau comme sources de flexibilité.",
         "tags": "véhicules électriques, recharge intelligente, mobilité durable"
       }
-    }
+    },
+    "compTitle": "Compétences transversales",
+    "compLead": "Les compétences techniques sur lesquelles reposent nos programmes. Certaines sont propres à un programme, d'autres les traversent tous.",
+    "matrixTitle": "Programmes et compétences",
+    "matrixLead": "Ce que chaque programme mobilise, et où une même compétence sert plusieurs programmes.",
+    "allTitle": "Tous les projets",
+    "allLead": "Filtrez par compétence pour voir les projets qui la mobilisent, tous programmes confondus.",
+    "filterAll": "Toutes",
+    "filterLabel": "Filtrer par compétence",
+    "noneMatch": "Aucun projet pour cette compétence.",
+    "inProgram": "Programme"
   },
   "team": {
     "title": "L'équipe",
@@ -283,7 +290,6 @@
     "partners": "Partenaires",
     "more": "En savoir plus",
     "back": "← Tous les projets",
-    "featuredTitle": "Projets phares",
     "objective": "Objectif principal",
     "methodology": "Méthodologie",
     "student": "Étudiant·e",
@@ -300,7 +306,9 @@
       "flexibilite": "Flexibilité énergétique",
       "serres": "Serres du Québec",
       "communautes": "Communautés isolées"
-    }
+    },
+    "singular": "projet",
+    "plural": "projets"
   },
   "contact": {
     "title": "Nous joindre",

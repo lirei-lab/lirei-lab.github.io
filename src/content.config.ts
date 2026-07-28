@@ -46,7 +46,9 @@ const projects = defineCollection({
     lead: z.string().optional(),
     funding: bilingual.optional(),
     volets: z.array(z.object({ title: bilingual, desc: bilingual })).optional(),
-    axis: z.enum(['smartgrids', 'residential', 'ml', 'hydrogen', 'flexibility', 'ev']),
+    // Cross-cutting capability. Orthogonal to `program`: a capability may
+    // serve several programs, and a program draws on several capabilities.
+    competence: z.enum(['smartgrids', 'residential', 'ml', 'hydrogen', 'flexibility', 'ev']),
     program: z.enum(['flexibilite', 'serres', 'communautes']).optional(),
     status: z.enum(['active', 'completed']),
     // A partner is either a plain name or a name with a link.

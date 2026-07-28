@@ -32,16 +32,15 @@
   "home": {
     "tagline": "Solutions for intelligent energy management",
     "intro": "LIREI is a multidisciplinary team of researchers, members of the Hydrogen Research Institute (IRH) at the Université du Québec à Trois-Rivières. Since 1999, we have been working to optimize energy use in buildings and vehicles, with a particular interest in hydrogen and renewable energy.",
-    "ctaResearch": "Our research areas",
+    "ctaResearch": "Our research programs",
     "ctaPubs": "Our publications",
     "statFounded": "Founded",
     "statMembers": "Team members",
     "statPubs": "Recent publications",
-    "statAxes": "Research areas",
-    "axesTitle": "Research areas",
     "pubsTitle": "Recent publications",
     "viewAll": "View all",
-    "partnersTitle": "Our partners"
+    "partnersTitle": "Our partners",
+    "statPrograms": "research programs"
   },
   "lab": {
     "title": "The laboratory",
@@ -197,9 +196,7 @@
     "title": "Research",
     "lead": "LIREI structures its work around three major research programs, expressed through doctoral projects and collaborations, and spanning a broad range of areas of expertise.",
     "programsTitle": "Research programs",
-    "axesTitle": "Areas of expertise",
-    "axesLead": "Our programs build on a foundation of cross-cutting technical expertise.",
-    "axes": {
+    "competences": {
       "smartgrids": {
         "title": "Smart grids and simulation platforms",
         "desc": "Design and simulation of smart power grids that use computing to better manage consumption and energy exchanges between suppliers and consumers. Two-level coordination and control of distributed systems.",
@@ -221,7 +218,7 @@
         "tags": "hydrogen, fuel cells, renewable energy"
       },
       "flexibility": {
-        "title": "Flexibility markets and transactive energy",
+        "title": "Transactive markets and mechanisms",
         "desc": "Transactive energy mechanisms and local flexibility markets: convex optimization, economic analysis, equity and multi-agent coordination of distributed energy resources.",
         "tags": "transactive energy, convex optimization, flexibility markets, multi-agent"
       },
@@ -230,7 +227,17 @@
         "desc": "Optimization of energy use in electric and hydrogen vehicles, and integration of vehicles into the grid as flexibility providers.",
         "tags": "electric vehicles, smart charging, sustainable mobility"
       }
-    }
+    },
+    "compTitle": "Cross-cutting capabilities",
+    "compLead": "The technical capabilities our programs rest on. Some belong to a single program, others run through all of them.",
+    "matrixTitle": "Programs and capabilities",
+    "matrixLead": "What each program draws on, and where one capability serves several programs.",
+    "allTitle": "All projects",
+    "allLead": "Filter by capability to see the projects that use it, across every program.",
+    "filterAll": "All",
+    "filterLabel": "Filter by capability",
+    "noneMatch": "No project for this capability.",
+    "inProgram": "Program"
   },
   "team": {
     "title": "The team",
@@ -283,7 +290,6 @@
     "partners": "Partners",
     "more": "Learn more",
     "back": "← All projects",
-    "featuredTitle": "Featured projects",
     "objective": "Main objective",
     "methodology": "Methodology",
     "student": "Student",
@@ -300,7 +306,9 @@
       "flexibilite": "Energy flexibility",
       "serres": "Quebec greenhouses",
       "communautes": "Remote communities"
-    }
+    },
+    "singular": "project",
+    "plural": "projects"
   },
   "contact": {
     "title": "Contact",

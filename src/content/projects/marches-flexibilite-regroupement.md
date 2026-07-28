@@ -14,7 +14,7 @@ objective:
 methodology:
   fr: "Quatre étapes : formulation d'un marché local de flexibilité (optimisation du bien-être social) ; regroupement spectral par agrégation d'affinités électrique, géographique et comportementale ; mécanismes adaptatifs et compensation hiérarchique ; validation par simulations Python et analyse du front de Pareto."
   en: "Four stages: formulation of a local flexibility market (social-welfare optimization); spectral clustering via electrical, geographic and behavioral affinity aggregation; adaptive mechanisms and hierarchical settlement; validation via Python simulations and Pareto-front analysis."
-axis: flexibility
+competence: flexibility
 program: flexibilite
 status: active
 partners: []

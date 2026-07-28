@@ -13,7 +13,8 @@ interface Props {
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 
-const axes = ['smartgrids', 'residential', 'ml', 'hydrogen', 'flexibility', 'ev'] as const;
+const competences = ['smartgrids', 'residential', 'ml', 'hydrogen', 'flexibility', 'ev'] as const;
+type Competence = (typeof competences)[number];
 
 const programOrder = ['flexibilite', 'serres', 'communautes'] as const;
 const all = await getCollection('projects');
@@ -25,6 +26,23 @@ const groups = programOrder.map((program) => {
     .sort((a, b) => a.data.title[lang].localeCompare(b.data.title[lang]));
   return { program, flagship, subs };
 });
+
+// The two taxonomies are orthogonal, so the honest way to show them together
+// is a matrix: it says at a glance which competences a program draws on, and
+// which ones run across several programs.
+const cell = (c: Competence, program: string) =>
+  all.filter((p) => p.data.competence === c && p.data.program === program).length;
+const matrix = competences
+  .map((c) => ({
+    competence: c,
+    cells: programOrder.map((program) => ({ program, n: cell(c, program) })),
+    total: all.filter((p) => p.data.competence === c).length,
+  }))
+  .sort((a, b) => b.total - a.total);
+
+const indexed = [...all].sort(
+  (a, b) => a.data.title[lang].localeCompare(b.data.title[lang])
+);
 ---
 
 <Base lang={lang} routeKey="research" title={t('research.title')} description={t('research.lead')}>
@@ -86,23 +104,103 @@ const groups = programOrder.map((program) => {
   ))}
 
   <div class="container">
-    <h2>{t('research.axesTitle')}</h2>
-    <p class="muted" style="max-width:46rem">{t('research.axesLead')}</p>
+    <h2>{t('research.compTitle')}</h2>
+    <p class="muted" style="max-width:46rem">{t('research.compLead')}</p>
     <div class="grid-3">
-      {axes.map((axis) => (
-        <section class="card" id={axis}>
+      {competences.map((c) => (
+        <section class="card" id={c}>
           <div class="axis-head">
-            <AxisIcon axis={axis} />
-            <h3>{t(`research.axes.${axis}.title`)}</h3>
+            <AxisIcon axis={c} />
+            <h3>{t(`research.competences.${c}.title`)}</h3>
           </div>
-          <p class="muted" style="font-size:0.94rem">{t(`research.axes.${axis}.desc`)}</p>
+          <p class="muted" style="font-size:0.94rem">{t(`research.competences.${c}.desc`)}</p>
           <p>
-            {t(`research.axes.${axis}.tags`)
+            {t(`research.competences.${c}.tags`)
               .split(',')
               .map((tag) => <span class="tag">{tag.trim()}</span>)}
           </p>
         </section>
       ))}
     </div>
+
+    <h2>{t('research.matrixTitle')}</h2>
+    <p class="muted" style="max-width:46rem">{t('research.matrixLead')}</p>
+    <div class="matrix-scroll">
+      <table class="matrix">
+        <thead>
+          <tr>
+            <th scope="col">{t('research.compTitle')}</th>
+            {programOrder.map((program) => (
+              <th scope="col">{t(`projects.programs.${program}`)}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {matrix.map((row) => (
+            <tr>
+              <th scope="row">{t(`research.competences.${row.competence}.title`)}</th>
+              {row.cells.map(({ n }) => (
+                <td class:list={{ 'is-empty': n === 0 }}>{n > 0 ? n : '—'}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="projets">{t('research.allTitle')}</h2>
+    <p class="muted" style="max-width:46rem">{t('research.allLead')}</p>
+    <div class="filter-bar" role="group" aria-label={t('research.filterLabel')}>
+      <button type="button" class="filter-chip is-on" data-filter="all">
+        {t('research.filterAll')}
+      </button>
+      {competences.map((c) => (
+        <button type="button" class="filter-chip" data-filter={c}>
+          {t(`research.competences.${c}.title`)}
+        </button>
+      ))}
+    </div>
+    <div class="grid-3" id="project-index">
+      {indexed.map((project) => (
+        <div class="index-item" data-competence={project.data.competence}>
+          <ProjectCard project={project} lang={lang} compact />
+        </div>
+      ))}
+    </div>
+    <p class="muted filter-empty" hidden>{t('research.noneMatch')}</p>
   </div>
 </Base>
+
+<script>
+  // The index is filtered in the page: the site is static, so the competence
+  // arrives as ?c=<key> and never as a separate document.
+  const bar = document.querySelector('.filter-bar');
+  const items = Array.from(document.querySelectorAll<HTMLElement>('.index-item'));
+  const empty = document.querySelector<HTMLElement>('.filter-empty');
+
+  function apply(key: string) {
+    let shown = 0;
+    for (const el of items) {
+      const match = key === 'all' || el.dataset.competence === key;
+      el.hidden = !match;
+      if (match) shown++;
+    }
+    if (empty) empty.hidden = shown > 0;
+    document.querySelectorAll('.filter-chip').forEach((b) => {
+      b.classList.toggle('is-on', (b as HTMLElement).dataset.filter === key);
+      b.setAttribute('aria-pressed', String((b as HTMLElement).dataset.filter === key));
+    });
+    const url = new URL(location.href);
+    if (key === 'all') url.searchParams.delete('c');
+    else url.searchParams.set('c', key);
+    history.replaceState(null, '', `${url.pathname}${url.search}${location.hash}`);
+  }
+
+  bar?.addEventListener('click', (e) => {
+    const btn = (e.target as HTMLElement).closest<HTMLElement>('.filter-chip');
+    if (btn?.dataset.filter) apply(btn.dataset.filter);
+  });
+
+  const initial = new URL(location.href).searchParams.get('c');
+  if (initial) apply(initial);
+</script>

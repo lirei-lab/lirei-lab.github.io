@@ -14,7 +14,7 @@ objective:
 methodology:
   fr: "Quatre étapes : analyse des mécanismes de coordination entre acteurs (gestionnaires de réseau, agrégateurs, consommateurs) ; modèles de coordination multi-agents pour les services auxiliaires locaux ; portefeuille de services favorisant la participation des fournisseurs de flexibilité ; identification de modèles économiques fondés sur des mécanismes d'enchères."
   en: "Four stages: analysis of coordination mechanisms among actors (grid operators, aggregators, consumers); multi-agent coordination models for local ancillary services; a service portfolio encouraging flexibility-provider participation; identification of auction-based economic models."
-axis: flexibility
+competence: flexibility
 program: flexibilite
 status: active
 partners: []

@@ -14,7 +14,7 @@ objective:
 methodology:
   fr: "Quatre étapes : revue de la littérature ; modélisation du comportement normal par des relations physiques et un apprentissage probabiliste tenant compte des incertitudes aléatoire et épistémique ; représentations causales pour l'analyse de cause racine ; méthodes d'IA efficaces validées sur un simulateur physique et un banc d'essai réel (précision, rappel, taux de fausses alarmes)."
   en: "Four stages: literature review; modeling of normal behavior via physical relationships and probabilistic learning accounting for aleatoric and epistemic uncertainty; causal representations for root-cause analysis; efficient AI methods validated on a physics-based simulator and a real test bench (precision, recall, false-alarm rate)."
-axis: ml
+competence: ml
 program: serres
 status: active
 partners: []

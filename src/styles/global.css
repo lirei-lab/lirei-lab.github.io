@@ -1733,6 +1733,98 @@ section:hover > h2::after,
   margin-top: 0;
 }
 
+/* Programs x competences. Wide content scrolls in its own box so the page
+   body never scrolls sideways. */
+.matrix-scroll {
+  overflow-x: auto;
+  margin-top: 1.25rem;
+}
+
+.matrix {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 34rem;
+  font-size: 0.92rem;
+}
+
+.matrix th,
+.matrix td {
+  padding: 0.6rem 0.9rem;
+  border-bottom: 1px solid var(--line);
+  text-align: center;
+}
+
+.matrix thead th {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  font-weight: 600;
+  border-bottom-width: 2px;
+}
+
+.matrix tbody th {
+  text-align: left;
+  font-weight: 600;
+  color: var(--blue-900);
+  white-space: nowrap;
+}
+
+.matrix tbody td {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  color: var(--green-600);
+}
+
+.matrix td.is-empty {
+  color: var(--line);
+  font-weight: 400;
+}
+
+/* Competence filter over the project index */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 1.25rem 0 1.5rem;
+}
+
+.filter-chip {
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--blue-700);
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.filter-chip:hover {
+  border-color: var(--green-600);
+  color: var(--green-600);
+}
+
+.filter-chip.is-on {
+  background: var(--green-600);
+  border-color: var(--green-600);
+  color: #fff;
+}
+
+.index-item[hidden] {
+  display: none;
+}
+
+.comp-count {
+  margin: 0.6rem 0 0;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--green-600);
+}
+
 .infra-group {
   margin-top: 3rem;
 }

@@ -14,7 +14,7 @@ objective:
 methodology:
   fr: "Trois étapes : revue des méthodes d'estimation de l'occupation ; développement et validation d'un modèle d'occupation non supervisé fondé sur les modèles semi-markoviens cachés (HSMM) à partir de données de capteurs ; intégration à un cadre SMPC évalué par simulation."
   en: "Three stages: review of occupancy estimation methods; development and validation of an unsupervised occupancy model based on hidden semi-Markov models (HSMM) from sensor data; integration into an SMPC framework evaluated by simulation."
-axis: ml
+competence: ml
 program: flexibilite
 status: active
 partners: []

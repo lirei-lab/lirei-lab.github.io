@@ -14,7 +14,7 @@ objective:
 methodology:
   fr: "Cinq étapes : collecte et caractérisation des profils de recharge ; formulation en optimisation stochastique multi-période ; méthode de résolution décomposée préservant la vie privée ; mécanisme transactionnel incitant les véhicules à fournir de la flexibilité ; validation par simulations de Monte-Carlo (réduction de la pointe, vie du transformateur, coût, satisfaction)."
   en: "Five stages: collection and characterization of charging profiles; multi-period stochastic optimization formulation; a decomposed, privacy-preserving solution method; a transactive mechanism encouraging vehicles to provide flexibility; validation via Monte-Carlo simulations (peak reduction, transformer life, cost, satisfaction)."
-axis: ev
+competence: ev
 program: flexibilite
 status: active
 partners: []

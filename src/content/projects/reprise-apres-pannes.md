@@ -14,7 +14,7 @@ objective:
 methodology:
   fr: "Quatre étapes : analyse des facteurs influençant le Cold Load Pickup ; modèles stochastiques des charges thermiques et des véhicules électriques pendant la panne et la reprise ; conception d'un contrôleur et d'un mécanisme de marché de restauration ; validation par simulations (réduction du pic, stabilité, efficacité économique)."
   en: "Four stages: analysis of factors driving Cold Load Pickup; stochastic models of thermal loads and electric vehicles during outage and recovery; design of a restoration controller and market mechanism; validation by simulation (peak reduction, stability, economic efficiency)."
-axis: smartgrids
+competence: smartgrids
 program: flexibilite
 status: active
 partners: []

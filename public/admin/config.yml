@@ -112,7 +112,7 @@ collections:
         fields:
           - { name: fr, label: 'Résumé (FR)', widget: text }
           - { name: en, label: 'Summary (EN)', widget: text }
-      - name: axis
+      - name: competence
         label: Axe de recherche
         widget: select
         options:

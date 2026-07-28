@@ -16,11 +16,13 @@ const projects = await getCollection('projects');
 
 // Flagship project per program, in a fixed order, for the "programs" cards.
 const programOrder = ['flexibilite', 'serres', 'communautes'] as const;
-const programAxis = { flexibilite: 'flexibility', serres: 'smartgrids', communautes: 'hydrogen' } as const;
+// Icon choice per program. Not a taxonomy claim: a program draws on several
+// competences, this only picks the mark that reads best on the card.
+const programIcon = { flexibilite: 'flexibility', serres: 'smartgrids', communautes: 'hydrogen' } as const;
 const programs = programOrder
   .map((program) => ({
     program,
-    axis: programAxis[program],
+    icon: programIcon[program],
     flagship: projects.find((p) => p.data.program === program && p.data.featured),
   }))
   .filter((p) => p.flagship);
@@ -88,10 +90,10 @@ const subpages = [
       <h2 style="margin-top:0">{t('lab.programsTitle')}</h2>
       <p class="muted" style="max-width:46rem">{t('lab.programsLead')}</p>
       <div class="grid-3">
-        {programs.map(({ program, axis, flagship }) => (
+        {programs.map(({ program, icon, flagship }) => (
           <a class="card" href={`${href(lang, 'research')}/${flagship!.id}`} style="text-decoration:none">
             <div class="axis-head">
-              <AxisIcon axis={axis} />
+              <AxisIcon axis={icon} />
               <h3>{t(`projects.programs.${program}`)}</h3>
             </div>
             <p class="muted" style="font-size:0.92rem">{flagship!.data.summary[lang]}</p>

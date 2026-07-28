@@ -14,7 +14,7 @@ objective:
 methodology:
   fr: "Revue des algorithmes de dimensionnement des micro-réseaux isolés et des stratégies de gestion, identification des facteurs clés, puis définition d'une étude de cas de référence enrichie progressivement pour optimiser la gestion opérationnelle sous flexibilité de la demande et récupération d'énergie."
   en: "Review of isolated-microgrid sizing algorithms and management strategies, identification of key factors, then definition of a reference case study progressively refined to optimize operation under demand flexibility and energy recovery."
-axis: hydrogen
+competence: hydrogen
 program: communautes
 status: active
 partners: []

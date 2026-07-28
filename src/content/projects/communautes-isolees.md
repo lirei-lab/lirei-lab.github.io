@@ -14,7 +14,7 @@ objective:
 methodology:
   fr: "Cinq phases : (i) modélisation électrothermique pilotée par les données, avec génération de scénarios stochastiques ; (ii) cadre de planification par DOEs calculées par optimisation stochastique et mécanismes d'allocation équitables ; (iii) algorithmes de contrôle distribué MARL opérant à l'intérieur des enveloppes ; (iv) analyse technico-économique et sociale, avec co-optimisation robuste du dimensionnement du stockage hybride et modèles d'affaires fondés sur les jeux coopératifs ; (v) validation par cosimulation intégrée selon des indicateurs techniques, économiques et d'équité."
   en: "Five phases: (i) data-driven electrothermal modeling with stochastic scenario generation; (ii) a DOE planning framework computed by stochastic optimization with fair allocation mechanisms; (iii) MARL distributed control algorithms operating within the envelopes; (iv) techno-economic and social analysis, with robust co-optimization of hybrid storage sizing and cooperative-game business models; (v) validation through integrated co-simulation against technical, economic and equity indicators."
-axis: hydrogen
+competence: hydrogen
 program: communautes
 status: active
 partners:

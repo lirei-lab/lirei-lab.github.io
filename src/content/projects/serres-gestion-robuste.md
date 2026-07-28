@@ -14,7 +14,7 @@ objective:
 methodology:
   fr: "Trois étapes : modélisation de la dynamique du climat, de la croissance des cultures et du cadre contractuel ; formulation d'un problème de commande prédictive stochastique robuste et adaptatif intégré dans une architecture hiérarchique ; validation par simulation à partir de prévisions météorologiques historiques et de données mesurées."
   en: "Three stages: modeling of climate dynamics, crop growth and the contractual framework; formulation of a robust, adaptive stochastic predictive control problem within a hierarchical architecture; validation by simulation using historical weather forecasts and measured data."
-axis: smartgrids
+competence: smartgrids
 program: serres
 status: active
 partners: []
