@@ -177,10 +177,12 @@
     "pavillonLead": "Le LIREI installera une partie de ses activités dans le nouveau pavillon de recherche de l’UQTR sur les technologies vertes et durables, au centre-ville de Trois-Rivières.",
     "pavillonBody": "Le bâtiment offre 4 200 m² répartis sur quatre étages et un sous-sol, et abritera plus d’une quinzaine de laboratoires de recherche autour de quatre axes : énergie, alimentation, environnement et développement durable. Il est lui-même un objet d’étude : géothermie, panneaux photovoltaïques, biofabriques et serres urbaines sur le toit.",
     "pavillonBody2": "Entamée en mars 2024, la construction a fait l’objet d’une réception provisoire au printemps 2026 ; l’occupation est prévue pour l’automne. Les espaces qui reviendront au laboratoire seront détaillés ici une fois l’aménagement terminé.",
-    "pavillonVideo": "Reportage de l’UQTR sur le pavillon et son quartier.",
     "pavillonCredit": "Voir sur YouTube",
-    "pavillonVideoTitle": "L’UQTR déploie ses énergies au centre-ville",
-    "pavillonLink": "Site du pavillon"
+    "pavillonLink": "Site du pavillon",
+    "pavVideoBuildingTitle": "Pavillon Pellerin-Marmen sur les technologies vertes et durables de l'UQTR",
+    "pavVideoBuildingCaption": "Présentation du pavillon et de ses technologies vertes.",
+    "pavVideoCityTitle": "L’UQTR déploie ses énergies au centre-ville",
+    "pavVideoCityCaption": "Le pavillon dans son quartier, au centre-ville de Trois-Rivières."
   },
   "research": {
     "title": "Recherche",

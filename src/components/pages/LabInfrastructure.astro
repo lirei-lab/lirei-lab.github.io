@@ -18,6 +18,12 @@ const groups = [
   { key: 'data', items: ['data'] },
 ] as const;
 
+// The building itself first, then how it sits in the city.
+const videos = [
+  { id: '51LyCIBn-08', key: 'pavVideoBuilding' },
+  { id: 'KI72qQmFHwo', key: 'pavVideoCity' },
+] as const;
+
 const photo: Record<string, string> = {
   residential: '/images/lab/lab2.jpg',
   simulation: '/images/lab/lab5.jpg',
@@ -51,12 +57,16 @@ const photo: Record<string, string> = {
             rel="noopener">{t('lab.pavillonLink')} →</a>
         </p>
       </div>
-      <VideoEmbed
-        id="KI72qQmFHwo"
-        title={t('lab.pavillonVideoTitle')}
-        caption={t('lab.pavillonVideo')}
-        credit={t('lab.pavillonCredit')}
-      />
+      <div class="video-pair">
+        {videos.map((v) => (
+          <VideoEmbed
+            id={v.id}
+            title={t(`lab.${v.key}Title`)}
+            caption={t(`lab.${v.key}Caption`)}
+            credit={t('lab.pavillonCredit')}
+          />
+        ))}
+      </div>
     </section>
 
     {groups.map((g) => (

@@ -177,10 +177,12 @@
     "pavillonLead": "LIREI will move part of its activities into UQTR’s new research building on green and sustainable technologies, in downtown Trois-Rivières.",
     "pavillonBody": "The building offers 4,200 m² over four floors and a basement, and will house more than fifteen research laboratories across four axes: energy, food, environment and sustainable development. It is itself an object of study: geothermal energy, photovoltaic panels, biofactories and rooftop urban greenhouses.",
     "pavillonBody2": "Begun in March 2024, construction reached provisional handover in spring 2026, with occupancy planned for the fall. The spaces allocated to the laboratory will be detailed here once the fit-out is complete.",
-    "pavillonVideo": "UQTR feature on the building and its neighbourhood.",
     "pavillonCredit": "Watch on YouTube",
-    "pavillonVideoTitle": "L’UQTR déploie ses énergies au centre-ville",
-    "pavillonLink": "Building website"
+    "pavillonLink": "Building website",
+    "pavVideoBuildingTitle": "Pavillon Pellerin-Marmen sur les technologies vertes et durables de l'UQTR",
+    "pavVideoBuildingCaption": "A presentation of the building and its green technologies.",
+    "pavVideoCityTitle": "L’UQTR déploie ses énergies au centre-ville",
+    "pavVideoCityCaption": "The building in its neighbourhood, in downtown Trois-Rivières."
   },
   "research": {
     "title": "Research",
