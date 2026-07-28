@@ -89,7 +89,10 @@ const alumni = defineCollection({
     degree: z.enum(['phd', 'msc']),
     year: z.number(),
     thesis: z.string().optional(),
-    url: z.string().url().optional(),
+    // The manuscript in UQTR's institutional repository, and the UQTR article
+    // or defence announcement covering the work.
+    manuscript: z.string().url().optional(),
+    blog: z.string().url().optional(),
     now: bilingual.optional(),
   }),
 });

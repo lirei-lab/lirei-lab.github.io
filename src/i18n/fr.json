@@ -326,7 +326,9 @@
     "msc": "Maîtrise",
     "pubsSingular": "publication au catalogue",
     "pubsPlural": "publications au catalogue",
-    "note": "Cette liste est constituée à partir du dépôt institutionnel de l'UQTR et des annonces de soutenance. Elle est appelée à s'enrichir : écrivez-nous si un diplômé manque à l'appel."
+    "note": "Cette liste est constituée à partir du dépôt institutionnel de l'UQTR et des annonces de soutenance. Elle est appelée à s'enrichir : écrivez-nous si un diplômé manque à l'appel.",
+    "manuscript": "Mémoire ou thèse",
+    "article": "Article UQTR"
   },
   "diagrams": {
     "flex": {

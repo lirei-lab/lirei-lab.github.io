@@ -3,9 +3,9 @@
   "degree": "phd",
   "year": 2025,
   "thesis": "Modélisation des communautés énergétiques basée sur la cosimulation et méthodes pour leur gestion optimale distribuée avec énergie renouvelable et stockage thermique sous incertitude",
-  "url": "https://depot-e.uqtr.ca/id/eprint/12696/",
   "now": {
     "fr": "Chercheur postdoctoral au LIREI",
     "en": "Postdoctoral researcher at LIREI"
-  }
+  },
+  "manuscript": "https://depot-e.uqtr.ca/id/eprint/12696/"
 }

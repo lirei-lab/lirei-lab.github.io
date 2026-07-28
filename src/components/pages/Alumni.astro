@@ -57,12 +57,18 @@ const msc = alumni.length - phd;
                     <strong class="alumni-name">{a.data.name}</strong>
                     <span class="tag">{t(`alumni.${a.data.degree}`)}</span>
                   </div>
-                  {a.data.thesis && (
-                    <p class="alumni-thesis">
-                      {a.data.url ? (
-                        <a href={a.data.url} target="_blank" rel="noopener">{a.data.thesis}</a>
-                      ) : (
-                        a.data.thesis
+                  {a.data.thesis && <p class="alumni-thesis">{a.data.thesis}</p>}
+                  {(a.data.manuscript || a.data.blog) && (
+                    <p class="alumni-links">
+                      {a.data.manuscript && (
+                        <a href={a.data.manuscript} target="_blank" rel="noopener">
+                          {t('alumni.manuscript')}
+                        </a>
+                      )}
+                      {a.data.blog && (
+                        <a href={a.data.blog} target="_blank" rel="noopener">
+                          {t('alumni.article')}
+                        </a>
                       )}
                     </p>
                   )}

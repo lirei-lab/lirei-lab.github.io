@@ -3,9 +3,10 @@
   "degree": "phd",
   "year": 2018,
   "thesis": "Modélisation et prévision de la demande d'électricité résidentielle",
-  "url": "https://depot-e.uqtr.ca/id/eprint/8537/",
   "now": {
     "fr": "Chercheuse au LTE d'Hydro-Québec",
     "en": "Researcher at Hydro-Québec's LTE"
-  }
+  },
+  "manuscript": "https://depot-e.uqtr.ca/id/eprint/8537/",
+  "blog": "https://neo.uqtr.ca/2018/09/18/modelisation-et-prevision-de-la-demande-delectricite-residentielle/"
 }

@@ -326,7 +326,9 @@
     "msc": "Master's",
     "pubsSingular": "publication in the catalog",
     "pubsPlural": "publications in the catalog",
-    "note": "This list is built from UQTR's institutional repository and defence announcements. It is meant to grow — write to us if an alumnus is missing."
+    "note": "This list is built from UQTR's institutional repository and defence announcements. It is meant to grow — write to us if an alumnus is missing.",
+    "manuscript": "Thesis manuscript",
+    "article": "UQTR article"
   },
   "diagrams": {
     "flex": {

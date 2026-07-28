@@ -539,6 +539,30 @@ a:hover {
   font-size: 0.95rem;
 }
 
+/* Repository manuscript and UQTR article, as small labelled chips. */
+.alumni-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.5rem 0 0;
+}
+
+.alumni-links a {
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.2rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--blue-700);
+  background: var(--bg-alt);
+}
+
+.alumni-links a:hover {
+  border-color: var(--green-600);
+  color: var(--green-600);
+}
+
 .alumni-meta {
   display: flex;
   flex-wrap: wrap;
