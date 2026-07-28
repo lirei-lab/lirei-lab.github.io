@@ -70,7 +70,7 @@
       },
       "edge": {
         "title": "Edge computing cluster",
-        "desc": "A Raspberry Pi cluster carries acquisition and control close to the equipment: wireless sensors, message broker, local historian and execution of control policies. It lets us study what must stay at the edge and what can move to the cloud."
+        "desc": "A thirteen-node cluster — eleven Raspberry Pi 4 boards and two x86 servers — under Kubernetes, carrying acquisition and control close to the equipment: wireless sensors, message broker, local historian and execution of control policies. Its size makes it a platform for studying distributed agent deployment and the division of work between edge and cloud."
       },
       "cluster": {
         "title": "Computing cluster",

@@ -70,7 +70,7 @@
       },
       "edge": {
         "title": "Grappe de calcul en périphérie",
-        "desc": "Une grappe de Raspberry Pi porte l'acquisition et la commande au plus près des équipements : capteurs sans fil, courtier de messages, historisation locale et exécution des politiques de commande. Elle permet d'étudier ce qui doit rester en périphérie et ce qui peut remonter au nuage."
+        "desc": "Grappe de treize nœuds — onze Raspberry Pi 4 et deux serveurs x86 — sous Kubernetes, qui porte l'acquisition et la commande au plus près des équipements : capteurs sans fil, courtier de messages, historisation locale et exécution des politiques de commande. Sa taille en fait une plateforme d'étude du déploiement d'agents distribués et du partage des tâches entre la périphérie et le nuage."
       },
       "cluster": {
         "title": "Grappe de calcul",
