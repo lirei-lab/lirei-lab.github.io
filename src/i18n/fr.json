@@ -58,23 +58,31 @@
     "programsLead": "Nos activités s'organisent autour de trois grands programmes qui structurent les projets doctoraux et les collaborations du laboratoire.",
     "featureAlt": "L'équipe du LIREI dans ses installations à l'Institut de recherche sur l'hydrogène",
     "infraTitle": "Infrastructures et moyens de recherche",
-    "infraLead": "Le LIREI combine des moyens expérimentaux, des plateformes de simulation et des jeux de données réelles pour valider ses travaux depuis le modèle jusqu’au terrain.",
+    "infraLead": "Le LIREI exploite un appartement instrumenté, un banc de stockage, une grappe de calcul et des plateformes de simulation, qui permettent de valider ses travaux depuis le modèle jusqu'aux conditions réelles.",
     "infra": {
-      "residential": {
-        "title": "Bancs d'essai résidentiels",
-        "desc": "Instrumentation de bâtiments et de charges (chauffage, chauffe-eau, stockage thermique) pour valider les stratégies de gestion en conditions réelles de climat froid."
+      "apartment": {
+        "title": "Appartement intelligent",
+        "desc": "Logement entièrement instrumenté à l'Institut de recherche sur l'hydrogène, où les stratégies de gestion de la demande sont confrontées à un usage réel : chauffage et climatisation pilotés par automatisation du bâtiment, chauffe-eau, électroménagers, bornes de recharge et mesure de la consommation circuit par circuit. C'est là que les algorithmes du laboratoire rencontrent le comportement des occupants."
+      },
+      "storage": {
+        "title": "Banc de stockage et de conversion",
+        "desc": "Système onduleur-chargeur Victron Energy couplé à deux batteries Fortress Power eFlex de 5,4 kWh, soit 10,8 kWh de lithium-fer-phosphate à 48 V avec communication en boucle fermée entre les batteries et l'onduleur. Le banc sert à l'étude de l'autoconsommation, de l'écrêtage de pointe et du soutien au réseau."
+      },
+      "edge": {
+        "title": "Grappe de calcul en périphérie",
+        "desc": "Une grappe de Raspberry Pi porte l'acquisition et la commande au plus près des équipements : capteurs sans fil, courtier de messages, historisation locale et exécution des politiques de commande. Elle permet d'étudier ce qui doit rester en périphérie et ce qui peut remonter au nuage."
+      },
+      "cluster": {
+        "title": "Grappe de calcul",
+        "desc": "Quatre serveurs Dell PowerEdge R740xd totalisant 384 fils d'exécution, près de 4 To de mémoire vive et huit accélérateurs NVIDIA Tesla P40 (192 Go de mémoire graphique), sous Kubernetes avec stockage distribué. La grappe héberge l'entraînement des modèles, les campagnes de simulation et les plateformes de données du laboratoire."
       },
       "simulation": {
-        "title": "Plateformes de simulation",
-        "desc": "Co-simulation des réseaux de distribution et de communication (OpenDSS, systèmes multi-agents) pour tester les mécanismes transactionnels à grande échelle."
+        "title": "Simulation et jumeaux numériques",
+        "desc": "Co-simulation des réseaux de distribution et des réseaux de communication, jumeaux numériques de réseaux et simulateurs de serre fondés sur la physique, pour éprouver les mécanismes transactionnels et les stratégies de commande à une échelle inaccessible en laboratoire."
       },
-      "data": {
-        "title": "Données et apprentissage",
-        "desc": "Jeux de données réelles de consommation, de recharge et d'occupation, et outils d'apprentissage automatique pour la modélisation et la prévision énergétiques."
-      },
-      "optimization": {
-        "title": "Optimisation et calcul",
-        "desc": "Méthodes d'optimisation convexe et stochastique et calcul distribué pour le dimensionnement et l'exploitation optimale des ressources énergétiques."
+      "datasets": {
+        "title": "Données et historisation",
+        "desc": "Les mesures issues de l'appartement et des bancs d'essai — consommation, recharge, occupation, climat — sont historisées en séries temporelles et alimentent la modélisation, la prévision et l'apprentissage automatique."
       }
     },
     "envTitle": "Milieu de travail",
@@ -153,15 +161,15 @@
     "infraGroups": {
       "experimental": {
         "title": "Moyens expérimentaux",
-        "desc": "Bancs d’essai et instrumentation permettant de confronter les stratégies de gestion aux conditions réelles."
+        "desc": "Installations instrumentées où les stratégies de gestion sont confrontées à des charges et à des conditions réelles."
       },
       "numeric": {
         "title": "Moyens numériques",
-        "desc": "Plateformes de simulation et de calcul pour éprouver les mécanismes à grande échelle avant leur déploiement."
+        "desc": "Calcul, simulation et plateformes de données pour éprouver les mécanismes à grande échelle avant leur déploiement."
       },
       "data": {
         "title": "Données",
-        "desc": "Jeux de mesures issus du terrain, qui alimentent la modélisation, la prévision et l’apprentissage."
+        "desc": "Jeux de mesures issus du terrain, qui alimentent la modélisation, la prévision et l'apprentissage."
       }
     },
     "moreTitle": "Poursuivre la visite",
@@ -183,13 +191,7 @@
     "pavVideoBuildingCaption": "Présentation du pavillon et de ses technologies vertes.",
     "pavVideoCityTitle": "L’UQTR déploie ses énergies au centre-ville",
     "pavVideoCityCaption": "Le pavillon dans son quartier, au centre-ville de Trois-Rivières.",
-    "galleryTitle": "Le laboratoire en images",
-    "galleryLead": "Quelques vues des installations et des travaux en cours.",
-    "gallery": {
-      "power": "Présentation d’un montage d’électronique de puissance et de son instrumentation, à l’Institut de recherche sur l’hydrogène.",
-      "rack": "Baie d’essai et de communication utilisée pour les montages en réseau.",
-      "visit": "Démonstration d’une plateforme de supervision lors d’une visite du laboratoire."
-    }
+    "visitAlt": "Démonstration d’une plateforme de supervision lors d’une visite du laboratoire."
   },
   "research": {
     "title": "Recherche",

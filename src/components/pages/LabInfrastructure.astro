@@ -13,9 +13,9 @@ const t = useTranslations(lang);
 // Grouped so that physical facilities, computing platforms and data are not
 // read as one undifferentiated list.
 const groups = [
-  { key: 'experimental', items: ['residential'] },
-  { key: 'numeric', items: ['simulation', 'optimization'] },
-  { key: 'data', items: ['data'] },
+  { key: 'experimental', items: ['apartment', 'storage', 'edge'] },
+  { key: 'numeric', items: ['cluster', 'simulation'] },
+  { key: 'data', items: ['datasets'] },
 ] as const;
 
 // The building itself first, then how it sits in the city.
@@ -24,19 +24,14 @@ const videos = [
   { id: 'KI72qQmFHwo', key: 'pavVideoCity' },
 ] as const;
 
-// Photographs of the laboratory itself. The last one is portrait, so it is
-// framed low to keep the demonstration in the crop.
-const gallery = [
-  { src: '/images/lab/lab7.jpg', key: 'power', focus: 'center 45%' },
-  { src: '/images/lab/lab8.jpg', key: 'rack', focus: 'center 40%' },
-  { src: '/images/lab/lab9.jpg', key: 'visit', focus: 'center 62%' },
-] as const;
-
+// Each photograph sits beside the equipment it actually shows.
 const photo: Record<string, string> = {
-  residential: '/images/lab/lab2.jpg',
-  simulation: '/images/lab/lab5.jpg',
-  data: '/images/lab/lab6.jpg',
-  optimization: '/images/lab/lab3.jpg',
+  apartment: '/images/lab/lab2.jpg',
+  storage: '/images/lab/lab7.jpg',
+  edge: '/images/lab/lab8.jpg',
+  cluster: '/images/lab/lab5.jpg',
+  simulation: '/images/lab/lab3.jpg',
+  datasets: '/images/lab/lab6.jpg',
 };
 ---
 
@@ -98,28 +93,16 @@ const photo: Record<string, string> = {
     ))}
 
     <section class="infra-group">
-      <h2>{t('lab.galleryTitle')}</h2>
-      <p class="muted" style="max-width:46rem">{t('lab.galleryLead')}</p>
-      <div class="photo-gallery">
-        {gallery.map((g) => (
-          <figure class="photo-tile">
-            <img
-              src={assetPath(g.src)}
-              alt={t(`lab.gallery.${g.key}`)}
-              style={`object-position:${g.focus}`}
-              loading="lazy"
-            />
-            <figcaption class="muted">{t(`lab.gallery.${g.key}`)}</figcaption>
-          </figure>
-        ))}
-      </div>
-    </section>
-
-    <section class="infra-group">
       <h2>{t('lab.envTitle')}</h2>
-      <div class="grid-2">
-        <p>{t('lab.env1')}</p>
-        <p>{t('lab.env2')}</p>
+      <div class="grid-2 lab-feature">
+        <div>
+          <p>{t('lab.env1')}</p>
+          <p>{t('lab.env2')}</p>
+        </div>
+        <figure class="lab-photo">
+          <img src={assetPath('/images/lab/lab9.jpg')} alt={t('lab.visitAlt')} loading="lazy" />
+          <figcaption class="muted">{t('lab.visitAlt')}</figcaption>
+        </figure>
       </div>
     </section>
   </div>

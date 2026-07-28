@@ -58,23 +58,31 @@
     "programsLead": "Our activities are organized around three major programs that structure the laboratory's doctoral projects and collaborations.",
     "featureAlt": "The LIREI team in its facilities at the Hydrogen Research Institute",
     "infraTitle": "Research infrastructure and facilities",
-    "infraLead": "LIREI combines experimental facilities, simulation platforms and real-world datasets to validate its work all the way from model to field.",
+    "infraLead": "LIREI operates an instrumented apartment, a storage bench, a computing cluster and simulation platforms, which together let its work be validated all the way from model to real conditions.",
     "infra": {
-      "residential": {
-        "title": "Residential test benches",
-        "desc": "Instrumentation of buildings and loads (heating, water heaters, thermal storage) to validate management strategies under real cold-climate conditions."
+      "apartment": {
+        "title": "Smart apartment",
+        "desc": "A fully instrumented dwelling at the Hydrogen Research Institute, where demand management strategies meet real use: heating and cooling driven by building automation, water heater, appliances, EV charging stations and circuit-by-circuit consumption metering. This is where the laboratory's algorithms meet occupant behaviour."
+      },
+      "storage": {
+        "title": "Storage and conversion bench",
+        "desc": "A Victron Energy inverter-charger system coupled to two Fortress Power eFlex 5.4 kWh batteries — 10.8 kWh of lithium iron phosphate at 48 V, with closed-loop communication between the batteries and the inverter. The bench supports work on self-consumption, peak shaving and grid support."
+      },
+      "edge": {
+        "title": "Edge computing cluster",
+        "desc": "A Raspberry Pi cluster carries acquisition and control close to the equipment: wireless sensors, message broker, local historian and execution of control policies. It lets us study what must stay at the edge and what can move to the cloud."
+      },
+      "cluster": {
+        "title": "Computing cluster",
+        "desc": "Four Dell PowerEdge R740xd servers totalling 384 execution threads, close to 4 TB of memory and eight NVIDIA Tesla P40 accelerators (192 GB of GPU memory), under Kubernetes with distributed storage. The cluster hosts model training, simulation campaigns and the laboratory's data platforms."
       },
       "simulation": {
-        "title": "Simulation platforms",
-        "desc": "Co-simulation of distribution and communication networks (OpenDSS, multi-agent systems) to test transactive mechanisms at scale."
+        "title": "Simulation and digital twins",
+        "desc": "Co-simulation of distribution and communication networks, network digital twins and physics-based greenhouse simulators, to test transactive mechanisms and control strategies at a scale unreachable in the laboratory."
       },
-      "data": {
-        "title": "Data and learning",
-        "desc": "Real-world consumption, charging and occupancy datasets, and machine-learning tools for energy modeling and forecasting."
-      },
-      "optimization": {
-        "title": "Optimization and computing",
-        "desc": "Convex and stochastic optimization methods and distributed computing for the sizing and optimal operation of energy resources."
+      "datasets": {
+        "title": "Data and historian",
+        "desc": "Measurements from the apartment and the test benches — consumption, charging, occupancy, climate — are stored as time series and feed modelling, forecasting and machine learning."
       }
     },
     "envTitle": "Work environment",
@@ -153,15 +161,15 @@
     "infraGroups": {
       "experimental": {
         "title": "Experimental facilities",
-        "desc": "Test benches and instrumentation that confront management strategies with real operating conditions."
+        "desc": "Instrumented facilities where management strategies meet real loads and real conditions."
       },
       "numeric": {
         "title": "Computational facilities",
-        "desc": "Simulation and computing platforms for testing mechanisms at scale before deployment."
+        "desc": "Computing, simulation and data platforms for testing mechanisms at scale before deployment."
       },
       "data": {
         "title": "Data",
-        "desc": "Field measurement sets that feed modelling, forecasting and machine learning."
+        "desc": "Field measurement sets that feed modelling, forecasting and learning."
       }
     },
     "moreTitle": "Continue",
@@ -183,13 +191,7 @@
     "pavVideoBuildingCaption": "A presentation of the building and its green technologies.",
     "pavVideoCityTitle": "L’UQTR déploie ses énergies au centre-ville",
     "pavVideoCityCaption": "The building in its neighbourhood, in downtown Trois-Rivières.",
-    "galleryTitle": "The laboratory in pictures",
-    "galleryLead": "A few views of the facilities and of work in progress.",
-    "gallery": {
-      "power": "Presentation of a power electronics setup and its instrumentation, at the Hydrogen Research Institute.",
-      "rack": "Test and communication rack used for networked setups.",
-      "visit": "Demonstration of a supervision platform during a visit to the laboratory."
-    }
+    "visitAlt": "Demonstration of a supervision platform during a visit to the laboratory."
   },
   "research": {
     "title": "Research",

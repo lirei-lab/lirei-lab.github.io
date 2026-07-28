@@ -1732,41 +1732,10 @@ section:hover > h2::after,
   max-width: 52rem;
 }
 
-/* Photographs of differing aspect ratios, normalised to one band so the row
-   reads evenly; each tile is framed individually via object-position. */
-.photo-gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-}
-
-.photo-tile {
-  margin: 0;
-}
-
-.photo-tile img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  border-radius: 10px;
-  border-bottom: 3px solid var(--green-400);
-  background: var(--blue-900);
-}
-
-.photo-tile figcaption {
+.lab-photo figcaption {
   margin-top: 0.55rem;
   font-size: 0.88rem;
   line-height: 1.45;
-}
-
-@media (max-width: 860px) {
-  .photo-gallery { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 620px) {
-  .photo-gallery { grid-template-columns: 1fr; }
 }
 
 .video-pair {
