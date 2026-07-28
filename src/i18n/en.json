@@ -62,7 +62,7 @@
     "infra": {
       "apartment": {
         "title": "Smart apartment",
-        "desc": "A fully instrumented dwelling at the Hydrogen Research Institute, where demand management strategies meet real use: heating and cooling driven by a Delta programmable controller, water heater, appliances, EV charging stations and circuit-by-circuit consumption metering. This is where the laboratory's algorithms meet occupant behaviour."
+        "desc": "A fully instrumented dwelling at the Hydrogen Research Institute, where demand management strategies meet real use: heating and cooling driven by a Delta Controls controller over BACnet, water heater, appliances, EV charging stations and circuit-by-circuit consumption metering. Using an open building automation protocol means strategies can be tested on the same equipment found in commercial buildings. This is where the laboratory's algorithms meet occupant behaviour."
       },
       "storage": {
         "title": "Storage and conversion bench",

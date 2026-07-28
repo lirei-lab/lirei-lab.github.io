@@ -62,7 +62,7 @@
     "infra": {
       "apartment": {
         "title": "Appartement intelligent",
-        "desc": "Logement entièrement instrumenté à l'Institut de recherche sur l'hydrogène, où les stratégies de gestion de la demande sont confrontées à un usage réel : chauffage et climatisation pilotés par un automate Delta, chauffe-eau, électroménagers, bornes de recharge et mesure de la consommation circuit par circuit. C'est là que les algorithmes du laboratoire rencontrent le comportement des occupants."
+        "desc": "Logement entièrement instrumenté à l'Institut de recherche sur l'hydrogène, où les stratégies de gestion de la demande sont confrontées à un usage réel : chauffage et climatisation pilotés par un automate Delta Controls sur réseau BACnet, chauffe-eau, électroménagers, bornes de recharge et mesure de la consommation circuit par circuit. Le recours à un protocole ouvert d'automatisation du bâtiment permet d'éprouver les stratégies sur les mêmes équipements que ceux du bâtiment commercial. C'est là que les algorithmes du laboratoire rencontrent le comportement des occupants."
       },
       "storage": {
         "title": "Banc de stockage et de conversion",
