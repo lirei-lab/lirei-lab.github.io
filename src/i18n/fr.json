@@ -62,11 +62,11 @@
     "infra": {
       "apartment": {
         "title": "Appartement intelligent",
-        "desc": "Logement entièrement instrumenté à l'Institut de recherche sur l'hydrogène, où les stratégies de gestion de la demande sont confrontées à un usage réel : chauffage et climatisation pilotés par automatisation du bâtiment, chauffe-eau, électroménagers, bornes de recharge et mesure de la consommation circuit par circuit. C'est là que les algorithmes du laboratoire rencontrent le comportement des occupants."
+        "desc": "Logement entièrement instrumenté à l'Institut de recherche sur l'hydrogène, où les stratégies de gestion de la demande sont confrontées à un usage réel : chauffage et climatisation pilotés par un automate Delta, chauffe-eau, électroménagers, bornes de recharge et mesure de la consommation circuit par circuit. C'est là que les algorithmes du laboratoire rencontrent le comportement des occupants."
       },
       "storage": {
         "title": "Banc de stockage et de conversion",
-        "desc": "Système onduleur-chargeur Victron Energy couplé à deux batteries Fortress Power eFlex de 5,4 kWh, soit 10,8 kWh de lithium-fer-phosphate à 48 V avec communication en boucle fermée entre les batteries et l'onduleur. Le banc sert à l'étude de l'autoconsommation, de l'écrêtage de pointe et du soutien au réseau."
+        "desc": "Onduleur-chargeur Victron Energy Quattro de 5 000 VA à 48 V — sinusoïde pure, chargeur de 70 A, deux entrées CA avec commutateur de transfert intégré — couplé à deux batteries Fortress Power eFlex de 5,4 kWh, soit 10,8 kWh de lithium-fer-phosphate avec communication en boucle fermée entre les batteries et l'onduleur. Les deux entrées permettent de basculer entre réseau, groupe électrogène et fonctionnement îloté : autoconsommation, écrêtage de pointe, soutien au réseau et micro-réseau isolé."
       },
       "edge": {
         "title": "Grappe de calcul en périphérie",

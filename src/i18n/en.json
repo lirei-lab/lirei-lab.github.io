@@ -62,11 +62,11 @@
     "infra": {
       "apartment": {
         "title": "Smart apartment",
-        "desc": "A fully instrumented dwelling at the Hydrogen Research Institute, where demand management strategies meet real use: heating and cooling driven by building automation, water heater, appliances, EV charging stations and circuit-by-circuit consumption metering. This is where the laboratory's algorithms meet occupant behaviour."
+        "desc": "A fully instrumented dwelling at the Hydrogen Research Institute, where demand management strategies meet real use: heating and cooling driven by a Delta programmable controller, water heater, appliances, EV charging stations and circuit-by-circuit consumption metering. This is where the laboratory's algorithms meet occupant behaviour."
       },
       "storage": {
         "title": "Storage and conversion bench",
-        "desc": "A Victron Energy inverter-charger system coupled to two Fortress Power eFlex 5.4 kWh batteries — 10.8 kWh of lithium iron phosphate at 48 V, with closed-loop communication between the batteries and the inverter. The bench supports work on self-consumption, peak shaving and grid support."
+        "desc": "A Victron Energy Quattro 5,000 VA 48 V inverter-charger — pure sine wave, 70 A charger, two AC inputs with an integrated transfer switch — coupled to two Fortress Power eFlex 5.4 kWh batteries, 10.8 kWh of lithium iron phosphate with closed-loop communication between the batteries and the inverter. The two inputs allow switching between grid, generator and islanded operation: self-consumption, peak shaving, grid support and isolated microgrid."
       },
       "edge": {
         "title": "Edge computing cluster",
