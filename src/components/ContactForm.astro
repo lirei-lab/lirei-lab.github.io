@@ -9,10 +9,12 @@ interface Props {
 const { lang, to } = Astro.props;
 const t = useTranslations(lang);
 
-// The handler that relays the form by email. Overridable at build time so a
-// staging deploy can point elsewhere.
+// API Gateway in front of a Lambda that relays the form through SES. No
+// server, and no credential: the function sends with its execution role.
+// Overridable at build time so a staging deploy can point elsewhere.
 const endpoint =
-  import.meta.env.PUBLIC_CONTACT_ENDPOINT ?? 'https://lirei.uqtr.ca/api/contact';
+  import.meta.env.PUBLIC_CONTACT_ENDPOINT ??
+  'https://bdst5q4007.execute-api.us-east-1.amazonaws.com';
 
 const subjects = ['question', 'postdoc', 'phd', 'msc', 'internship', 'partner', 'media'] as const;
 ---
@@ -126,7 +128,7 @@ const subjects = ['question', 'postdoc', 'phd', 'msc', 'internship', 'partner', 
 
   if (form && fallback && preview && status && button) {
     const d = form.dataset;
-    const MAX_CV = 5 * 1024 * 1024;
+    const MAX_CV = 3_500_000;
     const CV_TYPES = [
       'application/pdf',
       'application/msword',
