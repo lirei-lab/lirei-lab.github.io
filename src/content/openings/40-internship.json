@@ -1,0 +1,22 @@
+{
+  "title": {
+    "fr": "Stages de recherche",
+    "en": "Research internships"
+  },
+  "type": "internship",
+  "status": "ongoing",
+  "order": 40,
+  "summary": {
+    "fr": "Stages de premier cycle et stages internationaux, notamment dans le cadre des programmes Mitacs et des ententes avec nos partenaires académiques.",
+    "en": "Undergraduate and international internships, in particular through the Mitacs programs and the agreements with our academic partners."
+  },
+  "profile": {
+    "fr": "Étudiantes et étudiants de premier cycle en génie ou en informatique. Les stages portent le plus souvent sur l'instrumentation, le traitement de données ou la simulation.",
+    "en": "Undergraduate students in engineering or computer science. Internships most often involve instrumentation, data processing or simulation."
+  },
+  "programs": [
+    "flexibilite",
+    "serres",
+    "communautes"
+  ]
+}

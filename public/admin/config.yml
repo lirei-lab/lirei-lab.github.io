@@ -236,3 +236,53 @@ collections:
       - { name: source, label: Source, widget: string, required: false, hint: 'Ex. : Néo UQTR' }
       - { name: url, label: "Lien vers l'article", widget: string, required: false }
       - { name: image, label: Image, widget: image, required: false }
+
+  - name: openings
+    label: Offres et candidatures
+    label_singular: Offre
+    folder: src/content/openings
+    format: json
+    create: true
+    slug: "{{order}}-{{type}}"
+    fields:
+      - { name: title, label: Titre, widget: object, fields: [
+            { name: fr, label: FR, widget: string },
+            { name: en, label: EN, widget: string } ] }
+      - name: type
+        label: Type de poste
+        widget: select
+        options:
+          - { label: Postdoctorat, value: postdoc }
+          - { label: Doctorat, value: phd }
+          - { label: Maitrise, value: msc }
+          - { label: Stage, value: internship }
+          - { label: Professionnel de recherche, value: engineer }
+      - name: status
+        label: Statut
+        widget: select
+        default: open
+        options:
+          - { label: "Poste ouvert (avec date limite)", value: open }
+          - { label: "Candidature spontanee (permanent)", value: ongoing }
+          - { label: Ferme, value: closed }
+      - { name: summary, label: Resume, widget: object, fields: [
+            { name: fr, label: FR, widget: text },
+            { name: en, label: EN, widget: text } ] }
+      - { name: profile, label: Profil recherche, required: false, widget: object, fields: [
+            { name: fr, label: FR, widget: text },
+            { name: en, label: EN, widget: text } ] }
+      - { name: funding, label: Financement, required: false, widget: object, fields: [
+            { name: fr, label: FR, widget: text },
+            { name: en, label: EN, widget: text } ] }
+      - name: programs
+        label: Programmes concernes
+        required: false
+        widget: select
+        multiple: true
+        options:
+          - { label: Flexibilite energetique, value: flexibilite }
+          - { label: Serres du Quebec, value: serres }
+          - { label: Communautes isolees, value: communautes }
+      - { name: supervisor, label: Direction, required: false, widget: string }
+      - { name: deadline, label: Date limite, required: false, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, picker_utc: true }
+      - { name: order, label: Ordre, widget: number, default: 50, value_type: int }

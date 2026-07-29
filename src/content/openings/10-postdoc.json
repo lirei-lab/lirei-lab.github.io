@@ -1,0 +1,26 @@
+{
+  "title": {
+    "fr": "Stage postdoctoral en gestion intelligente de l'énergie",
+    "en": "Postdoctoral fellowship in intelligent energy management"
+  },
+  "type": "postdoc",
+  "status": "ongoing",
+  "order": 10,
+  "summary": {
+    "fr": "Le LIREI accueille régulièrement des chercheuses et chercheurs postdoctoraux sur ses trois programmes de recherche. Les candidatures spontanées sont examinées en continu.",
+    "en": "LIREI regularly hosts postdoctoral researchers across its three research programs. Spontaneous applications are reviewed on a rolling basis."
+  },
+  "profile": {
+    "fr": "Doctorat en génie électrique, informatique ou dans un domaine connexe, obtenu depuis moins de cinq ans. Solide dossier de publications et autonomie en recherche. Selon le programme visé : optimisation, apprentissage automatique, systèmes multi-agents, commande prédictive ou modélisation des réseaux de distribution.",
+    "en": "A doctorate in electrical or computer engineering or a related field, completed within the last five years. A solid publication record and research autonomy. Depending on the program: optimization, machine learning, multi-agent systems, predictive control or distribution-network modelling."
+  },
+  "programs": [
+    "flexibilite",
+    "serres",
+    "communautes"
+  ],
+  "funding": {
+    "fr": "Le financement dépend des subventions en cours ; les candidatures accompagnées d'une demande de bourse externe sont bienvenues.",
+    "en": "Funding depends on current grants; applications backed by an external fellowship application are welcome."
+  }
+}

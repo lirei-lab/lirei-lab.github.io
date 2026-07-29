@@ -1,0 +1,22 @@
+{
+  "title": {
+    "fr": "Maîtrise en génie électrique",
+    "en": "Master's in electrical engineering"
+  },
+  "type": "msc",
+  "status": "ongoing",
+  "order": 30,
+  "summary": {
+    "fr": "Projets de maîtrise avec mémoire, souvent en lien direct avec un banc d'essai ou une plateforme du laboratoire.",
+    "en": "Master's projects with thesis, often tied directly to one of the laboratory's test benches or platforms."
+  },
+  "profile": {
+    "fr": "Baccalauréat en génie électrique, en génie informatique ou dans un domaine connexe. Intérêt marqué pour l'expérimentation et l'analyse de données réelles.",
+    "en": "A bachelor's degree in electrical or computer engineering or a related field. A clear interest in experimentation and in working with real data."
+  },
+  "programs": [
+    "flexibilite",
+    "serres",
+    "communautes"
+  ]
+}

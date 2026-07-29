@@ -20,7 +20,8 @@
     "overview": "Overview",
     "members": "Members",
     "labInfra": "Infrastructure",
-    "labPartners": "Partners"
+    "labPartners": "Partners",
+    "openings": "Openings"
   },
   "footer": {
     "affiliation": "Member of the Hydrogen Research Institute (IRH)",
@@ -325,7 +326,35 @@
     "partnersDesc": "LIREI's work is made possible through the collaboration of institutional and industrial partners.",
     "recruitTitle": "Join LIREI",
     "recruitText": "LIREI is always looking for motivated graduate students (master's, PhD, postdoc) interested in intelligent energy management. Write to us to discuss research opportunities.",
-    "recruitCta": "Write to us"
+    "recruitCta": "Write to us",
+    "formTitle": "Write to us",
+    "formLead": "Fill in this form: it prepares an email in your mail application, ready for you to send. If you are applying, attach your CV before sending.",
+    "fName": "Name",
+    "fEmail": "Email",
+    "fOrg": "Affiliation",
+    "fOrgHint": "University, company or organisation (optional)",
+    "fSubject": "Subject",
+    "fMessage": "Message",
+    "subjects": {
+      "question": "General enquiry",
+      "postdoc": "Application — postdoctoral",
+      "phd": "Application — doctorate",
+      "msc": "Application — master's",
+      "internship": "Application — internship",
+      "partner": "Collaboration or partnership",
+      "media": "Media enquiry"
+    },
+    "cvTitle": "Attaching your CV",
+    "cvNote": "The email opens in your own mail application: add your CV as an attachment before sending it. A PDF is preferred.",
+    "submit": "Prepare the email",
+    "required": "This field is required.",
+    "invalidEmail": "Enter a valid email address.",
+    "opened": "Your mail application should have opened with the message prepared.",
+    "fallbackTitle": "Email did not open?",
+    "fallbackLead": "Copy the message below and send it to",
+    "copy": "Copy message",
+    "copied": "Copied",
+    "tooLong": "Message too long to prepare automatically: use the copy below."
   },
   "alumni": {
     "title": "Alumni",
@@ -390,5 +419,28 @@
       "flowUp": "States and measurements",
       "alt": "Two-level architecture: planning through dynamic operational envelopes, computed by stochastic optimization over a 24-hour horizon, sets power limits; below, reinforcement-learning agents coordinate wind, solar, hybrid storage and residential loads in real time, which report their states."
     }
+  },
+  "openings": {
+    "title": "Openings and applications",
+    "lead": "Postdoctoral fellowships, doctorates, master's projects and internships across the laboratory's three programs.",
+    "openTitle": "Open positions",
+    "openLead": "Specific postings, with a closing date.",
+    "openNone": "No dated position is open right now. The standing calls below remain welcome.",
+    "ongoingTitle": "Spontaneous applications",
+    "ongoingLead": "The kinds of position the laboratory regularly hosts. Funding depends on current grants.",
+    "types": {
+      "postdoc": "Postdoctoral",
+      "phd": "Doctorate",
+      "msc": "Master's",
+      "internship": "Internship",
+      "engineer": "Research professional"
+    },
+    "profileTitle": "Profile sought",
+    "fundingTitle": "Funding",
+    "programsTitle": "Related programs",
+    "deadline": "Closing date",
+    "apply": "Apply",
+    "applyLead": "Write to us stating the position you are interested in, and attach your CV.",
+    "closed": "Closed"
   }
 }

@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { useTranslations, type Lang } from '../../i18n';
+import ContactForm from '../ContactForm.astro';
+import { useTranslations, href, type Lang } from '../../i18n';
 
 interface Props {
   lang: Lang;
@@ -55,8 +56,10 @@ const partners = [
       <div class="container">
         <h2 style="margin-top:0">{t('contact.recruitTitle')}</h2>
         <p style="max-width:46rem">{t('contact.recruitText')}</p>
-        <p><a class="btn" href="mailto:lirei.info@uqtr.ca">{t('contact.recruitCta')}</a></p>
+        <p><a class="btn" href={href(lang, 'openings')}>{t('nav.openings')} →</a></p>
       </div>
     </section>
+
+    <ContactForm lang={lang} to="lirei.info@uqtr.ca" />
   </div>
 </Base>

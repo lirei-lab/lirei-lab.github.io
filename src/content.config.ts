@@ -117,4 +117,23 @@ const partners = defineCollection({
   }),
 });
 
-export const collections = { team, publications, projects, news, alumni, partners };
+const openings = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/openings' }),
+  schema: z.object({
+    title: bilingual,
+    // What kind of position, and whether it is a dated vacancy ('open') or a
+    // standing invitation to apply ('ongoing').
+    type: z.enum(['postdoc', 'phd', 'msc', 'internship', 'engineer']),
+    status: z.enum(['open', 'ongoing', 'closed']).default('ongoing'),
+    summary: bilingual,
+    profile: bilingual.optional(),
+    programs: z.array(z.enum(['flexibilite', 'serres', 'communautes'])).optional(),
+    supervisor: z.string().optional(),
+    funding: bilingual.optional(),
+    // ISO date; only meaningful for a dated vacancy.
+    deadline: z.string().optional(),
+    order: z.number().default(50),
+  }),
+});
+
+export const collections = { team, publications, projects, news, alumni, partners, openings };

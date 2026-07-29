@@ -1,0 +1,26 @@
+{
+  "title": {
+    "fr": "Doctorat en génie électrique",
+    "en": "Doctoral studies in electrical engineering"
+  },
+  "type": "phd",
+  "status": "ongoing",
+  "order": 20,
+  "summary": {
+    "fr": "Des projets doctoraux sont définis dans chacun des trois programmes du laboratoire. Chaque projet est encadré par un membre du corps professoral et rattaché à un programme financé.",
+    "en": "Doctoral projects are defined within each of the laboratory's three programs. Every project is supervised by a faculty member and attached to a funded program."
+  },
+  "profile": {
+    "fr": "Maîtrise en génie électrique, en génie informatique ou dans un domaine connexe. Aisance en modélisation et en programmation scientifique. La maîtrise du français ou de l'anglais est requise ; les travaux se publient en anglais.",
+    "en": "A master's degree in electrical or computer engineering or a related field. Comfort with modelling and scientific programming. French or English is required; the work is published in English."
+  },
+  "programs": [
+    "flexibilite",
+    "serres",
+    "communautes"
+  ],
+  "funding": {
+    "fr": "Bourses d'études offertes selon le projet et les subventions en cours.",
+    "en": "Scholarships available depending on the project and current grants."
+  }
+}

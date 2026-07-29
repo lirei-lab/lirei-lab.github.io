@@ -25,6 +25,7 @@ export const routes = {
   labPartners: { fr: 'laboratoire/partenaires', en: 'laboratory/partners' },
   team: { fr: 'equipe', en: 'team' },
   alumni: { fr: 'equipe/diplomes', en: 'team/alumni' },
+  openings: { fr: 'equipe/offres', en: 'team/openings' },
   research: { fr: 'recherche', en: 'research' },
   publications: { fr: 'publications', en: 'publications' },
   news: { fr: 'actualites', en: 'news' },
@@ -42,7 +43,7 @@ export interface NavItem {
 export const navTree: NavItem[] = [
   { key: 'home' },
   { key: 'lab', children: ['lab', 'labInfra', 'labPartners'] },
-  { key: 'team', children: ['team', 'alumni'] },
+  { key: 'team', children: ['team', 'alumni', 'openings'] },
   { key: 'research' },
   { key: 'publications' },
   { key: 'news' },

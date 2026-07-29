@@ -1,0 +1,190 @@
+---
+import { useTranslations, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+  to: string;
+}
+
+const { lang, to } = Astro.props;
+const t = useTranslations(lang);
+
+const subjects = ['question', 'postdoc', 'phd', 'msc', 'internship', 'partner', 'media'] as const;
+---
+
+<section class="contact-form-block" id="ecrire">
+  <h2>{t('contact.formTitle')}</h2>
+  <p class="muted" style="max-width:46rem">{t('contact.formLead')}</p>
+
+  <!-- The inline script is not templated, so the translated strings it needs
+       travel as data attributes. -->
+  <form
+    class="contact-form"
+    novalidate
+    data-to={to}
+    data-required={t('contact.required')}
+    data-email={t('contact.invalidEmail')}
+    data-opened={t('contact.opened')}
+    data-too-long={t('contact.tooLong')}
+    data-l-name={t('contact.fName')}
+    data-l-email={t('contact.fEmail')}
+    data-l-org={t('contact.fOrg')}>
+    <div class="field">
+      <label for="cf-name">{t('contact.fName')} <span aria-hidden="true">*</span></label>
+      <input id="cf-name" name="name" type="text" required autocomplete="name" />
+      <p class="field-error" id="cf-name-err" hidden></p>
+    </div>
+
+    <div class="field">
+      <label for="cf-email">{t('contact.fEmail')} <span aria-hidden="true">*</span></label>
+      <input id="cf-email" name="email" type="email" required autocomplete="email" />
+      <p class="field-error" id="cf-email-err" hidden></p>
+    </div>
+
+    <div class="field">
+      <label for="cf-org">{t('contact.fOrg')}</label>
+      <input id="cf-org" name="org" type="text" autocomplete="organization"
+        aria-describedby="cf-org-hint" />
+      <p class="field-hint" id="cf-org-hint">{t('contact.fOrgHint')}</p>
+    </div>
+
+    <div class="field">
+      <label for="cf-subject">{t('contact.fSubject')}</label>
+      <select id="cf-subject" name="subject">
+        {subjects.map((s) => (
+          <option value={s} data-label={t(`contact.subjects.${s}`)}>
+            {t(`contact.subjects.${s}`)}
+          </option>
+        ))}
+      </select>
+    </div>
+
+    <div class="field field--wide">
+      <label for="cf-message">{t('contact.fMessage')} <span aria-hidden="true">*</span></label>
+      <textarea id="cf-message" name="message" rows="7" required></textarea>
+      <p class="field-error" id="cf-message-err" hidden></p>
+    </div>
+
+    <div class="field field--wide cv-note">
+      <strong>{t('contact.cvTitle')}</strong>
+      <p class="muted">{t('contact.cvNote')}</p>
+    </div>
+
+    <div class="field field--wide">
+      <button type="submit" class="btn">{t('contact.submit')}</button>
+    </div>
+  </form>
+
+  <!-- mailto cannot report success, and some visitors have no mail client
+       configured at all, so the composed message is always recoverable. -->
+  <div class="mail-fallback" hidden>
+    <p class="mail-opened">{t('contact.opened')}</p>
+    <h3>{t('contact.fallbackTitle')}</h3>
+    <p class="muted">
+      {t('contact.fallbackLead')} <a href={`mailto:${to}`}>{to}</a>
+    </p>
+    <pre class="mail-preview" tabindex="0"></pre>
+    <p>
+      <button type="button" class="btn ghost copy-btn"
+        data-copy={t('contact.copy')} data-copied={t('contact.copied')}>
+        {t('contact.copy')}
+      </button>
+    </p>
+  </div>
+</section>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('.contact-form');
+  const fallback = document.querySelector<HTMLElement>('.mail-fallback');
+  const preview = document.querySelector<HTMLPreElement>('.mail-preview');
+
+  if (form && fallback && preview) {
+    const to = form.dataset.to ?? '';
+    const msgs = {
+      required: form.dataset.required ?? '',
+      email: form.dataset.email ?? '',
+    };
+
+    // The openings page links here with ?o=<type>; preselect that subject so
+    // the visitor does not have to restate what they clicked.
+    const wanted = new URL(location.href).searchParams.get('o');
+    const select = form.querySelector<HTMLSelectElement>('#cf-subject');
+    if (wanted && select && [...select.options].some((o) => o.value === wanted)) {
+      select.value = wanted;
+    }
+
+    const showError = (input: HTMLInputElement | HTMLTextAreaElement, text: string) => {
+      const err = document.getElementById(`${input.id}-err`);
+      if (!err) return;
+      err.textContent = text;
+      err.hidden = !text;
+      input.setAttribute('aria-invalid', text ? 'true' : 'false');
+      if (text) input.setAttribute('aria-describedby', err.id);
+    };
+
+    const validate = () => {
+      let first: HTMLElement | null = null;
+      for (const id of ['cf-name', 'cf-email', 'cf-message']) {
+        const el = document.getElementById(id) as HTMLInputElement | HTMLTextAreaElement;
+        let text = '';
+        if (!el.value.trim()) text = msgs.required;
+        else if (el.id === 'cf-email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim()))
+          text = msgs.email;
+        showError(el, text);
+        if (text && !first) first = el;
+      }
+      first?.focus();
+      return !first;
+    };
+
+    const compose = () => {
+      const get = (n: string) =>
+        (form.querySelector(`[name="${n}"]`) as HTMLInputElement).value.trim();
+      const opt = select?.selectedOptions[0];
+      const label = opt?.dataset.label ?? '';
+      const lines = [
+        `${form.dataset.lName}: ${get('name')}`,
+        `${form.dataset.lEmail}: ${get('email')}`,
+      ];
+      if (get('org')) lines.push(`${form.dataset.lOrg}: ${get('org')}`);
+      lines.push('', get('message'));
+      return { subject: `[LIREI] ${label}`, body: lines.join('\n') };
+    };
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!validate()) return;
+      const { subject, body } = compose();
+      preview.textContent = `${subject}\n\n${body}`;
+      fallback.hidden = false;
+
+      const url = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      // Very long bodies are dropped or truncated by some mail clients; past
+      // that point the copyable version is the only reliable route.
+      const opened = document.querySelector<HTMLElement>('.mail-opened');
+      if (url.length > 1800) {
+        if (opened) opened.textContent = form.dataset.tooLong ?? '';
+      } else {
+        if (opened) opened.textContent = form.dataset.opened ?? '';
+        location.href = url;
+      }
+      fallback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+
+    const copyBtn = document.querySelector<HTMLButtonElement>('.copy-btn');
+    copyBtn?.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(preview.textContent ?? '');
+      } catch {
+        const r = document.createRange();
+        r.selectNodeContents(preview);
+        const sel = getSelection();
+        sel?.removeAllRanges();
+        sel?.addRange(r);
+        return;
+      }
+      copyBtn.textContent = copyBtn.dataset.copied ?? '';
+      setTimeout(() => (copyBtn.textContent = copyBtn.dataset.copy ?? ''), 1800);
+    });
+  }
+</script>

@@ -462,6 +462,27 @@ a:hover {
   color: var(--blue-900);
 }
 
+/* .btn was written for <a>; a <button> inherits neither typography nor cursor. */
+button.btn {
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  border: 0;
+}
+
+/* Outlined variant for light surfaces — .outline alone is white-on-dark and
+   disappears anywhere but the hero. */
+.btn.ghost {
+  background: transparent;
+  border: 2px solid var(--green-600);
+  color: var(--green-600);
+}
+
+.btn.ghost:hover {
+  background: var(--green-600);
+  color: #fff;
+}
+
 /* Stats strip */
 .stats {
   display: grid;
@@ -1574,6 +1595,189 @@ section:hover > h2::after,
 }
 
 /* Academic partners */
+/* Contact form */
+.contact-form-block {
+  margin-top: 3rem;
+}
+
+.contact-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.1rem;
+  margin-top: 1.5rem;
+  max-width: 52rem;
+}
+
+.field--wide {
+  grid-column: 1 / -1;
+}
+
+.field label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.92rem;
+  margin-bottom: 0.3rem;
+  color: var(--blue-900);
+}
+
+.field label span {
+  color: var(--green-600);
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--ink);
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--bg);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 8rem;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--green-600);
+  box-shadow: 0 0 0 3px var(--green-100);
+}
+
+.field input[aria-invalid='true'],
+.field textarea[aria-invalid='true'] {
+  border-color: #b3261e;
+}
+
+.field-hint,
+.field-error {
+  margin: 0.3rem 0 0;
+  font-size: 0.84rem;
+}
+
+.field-hint {
+  color: var(--muted);
+}
+
+.field-error {
+  color: #b3261e;
+  font-weight: 600;
+}
+
+.field-error[hidden] {
+  display: none;
+}
+
+.cv-note {
+  padding: 0.9rem 1.1rem;
+  border-radius: 8px;
+  background: var(--green-100);
+  border-left: 3px solid var(--green-600);
+}
+
+.cv-note p {
+  margin: 0.25rem 0 0;
+  font-size: 0.9rem;
+}
+
+.mail-fallback {
+  max-width: 52rem;
+  margin-top: 2rem;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--bg-alt);
+}
+
+.mail-fallback[hidden] {
+  display: none;
+}
+
+.mail-opened {
+  margin-top: 0;
+  font-weight: 600;
+  color: var(--green-600);
+}
+
+.mail-preview {
+  margin: 0.75rem 0 0;
+  padding: 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--bg);
+  font-size: 0.85rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 18rem;
+  overflow: auto;
+}
+
+@media (max-width: 640px) {
+  .contact-form { grid-template-columns: 1fr; }
+}
+
+/* Openings */
+.opening-list {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.opening h3 {
+  margin: 0.6rem 0 0.4rem;
+}
+
+.opening h4 {
+  margin: 1rem 0 0.25rem;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+}
+
+.opening p {
+  margin: 0.25rem 0 0;
+}
+
+.opening-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.opening-programs {
+  margin-top: 1rem;
+}
+
+.opening-programs .tag {
+  text-decoration: none;
+}
+
+.empty-note {
+  max-width: 46rem;
+  margin-top: 1.25rem;
+  padding: 1rem 1.2rem;
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+  color: var(--muted);
+}
+
+.apply-note {
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  max-width: 46rem;
+}
+
 /* World map of academic partners */
 .partner-map {
   margin: 1.75rem 0 2.5rem;

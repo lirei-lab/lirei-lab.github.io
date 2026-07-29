@@ -20,7 +20,8 @@
     "overview": "Présentation",
     "members": "Membres",
     "labInfra": "Infrastructures",
-    "labPartners": "Partenaires"
+    "labPartners": "Partenaires",
+    "openings": "Offres"
   },
   "footer": {
     "affiliation": "Membre de l'Institut de recherche sur l'hydrogène (IRH)",
@@ -325,7 +326,35 @@
     "partnersDesc": "Les travaux du LIREI sont rendus possibles grâce à la collaboration de partenaires institutionnels et industriels.",
     "recruitTitle": "Se joindre au LIREI",
     "recruitText": "Le LIREI est toujours à la recherche d'étudiantes et d'étudiants motivés aux cycles supérieurs (maîtrise, doctorat, postdoctorat) intéressés par la gestion intelligente de l'énergie. Écrivez-nous pour discuter des possibilités de recherche.",
-    "recruitCta": "Écrivez-nous"
+    "recruitCta": "Écrivez-nous",
+    "formTitle": "Écrivez-nous",
+    "formLead": "Remplissez ce formulaire : il prépare un courriel dans votre logiciel de messagerie, que vous n'avez plus qu'à envoyer. Si vous postulez, joignez-y votre CV avant l'envoi.",
+    "fName": "Nom",
+    "fEmail": "Courriel",
+    "fOrg": "Affiliation",
+    "fOrgHint": "Université, entreprise ou organisme (facultatif)",
+    "fSubject": "Objet",
+    "fMessage": "Message",
+    "subjects": {
+      "question": "Question générale",
+      "postdoc": "Candidature — postdoctorat",
+      "phd": "Candidature — doctorat",
+      "msc": "Candidature — maîtrise",
+      "internship": "Candidature — stage",
+      "partner": "Collaboration ou partenariat",
+      "media": "Demande média"
+    },
+    "cvTitle": "Joindre votre CV",
+    "cvNote": "Le courriel s'ouvrira dans votre logiciel de messagerie : ajoutez-y votre CV en pièce jointe avant de l'envoyer. Un fichier PDF est préférable.",
+    "submit": "Préparer le courriel",
+    "required": "Ce champ est requis.",
+    "invalidEmail": "Entrez une adresse courriel valide.",
+    "opened": "Votre logiciel de messagerie devrait s'être ouvert avec le message préparé.",
+    "fallbackTitle": "Le courriel ne s'est pas ouvert ?",
+    "fallbackLead": "Copiez le message ci-dessous et envoyez-le à",
+    "copy": "Copier le message",
+    "copied": "Copié",
+    "tooLong": "Message trop long pour être préparé automatiquement : utilisez la copie ci-dessous."
   },
   "alumni": {
     "title": "Diplômés",
@@ -390,5 +419,28 @@
       "flowUp": "États et mesures",
       "alt": "Architecture à deux niveaux : une planification par enveloppes opérationnelles dynamiques, calculées par optimisation stochastique sur un horizon de 24 heures, fixe des limites de puissance ; en dessous, des agents d'apprentissage par renforcement coordonnent en temps réel l'éolien, le solaire, le stockage hybride et les charges résidentielles, qui remontent leurs états."
     }
+  },
+  "openings": {
+    "title": "Offres et candidatures",
+    "lead": "Postdoctorats, doctorats, maîtrises et stages au sein des trois programmes du laboratoire.",
+    "openTitle": "Postes ouverts",
+    "openLead": "Offres précises, avec date limite.",
+    "openNone": "Aucun poste avec date limite n'est ouvert en ce moment. Les candidatures spontanées ci-dessous restent les bienvenues.",
+    "ongoingTitle": "Candidatures spontanées",
+    "ongoingLead": "Les types de postes que le laboratoire accueille régulièrement. Le financement dépend des subventions en cours.",
+    "types": {
+      "postdoc": "Postdoctorat",
+      "phd": "Doctorat",
+      "msc": "Maîtrise",
+      "internship": "Stage",
+      "engineer": "Professionnel de recherche"
+    },
+    "profileTitle": "Profil recherché",
+    "fundingTitle": "Financement",
+    "programsTitle": "Programmes concernés",
+    "deadline": "Date limite",
+    "apply": "Postuler",
+    "applyLead": "Écrivez-nous en précisant le poste visé et joignez votre CV.",
+    "closed": "Fermé"
   }
 }
