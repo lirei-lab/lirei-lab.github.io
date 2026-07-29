@@ -9,5 +9,9 @@
   },
   "people": [
     "Prof. Daniel Hissel"
-  ]
+  ],
+  "lat": 47.238,
+  "lon": 6.024,
+  "site": "Besançon",
+  "siteKey": "besancon"
 }

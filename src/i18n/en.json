@@ -191,7 +191,10 @@
     "pavVideoCityCaption": "The building in its neighbourhood, in downtown Trois-Rivières.",
     "visitAlt": "Demonstration of a supervision platform during a visit to the laboratory.",
     "featureCaption": "Professor Kodjo Agbossou in the laboratory facilities, at the 2024 renewal of his Hydro-Québec research chair.",
-    "featureCredit": "Photo: UQTR"
+    "featureCredit": "Photo: UQTR",
+    "mapTitle": "Map of academic partners",
+    "mapAlt": "World map locating LIREI's academic partners in Canada, Europe, Latin America and Africa.",
+    "mapCaption": "{partners} academic partners across {sites} locations. Hover a point to see the institutions, click to jump to their entry."
   },
   "research": {
     "title": "Research",

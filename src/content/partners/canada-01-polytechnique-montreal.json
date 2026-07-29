@@ -9,5 +9,9 @@
   },
   "people": [
     "Prof. Roland P. Malhamé"
-  ]
+  ],
+  "lat": 45.505,
+  "lon": -73.613,
+  "site": "Québec",
+  "siteKey": "quebec"
 }

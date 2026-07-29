@@ -3,9 +3,15 @@
   "region": "canada",
   "order": 7,
   "url": "https://www.etsmtl.ca/",
-  "people": ["Prof. Daniel R. Rousse"],
+  "people": [
+    "Prof. Daniel R. Rousse"
+  ],
   "note": {
     "fr": "Groupe de recherche industrielle t3e — technologies de l'énergie et efficacité énergétique.",
     "en": "t3e industrial research group — energy technologies and energy efficiency."
-  }
+  },
+  "lat": 45.494,
+  "lon": -73.563,
+  "site": "Québec",
+  "siteKey": "quebec"
 }

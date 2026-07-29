@@ -191,7 +191,10 @@
     "pavVideoCityCaption": "Le pavillon dans son quartier, au centre-ville de Trois-Rivières.",
     "visitAlt": "Démonstration d’une plateforme de supervision lors d’une visite du laboratoire.",
     "featureCaption": "Le professeur Kodjo Agbossou dans les installations du laboratoire, lors du renouvellement de sa Chaire de recherche Hydro-Québec en 2024.",
-    "featureCredit": "Photo : UQTR"
+    "featureCredit": "Photo : UQTR",
+    "mapTitle": "Carte des partenaires académiques",
+    "mapAlt": "Carte du monde situant les partenaires académiques du LIREI au Canada, en Europe, en Amérique latine et en Afrique.",
+    "mapCaption": "{partners} partenaires académiques répartis sur {sites} sites. Survolez un point pour voir les institutions, cliquez pour atteindre leur fiche."
   },
   "research": {
     "title": "Recherche",

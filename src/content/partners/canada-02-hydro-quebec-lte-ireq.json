@@ -11,5 +11,9 @@
     "Michaël Fournier",
     "Fatima Amara",
     "Juan C. Oviedo-Cepeda"
-  ]
+  ],
+  "lat": 46.533,
+  "lon": -72.744,
+  "site": "Québec",
+  "siteKey": "quebec"
 }

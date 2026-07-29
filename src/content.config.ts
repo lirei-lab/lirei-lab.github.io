@@ -108,6 +108,12 @@ const partners = defineCollection({
     url: z.string().url().optional(),
     people: z.array(z.string()).optional(),
     note: bilingual,
+    // Position on the world map. Partners that fall within a marker's width of
+    // one another share a `site`, which is what the map plots.
+    lat: z.number().optional(),
+    lon: z.number().optional(),
+    site: z.string().optional(),
+    siteKey: z.string().optional(),
   }),
 });
 

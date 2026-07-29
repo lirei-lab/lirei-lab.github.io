@@ -6,5 +6,9 @@
   "note": {
     "fr": "Chaire de leadership en enseignement sur l'optimisation et la gestion de l'énergie et du climat des serres au Québec, au cœur de notre programme sur les serres.",
     "en": "Teaching leadership chair on the optimization and management of greenhouse energy and climate in Quebec, central to our greenhouse program."
-  }
+  },
+  "lat": 46.781,
+  "lon": -71.275,
+  "site": "Québec",
+  "siteKey": "quebec"
 }

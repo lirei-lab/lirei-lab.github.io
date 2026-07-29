@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import PartnerMap from '../PartnerMap.astro';
 import { useTranslations, href, assetPath, type Lang } from '../../i18n';
 import { normalizePartners, type NormalizedPartner } from '../../utils/partners';
 
@@ -76,6 +77,7 @@ const supporters = merged.sort(
     <section class="acad-section">
       <h2>{t('lab.academicTitle')}</h2>
       <p class="muted" style="max-width:46rem">{t('lab.academicLead')}</p>
+      <PartnerMap partners={academic} lang={lang} />
       {regions.map((region) => {
         const list = academic.filter((p) => p.data.region === region);
         if (!list.length) return null;
@@ -84,7 +86,7 @@ const supporters = merged.sort(
             <h3 class="acad-region">{t(`lab.regions.${region}`)}</h3>
             <div class="grid-2">
               {list.map((p) => (
-                <div class="card acad-card">
+                <div class="card acad-card" data-site={p.data.siteKey}>
                   <h4>
                     {p.data.url ? (
                       <a href={p.data.url} target="_blank" rel="noopener">{p.data.name}</a>

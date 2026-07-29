@@ -3,9 +3,15 @@
   "region": "europe",
   "order": 2,
   "url": "https://www.hm.edu/",
-  "people": ["Prof. Christoph M. Hackl"],
+  "people": [
+    "Prof. Christoph M. Hackl"
+  ],
   "note": {
     "fr": "Institute for Sustainable Energy Systems (ISES) et Laboratory for Mechatronic and Renewable Energy Systems (LMRES), au département de génie électrique et technologies de l'information.",
     "en": "Institute for Sustainable Energy Systems (ISES) and Laboratory for Mechatronic and Renewable Energy Systems (LMRES), in the department of electrical engineering and information technology."
-  }
+  },
+  "lat": 48.155,
+  "lon": 11.556,
+  "site": "Munich",
+  "siteKey": "munich"
 }

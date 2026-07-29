@@ -1,0 +1,161 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { project, map } from '../utils/geo';
+import { useTranslations, type Lang } from '../i18n';
+
+interface Props {
+  partners: CollectionEntry<'partners'>[];
+  lang: Lang;
+}
+
+const { partners, lang } = Astro.props;
+const t = useTranslations(lang);
+
+// One marker per site; a site's position is the mean of its partners, so a
+// cluster sits among the institutions it stands for rather than on one of them.
+const placed = partners.filter((p) => p.data.lat != null && p.data.lon != null);
+const bySite = new Map<string, CollectionEntry<'partners'>[]>();
+for (const p of placed) {
+  const key = p.data.siteKey!;
+  bySite.set(key, [...(bySite.get(key) ?? []), p]);
+}
+
+const sites = [...bySite.entries()]
+  .map(([key, list]) => {
+    const lat = list.reduce((s, p) => s + p.data.lat!, 0) / list.length;
+    const lon = list.reduce((s, p) => s + p.data.lon!, 0) / list.length;
+    const { x, y } = project(lon, lat);
+    return {
+      key,
+      label: list[0].data.site!,
+      names: list.map((p) => p.data.name),
+      n: list.length,
+      x,
+      y,
+      // Area-proportional: a marker twice the area stands for twice the partners.
+      r: 5 * Math.sqrt(list.length),
+    };
+  })
+  .sort((a, b) => b.r - a.r); // big markers first, so small ones stay clickable
+
+const countries = new Set(placed.map((p) => p.data.site));
+
+// Frame the map on the half of the world the network actually occupies —
+// no partner sits east of Munich — but keep enough margin that it still reads
+// as a world map rather than a regional one.
+const PAD = 150;
+const bx0 = Math.max(0, Math.min(...sites.map((s) => s.x)) - PAD);
+const bx1 = Math.min(map.width, Math.max(...sites.map((s) => s.x)) + PAD * 1.6);
+const by0 = Math.max(0, Math.min(...sites.map((s) => s.y)) - PAD);
+const by1 = Math.min(map.height, Math.max(...sites.map((s) => s.y)) + PAD);
+const vw = bx1 - bx0;
+// Cap how wide-and-flat the frame can get; markers all sit north of the
+// equator, which would otherwise squash it into a strip.
+const vh = Math.max(by1 - by0, vw / 2.2);
+const viewBox = `${bx0.toFixed(1)} ${(by1 - vh).toFixed(1)} ${vw.toFixed(1)} ${vh.toFixed(1)}`;
+---
+
+<figure class="partner-map">
+  <div class="map-frame">
+    <svg
+      viewBox={viewBox}
+      role="img"
+      aria-label={t('lab.mapAlt')}
+      class="map-svg">
+      <title>{t('lab.mapTitle')}</title>
+      <path class="land" d={map.path} />
+      {sites.map((s) => (
+        <g
+          class="site"
+          data-site={s.key}
+          data-place={s.label}
+          data-names={JSON.stringify(s.names)}
+          tabindex="0"
+          role="button"
+          aria-label={`${s.label} — ${s.names.join(', ')}`}>
+          <circle class="halo" cx={s.x} cy={s.y} r={s.r + 6} />
+          <circle class="dot" cx={s.x} cy={s.y} r={s.r} />
+          {s.n > 1 && (
+            <text class="dot-count" x={s.x} y={s.y + 4} text-anchor="middle">{s.n}</text>
+          )}
+        </g>
+      ))}
+    </svg>
+    <div class="map-tip" role="status" aria-live="polite" hidden></div>
+  </div>
+  <figcaption class="muted">
+    {t('lab.mapCaption')
+      .replace('{partners}', String(placed.length))
+      .replace('{sites}', String(countries.size))}
+  </figcaption>
+</figure>
+
+<script>
+  const frame = document.querySelector<HTMLElement>('.map-frame');
+  const tip = document.querySelector<HTMLElement>('.map-tip');
+  if (frame && tip) {
+    const markers = Array.from(frame.querySelectorAll<SVGGElement>('.site'));
+    const cards = Array.from(document.querySelectorAll<HTMLElement>('[data-site]'))
+      .filter((el) => !el.classList.contains('site'));
+
+    const setActive = (key: string | null) => {
+      for (const m of markers) m.classList.toggle('is-on', m.dataset.site === key);
+      for (const c of cards) c.classList.toggle('is-on', c.dataset.site === key);
+    };
+
+    const show = (m: SVGGElement) => {
+      // Read the names from their own attribute: several partner names contain
+      // the same em dash the label uses, so splitting the label truncated them.
+      tip.innerHTML = '';
+      const strong = document.createElement('strong');
+      strong.textContent = m.dataset.place ?? '';
+      tip.append(strong);
+      const names: string[] = JSON.parse(m.dataset.names ?? '[]');
+      const ul = document.createElement('ul');
+      for (const n of names) {
+        const li = document.createElement('li');
+        li.textContent = n;
+        ul.append(li);
+      }
+      tip.append(ul);
+      // Position from the marker's own box, so the tip tracks the SVG's scale.
+      const box = (m.querySelector('.dot') as SVGCircleElement).getBoundingClientRect();
+      const outer = frame.getBoundingClientRect();
+      tip.hidden = false;
+      const half = tip.offsetWidth / 2;
+      const cx = box.left - outer.left + box.width / 2;
+      tip.style.left = `${Math.min(Math.max(cx, half + 4), outer.width - half - 4)}px`;
+      tip.style.top = `${box.top - outer.top - tip.offsetHeight - 10}px`;
+      setActive(m.dataset.site ?? null);
+    };
+
+    const hide = () => {
+      tip.hidden = true;
+      setActive(null);
+    };
+
+    for (const m of markers) {
+      m.addEventListener('pointerenter', () => show(m));
+      m.addEventListener('focus', () => show(m));
+      m.addEventListener('pointerleave', hide);
+      m.addEventListener('blur', hide);
+      const go = () => {
+        const first = cards.find((c) => c.dataset.site === m.dataset.site);
+        first?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      };
+      m.addEventListener('click', go);
+      m.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          go();
+        }
+      });
+    }
+
+    // The reverse direction too: pointing at a card lights up its marker.
+    for (const c of cards) {
+      c.addEventListener('pointerenter', () => setActive(c.dataset.site ?? null));
+      c.addEventListener('pointerleave', () => setActive(null));
+    }
+  }
+</script>
