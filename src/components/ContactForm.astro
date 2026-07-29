@@ -9,6 +9,11 @@ interface Props {
 const { lang, to } = Astro.props;
 const t = useTranslations(lang);
 
+// The handler that relays the form by email. Overridable at build time so a
+// staging deploy can point elsewhere.
+const endpoint =
+  import.meta.env.PUBLIC_CONTACT_ENDPOINT ?? 'https://lirei.uqtr.ca/api/contact';
+
 const subjects = ['question', 'postdoc', 'phd', 'msc', 'internship', 'partner', 'media'] as const;
 ---
 
@@ -16,16 +21,24 @@ const subjects = ['question', 'postdoc', 'phd', 'msc', 'internship', 'partner', 
   <h2>{t('contact.formTitle')}</h2>
   <p class="muted" style="max-width:46rem">{t('contact.formLead')}</p>
 
-  <!-- The inline script is not templated, so the translated strings it needs
-       travel as data attributes. -->
+  <!-- The inline script is not templated, so the strings it needs travel as
+       data attributes. -->
   <form
     class="contact-form"
     novalidate
+    enctype="multipart/form-data"
+    data-endpoint={endpoint}
     data-to={to}
     data-required={t('contact.required')}
     data-email={t('contact.invalidEmail')}
-    data-opened={t('contact.opened')}
-    data-too-long={t('contact.tooLong')}
+    data-sending={t('contact.sending')}
+    data-submit={t('contact.submit')}
+    data-sent={t('contact.sent')}
+    data-err-generic={t('contact.errGeneric')}
+    data-err-rate={t('contact.errRate')}
+    data-err-cv-type={t('contact.errCvType')}
+    data-err-cv-size={t('contact.errCvSize')}
+    data-err-network={t('contact.errNetwork')}
     data-l-name={t('contact.fName')}
     data-l-email={t('contact.fEmail')}
     data-l-org={t('contact.fOrg')}>
@@ -65,26 +78,37 @@ const subjects = ['question', 'postdoc', 'phd', 'msc', 'internship', 'partner', 
       <p class="field-error" id="cf-message-err" hidden></p>
     </div>
 
-    <div class="field field--wide cv-note">
-      <strong>{t('contact.cvTitle')}</strong>
-      <p class="muted">{t('contact.cvNote')}</p>
+    <div class="field field--wide">
+      <label for="cf-cv">{t('contact.fCv')}</label>
+      <input id="cf-cv" name="cv" type="file"
+        accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+        aria-describedby="cf-cv-hint" />
+      <p class="field-hint" id="cf-cv-hint">{t('contact.fCvHint')}</p>
+      <p class="field-error" id="cf-cv-err" hidden></p>
     </div>
 
-    <div class="field field--wide">
+    <!-- Honeypot: off-screen and out of the tab order, so only a bot fills it. -->
+    <div class="hp" aria-hidden="true">
+      <label for="cf-website">Website</label>
+      <input id="cf-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+    </div>
+
+    <div class="field field--wide form-actions">
       <button type="submit" class="btn">{t('contact.submit')}</button>
+      <p class="form-status" role="status" aria-live="polite"></p>
     </div>
   </form>
 
-  <!-- mailto cannot report success, and some visitors have no mail client
-       configured at all, so the composed message is always recoverable. -->
+  <!-- Shown only when the handler cannot be reached, so a visitor never loses
+       what they wrote. -->
   <div class="mail-fallback" hidden>
-    <p class="mail-opened">{t('contact.opened')}</p>
     <h3>{t('contact.fallbackTitle')}</h3>
     <p class="muted">
       {t('contact.fallbackLead')} <a href={`mailto:${to}`}>{to}</a>
     </p>
     <pre class="mail-preview" tabindex="0"></pre>
-    <p>
+    <p class="fallback-actions">
+      <a class="btn ghost mail-open" href={`mailto:${to}`}>{t('contact.fallbackOpen')}</a>
       <button type="button" class="btn ghost copy-btn"
         data-copy={t('contact.copy')} data-copied={t('contact.copied')}>
         {t('contact.copy')}
@@ -97,81 +121,129 @@ const subjects = ['question', 'postdoc', 'phd', 'msc', 'internship', 'partner', 
   const form = document.querySelector<HTMLFormElement>('.contact-form');
   const fallback = document.querySelector<HTMLElement>('.mail-fallback');
   const preview = document.querySelector<HTMLPreElement>('.mail-preview');
+  const status = document.querySelector<HTMLElement>('.form-status');
+  const button = form?.querySelector<HTMLButtonElement>('button[type="submit"]');
 
-  if (form && fallback && preview) {
-    const to = form.dataset.to ?? '';
-    const msgs = {
-      required: form.dataset.required ?? '',
-      email: form.dataset.email ?? '',
-    };
+  if (form && fallback && preview && status && button) {
+    const d = form.dataset;
+    const MAX_CV = 5 * 1024 * 1024;
+    const CV_TYPES = [
+      'application/pdf',
+      'application/msword',
+      'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    ];
 
-    // The openings page links here with ?o=<type>; preselect that subject so
-    // the visitor does not have to restate what they clicked.
-    const wanted = new URL(location.href).searchParams.get('o');
+    // The openings page links here with ?o=<type>; preselect that subject.
     const select = form.querySelector<HTMLSelectElement>('#cf-subject');
+    const wanted = new URL(location.href).searchParams.get('o');
     if (wanted && select && [...select.options].some((o) => o.value === wanted)) {
       select.value = wanted;
     }
 
-    const showError = (input: HTMLInputElement | HTMLTextAreaElement, text: string) => {
-      const err = document.getElementById(`${input.id}-err`);
+    const setError = (id: string, text: string) => {
+      const input = document.getElementById(id) as HTMLInputElement;
+      const err = document.getElementById(`${id}-err`);
       if (!err) return;
       err.textContent = text;
       err.hidden = !text;
       input.setAttribute('aria-invalid', text ? 'true' : 'false');
-      if (text) input.setAttribute('aria-describedby', err.id);
     };
 
     const validate = () => {
       let first: HTMLElement | null = null;
       for (const id of ['cf-name', 'cf-email', 'cf-message']) {
-        const el = document.getElementById(id) as HTMLInputElement | HTMLTextAreaElement;
+        const el = document.getElementById(id) as HTMLInputElement;
         let text = '';
-        if (!el.value.trim()) text = msgs.required;
-        else if (el.id === 'cf-email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim()))
-          text = msgs.email;
-        showError(el, text);
+        if (!el.value.trim()) text = d.required ?? '';
+        else if (id === 'cf-email' && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(el.value.trim()))
+          text = d.email ?? '';
+        setError(id, text);
         if (text && !first) first = el;
       }
+      // Check the CV here as well as on the server: a file that is going to be
+      // refused should not be pushed over the wire first.
+      const cv = (document.getElementById('cf-cv') as HTMLInputElement).files?.[0];
+      let cvErr = '';
+      if (cv) {
+        if (cv.size > MAX_CV) cvErr = d.errCvSize ?? '';
+        else if (cv.type && !CV_TYPES.includes(cv.type)) cvErr = d.errCvType ?? '';
+      }
+      setError('cf-cv', cvErr);
+      if (cvErr && !first) first = document.getElementById('cf-cv');
       first?.focus();
       return !first;
     };
 
-    const compose = () => {
-      const get = (n: string) =>
+    const composed = () => {
+      const v = (n: string) =>
         (form.querySelector(`[name="${n}"]`) as HTMLInputElement).value.trim();
-      const opt = select?.selectedOptions[0];
-      const label = opt?.dataset.label ?? '';
-      const lines = [
-        `${form.dataset.lName}: ${get('name')}`,
-        `${form.dataset.lEmail}: ${get('email')}`,
-      ];
-      if (get('org')) lines.push(`${form.dataset.lOrg}: ${get('org')}`);
-      lines.push('', get('message'));
+      const label = select?.selectedOptions[0]?.dataset.label ?? '';
+      const lines = [`${d.lName}: ${v('name')}`, `${d.lEmail}: ${v('email')}`];
+      if (v('org')) lines.push(`${d.lOrg}: ${v('org')}`);
+      lines.push('', v('message'));
       return { subject: `[LIREI] ${label}`, body: lines.join('\n') };
     };
 
-    form.addEventListener('submit', (e) => {
+    const showFallback = (message: string) => {
+      const { subject, body } = composed();
+      preview.textContent = `${subject}\n\n${body}`;
+      const open = fallback.querySelector<HTMLAnchorElement>('.mail-open');
+      if (open) {
+        const url = `mailto:${d.to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        // Mail clients truncate long bodies; past that, offer the bare address.
+        open.href = url.length > 1800 ? `mailto:${d.to}` : url;
+      }
+      fallback.hidden = false;
+      status.textContent = message;
+      status.className = 'form-status is-error';
+    };
+
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       if (!validate()) return;
-      const { subject, body } = compose();
-      preview.textContent = `${subject}\n\n${body}`;
-      fallback.hidden = false;
 
-      const url = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      // Very long bodies are dropped or truncated by some mail clients; past
-      // that point the copyable version is the only reliable route.
-      const opened = document.querySelector<HTMLElement>('.mail-opened');
-      if (url.length > 1800) {
-        if (opened) opened.textContent = form.dataset.tooLong ?? '';
-      } else {
-        if (opened) opened.textContent = form.dataset.opened ?? '';
-        location.href = url;
+      button.disabled = true;
+      button.textContent = d.sending ?? '';
+      status.textContent = '';
+      status.className = 'form-status';
+
+      try {
+        const res = await fetch(d.endpoint ?? '', {
+          method: 'POST',
+          body: new FormData(form),
+        });
+        if (res.ok) {
+          form.reset();
+          fallback.hidden = true;
+          status.textContent = d.sent ?? '';
+          status.className = 'form-status is-ok';
+        } else {
+          const payload = (await res.json().catch(() => ({}))) as { error?: string };
+          const map: Record<string, string | undefined> = {
+            rate_limited: d.errRate,
+            cv_type: d.errCvType,
+            cv_too_large: d.errCvSize,
+          };
+          const msg = map[payload.error ?? ''] ?? d.errGeneric ?? '';
+          // A refusal the visitor can act on is not a reason to fall back to
+          // email; an outage is.
+          if (res.status === 429 || res.status === 413 || res.status === 415) {
+            status.textContent = msg;
+            status.className = 'form-status is-error';
+          } else {
+            showFallback(msg);
+          }
+        }
+      } catch {
+        showFallback(`${d.errNetwork} ${d.errGeneric}`.trim());
+      } finally {
+        button.disabled = false;
+        button.textContent = d.submit ?? '';
       }
-      fallback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     });
 
-    const copyBtn = document.querySelector<HTMLButtonElement>('.copy-btn');
+
+    const copyBtn = fallback.querySelector<HTMLButtonElement>('.copy-btn');
     copyBtn?.addEventListener('click', async () => {
       try {
         await navigator.clipboard.writeText(preview.textContent ?? '');

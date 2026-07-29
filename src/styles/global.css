@@ -1687,6 +1687,52 @@ section:hover > h2::after,
   font-size: 0.9rem;
 }
 
+/* Honeypot: present for bots, out of reach for people and screen readers. */
+.hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.form-status {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.form-status.is-ok {
+  color: var(--green-600);
+}
+
+.form-status.is-error {
+  color: #b3261e;
+}
+
+.contact-form button[disabled] {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.field input[type='file'] {
+  padding: 0.45rem 0.55rem;
+  background: var(--bg-alt);
+}
+
+.fallback-actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
 .mail-fallback {
   max-width: 52rem;
   margin-top: 2rem;
