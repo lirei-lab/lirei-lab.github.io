@@ -57,20 +57,25 @@ const subpages = [
 
     <p class="lead">{t('lab.intro1')}</p>
 
-    <div class="grid-2 lab-feature">
-      <div>
-        <h2 style="margin-top:0">{t('lab.historyTitle')}</h2>
-        <p>{t('lab.history1')}</p>
-        <p>{t('lab.history2')}</p>
-      </div>
-      <figure class="lab-photo">
-        <img src={assetPath('/images/lab/lab1.jpg')} alt={t('lab.featureAlt')} loading="lazy" />
-      </figure>
-    </div>
-
+    <!-- One history: the narrative opens it, the chronology continues it.
+         They were two headings saying the same thing. -->
     <section class="timeline-section">
       <h2>{t('lab.timelineTitle')}</h2>
-      <p class="muted" style="max-width:46rem">{t('lab.timelineLead')}</p>
+      <div class="grid-2 lab-feature">
+        <div>
+          <p>{t('lab.history1')}</p>
+          <p>{t('lab.history2')}</p>
+        </div>
+        <figure class="lab-photo">
+          <img src={assetPath('/images/lab/agbossou-chaire.jpg')} alt={t('lab.featureAlt')} loading="lazy" />
+          <figcaption class="muted">
+            {t('lab.featureCaption')}{' '}
+            <a href="https://neo.uqtr.ca/2024/02/29/la-chaire-du-professeur-kodjo-agbossou-reconduite-grace-a-un-financement-de-plus-de-3-millions/" target="_blank" rel="noopener">{t('lab.featureCredit')}</a>
+          </figcaption>
+        </figure>
+      </div>
+
+      <p class="muted timeline-lead">{t('lab.timelineLead')}</p>
       <ol class="timeline">
         {timeline.map((item) => (
           <li class="timeline-item">

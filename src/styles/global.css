@@ -1623,6 +1623,16 @@ section:hover > h2::after,
   margin-top: 3rem;
 }
 
+/* Note on how the chronology was reconstructed: it introduces the timeline,
+   so it is set apart from the narrative above it. */
+.timeline-lead {
+  max-width: 46rem;
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.92rem;
+}
+
 .timeline {
   list-style: none;
   padding: 0;

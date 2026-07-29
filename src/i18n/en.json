@@ -50,12 +50,11 @@
     "statMembers": "Team members",
     "statPrograms": "Research programs",
     "intro1": "LIREI brings together professors, research professionals and graduate students around a shared mission: proposing solutions for intelligent energy management, from the power grid to buildings and vehicles. Our work combines optimization, machine learning, modeling and experimentation on real-world data.",
-    "historyTitle": "History",
     "history1": "The Hydrogen Research Institute (IRH) at UQTR was publicly inaugurated in 1996. Three years later, in 1999, LIREI was created as a multidisciplinary team within the Institute, with the mission of proposing solutions to manage energy intelligently.",
-    "history2": "Today, the laboratory pursues its activities in Trois-Rivières and benefits from the new research facilities of UQTR's Pellerin-Marmen building.",
+    "history2": "Today, the laboratory pursues its activities in Trois-Rivières and is preparing to move into the new research facilities of UQTR's Pellerin-Marmen building.",
     "programsTitle": "Our research programs",
     "programsLead": "Our activities are organized around three major programs that structure the laboratory's doctoral projects and collaborations.",
-    "featureAlt": "The LIREI team in its facilities at the Hydrogen Research Institute",
+    "featureAlt": "Professor Kodjo Agbossou in the laboratory facilities at the Hydrogen Research Institute",
     "infraTitle": "Research infrastructure and facilities",
     "infraLead": "LIREI operates an instrumented apartment, a storage bench, a computing cluster and simulation platforms, which together let its work be validated all the way from model to real conditions.",
     "infra": {
@@ -190,7 +189,9 @@
     "pavVideoBuildingCaption": "A presentation of the building and its green technologies.",
     "pavVideoCityTitle": "L’UQTR déploie ses énergies au centre-ville",
     "pavVideoCityCaption": "The building in its neighbourhood, in downtown Trois-Rivières.",
-    "visitAlt": "Demonstration of a supervision platform during a visit to the laboratory."
+    "visitAlt": "Demonstration of a supervision platform during a visit to the laboratory.",
+    "featureCaption": "Professor Kodjo Agbossou in the laboratory facilities, at the 2024 renewal of his Hydro-Québec research chair.",
+    "featureCredit": "Photo: UQTR"
   },
   "research": {
     "title": "Research",
