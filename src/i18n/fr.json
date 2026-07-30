@@ -434,18 +434,11 @@
   },
   "opportunities": {
     "title": "Opportunités",
-    "lead": "Postes, bourses et candidatures spontanées : tout ce qu'il faut pour venir travailler avec nous.",
-    "factPrograms": "programmes de recherche",
+    "lead": "Venir étudier et travailler au LIREI : le milieu, la ville, ce qui vous attend pendant et après.",
     "factStudents": "étudiantes et étudiants",
     "factPubs": "publications au catalogue",
     "factAlumni": "diplômés depuis 2003",
-    "whyTitle": "Travailler au LIREI",
-    "offerProgramsTitle": "Trois programmes financés",
-    "offerProgramsDesc": "Flexibilité énergétique, serres du Québec et communautés isolées. Chaque projet est rattaché à un programme et encadré par un membre du corps professoral, avec des partenaires industriels et institutionnels engagés.",
-    "offerInfraTitle": "Des moyens réels",
-    "offerInfraDesc": "Un appartement instrumenté, un banc de stockage et de conversion, une grappe de calcul avec accélérateurs graphiques et une grappe en périphérie : les travaux se valident sur des installations, pas seulement en simulation.",
-    "offerNetworkTitle": "Un réseau international",
-    "offerNetworkDesc": "Quinze partenaires académiques au Canada, en Europe, en Amérique latine et en Afrique, avec codirection de thèses, coauthorat et accueil d'étudiantes et d'étudiants.",
+    "whyTitle": "Ce qui vous attend",
     "openTitle": "Postes ouverts",
     "openLead": "Offres précises, avec date limite.",
     "openNone": "Aucun poste avec date limite n'est ouvert en ce moment. Les candidatures spontanées ci-dessous restent les bienvenues.",
@@ -478,6 +471,15 @@
     "money2": "Les candidatures accompagnées d'une demande de bourse externe sont particulièrement bienvenues, notamment auprès du CRSNG, des Fonds de recherche du Québec et des programmes Mitacs, avec lesquels le laboratoire travaille déjà. Nous appuyons volontiers ces demandes.",
     "ediTitle": "Équité, diversité et inclusion",
     "ediText": "Le LIREI réunit des personnes venues de quatre continents et tient à un milieu de recherche ouvert et respectueux. Le laboratoire souscrit aux politiques d'équité, de diversité et d'inclusion de l'Université du Québec à Trois-Rivières, qui encadrent le recrutement et l'encadrement des étudiantes et des étudiants.",
-    "ediLink": "Politiques de l'UQTR"
+    "ediLink": "Politiques de l'UQTR",
+    "factConf": "communications en conférence",
+    "offerCityTitle": "L'UQTR et Trois-Rivières",
+    "offerCityDesc": "Une université francophone du réseau de l'Université du Québec, à mi-chemin entre Montréal et Québec sur le Saint-Laurent. Une ville à taille humaine, où le campus, le logement et la vie quotidienne se rejoignent sans navettes interminables — et où le laboratoire investira bientôt le nouveau pavillon de recherche du centre-ville.",
+    "offerPeopleTitle": "Un milieu multiculturel",
+    "offerPeopleDesc": "Le laboratoire réunit des personnes venues d'Afrique de l'Ouest, d'Amérique latine, du Maghreb, du Moyen-Orient, d'Europe et du Québec, et entretient des liens suivis avec quinze universités sur quatre continents. Les travaux se publient en anglais ; la vie universitaire se déroule en français, et l'UQTR accompagne l'apprentissage de la langue.",
+    "offerAfterTitle": "Après le diplôme",
+    "offerAfterDesc": "Nos diplômés poursuivent en recherche — plusieurs sont revenus au laboratoire comme stagiaires postdoctoraux — ou rejoignent l'industrie et les centres de recherche des partenaires, dont le LTE d'Hydro-Québec. L'un d'eux est aujourd'hui professeur à l'UQTR. Les projets menés avec des partenaires industriels font que ces liens existent avant la fin de la thèse.",
+    "offerTrainingTitle": "Formation et rayonnement",
+    "offerTrainingDesc": "Plus de la moitié du catalogue de publications est constituée de communications en conférence : les étudiantes et les étudiants présentent eux-mêmes leurs travaux, au Canada comme à l'étranger. Le laboratoire appuie cette participation, ainsi que la formation continue — écoles d'été, ateliers et perfectionnement méthodologique."
   }
 }

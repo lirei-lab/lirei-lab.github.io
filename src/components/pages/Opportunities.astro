@@ -20,15 +20,25 @@ const pubs = await getCollection('publications');
 const alumni = await getCollection('alumni');
 const team = await getCollection('team');
 const programs = (await getCollection('projects')).filter((p) => p.data.featured);
+// Conference papers are counted, not asserted: it is the evidence behind the
+// claim that students present their work abroad.
+const isConference = (venue = '') => {
+  const v = venue.toLowerCase();
+  const journal = /transactions|journal|ieee access|energies|applied energy|renewable|letters|review/.test(v);
+  const conf = /conference|congress|symposium|proceedings|workshop|colloque|meeting/.test(v);
+  return conf && !(journal && !conf);
+};
+const confCount = pubs.filter((p) => isConference(p.data.venue)).length;
+
 const facts = [
-  { n: programs.length, label: 'opportunities.factPrograms' },
   { n: team.filter((m) => m.data.category === 'student').length, label: 'opportunities.factStudents' },
-  { n: pubs.length, label: 'opportunities.factPubs' },
   { n: alumni.length, label: 'opportunities.factAlumni' },
+  { n: pubs.length, label: 'opportunities.factPubs' },
+  { n: confCount, label: 'opportunities.factConf' },
 ];
 
 const steps = ['step1', 'step2', 'step3', 'step4'] as const;
-const offers = ['offerPrograms', 'offerInfra', 'offerNetwork'] as const;
+const offers = ['offerCity', 'offerPeople', 'offerAfter', 'offerTraining'] as const;
 ---
 
 <Base
@@ -52,7 +62,7 @@ const offers = ['offerPrograms', 'offerInfra', 'offerNetwork'] as const;
 
     <section>
       <h2>{t('opportunities.whyTitle')}</h2>
-      <div class="grid-3">
+      <div class="grid-2">
         {offers.map((k) => (
           <div class="card">
             <h3>{t(`opportunities.${k}Title`)}</h3>
@@ -62,8 +72,8 @@ const offers = ['offerPrograms', 'offerInfra', 'offerNetwork'] as const;
       </div>
       <p class="muted more-links">
         <a href={href(lang, 'research')}>{t('research.title')} →</a>
-        <a href={href(lang, 'labInfra')}>{t('nav.labInfra')} →</a>
-        <a href={href(lang, 'labPartners')}>{t('nav.labPartners')} →</a>
+        <a href={href(lang, 'alumni')}>{t('nav.alumni')} →</a>
+        <a href={href(lang, 'publications')}>{t('nav.publications')} →</a>
       </p>
     </section>
 

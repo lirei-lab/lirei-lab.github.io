@@ -434,18 +434,11 @@
   },
   "opportunities": {
     "title": "Opportunities",
-    "lead": "Positions, funding and spontaneous applications: everything you need to come and work with us.",
-    "factPrograms": "research programs",
+    "lead": "Coming to study and work at LIREI: the environment, the city, and what awaits you during and after.",
     "factStudents": "graduate students",
     "factPubs": "publications catalogued",
     "factAlumni": "graduates since 2003",
-    "whyTitle": "Working at LIREI",
-    "offerProgramsTitle": "Three funded programs",
-    "offerProgramsDesc": "Energy flexibility, Quebec greenhouses and remote communities. Every project belongs to a program and is supervised by a faculty member, with committed industrial and institutional partners.",
-    "offerInfraTitle": "Real facilities",
-    "offerInfraDesc": "An instrumented apartment, a storage and conversion bench, a computing cluster with GPU accelerators and an edge cluster: the work is validated on equipment, not only in simulation.",
-    "offerNetworkTitle": "An international network",
-    "offerNetworkDesc": "Fifteen academic partners across Canada, Europe, Latin America and Africa, with thesis co-supervision, co-authorship and student exchanges.",
+    "whyTitle": "What awaits you",
     "openTitle": "Open positions",
     "openLead": "Specific postings, with a closing date.",
     "openNone": "No dated position is open right now. The standing calls below remain welcome.",
@@ -478,6 +471,15 @@
     "money2": "Applications backed by an external scholarship application are particularly welcome — NSERC, the Fonds de recherche du Québec and the Mitacs programs, all of which the laboratory already works with. We are glad to support such applications.",
     "ediTitle": "Equity, diversity and inclusion",
     "ediText": "LIREI brings together people from four continents and is committed to an open and respectful research environment. The laboratory subscribes to the equity, diversity and inclusion policies of Université du Québec à Trois-Rivières, which govern recruitment and student supervision.",
-    "ediLink": "UQTR policies"
+    "ediLink": "UQTR policies",
+    "factConf": "conference papers",
+    "offerCityTitle": "UQTR and Trois-Rivières",
+    "offerCityDesc": "A French-speaking university of the Université du Québec network, halfway between Montreal and Quebec City on the St. Lawrence. A city on a human scale, where campus, housing and daily life sit close together rather than an hour apart — and where the laboratory will soon move into the new downtown research building.",
+    "offerPeopleTitle": "A multicultural environment",
+    "offerPeopleDesc": "The laboratory brings together people from West Africa, Latin America, North Africa, the Middle East, Europe and Quebec, and sustains working ties with fifteen universities across four continents. Research is published in English; university life runs in French, and UQTR supports learning the language.",
+    "offerAfterTitle": "After graduation",
+    "offerAfterDesc": "Our graduates continue in research — several have returned to the laboratory as postdoctoral fellows — or join industry and partner research centres, among them Hydro-Québec's LTE. One is now a professor at UQTR. Because projects run with industrial partners, those connections exist well before the thesis is finished.",
+    "offerTrainingTitle": "Training and visibility",
+    "offerTrainingDesc": "More than half the publication catalogue is conference papers: students present their own work, in Canada and abroad. The laboratory supports that participation, along with continuing training — summer schools, workshops and methodological development."
   }
 }
