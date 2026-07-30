@@ -13,7 +13,7 @@
   "photo": "/images/team/juan-caballero.webp",
   "project": "cvc-occupation",
   "bio": {
-    "fr": "Étudiant·e au doctorat au LIREI. Sujet de recherche : commande prédictive des systèmes cvc fondée sur l'occupation. Objectif du projet : proposer une stratégie de commande prédictive stochastique (SMPC) pour la gestion des systèmes CVC garantissant le confort thermique tout en tenant compte des incertitudes liées à l'occupation et à la météo dans les bâtiments institutionnels. 1 publication au catalogue.",
-    "en": "Doctoral student at LIREI. Research topic: occupancy-driven predictive control of hvac systems. 1 publication in the catalog."
+    "fr": "Développe une commande prédictive stochastique des systèmes de chauffage, ventilation et climatisation tenant compte de l'occupation réelle des locaux : maintenir le confort thermique tout en exploitant la flexibilité que laisse un bâtiment partiellement occupé. Une revue systématique des méthodes d'estimation et de prévision de l'occupation (2024) pose les bases de ce travail.",
+    "en": "Develops stochastic predictive control for heating, ventilation and air-conditioning that accounts for actual occupancy: holding thermal comfort while using the flexibility a partly occupied building leaves. A 2024 systematic review of occupancy estimation and forecasting methods underpins the work."
   }
 }

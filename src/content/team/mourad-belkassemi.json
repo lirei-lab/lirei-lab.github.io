@@ -13,7 +13,7 @@
   "photo": "/images/team/mourad-belkassemi.webp",
   "project": "reprise-apres-pannes",
   "bio": {
-    "fr": "Étudiant·e au doctorat au LIREI. Sujet de recherche : stratégies pour la reprise coordonnée après pannes. Objectif du projet : proposer des stratégies de récupération coordonnée après une panne d'électricité, exploitant la flexibilité des ressources disponibles selon leur contrôlabilité et leur coût d'exploitation, afin de renforcer la résilience du réseau.",
-    "en": "Doctoral student at LIREI. Research topic: strategies for coordinated post-outage recovery."
+    "fr": "Conçoit des stratégies de reprise coordonnée après panne, qui exploitent la flexibilité des ressources distribuées — bâtiments, stockage, charges thermostatiques — pour rétablir la charge progressivement et éviter l'appel de puissance qui suit habituellement un rétablissement.",
+    "en": "Designs strategies for coordinated post-outage recovery that use the flexibility of distributed resources — buildings, storage, thermostatic loads — to restore load gradually and avoid the inrush that usually follows a restoration."
   }
 }

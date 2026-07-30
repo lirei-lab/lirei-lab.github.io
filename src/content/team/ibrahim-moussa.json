@@ -12,7 +12,7 @@
   "order": 42,
   "photo": "/images/team/ibrahim-moussa.webp",
   "bio": {
-    "fr": "Étudiant·e au doctorat au LIREI. Sujet de recherche : problèmes inverses pour la réponse à la demande.",
-    "en": "Doctoral student at LIREI. Research topic: inverse problems for demand response."
+    "fr": "Ses travaux portent sur les problèmes inverses appliqués à la gestion de la demande résidentielle : reconstituer, à partir de mesures agrégées, le comportement thermique des logements et la part flexible de leur consommation, sans instrumenter chaque appareil.",
+    "en": "Work on inverse problems applied to residential demand management: reconstructing, from aggregate measurements, the thermal behaviour of dwellings and the flexible share of their consumption, without instrumenting every appliance."
   }
 }

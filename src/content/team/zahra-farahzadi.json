@@ -13,7 +13,7 @@
   "photo": "/images/team/zahra-farahzadi.webp",
   "project": "serres-detection-anomalies",
   "bio": {
-    "fr": "Étudiant·e au doctorat au LIREI. Sujet de recherche : détection et diagnostic d'anomalies dans les serres intelligentes. Objectif du projet : développer et valider un cadre intelligent de détection et de diagnostic d'anomalies dans les serres, combinant connaissance du système physique, quantification de l'incertitude, raisonnement causal et méthodes d'intelligence artificielle.",
-    "en": "Doctoral student at LIREI. Research topic: anomaly detection and diagnosis in smart greenhouses."
+    "fr": "Développe un cadre probabiliste de détection et de diagnostic d'anomalies dans les serres, combinant modélisation informée par la physique, quantification de l'incertitude et raisonnement causal — de manière à distinguer une dérive de capteur d'une véritable défaillance d'équipement.",
+    "en": "Develops a probabilistic framework for detecting and diagnosing anomalies in greenhouses, combining physics-informed modelling, uncertainty quantification and causal reasoning — so that sensor drift can be told apart from an actual equipment failure."
   }
 }

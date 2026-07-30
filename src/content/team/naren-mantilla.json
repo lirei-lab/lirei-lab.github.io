@@ -13,7 +13,7 @@
   "photo": "/images/team/naren-mantilla.webp",
   "project": "marches-flexibilite-regroupement",
   "bio": {
-    "fr": "Étudiant·e au doctorat au LIREI. Sujet de recherche : regroupement (clustering) pour les marchés de flexibilité. Objectif du projet : développer un algorithme de regroupement adaptatif des fournisseurs de flexibilité, du point de vue de l'opérateur de marché, afin d'améliorer la fiabilité du marché, la faisabilité de sa compensation et l'adaptabilité du système. 2 publications au catalogue.",
-    "en": "Doctoral student at LIREI. Research topic: clustering for flexibility markets. 2 publications in the catalog."
+    "fr": "Développe un algorithme de regroupement adaptatif des fournisseurs de flexibilité, du point de vue de l'opérateur de marché : constituer des agrégats dont la réponse reste fiable malgré l'hétérogénéité des ressources. Ses publications de 2024 portent sur la génération de jeux de données de consommation résidentielle et sur le dimensionnement du stockage thermique.",
+    "en": "Develops an adaptive clustering algorithm for flexibility providers, seen from the market operator's side: forming aggregates whose response stays dependable despite heterogeneous resources. Publications in 2024 cover synthetic residential consumption datasets and thermal storage sizing."
   }
 }

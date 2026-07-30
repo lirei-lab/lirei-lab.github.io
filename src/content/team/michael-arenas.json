@@ -13,7 +13,7 @@
   "photo": "/images/team/michael-arenas.webp",
   "project": "coordination-marches-flexibilite",
   "bio": {
-    "fr": "Étudiant·e au doctorat au LIREI. Sujet de recherche : coordination des marchés locaux de flexibilité. Objectif du projet : élaborer des modèles d'interdépendance qui contribuent à la coordination des marchés locaux de flexibilité en vue de la prestation de services liés au réseau de distribution.",
-    "en": "Doctoral student at LIREI. Research topic: coordination of local flexibility markets."
+    "fr": "Élabore des modèles d'interdépendance entre les marchés locaux de flexibilité et ceux des services complémentaires — régulation, équilibrage, réglage de la tension —, de sorte qu'un participant à l'un puisse devenir fournisseur dans l'autre, plutôt que de dimensionner des mécanismes séparés qui s'ignorent.",
+    "en": "Builds interdependency models between local flexibility markets and ancillary-service markets — regulation, balancing, voltage control — so that a participant in one can become a provider in another, rather than sizing separate mechanisms that ignore each other."
   }
 }

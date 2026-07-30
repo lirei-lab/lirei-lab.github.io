@@ -12,7 +12,7 @@
   "order": 48,
   "photo": "/images/team/rihab-hanfi.webp",
   "bio": {
-    "fr": "Étudiant·e à la maîtrise au LIREI. Sujet de recherche : infonuagique pour la gestion énergétique. 1 publication au catalogue.",
-    "en": "Master's student at LIREI. Research topic: cloud computing for energy management. 1 publication in the catalog."
+    "fr": "Ses travaux portent sur l'infrastructure logicielle des systèmes d'énergie transactive : une architecture légère fondée sur Kubernetes permettant de déployer et d'éprouver ces systèmes à l'échelle, présentée à la conférence SEGE 2025.",
+    "en": "Work on the software infrastructure of transactive energy systems: a lightweight Kubernetes-based architecture for deploying and testing them at scale, presented at the SEGE 2025 conference."
   }
 }

@@ -13,7 +13,7 @@
   "photo": "/images/team/jersson-garcia.webp",
   "project": "decarbonation-miniere",
   "bio": {
-    "fr": "Étudiant·e au doctorat au LIREI. Sujet de recherche : stockage d'énergie pour la décarbonation du secteur minier. Objectif du projet : développer des algorithmes de planification et de gestion des systèmes de stockage d'énergie dans les mines, combinant de manière optimale différentes technologies pour soutenir la décarbonation du secteur minier au Québec.",
-    "en": "Doctoral student at LIREI. Research topic: energy storage for mining sector decarbonization."
+    "fr": "Ses travaux portent sur le dimensionnement et l'exploitation de systèmes de stockage hybrides pour les mines isolées du Québec : combiner batteries, stockage thermique et hydrogène de façon à réduire la dépendance au diesel sans compromettre la fiabilité d'un site industriel. Menés en collaboration avec le groupe de recherche t3e de l'École de technologie supérieure.",
+    "en": "Work on the sizing and operation of hybrid storage systems for Quebec's isolated mines: combining batteries, thermal storage and hydrogen so as to reduce diesel dependence without compromising the reliability of an industrial site. Carried out with the t3e research group at École de technologie supérieure."
   }
 }

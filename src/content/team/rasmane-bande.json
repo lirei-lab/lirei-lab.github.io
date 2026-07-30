@@ -13,7 +13,7 @@
   "photo": "/images/team/rasmane-bande.webp",
   "project": "recharge-flottes-ve",
   "bio": {
-    "fr": "Étudiant·e au doctorat au LIREI. Sujet de recherche : véhicules électriques comme source de flexibilité pour le réseau. Objectif du projet : développer et valider une méthode d'optimisation de la recharge des véhicules électriques qui minimise les impacts sur le réseau de distribution tout en garantissant la satisfaction des besoins de mobilité des usagers, sous incertitude. 1 publication au catalogue.",
-    "en": "Doctoral student at LIREI. Research topic: electric vehicles as grid flexibility providers. 1 publication in the catalog."
+    "fr": "Travaille sur la coordination de la recharge de flottes de véhicules électriques : minimiser l'impact sur le réseau de distribution sans dégrader le service rendu aux usagers. Ses travaux de 2024 quantifient l'effet de cette recharge sur le vieillissement des transformateurs de distribution.",
+    "en": "Works on coordinating the charging of electric vehicle fleets: minimising the impact on the distribution grid without degrading the service users receive. Work published in 2024 quantifies how that charging affects the ageing of distribution transformers."
   }
 }
