@@ -8,5 +8,5 @@ summary:
   en: "The Quebec government is investing $6.87M in a new technology platform on the Trois-Rivières campus, driven in particular by the INRS-UQTR joint research unit. The work targets critical mineral valorization, energy storage, green fuels and industrial decarbonization."
 source: "Néo UQTR"
 url: "https://neo.uqtr.ca/2025/12/15/investissement-majeur-pour-la-recherche-en-transition-energetique/"
-image: /images/news/umr-inrs-uqtr.jpg
+image: /images/news/umr-inrs-uqtr.webp
 ---

@@ -8,5 +8,5 @@ summary:
   en: "The INRS-UQTR joint research unit on materials and technologies for the energy transition secures $2.88M: three NSERC Alliance projects and a Canada Research Chair, with Hydro-Québec, Mitacs and Arkema Canada as partners. Professor Kodjo Agbossou leads the work on solid oxide fuel cells and their integration into the power grid."
 source: "Néo UQTR"
 url: "https://neo.uqtr.ca/2026/06/19/linrs-et-luqtr-renforcent-la-capacite-de-leur-unite-mixte-de-recherche/"
-image: /images/news/umr-capacite.jpg
+image: /images/news/umr-capacite.webp
 ---

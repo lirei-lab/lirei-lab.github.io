@@ -12,7 +12,7 @@ competence: ml
 program: flexibilite
 status: active
 partners: ["UQTR"]
-image: /images/projects/building-graph.png
+image: /images/projects/building-graph.webp
 imageAlt:
   fr: "Graphe de connaissances du bâtiment (visualisation de nœuds et de liens)"
   en: "Building knowledge graph (nodes and links visualization)"

@@ -8,5 +8,5 @@ summary:
   en: "Daniel Camilo Galeano Suárez defended his PhD in electrical engineering on 18 June 2026 at UQTR's Albert-Tessier building. A LIREI member, his work addresses equity and cost sharing in transactive energy systems: assessment frameworks for cost-sharing agreements, the effects of locational marginal pricing on fairness and voltage quality, and co-simulation of distribution grid constraints."
 source: "En Tête UQTR"
 url: "https://blogue.uqtr.ca/evenements/soutenance-de-these-de-daniel-camilo-galeano-suarez/"
-image: /images/news/soutenance-galeano.jpg
+image: /images/news/soutenance-galeano.webp
 ---

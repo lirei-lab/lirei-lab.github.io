@@ -12,7 +12,7 @@ competence: ev
 program: flexibilite
 status: active
 partners: []
-image: /images/projects/bess-ev.png
+image: /images/projects/bess-ev.webp
 imageAlt:
   fr: "Système de stockage par batteries alimentant des bornes de recharge rapide"
   en: "Battery storage system supplying fast-charging stations"

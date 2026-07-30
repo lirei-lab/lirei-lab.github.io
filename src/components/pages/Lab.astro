@@ -34,8 +34,8 @@ const timeline = dict.lab.timeline as { year: string; title: string; desc: strin
 // The hub ends by handing the reader over to its two child pages rather than
 // inlining their content.
 const subpages = [
-  { key: 'labInfra', desc: 'lab.moreInfra', photo: '/images/lab/lab2.jpg' },
-  { key: 'labPartners', desc: 'lab.morePartners', photo: '/images/lab/lab5.jpg' },
+  { key: 'labInfra', desc: 'lab.moreInfra', photo: '/images/lab/lab2.webp' },
+  { key: 'labPartners', desc: 'lab.morePartners', photo: '/images/lab/lab5.webp' },
 ] as const;
 ---
 
@@ -67,7 +67,7 @@ const subpages = [
           <p>{t('lab.history2')}</p>
         </div>
         <figure class="lab-photo">
-          <img src={assetPath('/images/lab/agbossou-chaire.jpg')} alt={t('lab.featureAlt')} loading="lazy" />
+          <img src={assetPath('/images/lab/agbossou-chaire.webp')} alt={t('lab.featureAlt')} loading="lazy" />
           <figcaption class="muted">
             {t('lab.featureCaption')}{' '}
             <a href="https://neo.uqtr.ca/2024/02/29/la-chaire-du-professeur-kodjo-agbossou-reconduite-grace-a-un-financement-de-plus-de-3-millions/" target="_blank" rel="noopener">{t('lab.featureCredit')}</a>

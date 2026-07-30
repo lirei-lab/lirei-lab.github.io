@@ -8,5 +8,5 @@ summary:
   en: "A doctoral student in electrical engineering at LIREI, Kossi Landry Adjanohun came away from UQTR's scientific poster competition with three prizes: the Sustainable Development prize for his building-integrated cultivation systems, the Interdisciplinarity prize for his integrated energy systems, and the AGE UQTR prize for graduate studies in natural sciences and engineering. His work addresses robust energy management for greenhouses."
 source: "Néo UQTR"
 url: "https://neo.uqtr.ca/2026/04/13/concours-daffiches-scientifiques-le-savoir-brille-de-nouveau-a-luqtr/"
-image: /images/news/affiches-scientifiques-2026.jpg
+image: /images/news/affiches-scientifiques-2026.webp
 ---

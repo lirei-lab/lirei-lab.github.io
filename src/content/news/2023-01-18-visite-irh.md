@@ -8,5 +8,5 @@ summary:
   en: "Justin Trudeau, accompanied by François-Philippe Champagne, Minister of Innovation, Science and Industry, was received at the IRH by professors Kodjo Agbossou, Bruno G. Pollet, Sousso Kelouwani and Loïc Boulon. Some fifteen graduate students presented their ongoing work on the energy transition, green hydrogen and transport electrification."
 source: "Néo UQTR"
 url: "https://neo.uqtr.ca/2023/01/18/justin-trudeau-temoin-de-lexpertise-de-lirh/"
-image: /images/news/visite-irh-2023.jpg
+image: /images/news/visite-irh-2023.webp
 ---

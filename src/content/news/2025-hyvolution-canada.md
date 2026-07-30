@@ -8,5 +8,5 @@ summary:
   en: "On October 1-2, 2025, Trois-Rivières hosts Hyvolution Canada 2025, the first Canadian edition of the international reference event on hydrogen technologies, organized in partnership with UQTR's Hydrogen Research Institute (IRH) and bringing together over 250 participants from Europe and North America."
 source: "Néo UQTR"
 url: "https://neo.uqtr.ca/2025/09/23/luqtr-et-son-institut-de-recherche-sur-lhydrogene-a-lavant-scene-dhyvolution-canada-2025/"
-image: /images/news/hyvolution-2025.jpg
+image: /images/news/hyvolution-2025.webp
 ---

@@ -8,5 +8,5 @@ summary:
   en: "After a first Canadian edition organized in partnership with UQTR's Hydrogen Research Institute, Hyvolution Canada returns on 29-30 September 2026. The event expects more than 400 participants for two days of talks, panel discussions and networking around hydrogen technologies."
 source: "Hyvolution Canada"
 url: "https://canada.hyvolution.com/en/"
-image: /images/news/hyvolution-2026.jpg
+image: /images/news/hyvolution-2026.webp
 ---
