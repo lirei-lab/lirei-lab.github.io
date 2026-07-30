@@ -39,6 +39,9 @@ const norm = (s: string) =>
     .replace(/[^a-z0-9]+/g, ' ')
     .trim();
 
+// LIREI sits inside the UQTR and inside the IRH; neither is a partner of it.
+const OWN_INSTITUTIONS = ['uqtr', 'institut de recherche sur l hydrogene'];
+
 const academicNames = academic
   .filter((a) => !a.data.industrial)
   .map((a) => norm(baseName(a.data.name)));
@@ -50,7 +53,9 @@ const isAcademic = (name: string) => {
 
 const merged: NormalizedPartner[] = [];
 for (const p of declared) {
-  if (p.name === 'UQTR') continue; // that is us
+  // The institutions LIREI belongs to are not its partners. They are named as
+  // affiliations in the footer instead.
+  if (OWN_INSTITUTIONS.some((o) => norm(p.name).includes(o))) continue;
   if (isAcademic(p.name)) continue;
   const twin = merged.find((m) => baseName(m.name) === baseName(p.name));
   if (!twin) {

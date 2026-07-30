@@ -149,6 +149,15 @@ a:hover {
   display: block;
 }
 
+/* The two institutional affiliations sit side by side, each on its own light
+   chip since both logos carry dark text. */
+.footer-affiliations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
 .footer-uqtr {
   margin-top: 0.35rem;
   padding: 0.4rem 0.6rem;

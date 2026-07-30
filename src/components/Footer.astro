@@ -21,14 +21,25 @@ const year = new Date().getFullYear();
         </a>
         <p>{t('site.fullname')}</p>
         <p>{t('footer.affiliation')}</p>
-        <a
-          class="uqtr-link footer-uqtr"
-          href="https://www.uqtr.ca/"
-          target="_blank"
-          rel="noopener"
-          title={t('site.uqtr')}>
-          <img src={assetPath('/images/uqtr-logo.png')} alt={t('site.uqtr')} width="360" height="140" loading="lazy" />
-        </a>
+        <!-- The two institutions LIREI belongs to, not partners of it. -->
+        <div class="footer-affiliations">
+          <a
+            class="uqtr-link footer-uqtr"
+            href="https://www.uqtr.ca/"
+            target="_blank"
+            rel="noopener"
+            title={t('site.uqtr')}>
+            <img src={assetPath('/images/uqtr-logo.png')} alt={t('site.uqtr')} width="360" height="140" loading="lazy" />
+          </a>
+          <a
+            class="uqtr-link footer-uqtr"
+            href="https://oraprdnt.uqtr.uquebec.ca/portail/gscw031?owa_no_site=592"
+            target="_blank"
+            rel="noopener"
+            title={t('footer.irh')}>
+            <img src={assetPath('/images/partners/irh.jpg')} alt={t('footer.irh')} width="779" height="394" loading="lazy" />
+          </a>
+        </div>
       </div>
       <div>
         <h3>{t('footer.contactTitle')}</h3>
