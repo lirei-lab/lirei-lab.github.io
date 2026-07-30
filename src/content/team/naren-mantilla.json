@@ -2,8 +2,8 @@
   "name": "Naren Arley Mantilla Ramírez",
   "category": "student",
   "role": {
-    "fr": "Étudiant(e) aux cycles supérieurs",
-    "en": "Graduate Student"
+    "fr": "Étudiant(e) au doctorat",
+    "en": "Doctoral Student"
   },
   "topic": {
     "fr": "Regroupement (clustering) pour les marchés de flexibilité",
@@ -13,7 +13,7 @@
   "photo": "/images/team/naren-mantilla.webp",
   "project": "marches-flexibilite-regroupement",
   "bio": {
-    "fr": "Étudiant·e aux cycles supérieurs au LIREI. Sujet de recherche : regroupement (clustering) pour les marchés de flexibilité. Objectif du projet : développer un algorithme de regroupement adaptatif des fournisseurs de flexibilité, du point de vue de l'opérateur de marché, afin d'améliorer la fiabilité du marché, la faisabilité de sa compensation et l'adaptabilité du système. 2 publications au catalogue.",
-    "en": "Graduate student at LIREI. Research topic: clustering for flexibility markets. 2 publications in the catalog."
+    "fr": "Étudiant·e au doctorat au LIREI. Sujet de recherche : regroupement (clustering) pour les marchés de flexibilité. Objectif du projet : développer un algorithme de regroupement adaptatif des fournisseurs de flexibilité, du point de vue de l'opérateur de marché, afin d'améliorer la fiabilité du marché, la faisabilité de sa compensation et l'adaptabilité du système. 2 publications au catalogue.",
+    "en": "Doctoral student at LIREI. Research topic: clustering for flexibility markets. 2 publications in the catalog."
   }
 }

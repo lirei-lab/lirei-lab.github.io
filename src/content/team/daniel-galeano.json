@@ -2,8 +2,8 @@
   "name": "Daniel Galeano",
   "category": "student",
   "role": {
-    "fr": "Étudiant(e) aux cycles supérieurs",
-    "en": "Graduate Student"
+    "fr": "Étudiant(e) au doctorat",
+    "en": "Doctoral Student"
   },
   "topic": {
     "fr": "Équité dans les mécanismes d'énergie transactive",
@@ -12,7 +12,7 @@
   "order": 40,
   "photo": "/images/team/daniel-galeano.webp",
   "bio": {
-    "fr": "Étudiant·e aux cycles supérieurs au LIREI. Sujet de recherche : équité dans les mécanismes d'énergie transactive. 4 publications au catalogue.",
-    "en": "Graduate student at LIREI. Research topic: equity in transactive energy mechanisms. 4 publications in the catalog."
+    "fr": "Étudiant·e au doctorat au LIREI. Sujet de recherche : équité dans les mécanismes d'énergie transactive. 4 publications au catalogue.",
+    "en": "Doctoral student at LIREI. Research topic: equity in transactive energy mechanisms. 4 publications in the catalog."
   }
 }

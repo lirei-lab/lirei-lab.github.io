@@ -2,8 +2,8 @@
   "name": "Jersson Garcia",
   "category": "student",
   "role": {
-    "fr": "Étudiant(e) aux cycles supérieurs",
-    "en": "Graduate Student"
+    "fr": "Étudiant(e) au doctorat",
+    "en": "Doctoral Student"
   },
   "topic": {
     "fr": "Stockage d'énergie pour la décarbonation du secteur minier",
@@ -13,7 +13,7 @@
   "photo": "/images/team/jersson-garcia.webp",
   "project": "decarbonation-miniere",
   "bio": {
-    "fr": "Étudiant·e aux cycles supérieurs au LIREI. Sujet de recherche : stockage d'énergie pour la décarbonation du secteur minier. Objectif du projet : développer des algorithmes de planification et de gestion des systèmes de stockage d'énergie dans les mines, combinant de manière optimale différentes technologies pour soutenir la décarbonation du secteur minier au Québec.",
-    "en": "Graduate student at LIREI. Research topic: energy storage for mining sector decarbonization."
+    "fr": "Étudiant·e au doctorat au LIREI. Sujet de recherche : stockage d'énergie pour la décarbonation du secteur minier. Objectif du projet : développer des algorithmes de planification et de gestion des systèmes de stockage d'énergie dans les mines, combinant de manière optimale différentes technologies pour soutenir la décarbonation du secteur minier au Québec.",
+    "en": "Doctoral student at LIREI. Research topic: energy storage for mining sector decarbonization."
   }
 }

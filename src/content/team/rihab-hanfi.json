@@ -2,8 +2,8 @@
   "name": "Rihab Hanfi",
   "category": "student",
   "role": {
-    "fr": "Étudiant(e) aux cycles supérieurs",
-    "en": "Graduate Student"
+    "fr": "Étudiant(e) à la maîtrise",
+    "en": "Master's Student"
   },
   "topic": {
     "fr": "Infonuagique pour la gestion énergétique",
@@ -12,7 +12,7 @@
   "order": 48,
   "photo": "/images/team/rihab-hanfi.webp",
   "bio": {
-    "fr": "Étudiant·e aux cycles supérieurs au LIREI. Sujet de recherche : infonuagique pour la gestion énergétique. 1 publication au catalogue.",
-    "en": "Graduate student at LIREI. Research topic: cloud computing for energy management. 1 publication in the catalog."
+    "fr": "Étudiant·e à la maîtrise au LIREI. Sujet de recherche : infonuagique pour la gestion énergétique. 1 publication au catalogue.",
+    "en": "Master's student at LIREI. Research topic: cloud computing for energy management. 1 publication in the catalog."
   }
 }

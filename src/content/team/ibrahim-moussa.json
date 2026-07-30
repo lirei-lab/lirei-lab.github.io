@@ -2,8 +2,8 @@
   "name": "Ibrahim Moussa",
   "category": "student",
   "role": {
-    "fr": "Étudiant(e) aux cycles supérieurs",
-    "en": "Graduate Student"
+    "fr": "Étudiant(e) au doctorat",
+    "en": "Doctoral Student"
   },
   "topic": {
     "fr": "Problèmes inverses pour la réponse à la demande",
@@ -12,7 +12,7 @@
   "order": 42,
   "photo": "/images/team/ibrahim-moussa.webp",
   "bio": {
-    "fr": "Étudiant·e aux cycles supérieurs au LIREI. Sujet de recherche : problèmes inverses pour la réponse à la demande.",
-    "en": "Graduate student at LIREI. Research topic: inverse problems for demand response."
+    "fr": "Étudiant·e au doctorat au LIREI. Sujet de recherche : problèmes inverses pour la réponse à la demande.",
+    "en": "Doctoral student at LIREI. Research topic: inverse problems for demand response."
   }
 }

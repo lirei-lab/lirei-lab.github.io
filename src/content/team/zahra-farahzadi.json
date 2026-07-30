@@ -2,8 +2,8 @@
   "name": "Zahra Farahzadi",
   "category": "student",
   "role": {
-    "fr": "Étudiant(e) aux cycles supérieurs",
-    "en": "Graduate Student"
+    "fr": "Étudiant(e) au doctorat",
+    "en": "Doctoral Student"
   },
   "topic": {
     "fr": "Détection et diagnostic d'anomalies dans les serres intelligentes",
@@ -13,7 +13,7 @@
   "photo": "/images/team/zahra-farahzadi.webp",
   "project": "serres-detection-anomalies",
   "bio": {
-    "fr": "Étudiant·e aux cycles supérieurs au LIREI. Sujet de recherche : détection et diagnostic d'anomalies dans les serres intelligentes. Objectif du projet : développer et valider un cadre intelligent de détection et de diagnostic d'anomalies dans les serres, combinant connaissance du système physique, quantification de l'incertitude, raisonnement causal et méthodes d'intelligence artificielle.",
-    "en": "Graduate student at LIREI. Research topic: anomaly detection and diagnosis in smart greenhouses."
+    "fr": "Étudiant·e au doctorat au LIREI. Sujet de recherche : détection et diagnostic d'anomalies dans les serres intelligentes. Objectif du projet : développer et valider un cadre intelligent de détection et de diagnostic d'anomalies dans les serres, combinant connaissance du système physique, quantification de l'incertitude, raisonnement causal et méthodes d'intelligence artificielle.",
+    "en": "Doctoral student at LIREI. Research topic: anomaly detection and diagnosis in smart greenhouses."
   }
 }

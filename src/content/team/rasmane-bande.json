@@ -2,8 +2,8 @@
   "name": "Rasmane Bandé",
   "category": "student",
   "role": {
-    "fr": "Étudiant(e) aux cycles supérieurs",
-    "en": "Graduate Student"
+    "fr": "Étudiant(e) au doctorat",
+    "en": "Doctoral Student"
   },
   "topic": {
     "fr": "Véhicules électriques comme source de flexibilité pour le réseau",
@@ -13,7 +13,7 @@
   "photo": "/images/team/rasmane-bande.webp",
   "project": "recharge-flottes-ve",
   "bio": {
-    "fr": "Étudiant·e aux cycles supérieurs au LIREI. Sujet de recherche : véhicules électriques comme source de flexibilité pour le réseau. Objectif du projet : développer et valider une méthode d'optimisation de la recharge des véhicules électriques qui minimise les impacts sur le réseau de distribution tout en garantissant la satisfaction des besoins de mobilité des usagers, sous incertitude. 1 publication au catalogue.",
-    "en": "Graduate student at LIREI. Research topic: electric vehicles as grid flexibility providers. 1 publication in the catalog."
+    "fr": "Étudiant·e au doctorat au LIREI. Sujet de recherche : véhicules électriques comme source de flexibilité pour le réseau. Objectif du projet : développer et valider une méthode d'optimisation de la recharge des véhicules électriques qui minimise les impacts sur le réseau de distribution tout en garantissant la satisfaction des besoins de mobilité des usagers, sous incertitude. 1 publication au catalogue.",
+    "en": "Doctoral student at LIREI. Research topic: electric vehicles as grid flexibility providers. 1 publication in the catalog."
   }
 }

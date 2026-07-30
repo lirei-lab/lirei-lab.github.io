@@ -2,8 +2,8 @@
   "name": "Kossi Landry Adjanohun",
   "category": "student",
   "role": {
-    "fr": "Étudiant(e) aux cycles supérieurs",
-    "en": "Graduate Student"
+    "fr": "Étudiant(e) au doctorat",
+    "en": "Doctoral Student"
   },
   "topic": {
     "fr": "Gestion énergétique robuste et résiliente des serres",
@@ -13,7 +13,7 @@
   "photo": "/images/team/landry-adjanohun.webp",
   "project": "serres-gestion-robuste",
   "bio": {
-    "fr": "Étudiant·e aux cycles supérieurs au LIREI. Sujet de recherche : gestion énergétique robuste et résiliente des serres. Objectif du projet : développer et valider une stratégie de gestion énergétique et de régulation du climat des serres, tenant compte des incertitudes, afin d'améliorer l'efficacité énergétique et de garantir un bon rendement de production.",
-    "en": "Graduate student at LIREI. Research topic: robust and resilient greenhouse energy management."
+    "fr": "Étudiant·e au doctorat au LIREI. Sujet de recherche : gestion énergétique robuste et résiliente des serres. Objectif du projet : développer et valider une stratégie de gestion énergétique et de régulation du climat des serres, tenant compte des incertitudes, afin d'améliorer l'efficacité énergétique et de garantir un bon rendement de production.",
+    "en": "Doctoral student at LIREI. Research topic: robust and resilient greenhouse energy management."
   }
 }

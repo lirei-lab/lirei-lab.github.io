@@ -2,8 +2,8 @@
   "name": "Michael Arenas Florez",
   "category": "student",
   "role": {
-    "fr": "Étudiant(e) aux cycles supérieurs",
-    "en": "Graduate Student"
+    "fr": "Étudiant(e) au doctorat",
+    "en": "Doctoral Student"
   },
   "topic": {
     "fr": "Coordination des marchés locaux de flexibilité",
@@ -13,7 +13,7 @@
   "photo": "/images/team/michael-arenas.webp",
   "project": "coordination-marches-flexibilite",
   "bio": {
-    "fr": "Étudiant·e aux cycles supérieurs au LIREI. Sujet de recherche : coordination des marchés locaux de flexibilité. Objectif du projet : élaborer des modèles d'interdépendance qui contribuent à la coordination des marchés locaux de flexibilité en vue de la prestation de services liés au réseau de distribution.",
-    "en": "Graduate student at LIREI. Research topic: coordination of local flexibility markets."
+    "fr": "Étudiant·e au doctorat au LIREI. Sujet de recherche : coordination des marchés locaux de flexibilité. Objectif du projet : élaborer des modèles d'interdépendance qui contribuent à la coordination des marchés locaux de flexibilité en vue de la prestation de services liés au réseau de distribution.",
+    "en": "Doctoral student at LIREI. Research topic: coordination of local flexibility markets."
   }
 }
