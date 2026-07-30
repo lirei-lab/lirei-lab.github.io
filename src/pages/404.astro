@@ -1,0 +1,52 @@
+---
+import Base from '../layouts/Base.astro';
+import { useTranslations, href } from '../i18n';
+
+// GitHub Pages serves this for any unknown path, in either language. It is
+// therefore bilingual on one page rather than one page per language, and it
+// offers the way out rather than only stating the problem.
+const fr = useTranslations('fr');
+const en = useTranslations('en');
+
+const links = [
+  { key: 'home', route: 'home' },
+  { key: 'research', route: 'research' },
+  { key: 'publications', route: 'publications' },
+  { key: 'contact', route: 'contact' },
+] as const;
+---
+
+<Base lang="fr" routeKey="home" title="Page introuvable" description="La page demandée n'existe pas.">
+  <div class="hero hero--compact">
+    <div class="container">
+      <h1>Page introuvable · Page not found</h1>
+      <p class="intro">
+        Cette adresse ne correspond à aucune page du site.<br />
+        <span lang="en">This address does not match any page on the site.</span>
+      </p>
+    </div>
+  </div>
+
+  <div class="container">
+    <p class="muted" style="max-width:46rem">
+      Le site a changé d'adresse récemment : les anciens liens vers
+      <code>lirei-lab.github.io</code> redirigent vers <code>lirei.ca</code>.
+      Si vous êtes arrivé ici depuis un lien externe, il pointe peut-être vers
+      une page renommée.
+    </p>
+    <p class="muted" lang="en" style="max-width:46rem">
+      The site moved recently: old links to <code>lirei-lab.github.io</code>
+      redirect to <code>lirei.ca</code>. If you followed an external link, it
+      may point to a page that has been renamed.
+    </p>
+
+    <div class="grid-2" style="max-width:52rem;margin-top:2rem">
+      {links.map((l) => (
+        <a class="card" href={href('fr', l.route)} style="text-decoration:none">
+          <h3 style="margin-top:0">{fr(`nav.${l.key}`)}</h3>
+          <p class="muted" lang="en" style="margin:0">{en(`nav.${l.key}`)}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</Base>

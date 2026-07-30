@@ -10,7 +10,7 @@
     "en": "Anomaly detection and diagnosis in smart greenhouses"
   },
   "order": 49,
-  "photo": "/images/team/zahra-farahzadi.png",
+  "photo": "/images/team/zahra-farahzadi.webp",
   "project": "serres-detection-anomalies",
   "bio": {
     "fr": "Étudiant·e aux cycles supérieurs au LIREI. Sujet de recherche : détection et diagnostic d'anomalies dans les serres intelligentes. Objectif du projet : développer et valider un cadre intelligent de détection et de diagnostic d'anomalies dans les serres, combinant connaissance du système physique, quantification de l'incertitude, raisonnement causal et méthodes d'intelligence artificielle.",
