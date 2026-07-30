@@ -8,4 +8,5 @@ summary:
   en: "From 11 to 15 May 2026, UQTR hosted the 93rd annual Acfas Congress in Trois-Rivières under the theme “Science without borders”: over 260 scientific symposia, 300 free communications and 25 science-outreach activities, on site and online."
 source: "Acfas"
 url: "https://www.acfas.ca/medias/communique/uqtr-presentera-93e-congres-annuel-acfas"
+image: /images/news/acfas-2026.jpg
 ---
