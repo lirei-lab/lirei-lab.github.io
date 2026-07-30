@@ -45,7 +45,7 @@ partners:
   - { name: "Réseau ACET — Université de Victoria", url: "https://www.uvic.ca/acet/index.php", logo: "/images/partners/acet.png" }
   - { name: "École de technologie supérieure (ÉTS), Montréal", url: "https://www.etsmtl.ca/" }
   - { name: "Institut de recherche sur l'hydrogène (IRH)", url: "https://oraprdnt.uqtr.uquebec.ca/portail/gscw031?owa_no_site=592", logo: "/images/partners/irh.jpg" }
-team: "Prof. Kodjo Agbossou · Jersson Garcia"
+team: "Prof. Kodjo Agbossou · David Toquica (stage postdoctoral) · Jersson Garcia"
 image: /images/projects/communautes-isolees.svg
 imageAlt:
   fr: "Communauté nordique isolée alimentée par éolienne, solaire et stockage sous les aurores boréales"

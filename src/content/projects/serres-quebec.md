@@ -16,7 +16,7 @@ partners:
 funding:
   fr: "Programme mené avec la Chaire de leadership en enseignement sur l'optimisation et la gestion de l'énergie et du climat des serres au Québec (CLEECS) de l'Université Laval."
   en: "Program run with Université Laval's teaching leadership chair on greenhouse energy and climate optimization and management in Quebec (CLEECS)."
-team: "Prof. Sousso Kelouwani et Prof. Kodjo Agbossou · Kossi Landry Adjanohun, Zahra Farahzadi"
+team: "Prof. Sousso Kelouwani et Prof. Kodjo Agbossou · Farshad Etedadi (stage postdoctoral) · Kossi Landry Adjanohun, Zahra Farahzadi"
 image: /images/projects/serres-quebec.svg
 imageAlt:
   fr: "Serre en climat hivernal québécois avec cultures et gestion énergétique"

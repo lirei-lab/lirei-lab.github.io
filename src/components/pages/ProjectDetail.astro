@@ -52,8 +52,11 @@ if (isProgram) {
     .sort((a, b) => a.data.title[lang].localeCompare(b.data.title[lang]));
 
   const subIds = new Set(subProjects.map((p) => p.id));
+  // Someone can be attached to the program itself rather than to one of its
+  // projects — a postdoctoral fellow working across it. Without this they were
+  // recorded in the data and shown nowhere.
   programMembers = allTeam
-    .filter((m) => m.data.project && subIds.has(m.data.project))
+    .filter((m) => m.data.project && (subIds.has(m.data.project) || m.data.project === project.id))
     .sort((a, b) => a.data.order - b.data.order);
 
   const names = programMembers.map((m) => m.data.name);
