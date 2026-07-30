@@ -114,6 +114,11 @@ const partners = defineCollection({
     lon: z.number().optional(),
     site: z.string().optional(),
     siteKey: z.string().optional(),
+    // An academic partner belongs in the academic section and nowhere else,
+    // so it is kept off the funders-and-industry wall. Set this where an
+    // organisation is genuinely both — a utility's research centre that also
+    // funds the work.
+    industrial: z.boolean().optional(),
   }),
 });
 

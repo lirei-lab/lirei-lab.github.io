@@ -28,9 +28,30 @@ const declared = (await getCollection('projects')).flatMap((p) =>
 
 const baseName = (name: string) => name.replace(/\s*\([^)]*\)/g, '').trim();
 
+// Universities and research centres have their own section below. Listing them
+// again under "funders and industrial partners" both duplicated them and put
+// them under a heading they do not belong to.
+const norm = (s: string) =>
+  s
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+
+const academicNames = academic
+  .filter((a) => !a.data.industrial)
+  .map((a) => norm(baseName(a.data.name)));
+
+const isAcademic = (name: string) => {
+  const n = norm(baseName(name));
+  return academicNames.some((a) => a.includes(n) || n.includes(a));
+};
+
 const merged: NormalizedPartner[] = [];
 for (const p of declared) {
   if (p.name === 'UQTR') continue; // that is us
+  if (isAcademic(p.name)) continue;
   const twin = merged.find((m) => baseName(m.name) === baseName(p.name));
   if (!twin) {
     merged.push({ ...p });

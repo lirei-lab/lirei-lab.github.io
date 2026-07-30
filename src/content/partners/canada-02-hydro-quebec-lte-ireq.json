@@ -15,5 +15,6 @@
   "lat": 46.533,
   "lon": -72.744,
   "site": "Québec",
-  "siteKey": "quebec"
+  "siteKey": "quebec",
+  "industrial": true
 }
