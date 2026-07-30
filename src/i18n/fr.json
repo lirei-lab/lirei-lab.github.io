@@ -416,7 +416,7 @@
     },
     "comm": {
       "title": "Gestion à deux niveaux d'un micro-réseau isolé",
-      "caption": "Une planification journalière fixe des limites de puissance sûres ; à l'intérieur de ces limites, des agents apprennent à coordonner les ressources en temps réel.",
+      "caption": "Architecture du volet CRSNG : une planification journalière fixe des limites de puissance sûres ; à l'intérieur de ces limites, des agents apprennent à coordonner les ressources en temps réel.",
       "layerPlan": "Planification — horizon 24 h",
       "layerReal": "Temps réel",
       "layerRes": "Ressources du micro-réseau",

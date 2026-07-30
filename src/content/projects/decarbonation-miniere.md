@@ -17,7 +17,8 @@ methodology:
 competence: hydrogen
 program: communautes
 status: active
-partners: []
-team: "Jersson Garcia — dir. Prof. Kodjo Agbossou"
+partners:
+  - { name: "École de technologie supérieure (ÉTS), Montréal", url: "https://www.etsmtl.ca/" }
+team: "Jersson Garcia — dir. Prof. Kodjo Agbossou · en collaboration avec le Prof. Daniel R. Rousse (groupe t3e, ÉTS)"
 featured: false
 ---

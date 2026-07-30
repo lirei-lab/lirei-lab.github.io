@@ -416,7 +416,7 @@
     },
     "comm": {
       "title": "Two-level management of an isolated microgrid",
-      "caption": "Day-ahead planning sets safe power limits; within those limits, agents learn to coordinate the resources in real time.",
+      "caption": "The CRSNG strand's architecture: day-ahead planning sets safe power limits; within them, agents learn to coordinate resources in real time.",
       "layerPlan": "Planning — 24 h horizon",
       "layerReal": "Real time",
       "layerRes": "Microgrid resources",
