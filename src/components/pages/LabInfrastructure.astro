@@ -24,6 +24,13 @@ const videos = [
   { id: 'KI72qQmFHwo', key: 'pavVideoCity' },
 ] as const;
 
+// The work-environment row: seminars, benches, visits.
+const envPhotos = [
+  { src: '/images/lab/seminaire-hybride.jpg', key: 'lab.envSeminarAlt' },
+  { src: '/images/lab/postes-instrumentes.jpg', key: 'lab.envBenchAlt' },
+  { src: '/images/lab/lab9.jpg', key: 'lab.visitAlt' },
+] as const;
+
 // Each photograph sits beside the equipment it actually shows.
 const photo: Record<string, string> = {
   apartment: '/images/lab/lab2.jpg',
@@ -94,15 +101,19 @@ const photo: Record<string, string> = {
 
     <section class="infra-group">
       <h2>{t('lab.envTitle')}</h2>
-      <div class="grid-2 lab-feature">
-        <div>
-          <p>{t('lab.env1')}</p>
-          <p>{t('lab.env2')}</p>
-        </div>
-        <figure class="lab-photo">
-          <img src={assetPath('/images/lab/lab9.jpg')} alt={t('lab.visitAlt')} loading="lazy" />
-          <figcaption class="muted">{t('lab.visitAlt')}</figcaption>
-        </figure>
+      <div class="grid-2" style="max-width:60rem">
+        <p>{t('lab.env1')}</p>
+        <p>{t('lab.env2')}</p>
+      </div>
+      <!-- Three sides of how the work actually happens: dissemination, the
+           bench, and the visits the industrial interest brings. -->
+      <div class="env-photos">
+        {envPhotos.map((p) => (
+          <figure>
+            <img src={assetPath(p.src)} alt={t(p.key)} loading="lazy" />
+            <figcaption class="muted">{t(p.key)}</figcaption>
+          </figure>
+        ))}
       </div>
     </section>
   </div>

@@ -195,7 +195,9 @@
     "featureCredit": "Photo : UQTR",
     "mapTitle": "Carte des partenaires académiques",
     "mapAlt": "Carte du monde situant les partenaires académiques du LIREI au Canada, en Europe, en Amérique latine et en Afrique.",
-    "mapCaption": "{partners} partenaires académiques répartis sur {sites} sites. Survolez un point pour voir les institutions, cliquez pour atteindre leur fiche."
+    "mapCaption": "{partners} partenaires académiques répartis sur {sites} sites. Survolez un point pour voir les institutions, cliquez pour atteindre leur fiche.",
+    "envSeminarAlt": "Séminaire du laboratoire, avec des participants à distance.",
+    "envBenchAlt": "Travaux sur des postes instrumentés du laboratoire."
   },
   "research": {
     "title": "Recherche",
