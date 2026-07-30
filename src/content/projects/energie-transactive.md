@@ -39,7 +39,7 @@ partners:
   - { name: "CRSNG (programme Alliance)", url: "https://www.nserc-crsng.gc.ca/", logo: "/images/partners/crsng.svg" }
   - { name: "Mitacs", url: "https://www.mitacs.ca/", logo: "/images/partners/mitacs.png" }
   - { name: "Hydro-Québec (LTE/IREQ)", url: "https://www.hydroquebec.com/recherche/", logo: "/images/partners/hydroquebec.svg" }
-  - { name: "Polytechnique Montréal", url: "https://www.polymtl.ca/" }
+  - { name: "Polytechnique Montréal", url: "https://www.polymtl.ca/", logo: "/images/partners/polytechnique.png" }
   - { name: "Ecosystem", url: "https://ecosystem-energy.com/", logo: "/images/partners/ecosystem.svg" }
   - { name: "Stelpro", url: "https://www.stelpro.com/", logo: "/images/partners/stelpro.png" }
   - { name: "Elmec", url: "https://www.elmec.ca/", logo: "/images/partners/elmec.svg" }

@@ -8,5 +8,6 @@ summary:
 competence: hydrogen
 program: communautes
 status: active
-partners: ["Institut de recherche sur l'hydrogène (IRH)"]
+partners:
+  - { name: "Institut de recherche sur l'hydrogène (IRH)", url: "https://oraprdnt.uqtr.uquebec.ca/portail/gscw031?owa_no_site=592", logo: "/images/partners/irh.jpg" }
 ---

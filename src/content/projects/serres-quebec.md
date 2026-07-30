@@ -13,7 +13,7 @@ program: serres
 status: active
 partners:
   - { name: "Chaire CLEECS (Université Laval)", url: "https://cleecs.fsaa.ulaval.ca/" }
-  - { name: "Université Laval", url: "https://www.ulaval.ca/" }
+  - { name: "Université Laval", url: "https://www.ulaval.ca/", logo: "/images/partners/ulaval.svg" }
 team: "Prof. Sousso Kelouwani et Prof. Kodjo Agbossou · Kossi Landry Adjanohun, Zahra Farahzadi"
 image: /images/projects/serres-quebec.svg
 imageAlt:
