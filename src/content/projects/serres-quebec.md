@@ -12,8 +12,10 @@ competence: smartgrids
 program: serres
 status: active
 partners:
-  - { name: "Chaire CLEECS (Université Laval)", url: "https://cleecs.fsaa.ulaval.ca/" }
   - { name: "Université Laval", url: "https://www.ulaval.ca/", logo: "/images/partners/ulaval.svg" }
+funding:
+  fr: "Programme mené avec la Chaire de leadership en enseignement sur l'optimisation et la gestion de l'énergie et du climat des serres au Québec (CLEECS) de l'Université Laval."
+  en: "Program run with Université Laval's teaching leadership chair on greenhouse energy and climate optimization and management in Quebec (CLEECS)."
 team: "Prof. Sousso Kelouwani et Prof. Kodjo Agbossou · Kossi Landry Adjanohun, Zahra Farahzadi"
 image: /images/projects/serres-quebec.svg
 imageAlt:
