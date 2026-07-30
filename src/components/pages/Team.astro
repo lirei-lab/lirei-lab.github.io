@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import MemberCard from '../MemberCard.astro';
-import { useTranslations, type Lang } from '../../i18n';
+import { useTranslations, assetPath, type Lang } from '../../i18n';
 
 interface Props {
   lang: Lang;
@@ -27,6 +27,21 @@ const groups = categories
   </div>
 
   <div class="container">
+    <!-- The group before the individuals. Kept inside the container rather than
+         full-bleed: the source is 1280 px wide and upscaling it would show. -->
+    <figure class="team-group">
+      <img
+        src={assetPath('/images/team/groupe-lirei.jpg')}
+        alt={t('team.groupAlt')}
+        width="1280"
+        height="450"
+        loading="lazy"
+      />
+      <figcaption class="muted">
+        {t('team.groupCaption')} <span class="credit">{t('team.groupCredit')}</span>
+      </figcaption>
+    </figure>
+
     {groups.map(({ cat, members }) => (
       <section>
         <h2>{t(`team.groups.${cat}`)}</h2>

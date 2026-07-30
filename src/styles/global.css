@@ -2228,6 +2228,31 @@ section:hover > h2::after,
   max-width: 52rem;
 }
 
+/* The group photograph opening the team page. Contained, not full-bleed: the
+   source is 1280 px and stretching it would be visible. */
+.team-group {
+  margin: 2rem 0 0;
+}
+
+.team-group img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border-bottom: 3px solid var(--green-400);
+  box-shadow: 0 10px 26px rgb(13 43 69 / 0.14);
+}
+
+.team-group figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.88rem;
+}
+
+.team-group .credit {
+  opacity: 0.75;
+}
+
+
 .lab-photo figcaption {
   margin-top: 0.55rem;
   font-size: 0.88rem;

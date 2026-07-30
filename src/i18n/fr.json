@@ -258,7 +258,10 @@
     "back": "← L'équipe",
     "projectTitle": "Projet de recherche",
     "pubsTitle": "Publications",
-    "viewProfile": "Voir le profil"
+    "viewProfile": "Voir le profil",
+    "groupAlt": "Une trentaine de membres du LIREI réunis dans une salle de réunion",
+    "groupCaption": "L'équipe du LIREI réunie.",
+    "groupCredit": "Photo : UQTR"
   },
   "pubs": {
     "title": "Publications",
