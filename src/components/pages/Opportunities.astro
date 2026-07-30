@@ -1,0 +1,197 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { useTranslations, href, formatDate, type Lang } from '../../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const all = (await getCollection('openings')).sort((a, b) => a.data.order - b.data.order);
+// Dated vacancies stand apart from standing invitations: only the first expire.
+const dated = all.filter((o) => o.data.status === 'open');
+const standing = all.filter((o) => o.data.status === 'ongoing');
+
+// The case for joining is made with the laboratory's own numbers, not adjectives.
+const pubs = await getCollection('publications');
+const alumni = await getCollection('alumni');
+const team = await getCollection('team');
+const programs = (await getCollection('projects')).filter((p) => p.data.featured);
+const facts = [
+  { n: programs.length, label: 'opportunities.factPrograms' },
+  { n: team.filter((m) => m.data.category === 'student').length, label: 'opportunities.factStudents' },
+  { n: pubs.length, label: 'opportunities.factPubs' },
+  { n: alumni.length, label: 'opportunities.factAlumni' },
+];
+
+const steps = ['step1', 'step2', 'step3', 'step4'] as const;
+const offers = ['offerPrograms', 'offerInfra', 'offerNetwork'] as const;
+---
+
+<Base
+  lang={lang}
+  routeKey="opportunities"
+  title={t('opportunities.title')}
+  description={t('opportunities.lead')}>
+  <div class="hero hero--compact">
+    <div class="container">
+      <h1>{t('opportunities.title')}</h1>
+      <p class="intro">{t('opportunities.lead')}</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="stats">
+      {facts.map((f) => (
+        <div><span class="num">{f.n}</span><span class="label">{t(f.label)}</span></div>
+      ))}
+    </div>
+
+    <section>
+      <h2>{t('opportunities.whyTitle')}</h2>
+      <div class="grid-3">
+        {offers.map((k) => (
+          <div class="card">
+            <h3>{t(`opportunities.${k}Title`)}</h3>
+            <p class="muted">{t(`opportunities.${k}Desc`)}</p>
+          </div>
+        ))}
+      </div>
+      <p class="muted more-links">
+        <a href={href(lang, 'research')}>{t('research.title')} →</a>
+        <a href={href(lang, 'labInfra')}>{t('nav.labInfra')} →</a>
+        <a href={href(lang, 'labPartners')}>{t('nav.labPartners')} →</a>
+      </p>
+    </section>
+
+    <section>
+      <h2>{t('opportunities.openTitle')}</h2>
+      <p class="muted" style="max-width:46rem">{t('opportunities.openLead')}</p>
+      {dated.length === 0 ? (
+        <p class="empty-note">{t('opportunities.openNone')}</p>
+      ) : (
+        <div class="opening-list">
+          {dated.map((o) => (
+            <article class="card opening">
+              <div class="opening-head">
+                <span class="tag">{t(`opportunities.types.${o.data.type}`)}</span>
+                {o.data.deadline && (
+                  <span class="tag blue">
+                    {t('opportunities.deadline')} : {formatDate(o.data.deadline, lang)}
+                  </span>
+                )}
+              </div>
+              <h3>{o.data.title[lang]}</h3>
+              <p>{o.data.summary[lang]}</p>
+              {o.data.profile && (
+                <>
+                  <h4>{t('opportunities.profileTitle')}</h4>
+                  <p class="muted">{o.data.profile[lang]}</p>
+                </>
+              )}
+              {o.data.funding && (
+                <>
+                  <h4>{t('opportunities.fundingTitle')}</h4>
+                  <p class="muted">{o.data.funding[lang]}</p>
+                </>
+              )}
+              {o.data.supervisor && (
+                <>
+                  <h4>{t('opportunities.supervisorTitle')}</h4>
+                  <p class="muted">{o.data.supervisor}</p>
+                </>
+              )}
+              {o.data.programs && o.data.programs.length > 0 && (
+                <p class="opening-programs">
+                  {o.data.programs.map((p) => (
+                    <a class="tag" href={href(lang, 'research')}>{t(`projects.programs.${p}`)}</a>
+                  ))}
+                </p>
+              )}
+              <p>
+                <a class="btn" href={`${href(lang, 'contact')}?o=${o.data.type}`}>
+                  {t('opportunities.apply')} →
+                </a>
+              </p>
+            </article>
+          ))}
+        </div>
+      )}
+    </section>
+
+    <section>
+      <h2>{t('opportunities.ongoingTitle')}</h2>
+      <p class="muted" style="max-width:46rem">{t('opportunities.ongoingLead')}</p>
+      <div class="opening-list">
+        {standing.map((o) => (
+          <article class="card opening">
+            <div class="opening-head">
+              <span class="tag">{t(`opportunities.types.${o.data.type}`)}</span>
+            </div>
+            <h3>{o.data.title[lang]}</h3>
+            <p>{o.data.summary[lang]}</p>
+            {o.data.profile && (
+              <>
+                <h4>{t('opportunities.profileTitle')}</h4>
+                <p class="muted">{o.data.profile[lang]}</p>
+              </>
+            )}
+            {o.data.funding && (
+              <>
+                <h4>{t('opportunities.fundingTitle')}</h4>
+                <p class="muted">{o.data.funding[lang]}</p>
+              </>
+            )}
+            {o.data.programs && o.data.programs.length > 0 && (
+              <p class="opening-programs">
+                {o.data.programs.map((p) => (
+                  <a class="tag" href={href(lang, 'research')}>{t(`projects.programs.${p}`)}</a>
+                ))}
+              </p>
+            )}
+            <p>
+              <a class="btn" href={`${href(lang, 'contact')}?o=${o.data.type}`}>
+                {t('opportunities.apply')} →
+              </a>
+            </p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section>
+      <h2>{t('opportunities.howTitle')}</h2>
+      <p class="muted" style="max-width:46rem">{t('opportunities.howLead')}</p>
+      <ol class="apply-steps">
+        {steps.map((k) => (
+          <li>
+            <h3>{t(`opportunities.${k}Title`)}</h3>
+            <p class="muted">{t(`opportunities.${k}Desc`)}</p>
+          </li>
+        ))}
+      </ol>
+      <p><a class="btn" href={href(lang, 'contact')}>{t('opportunities.apply')} →</a></p>
+    </section>
+
+    <section>
+      <h2>{t('opportunities.moneyTitle')}</h2>
+      <div class="grid-2" style="max-width:60rem">
+        <p>{t('opportunities.money1')}</p>
+        <p>{t('opportunities.money2')}</p>
+      </div>
+    </section>
+
+    <section class="edi-note">
+      <h2>{t('opportunities.ediTitle')}</h2>
+      <p style="max-width:46rem">{t('opportunities.ediText')}</p>
+      <p>
+        <a href="https://www.uqtr.ca/" target="_blank" rel="noopener">
+          {t('opportunities.ediLink')} →
+        </a>
+      </p>
+    </section>
+  </div>
+</Base>

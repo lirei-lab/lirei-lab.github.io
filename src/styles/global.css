@@ -1779,6 +1779,69 @@ section:hover > h2::after,
   .contact-form { grid-template-columns: 1fr; }
 }
 
+/* Opportunities: the application steps as a numbered path. */
+.apply-steps {
+  list-style: none;
+  counter-reset: step;
+  padding: 0;
+  margin: 1.5rem 0 1.75rem;
+  display: grid;
+  gap: 1rem;
+  max-width: 52rem;
+}
+
+.apply-steps li {
+  counter-increment: step;
+  position: relative;
+  padding-left: 3rem;
+}
+
+.apply-steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  width: 2rem;
+  height: 2rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--green-100);
+  color: var(--green-600);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.apply-steps h3 {
+  margin: 0 0 0.2rem;
+  font-size: 1.02rem;
+}
+
+.apply-steps p {
+  margin: 0;
+}
+
+.more-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.edi-note {
+  margin-top: 3rem;
+  padding: 1.5rem 1.75rem;
+  border-radius: 10px;
+  background: var(--bg-alt);
+  border-left: 4px solid var(--green-600);
+}
+
+.edi-note h2 {
+  margin-top: 0;
+}
+
 /* Openings */
 .opening-list {
   display: grid;

@@ -7,6 +7,9 @@ export default defineConfig({
   redirects: {
     '/diplomes': '/equipe/diplomes',
     '/en/alumni': '/en/team/alumni',
+    // Openings grew into a section of its own and moved out of the team pages.
+    '/equipe/offres': '/opportunites',
+    '/en/team/openings': '/en/opportunities',
   },
   i18n: {
     defaultLocale: 'fr',

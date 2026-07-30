@@ -21,7 +21,7 @@
     "members": "Members",
     "labInfra": "Infrastructure",
     "labPartners": "Partners",
-    "openings": "Openings"
+    "opportunities": "Opportunities"
   },
   "footer": {
     "affiliation": "Member of the Hydrogen Research Institute (IRH)",
@@ -432,9 +432,20 @@
       "alt": "Two-level architecture: planning through dynamic operational envelopes, computed by stochastic optimization over a 24-hour horizon, sets power limits; below, reinforcement-learning agents coordinate wind, solar, hybrid storage and residential loads in real time, which report their states."
     }
   },
-  "openings": {
-    "title": "Openings and applications",
-    "lead": "Postdoctoral fellowships, doctorates, master's projects and internships across the laboratory's three programs.",
+  "opportunities": {
+    "title": "Opportunities",
+    "lead": "Positions, funding and spontaneous applications: everything you need to come and work with us.",
+    "factPrograms": "research programs",
+    "factStudents": "graduate students",
+    "factPubs": "publications catalogued",
+    "factAlumni": "graduates since 2003",
+    "whyTitle": "Working at LIREI",
+    "offerProgramsTitle": "Three funded programs",
+    "offerProgramsDesc": "Energy flexibility, Quebec greenhouses and remote communities. Every project belongs to a program and is supervised by a faculty member, with committed industrial and institutional partners.",
+    "offerInfraTitle": "Real facilities",
+    "offerInfraDesc": "An instrumented apartment, a storage and conversion bench, a computing cluster with GPU accelerators and an edge cluster: the work is validated on equipment, not only in simulation.",
+    "offerNetworkTitle": "An international network",
+    "offerNetworkDesc": "Fifteen academic partners across Canada, Europe, Latin America and Africa, with thesis co-supervision, co-authorship and student exchanges.",
     "openTitle": "Open positions",
     "openLead": "Specific postings, with a closing date.",
     "openNone": "No dated position is open right now. The standing calls below remain welcome.",
@@ -449,10 +460,24 @@
     },
     "profileTitle": "Profile sought",
     "fundingTitle": "Funding",
-    "programsTitle": "Related programs",
+    "supervisorTitle": "Supervision",
     "deadline": "Closing date",
     "apply": "Apply",
-    "applyLead": "Write to us stating the position you are interested in, and attach your CV.",
-    "closed": "Closed"
+    "howTitle": "How to apply",
+    "howLead": "One way in, whatever the posting: the contact form. It delivers your file to the laboratory's mailbox.",
+    "step1Title": "Choose the program and the level",
+    "step1Desc": "Read the three research programs and find the one your work fits. An application that names a specific program is handled faster than a general one.",
+    "step2Title": "Put the file together",
+    "step2Desc": "A CV in PDF, your transcripts, and a one-page letter saying what you want to study and why here. Publications, code repositories or earlier theses help.",
+    "step3Title": "Send it through the form",
+    "step3Desc": "Pick the subject matching the position and attach your CV. The form accepts PDF, DOC and DOCX files up to 3.5 MB.",
+    "step4Title": "After you send it",
+    "step4Desc": "Applications are reviewed on a rolling basis. If your profile matches a current or upcoming project, a faculty member will write back to arrange a conversation.",
+    "moneyTitle": "Funding and scholarships",
+    "money1": "Funding depends on current grants and on the program you are applying to. Doctoral projects attached to a funded program usually come with a scholarship; at other levels, support varies with the funds available when you apply.",
+    "money2": "Applications backed by an external scholarship application are particularly welcome — NSERC, the Fonds de recherche du Québec and the Mitacs programs, all of which the laboratory already works with. We are glad to support such applications.",
+    "ediTitle": "Equity, diversity and inclusion",
+    "ediText": "LIREI brings together people from four continents and is committed to an open and respectful research environment. The laboratory subscribes to the equity, diversity and inclusion policies of Université du Québec à Trois-Rivières, which govern recruitment and student supervision.",
+    "ediLink": "UQTR policies"
   }
 }
