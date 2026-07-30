@@ -8,4 +8,5 @@ summary:
   en: "Moussa Ibrahim Moumouni defended his PhD in electrical engineering on 28 April 2026, supervised by Professor Kodjo Agbossou and co-supervised by Professor Roland P. Malhamé (Polytechnique Montréal). His work proposes a residential agent able to emulate the thermal dynamics of an inhabited house and to automatically turn energy-cost objectives into thermostat setpoints, while accounting for operational uncertainty."
 source: "Néo UQTR"
 url: "https://neo.uqtr.ca/2026/05/12/apprentissage-automatique-pour-la-solution-des-problemes-inverses-dans-la-gestion-optimale-de-la-demande-delectricite-en-milieu-residentiel/"
+image: /images/news/soutenance-moumouni.jpg
 ---

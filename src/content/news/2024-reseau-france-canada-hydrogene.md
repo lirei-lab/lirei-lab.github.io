@@ -8,4 +8,5 @@ summary:
   en: "Through its Hydrogen Research Institute, UQTR becomes a partner in a new France-Canada research network dedicated to clean hydrogen, strengthening the field's international collaborations."
 source: "Néo UQTR"
 url: "https://neo.uqtr.ca/2024/01/31/luqtr-partenaire-dun-nouveau-reseau-de-recherche-france-canada-sur-lhydrogene-propre/"
+image: /images/news/reseau-france-canada.jpg
 ---

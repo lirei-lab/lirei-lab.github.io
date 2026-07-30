@@ -8,4 +8,5 @@ summary:
   en: "The Hydro-Québec Research Chair on transactive management of residential power and energy demand is renewed for five years with $3,278,450 in funding, supported by NSERC's Alliance program, Mitacs and four industrial partners (Hydro-Québec, Stelpro, Elmec and Ecosystem)."
 source: "Néo UQTR"
 url: "https://neo.uqtr.ca/2024/02/29/la-chaire-du-professeur-kodjo-agbossou-reconduite-grace-a-un-financement-de-plus-de-3-millions/"
+image: /images/lab/agbossou-chaire.jpg
 ---

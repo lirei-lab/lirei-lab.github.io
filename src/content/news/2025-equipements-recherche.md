@@ -8,4 +8,5 @@ summary:
   en: "UQTR is acquiring $4M in research equipment, funded by Canada Economic Development, National Bank and the University. Its energy axis directly supports the field's work: efficient technologies, cold-climate storage, renewable energy integration and greenhouse energy management. The Hydrogen Research Institute is among the beneficiary groups."
 source: "Néo UQTR"
 url: "https://neo.uqtr.ca/2025/09/05/luqtr-acquiert-des-equipements-de-recherche-de-pointe-pour-4m/"
+image: /images/news/equipements-recherche.jpg
 ---

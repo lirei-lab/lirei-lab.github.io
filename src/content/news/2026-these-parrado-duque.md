@@ -8,4 +8,5 @@ summary:
   en: "Alejandro Parrado Duque defended his PhD in electrical engineering on 19 January 2026, supervised by Professor Kodjo Agbossou and co-supervised by Professor Sousso Kelouwani. His work designs a negotiation mechanism, built on economic incentives and mathematical rules, that guarantees honesty always remains the most profitable strategy for smart homes reporting their consumption to the grid."
 source: "Néo UQTR"
 url: "https://neo.uqtr.ca/2026/03/24/developpement-dun-protocole-de-negociation-considerant-lincertitude-des-agents-residentiels-dans-un-contexte-de-gestion-transactionnelle/"
+image: /images/news/soutenance-parrado.jpg
 ---
