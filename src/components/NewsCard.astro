@@ -5,9 +5,13 @@ import { useTranslations, assetPath, formatDate, type Lang } from '../i18n';
 interface Props {
   item: CollectionEntry<'news'>;
   lang: Lang;
+  /** Heading level for the title: h2 where the card is the page's content,
+      h3 where it sits under a section heading. */
+  level?: 2 | 3;
 }
 
-const { item, lang } = Astro.props;
+const { item, lang, level = 3 } = Astro.props;
+const H = `h${level}` as 'h2' | 'h3';
 const t = useTranslations(lang);
 const { title, date, summary, source, url, image } = item.data;
 ---
@@ -23,13 +27,13 @@ const { title, date, summary, source, url, image } = item.data;
       <time datetime={date}>{formatDate(date, lang)}</time>
       {source && <span class="news-source">{t('news.via')} {source}</span>}
     </div>
-    <h3>
+    <H>
       {url ? (
         <a href={url} target="_blank" rel="noopener">{title[lang]}</a>
       ) : (
         title[lang]
       )}
-    </h3>
+    </H>
     <p class="muted">{summary[lang]}</p>
     {url && (
       <a class="news-link" href={url} target="_blank" rel="noopener">{t('news.read')} →</a>

@@ -43,7 +43,7 @@ const links = [
     <div class="grid-2" style="max-width:52rem;margin-top:2rem">
       {links.map((l) => (
         <a class="card" href={href('fr', l.route)} style="text-decoration:none">
-          <h3 style="margin-top:0">{fr(`nav.${l.key}`)}</h3>
+          <h2 style="margin-top:0;font-size:1.15rem">{fr(`nav.${l.key}`)}</h2>
           <p class="muted" lang="en" style="margin:0">{en(`nav.${l.key}`)}</p>
         </a>
       ))}

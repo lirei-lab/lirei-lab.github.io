@@ -26,7 +26,7 @@ const items = (await getCollection('news')).sort(
 
   <div class="container">
     <div class="news-grid">
-      {items.map((item) => <NewsCard item={item} lang={lang} />)}
+      {items.map((item) => <NewsCard item={item} lang={lang} level={2} />)}
     </div>
   </div>
 </Base>

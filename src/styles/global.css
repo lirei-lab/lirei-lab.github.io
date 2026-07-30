@@ -2,7 +2,9 @@
   --blue-900: #0d2b45;
   --blue-700: #14456e;
   --blue-100: #e8f0f7;
-  --green-600: #0e8a5f;
+  /* Darkened from #0e8a5f: that gave 4.36:1 on white, under the 4.5:1 AA
+     threshold, and this colour carries the primary button and every accent. */
+  --green-600: #0d7c55;
   --green-400: #2fbf83;
   --green-100: #e6f4ee;
   --ink: #1a2330;
@@ -946,10 +948,14 @@ section.band {
   .site-footer .cols { grid-template-columns: 1fr; }
 }
 
-.site-footer h3 {
+/* Footer columns are h2 so the heading order holds on pages whose content has
+   none; the size stays what it was. */
+.site-footer h2 {
   color: #fff;
+  font-family: var(--serif);
   font-size: 1rem;
   margin-top: 0;
+  margin-bottom: 0.5rem;
 }
 
 .footer-brand {
@@ -1189,6 +1195,12 @@ section:hover > h2::after,
   width: 100%;
   height: 170px;
   object-fit: cover;
+}
+
+.news-card h2,
+.news-card h3 {
+  font-size: 1.08rem;
+  margin: 0.35rem 0 0.4rem;
 }
 
 .news-body {
