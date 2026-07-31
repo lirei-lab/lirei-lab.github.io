@@ -66,11 +66,13 @@ const subpages = [
           <p>{t('lab.history1')}</p>
           <p>{t('lab.history2')}</p>
         </div>
+        <!-- 1999, the year the lab was founded: the archive photograph belongs
+             with the history rather than a portrait taken twenty-five years later. -->
         <figure class="lab-photo">
-          <img src={assetPath('/images/lab/agbossou-chaire.webp')} alt={t('lab.featureAlt')} loading="lazy" />
+          <img src={assetPath('/images/lab/irh-electrolyseur-1999.webp')} alt={t('lab.historyPhotoAlt')} loading="lazy" />
           <figcaption class="muted">
-            {t('lab.featureCaption')}{' '}
-            <a href="https://neo.uqtr.ca/2024/02/29/la-chaire-du-professeur-kodjo-agbossou-reconduite-grace-a-un-financement-de-plus-de-3-millions/" target="_blank" rel="noopener">{t('lab.featureCredit')}</a>
+            {t('lab.historyPhotoCaption')}{' '}
+            <a href="https://www.uqtr.ca/irh" target="_blank" rel="noopener">{t('lab.historyPhotoCredit')}</a>
           </figcaption>
         </figure>
       </div>
@@ -126,11 +128,22 @@ const subpages = [
     </div>
   </div>
 
-  <section class="band cta-band">
+  <section class="band cta-band cta-band--photo">
     <div class="container">
-      <h2 style="margin-top:0">{t('lab.ctaTitle')}</h2>
-      <p style="max-width:44rem">{t('lab.ctaText')}</p>
-      <p><a class="btn" href={href(lang, 'contact')}>{t('lab.ctaBtn')} →</a></p>
+      <div class="cta-split">
+        <div>
+          <h2 style="margin-top:0">{t('lab.ctaTitle')}</h2>
+          <p>{t('lab.ctaText')}</p>
+          <p><a class="btn" href={href(lang, 'contact')}>{t('lab.ctaBtn')} →</a></p>
+        </div>
+        <figure class="lab-photo">
+          <img src={assetPath('/images/lab/agbossou-chaire.webp')} alt={t('lab.featureAlt')} loading="lazy" />
+          <figcaption class="muted">
+            {t('lab.featureCaption')}{' '}
+            <a href="https://neo.uqtr.ca/2024/02/29/la-chaire-du-professeur-kodjo-agbossou-reconduite-grace-a-un-financement-de-plus-de-3-millions/" target="_blank" rel="noopener">{t('lab.featureCredit')}</a>
+          </figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 </Base>

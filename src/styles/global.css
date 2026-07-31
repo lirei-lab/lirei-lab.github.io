@@ -2829,3 +2829,27 @@ section.card:hover .axis-icon {
     transition: none;
   }
 }
+
+/* The lab page's closing band carries a photograph beside its invitation; the
+   two other bands using .cta-band stay centred text, so this is a modifier
+   rather than a change to the shared rule. */
+.cta-band--photo {
+  text-align: left;
+}
+
+.cta-band--photo p {
+  margin-inline: 0;
+}
+
+.cta-split {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (max-width: 780px) {
+  .cta-split {
+    grid-template-columns: 1fr;
+  }
+}
