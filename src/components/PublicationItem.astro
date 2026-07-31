@@ -1,6 +1,7 @@
 ---
 import { useTranslations, type Lang } from '../i18n';
 import type { CollectionEntry } from 'astro:content';
+import graph from '../data/topics.json';
 
 interface Props {
   pub: CollectionEntry<'publications'>;
@@ -11,9 +12,14 @@ const { pub, lang } = Astro.props;
 const t = useTranslations(lang);
 const { title, authors, venue, year, type, doi, url } = pub.data;
 const link = doi ? `https://doi.org/${doi}` : url;
+
+// Lets a click on the topic map filter this list. Same source as the map, so
+// the two can never disagree about what a topic contains.
+const entry = (graph.pubs as Record<string, { t: number[] }>)[pub.id];
+const topics = entry?.t.map((i) => graph.nodes[i].id).join(' ');
 ---
 
-<li data-type={type} data-year={year}>
+<li data-type={type} data-year={year} data-topics={topics}>
   <span class="authors">{authors.join(', ')} ({year}).</span>
   {link ? (
     <a href={link} target="_blank" rel="noopener"><strong>{title}</strong></a>

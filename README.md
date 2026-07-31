@@ -103,6 +103,22 @@ Créez `src/content/publications/2026-titre-court.json` :
 
 > **Critère d'inclusion :** le catalogue ne recense que les publications dont **le professeur Kodjo Agbossou est coauteur** (au moins un auteur nommé « Agbossou »).
 
+#### Mettre à jour la carte des sujets
+
+La carte interactive en haut de la page Publications est calculée hors ligne, à
+partir des titres. Après avoir ajouté ou retiré des publications :
+
+```bash
+python3 scripts/build-topics.py            # régénère src/data/topics.json
+python3 scripts/build-topics.py --audit    # contrôle : couverture et sujets orphelins
+```
+
+Le vocabulaire des sujets (leurs noms français et anglais, et les motifs qui les
+reconnaissent dans un titre) est en tête de `scripts/build-topics.py`. L'audit
+signale les publications qu'aucun sujet ne couvre : c'est le bon moment pour
+élargir un motif ou ajouter un sujet. Le calcul est déterministe — mêmes
+publications, même carte.
+
 ### Ajouter un projet
 
 Créez `src/content/projects/mon-projet.md` :

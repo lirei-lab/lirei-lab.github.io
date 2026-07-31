@@ -1,0 +1,354 @@
+---
+import graph from '../data/topics.json';
+import { useTranslations, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const { nodes, edges, domains, view, years } = graph;
+const short = (n: (typeof nodes)[number]) => (lang === 'fr' ? n.shortFr : n.shortEn);
+const full = (n: (typeof nodes)[number]) => (lang === 'fr' ? n.fr : n.en);
+
+// Counted rather than written down, so the sentence cannot drift from the
+// catalogue the next time publications are added.
+const covered = Object.keys(graph.pubs).length;
+const lead = t('topics.lead').replace('{n}', String(covered));
+const svgAlt = t('topics.svgAlt').replace('{t}', String(nodes.length));
+
+const domainList = Object.entries(domains).map(([id, d]) => ({
+  id,
+  color: d.color,
+  name: lang === 'fr' ? d.fr : d.en,
+}));
+
+// Periods rather than a two-handle slider: they carry the lab's own phases,
+// they work on a phone, and they need no explanation.
+const periods = [
+  { id: 'all', from: years[0], to: years[1], label: t('topics.allYears') },
+  { id: 'p1', from: 1992, to: 2005, label: '1992–2005' },
+  { id: 'p2', from: 2006, to: 2013, label: '2006–2013' },
+  { id: 'p3', from: 2014, to: 2019, label: '2014–2019' },
+  { id: 'p4', from: 2020, to: years[1], label: `2020–${years[1]}` },
+];
+
+// Where the build script found room for each label. Mirrored in the client
+// script, which reapplies it whenever a period change resizes the discs.
+function labelAt(side: string | null, x: number, y: number, r: number) {
+  if (side === 'above') return { x, y: y - r - 5, anchor: 'middle' };
+  if (side === 'right') return { x: x + r + 4, y: y + 4, anchor: 'start' };
+  if (side === 'left') return { x: x - r - 4, y: y + 4, anchor: 'end' };
+  return { x, y: y + r + 12, anchor: 'middle' };
+}
+
+// Sorted by weight so keyboard traversal goes from the central topics outwards
+// rather than in the order the build script happened to emit.
+const tabOrder = nodes.map((_, i) => i).sort((a, b) => nodes[b].n - nodes[a].n);
+
+// Only what the browser actually needs: the geometry it re-lays-out and the
+// per-publication topics it recounts. Names and colours are already in the DOM.
+const payload = JSON.stringify({
+  nodes: nodes.map((n) => ({ x: n.x, y: n.y, side: n.side })),
+  pubs: graph.pubs,
+  years,
+  pubsWord: t('topics.pubsWord'),
+  linkedWord: t('topics.linkedWord'),
+}).replace(/</g, '\\u003c');
+---
+
+<figure class="topicgraph" data-years={JSON.stringify(years)}>
+  <figcaption>
+    <h2>{t('topics.title')}</h2>
+    <p class="muted">{lead}</p>
+  </figcaption>
+
+  <div class="tg-controls">
+    <div class="tg-periods" role="group" aria-label={t('topics.periodLabel')}>
+      {periods.map((p) => (
+        <button
+          type="button"
+          class="filter-chip"
+          data-period={p.id}
+          data-from={p.from}
+          data-to={p.to}
+          aria-pressed={p.id === 'all' ? 'true' : 'false'}
+        >{p.label}</button>
+      ))}
+    </div>
+
+    <ul class="tg-legend" aria-label={t('topics.legendLabel')}>
+      {domainList.map((d) => (
+        <li>
+          <button type="button" class="tg-dom" data-domain={d.id} aria-pressed="true">
+            <span class="tg-swatch" style={`background:${d.color}`}></span>{d.name}
+          </button>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <div class="tg-canvas">
+    <svg
+      viewBox={view.join(' ')}
+      role="img"
+      aria-label={svgAlt}
+      preserveAspectRatio="xMidYMid meet"
+    >
+      <g class="tg-edges" aria-hidden="true">
+        {edges.map((e) => (
+          <line
+            x1={nodes[e.s].x} y1={nodes[e.s].y}
+            x2={nodes[e.t].x} y2={nodes[e.t].y}
+            data-s={e.s} data-t={e.t}
+            stroke-width={Math.min(1 + e.w / 7, 3.4)}
+          />
+        ))}
+      </g>
+      <g class="tg-nodes">
+        {nodes.map((n, i) => (
+          <g
+            class="tg-node"
+            data-i={i}
+            data-domain={n.domain}
+            data-topic={n.id}
+            data-name={full(n)}
+            role="button"
+            tabindex={i === tabOrder[0] ? 0 : -1}
+            aria-label={`${full(n)} — ${n.n} ${t('topics.pubsWord')}`}
+            aria-pressed="false"
+          >
+            <circle cx={n.x} cy={n.y} r={n.r} fill={domains[n.domain].color} />
+            <text
+              class={n.side ? 'tg-label' : 'tg-label tg-label--hidden'}
+              x={labelAt(n.side, n.x, n.y, n.r).x}
+              y={labelAt(n.side, n.x, n.y, n.r).y}
+              text-anchor={labelAt(n.side, n.x, n.y, n.r).anchor}
+            >{short(n)}</text>
+          </g>
+        ))}
+      </g>
+    </svg>
+    <div class="tg-tip" role="status" hidden></div>
+  </div>
+
+  <p class="tg-hint muted">{t('topics.hint')}</p>
+
+  <!-- Inlined rather than fetched: the site is static, and the graph should not
+       wait on a network round-trip to become usable. -->
+  <script type="application/json" id="tg-data" set:html={payload}></script>
+</figure>
+
+<script>
+  const fig = document.querySelector<HTMLElement>('.topicgraph');
+  if (fig) {
+    const svg = fig.querySelector('svg')!;
+    const tip = fig.querySelector<HTMLElement>('.tg-tip')!;
+    const groups = [...fig.querySelectorAll<SVGGElement>('.tg-node')];
+    const lines = [...fig.querySelectorAll<SVGLineElement>('.tg-edges line')];
+    const R_MIN = 5;
+    const R_MAX = 23;
+
+    // Rebuilt from the JSON the page already ships, so the graph and the
+    // catalogue below always agree on what a topic contains.
+    const data = JSON.parse(document.getElementById('tg-data')!.textContent!);
+    const nodes: { x: number; y: number; side: string | null }[] = data.nodes;
+
+    /** Same four positions the build script chose from, reapplied at the new radius. */
+    function labelAt(side: string | null, x: number, y: number, r: number) {
+      if (side === 'above') return { x, y: y - r - 5, anchor: 'middle' };
+      if (side === 'right') return { x: x + r + 4, y: y + 4, anchor: 'start' };
+      if (side === 'left') return { x: x - r - 4, y: y + 4, anchor: 'end' };
+      return { x, y: y + r + 12, anchor: 'middle' };
+    }
+
+    const pubs: Record<string, { y: number; t: number[] }> = data.pubs;
+    const names: string[] = groups.map((g) => g.dataset.name!);
+
+    const neighbours: number[][] = nodes.map(() => []);
+    const edgeKey = (a: number, b: number) => (a < b ? a * 1000 + b : b * 1000 + a);
+    const edgeOf = new Map<number, SVGLineElement>();
+    lines.forEach((line) => {
+      const s = +line.dataset.s!;
+      const target = +line.dataset.t!;
+      neighbours[s].push(target);
+      neighbours[target].push(s);
+      edgeOf.set(edgeKey(s, target), line);
+    });
+
+    let from = data.years[0];
+    let to = data.years[1];
+    let selected: number | null = null;
+    let active = groups.findIndex((g) => g.getAttribute('tabindex') === '0');
+    const hidden = new Set<string>();
+    const counts = new Array(nodes.length).fill(0);
+    const live = new Set<number>();
+
+    /** Recount topics and co-occurrences inside the chosen period. */
+    function recount() {
+      counts.fill(0);
+      const pairs = new Map<number, number>();
+      for (const key in pubs) {
+        const pub = pubs[key];
+        if (pub.y < from || pub.y > to) continue;
+        for (const a of pub.t) counts[a]++;
+        for (let i = 0; i < pub.t.length; i++)
+          for (let j = i + 1; j < pub.t.length; j++) {
+            const k = edgeKey(pub.t[i], pub.t[j]);
+            if (edgeOf.has(k)) pairs.set(k, (pairs.get(k) ?? 0) + 1);
+          }
+      }
+      live.clear();
+      const peak = Math.max(...counts, 1);
+      groups.forEach((g, i) => {
+        const on = counts[i] > 0 && !hidden.has(g.dataset.domain!);
+        g.classList.toggle('is-off', !on);
+        if (on) live.add(i);
+        // Scaled to the busiest topic of the period: with a fixed scale a short
+        // window shrinks every disc to a dot and the comparison is lost.
+        const r = counts[i] ? R_MIN + (R_MAX - R_MIN) * Math.sqrt(counts[i] / peak) : 0;
+        g.querySelector('circle')!.setAttribute('r', r.toFixed(1));
+        const at = labelAt(nodes[i].side, nodes[i].x, nodes[i].y, r);
+        const text = g.querySelector('text')!;
+        text.setAttribute('x', at.x.toFixed(1));
+        text.setAttribute('y', at.y.toFixed(1));
+        text.setAttribute('text-anchor', at.anchor);
+        g.setAttribute('aria-label', `${names[i]} — ${counts[i]} ${data.pubsWord}`);
+      });
+      edgeOf.forEach((line, k) => {
+        const s = Math.floor(k / 1000);
+        const target = k % 1000;
+        const weight = pairs.get(k) ?? 0;
+        line.classList.toggle('is-off', weight === 0 || !live.has(s) || !live.has(target));
+        line.setAttribute('stroke-width', Math.min(1 + weight / 7, 3.4).toFixed(2));
+      });
+      paint();
+    }
+
+    /** Apply the current hover/selection emphasis. */
+    function paint(focus: number | null = selected) {
+      const near = focus === null ? null : new Set([focus, ...neighbours[focus]]);
+      groups.forEach((g, i) => {
+        g.classList.toggle('is-focus', i === focus);
+        g.classList.toggle('is-near', !!near && near.has(i) && i !== focus);
+        g.classList.toggle('is-dim', !!near && !near.has(i));
+        g.setAttribute('aria-pressed', String(i === selected));
+      });
+      lines.forEach((line) => {
+        const lit = !!near && (near.has(+line.dataset.s!) || near.has(+line.dataset.t!));
+        line.classList.toggle('is-lit', lit);
+        line.classList.toggle('is-dim', !!near && !lit);
+      });
+    }
+
+    function showTip(i: number) {
+      const linked = neighbours[i]
+        .filter((j) => live.has(j))
+        .sort((a, b) => counts[b] - counts[a])
+        .slice(0, 3)
+        .map((j) => names[j]);
+      tip.innerHTML =
+        `<strong>${names[i]}</strong><span class="tg-tip-n">${counts[i]} ${data.pubsWord}</span>` +
+        (linked.length ? `<span class="tg-tip-links">${data.linkedWord} ${linked.join(' · ')}</span>` : '');
+      const box = groups[i].querySelector('circle')!.getBoundingClientRect();
+      const frame = fig!.querySelector('.tg-canvas')!.getBoundingClientRect();
+      tip.hidden = false;
+      const half = tip.offsetWidth / 2;
+      const x = box.left - frame.left + box.width / 2;
+      tip.style.left = `${Math.min(Math.max(x, half + 4), frame.width - half - 4)}px`;
+      tip.style.top = `${box.top - frame.top - tip.offsetHeight - 10}px`;
+    }
+
+    function select(i: number | null) {
+      selected = selected === i ? null : i;
+      paint();
+      document.dispatchEvent(
+        new CustomEvent('topicfilter', {
+          detail: selected === null
+            ? { topic: null }
+            : { topic: groups[selected].dataset.topic, name: names[selected] },
+        })
+      );
+    }
+
+    function focusNode(i: number) {
+      groups[active]?.setAttribute('tabindex', '-1');
+      active = i;
+      groups[i].setAttribute('tabindex', '0');
+      groups[i].focus();
+    }
+
+    groups.forEach((g, i) => {
+      const enter = () => {
+        if (!live.has(i)) return;
+        paint(i);
+        showTip(i);
+      };
+      const leave = () => {
+        paint();
+        tip.hidden = true;
+      };
+      g.addEventListener('pointerenter', enter);
+      g.addEventListener('pointerleave', leave);
+      g.addEventListener('focus', enter);
+      g.addEventListener('blur', leave);
+      g.addEventListener('click', () => live.has(i) && select(i));
+      g.addEventListener('keydown', (event) => {
+        const order = [...live].sort((a, b) => counts[b] - counts[a]);
+        const at = order.indexOf(i);
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          select(i);
+        } else if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+          event.preventDefault();
+          focusNode(order[(at + 1) % order.length]);
+        } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+          event.preventDefault();
+          focusNode(order[(at - 1 + order.length) % order.length]);
+        } else if (event.key === 'Escape' && selected !== null) {
+          select(selected);
+        }
+      });
+    });
+
+    fig.querySelectorAll<HTMLButtonElement>('[data-period]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        fig.querySelectorAll('[data-period]').forEach((other) =>
+          other.setAttribute('aria-pressed', String(other === btn))
+        );
+        from = +btn.dataset.from!;
+        to = +btn.dataset.to!;
+        recount();
+      });
+    });
+
+    fig.querySelectorAll<HTMLButtonElement>('.tg-dom').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.domain!;
+        const on = hidden.has(id);
+        on ? hidden.delete(id) : hidden.add(id);
+        btn.setAttribute('aria-pressed', String(on));
+        if (selected !== null && hidden.has(groups[selected].dataset.domain!)) select(selected);
+        recount();
+      });
+    });
+
+    // The chip beside the catalogue filters can clear the selection too.
+    document.addEventListener('topicfilter', (event) => {
+      const detail = (event as CustomEvent).detail;
+      if (detail.topic === null && selected !== null) {
+        selected = null;
+        paint();
+      }
+    });
+
+    svg.addEventListener('pointerleave', () => {
+      paint();
+      tip.hidden = true;
+    });
+
+    recount();
+  }
+</script>

@@ -284,6 +284,17 @@
     "chartAlt": "Number of publications per year, from 2016 to 2025:",
     "chartCaption": "Publications per year. Peak of {peak} in {year}."
   },
+  "topics": {
+    "title": "Map of research topics",
+    "lead": "Each circle is a topic found in the catalogue; its size gives the number of publications, and a line joins two topics that recur together in the same work. The map is built from the titles of the {n} indexed publications.",
+    "hint": "Hover a topic to see its links, click to filter the list below. By keyboard: arrows to move, Enter to select.",
+    "allYears": "All years",
+    "periodLabel": "Period",
+    "legendLabel": "Research domains",
+    "pubsWord": "publications",
+    "linkedWord": "Often with:",
+    "svgAlt": "Map of LIREI research topics: {t} topics grouped into six domains, joined where they appear together in a publication. Each topic is reachable by keyboard, and the full publication list follows."
+  },
   "news": {
     "title": "News",
     "lead": "The latest news from the laboratory, the Hydrogen Research Institute and our partners.",

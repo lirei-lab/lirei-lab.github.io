@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import PublicationItem from '../PublicationItem.astro';
 import PubStats from '../PubStats.astro';
+import TopicGraph from '../TopicGraph.astro';
 import { useTranslations, type Lang } from '../../i18n';
 
 interface Props {
@@ -30,6 +31,8 @@ const types = ['journal', 'conference', 'other'] as const;
   <div class="container">
     <PubStats lang={lang} />
 
+    <TopicGraph lang={lang} />
+
     <div class="filters">
       <label for="f-type">{t('pubs.filterType')}</label>
       <select id="f-type">
@@ -41,6 +44,9 @@ const types = ['journal', 'conference', 'other'] as const;
         <option value="">{t('pubs.all')}</option>
         {years.map((year) => <option value={String(year)}>{year}</option>)}
       </select>
+      <button type="button" id="f-topic" class="filter-chip topic-chip" hidden>
+        <span></span><span aria-hidden="true">✕</span>
+      </button>
     </div>
 
     {years.map((year) => (
@@ -59,7 +65,9 @@ const types = ['journal', 'conference', 'other'] as const;
   <script>
     const typeSel = document.getElementById('f-type') as HTMLSelectElement;
     const yearSel = document.getElementById('f-year') as HTMLSelectElement;
+    const topicBtn = document.getElementById('f-topic') as HTMLButtonElement;
     const noResults = document.getElementById('no-results')!;
+    let topic: string | null = null;
 
     function apply() {
       const type = typeSel.value;
@@ -69,7 +77,9 @@ const types = ['journal', 'conference', 'other'] as const;
         let visible = 0;
         group.querySelectorAll<HTMLElement>('li').forEach((li) => {
           const show =
-            (!type || li.dataset.type === type) && (!year || li.dataset.year === year);
+            (!type || li.dataset.type === type) &&
+            (!year || li.dataset.year === year) &&
+            (!topic || (li.dataset.topics ?? '').split(' ').includes(topic));
           li.hidden = !show;
           if (show) visible++;
         });
@@ -81,5 +91,19 @@ const types = ['journal', 'conference', 'other'] as const;
 
     typeSel.addEventListener('change', apply);
     yearSel.addEventListener('change', apply);
+
+    // Selecting a topic on the map narrows this list; the chip both shows what
+    // is active and clears it, telling the map to drop its selection too.
+    document.addEventListener('topicfilter', (event) => {
+      const detail = (event as CustomEvent).detail;
+      topic = detail.topic;
+      topicBtn.hidden = !topic;
+      if (topic) topicBtn.firstElementChild!.textContent = detail.name;
+      apply();
+    });
+
+    topicBtn.addEventListener('click', () => {
+      document.dispatchEvent(new CustomEvent('topicfilter', { detail: { topic: null } }));
+    });
   </script>
 </Base>

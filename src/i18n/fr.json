@@ -284,6 +284,17 @@
     "chartAlt": "Nombre de publications par année, de 2016 à 2025 :",
     "chartCaption": "Publications par année. Sommet à {peak} en {year}."
   },
+  "topics": {
+    "title": "Carte des sujets de recherche",
+    "lead": "Chaque cercle est un sujet présent dans le catalogue ; sa taille indique le nombre de publications, et un trait relie deux sujets qui reviennent ensemble dans un même travail. La carte est construite à partir des titres des {n} publications répertoriées.",
+    "hint": "Survolez un sujet pour voir ses liens, cliquez pour filtrer la liste ci-dessous. Au clavier : flèches pour parcourir, Entrée pour sélectionner.",
+    "allYears": "Toute la période",
+    "periodLabel": "Période",
+    "legendLabel": "Domaines de recherche",
+    "pubsWord": "publications",
+    "linkedWord": "Souvent avec :",
+    "svgAlt": "Carte des sujets de recherche du LIREI : {t} sujets regroupés en six domaines, reliés lorsqu'ils apparaissent ensemble dans une même publication. Le détail de chaque sujet est accessible au clavier, et la liste complète des publications suit."
+  },
   "news": {
     "title": "Actualités",
     "lead": "Les dernières nouvelles du laboratoire, de l'Institut de recherche sur l'hydrogène et de nos partenaires.",
