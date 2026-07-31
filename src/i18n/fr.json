@@ -274,6 +274,8 @@
     "lead": "L'ensemble des travaux scientifiques du laboratoire depuis 1992, dont le professeur Kodjo Agbossou est coauteur.",
     "filterType": "Type",
     "filterYear": "Année",
+    "filterAuthor": "Auteur :",
+    "filterTopic": "Sujet :",
     "all": "Tous",
     "journal": "Revue",
     "conference": "Conférence",

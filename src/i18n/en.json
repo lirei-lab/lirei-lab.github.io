@@ -274,6 +274,8 @@
     "lead": "The laboratory's complete scientific output since 1992, co-authored by Professor Kodjo Agbossou.",
     "filterType": "Type",
     "filterYear": "Year",
+    "filterAuthor": "Author:",
+    "filterTopic": "Topic:",
     "all": "All",
     "journal": "Journal",
     "conference": "Conference",

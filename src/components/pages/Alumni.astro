@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import { useTranslations, href, type Lang } from '../../i18n';
-import { authorMatchesMember } from '../../utils/authors';
+import { authorMatchesMember, personSlug } from '../../utils/authors';
 
 interface Props {
   lang: Lang;
@@ -76,7 +76,7 @@ const msc = alumni.length - phd;
                     {a.data.now && <span>{a.data.now[lang]}</span>}
                     {count > 0 && (
                       <span>
-                        <a href={href(lang, 'publications')}>
+                        <a href={`${href(lang, 'publications')}?auteur=${personSlug(a.data.name)}#catalogue`}>
                           {count} {count > 1 ? t('alumni.pubsPlural') : t('alumni.pubsSingular')}
                         </a>
                       </span>

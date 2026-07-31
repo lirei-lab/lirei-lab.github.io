@@ -2,6 +2,7 @@
 import { useTranslations, type Lang } from '../i18n';
 import type { CollectionEntry } from 'astro:content';
 import graph from '../data/topics.json';
+import { peopleOf } from '../utils/authors';
 
 interface Props {
   pub: CollectionEntry<'publications'>;
@@ -17,9 +18,13 @@ const link = doi ? `https://doi.org/${doi}` : url;
 // the two can never disagree about what a topic contains.
 const entry = (graph.pubs as Record<string, { t: number[] }>)[pub.id];
 const topics = entry?.t.map((i) => graph.nodes[i].id).join(' ');
+
+// Resolved here with the same matcher that counts a graduate's publications on
+// the alumni page, so the count they click and the list they land on agree.
+const people = (await peopleOf(authors)).join(' ');
 ---
 
-<li data-type={type} data-year={year} data-topics={topics}>
+<li data-type={type} data-year={year} data-topics={topics} data-people={people}>
   <span class="authors">{authors.join(', ')} ({year}).</span>
   {link ? (
     <a href={link} target="_blank" rel="noopener"><strong>{title}</strong></a>
