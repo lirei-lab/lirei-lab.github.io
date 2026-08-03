@@ -206,7 +206,8 @@
     "mapCaption": "{partners} partenaires académiques répartis sur {sites} sites. Survolez un point pour voir les institutions, cliquez pour atteindre leur fiche.",
     "envSeminarAlt": "Séminaire du laboratoire, avec des participants à distance.",
     "envBenchAlt": "Travaux sur des postes instrumentés du laboratoire.",
-    "envStorageAlt": "Bancs instrumentés : batteries Fortress Power et instrumentation de mesure de l'IRH."
+    "envStorageAlt": "Bancs instrumentés : batteries Fortress Power et instrumentation de mesure de l'IRH.",
+    "envConversionAlt": "Réglage de l'onduleur-chargeur du banc de conversion."
   },
   "research": {
     "title": "Recherche",

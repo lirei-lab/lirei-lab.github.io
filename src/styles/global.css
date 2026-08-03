@@ -2319,7 +2319,7 @@ section:hover > h2::after,
   display: grid;
   /* auto-fit rather than a fixed three: the row grew to four photographs, and
      a hard column count leaves the fourth stranded alone on a second line. */
-  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(11.5rem, 1fr));
   gap: 1.25rem;
   margin-top: 2rem;
 }
