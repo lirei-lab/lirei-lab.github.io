@@ -71,6 +71,10 @@
         "title": "Storage and conversion bench",
         "desc": "A Victron Energy Quattro 5,000 VA 48 V inverter-charger — pure sine wave, 70 A charger, two AC inputs with an integrated transfer switch — coupled to two Fortress Power eFlex 5.4 kWh batteries, 10.8 kWh of lithium iron phosphate with closed-loop communication between the batteries and the inverter. The two inputs allow switching between grid, generator and islanded operation: self-consumption, peak shaving, grid support and isolated microgrid."
       },
+      "growth": {
+        "title": "Instrumented growth chamber",
+        "desc": "A climate-controlled growth enclosure, instrumented for temperature and humidity and supervised through an open home-automation platform that continuously historises the measurements. It offers a small scale, freely controllable, on which to test predictive control and greenhouse energy management strategies before transposing them to real conditions."
+      },
       "edge": {
         "title": "Edge computing cluster",
         "desc": "A thirteen-node cluster — eleven Raspberry Pi 4 boards and two x86 servers — under Kubernetes, carrying acquisition and control close to the equipment: wireless sensors, message broker, local historian and execution of control policies. Its size makes it a platform for studying distributed agent deployment and the division of work between edge and cloud."

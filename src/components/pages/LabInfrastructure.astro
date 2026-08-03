@@ -13,7 +13,7 @@ const t = useTranslations(lang);
 // Grouped so that physical facilities, computing platforms and data are not
 // read as one undifferentiated list.
 const groups = [
-  { key: 'experimental', items: ['apartment', 'storage', 'edge'] },
+  { key: 'experimental', items: ['apartment', 'storage', 'growth', 'edge'] },
   { key: 'numeric', items: ['cluster', 'simulation'] },
   { key: 'data', items: ['datasets'] },
 ] as const;
@@ -37,11 +37,14 @@ const envPhotos = [
 // standing by the edge cluster.
 const photo: Record<string, { src: string; pos?: string }> = {
   apartment: { src: '/images/lab/lab2.webp' },
-  storage: { src: '/images/lab/lab7.webp' },
+  // The equipment itself rather than a visit to it: the card names the Victron
+  // Quattro and the Fortress cells, and these two frames show them.
+  storage: { src: '/images/lab/banc-conversion-victron.webp' },
+  growth: { src: '/images/lab/chambre-culture.webp', pos: 'center 35%' },
   edge: { src: '/images/lab/lab8.jpg', pos: 'center top' },
   cluster: { src: '/images/lab/lab5.webp' },
   simulation: { src: '/images/lab/lab3.webp' },
-  datasets: { src: '/images/lab/lab6.webp' },
+  datasets: { src: '/images/lab/banc-stockage-fortress.webp' },
 };
 ---
 

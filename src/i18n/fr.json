@@ -71,6 +71,10 @@
         "title": "Banc de stockage et de conversion",
         "desc": "Onduleur-chargeur Victron Energy Quattro de 5 000 VA à 48 V — sinusoïde pure, chargeur de 70 A, deux entrées CA avec commutateur de transfert intégré — couplé à deux batteries Fortress Power eFlex de 5,4 kWh, soit 10,8 kWh de lithium-fer-phosphate avec communication en boucle fermée entre les batteries et l'onduleur. Les deux entrées permettent de basculer entre réseau, groupe électrogène et fonctionnement îloté : autoconsommation, écrêtage de pointe, soutien au réseau et micro-réseau isolé."
       },
+      "growth": {
+        "title": "Chambre de culture instrumentée",
+        "desc": "Enceinte de culture à climat contrôlé, instrumentée en température et en humidité et supervisée par une plateforme domotique ouverte qui historise les mesures en continu. Elle offre une échelle réduite, mais pilotable à volonté, pour éprouver la commande prédictive et les stratégies de gestion énergétique des serres avant de les transposer en conditions réelles."
+      },
       "edge": {
         "title": "Grappe de calcul en périphérie",
         "desc": "Grappe de treize nœuds — onze Raspberry Pi 4 et deux serveurs x86 — sous Kubernetes, qui porte l'acquisition et la commande au plus près des équipements : capteurs sans fil, courtier de messages, historisation locale et exécution des politiques de commande. Sa taille en fait une plateforme d'étude du déploiement d'agents distribués et du partage des tâches entre la périphérie et le nuage."
