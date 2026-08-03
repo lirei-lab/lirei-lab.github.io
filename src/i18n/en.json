@@ -205,7 +205,8 @@
     "mapAlt": "World map locating LIREI's academic partners in Canada, Europe, Latin America and Africa.",
     "mapCaption": "{partners} academic partners across {sites} locations. Hover a point to see the institutions, click to jump to their entry.",
     "envSeminarAlt": "A laboratory seminar, with participants joining remotely.",
-    "envBenchAlt": "Work at the laboratory's instrumented stations."
+    "envBenchAlt": "Work at the laboratory's instrumented stations.",
+    "envStorageAlt": "Instrumented benches: Fortress Power batteries and the HRI measurement instrumentation."
   },
   "research": {
     "title": "Research",

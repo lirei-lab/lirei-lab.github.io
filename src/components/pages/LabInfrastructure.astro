@@ -28,6 +28,7 @@ const videos = [
 const envPhotos = [
   { src: '/images/lab/seminaire-hybride.webp', key: 'lab.envSeminarAlt' },
   { src: '/images/lab/postes-instrumentes.webp', key: 'lab.envBenchAlt' },
+  { src: '/images/lab/banc-stockage-fortress.webp', key: 'lab.envStorageAlt' },
   { src: '/images/lab/lab9.webp', key: 'lab.visitAlt' },
 ] as const;
 
@@ -36,7 +37,9 @@ const envPhotos = [
 // to say where to anchor it — centring cut the heads off the two people
 // standing by the edge cluster.
 const photo: Record<string, { src: string; pos?: string }> = {
-  apartment: { src: '/images/lab/lab2.webp' },
+  // The dwelling itself, built inside the hall. The photograph here before it
+  // showed the Victron wall — the conversion bench two cards down, not the flat.
+  apartment: { src: '/images/lab/appartement-intelligent.webp', pos: 'center 45%' },
   // The equipment itself rather than a visit to it: the card names the Victron
   // Quattro and the Fortress cells, and these two frames show them.
   storage: { src: '/images/lab/banc-conversion-victron.webp' },
@@ -44,7 +47,7 @@ const photo: Record<string, { src: string; pos?: string }> = {
   edge: { src: '/images/lab/lab8.jpg', pos: 'center top' },
   cluster: { src: '/images/lab/lab5.webp' },
   simulation: { src: '/images/lab/lab3.webp' },
-  datasets: { src: '/images/lab/banc-stockage-fortress.webp' },
+  datasets: { src: '/images/lab/lab6.webp' },
 };
 ---
 

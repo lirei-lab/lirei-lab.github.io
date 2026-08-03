@@ -205,7 +205,8 @@
     "mapAlt": "Carte du monde situant les partenaires académiques du LIREI au Canada, en Europe, en Amérique latine et en Afrique.",
     "mapCaption": "{partners} partenaires académiques répartis sur {sites} sites. Survolez un point pour voir les institutions, cliquez pour atteindre leur fiche.",
     "envSeminarAlt": "Séminaire du laboratoire, avec des participants à distance.",
-    "envBenchAlt": "Travaux sur des postes instrumentés du laboratoire."
+    "envBenchAlt": "Travaux sur des postes instrumentés du laboratoire.",
+    "envStorageAlt": "Bancs instrumentés : batteries Fortress Power et instrumentation de mesure de l'IRH."
   },
   "research": {
     "title": "Recherche",
