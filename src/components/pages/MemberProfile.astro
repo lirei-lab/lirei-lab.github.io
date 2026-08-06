@@ -4,7 +4,7 @@ import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import PublicationItem from '../PublicationItem.astro';
 import { useTranslations, href, otherLang, assetPath, type Lang } from '../../i18n';
-import { authorMatchesMember } from '../../utils/authors';
+import { authorMatchesPerson } from '../../utils/authors';
 
 interface Props {
   member: CollectionEntry<'team'>;
@@ -17,7 +17,7 @@ const { name, role, topic, affiliation, email, photo, project, bio } = member.da
 const switchHref = `${href(otherLang(lang), 'team')}/${member.id}`;
 
 const publications = (await getCollection('publications'))
-  .filter((p) => p.data.authors.some((a) => authorMatchesMember(name, a)))
+  .filter((p) => p.data.authors.some((a) => authorMatchesPerson(member.data, a)))
   .sort((a, b) => b.data.year - a.data.year || a.data.title.localeCompare(b.data.title));
 
 const projectEntry = project

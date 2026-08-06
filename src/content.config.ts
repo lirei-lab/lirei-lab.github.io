@@ -15,6 +15,10 @@ const team = defineCollection({
     phone: z.string().optional(),
     photo: z.string().optional(),
     bio: bilingual.optional(),
+    // How this person signs their papers. Set it only where the initial-and-
+    // surname heuristic gets it wrong — a namesake in the catalogue, typically.
+    // When present it replaces the heuristic entirely: nothing else matches.
+    authorNames: z.array(z.string()).optional(),
     project: z.string().optional(),
     order: z.number().default(100),
   }),
@@ -95,6 +99,10 @@ const alumni = defineCollection({
     // or defence announcement covering the work.
     manuscript: z.string().url().optional(),
     blog: z.string().url().optional(),
+    // How this person signs their papers. Set it only where the initial-and-
+    // surname heuristic gets it wrong — a namesake in the catalogue, typically.
+    // When present it replaces the heuristic entirely: nothing else matches.
+    authorNames: z.array(z.string()).optional(),
     now: bilingual.optional(),
   }),
 });

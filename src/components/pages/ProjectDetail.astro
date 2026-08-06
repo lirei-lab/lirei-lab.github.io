@@ -9,7 +9,7 @@ import FlexArchitecture from '../diagrams/FlexArchitecture.astro';
 import GreenhouseLoop from '../diagrams/GreenhouseLoop.astro';
 import MicrogridLevels from '../diagrams/MicrogridLevels.astro';
 import { useTranslations, href, otherLang, assetPath, type Lang } from '../../i18n';
-import { authorMatchesMember } from '../../utils/authors';
+import { authorMatchesPerson } from '../../utils/authors';
 import { normalizePartners } from '../../utils/partners';
 
 interface Props {
@@ -59,9 +59,9 @@ if (isProgram) {
     .filter((m) => m.data.project && (subIds.has(m.data.project) || m.data.project === project.id))
     .sort((a, b) => a.data.order - b.data.order);
 
-  const names = programMembers.map((m) => m.data.name);
+  const people = programMembers.map((m) => m.data);
   programPublications = (await getCollection('publications'))
-    .filter((p) => p.data.authors.some((a) => names.some((n) => authorMatchesMember(n, a))))
+    .filter((p) => p.data.authors.some((a) => people.some((n) => authorMatchesPerson(n, a))))
     .sort((a, b) => b.data.year - a.data.year || a.data.title.localeCompare(b.data.title));
 }
 ---

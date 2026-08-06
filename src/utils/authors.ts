@@ -25,6 +25,26 @@ export function personSlug(name: string): string {
   return normalize(name).replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 }
 
+/** Does this author string credit this person?
+ *
+ *  The heuristic below reads names, and names are ambiguous: it cannot tell a
+ *  middle name from a first surname, so it accepts any surname token. That is
+ *  right for the six people here who sign in more than one form — A. Cárdenas
+ *  and A. C. Gonzalez are the same man — but it also handed "C. Henao" to
+ *  Carolina Vargas Henao, who signs "C. Vargas". A person carrying
+ *  `authorNames` states their signatures instead of being guessed at.
+ */
+export function authorMatchesPerson(
+  person: { name: string; authorNames?: string[] },
+  author: string
+): boolean {
+  if (person.authorNames?.length) {
+    const a = tokens(author).join(' ');
+    return person.authorNames.some((form) => tokens(form).join(' ') === a);
+  }
+  return authorMatchesMember(person.name, author);
+}
+
 export function authorMatchesMember(memberName: string, author: string): boolean {
   const m = tokens(memberName);
   const a = tokens(author);
@@ -40,24 +60,38 @@ export function authorMatchesMember(memberName: string, author: string): boolean
   return initialOk && surnameOk;
 }
 
-let peopleCache: Promise<{ slug: string; name: string }[]> | null = null;
+export interface Person {
+  slug: string;
+  name: string;
+  authorNames?: string[];
+}
+
+let peopleCache: Promise<Person[]> | null = null;
 
 /** Everyone the catalogue can be filtered by: current members and graduates.
  *
  *  Memoised because every publication asks for it, and the answer is the same
  *  for the whole build.
  */
-export function allPeople(): Promise<{ slug: string; name: string }[]> {
+export function allPeople(): Promise<Person[]> {
   peopleCache ??= (async () => {
     const [team, alumni] = await Promise.all([
       getCollection('team'),
       getCollection('alumni'),
     ]);
-    const names = new Map<string, string>();
+    const byslug = new Map<string, Person>();
     for (const entry of [...team, ...alumni]) {
-      names.set(personSlug(entry.data.name), entry.data.name);
+      const slug = personSlug(entry.data.name);
+      const known = byslug.get(slug);
+      byslug.set(slug, {
+        slug,
+        name: entry.data.name,
+        // A person may hold two entries — a graduate who stayed on as a
+        // postdoc. Either may carry the signatures; keep whichever does.
+        authorNames: entry.data.authorNames ?? known?.authorNames,
+      });
     }
-    return [...names].map(([slug, name]) => ({ slug, name }));
+    return [...byslug.values()];
   })();
   return peopleCache;
 }
@@ -65,6 +99,6 @@ export function allPeople(): Promise<{ slug: string; name: string }[]> {
 /** The people credited on a publication, as slugs. */
 export async function peopleOf(authors: string[]): Promise<string[]> {
   return (await allPeople())
-    .filter((p) => authors.some((a) => authorMatchesMember(p.name, a)))
+    .filter((p) => authors.some((a) => authorMatchesPerson(p, a)))
     .map((p) => p.slug);
 }

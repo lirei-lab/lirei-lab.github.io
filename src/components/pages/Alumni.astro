@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import { useTranslations, href, type Lang } from '../../i18n';
-import { authorMatchesMember, personSlug } from '../../utils/authors';
+import { authorMatchesPerson, personSlug } from '../../utils/authors';
 
 interface Props {
   lang: Lang;
@@ -49,7 +49,7 @@ const msc = alumni.length - phd;
             .filter((a) => a.data.year === y)
             .map((a) => {
               const count = pubs.filter((p) =>
-                p.data.authors.some((au) => authorMatchesMember(a.data.name, au))
+                p.data.authors.some((au) => authorMatchesPerson(a.data, au))
               ).length;
               return (
                 <li class="alumni-item">
