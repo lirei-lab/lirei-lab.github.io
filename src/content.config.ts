@@ -141,7 +141,9 @@ const openings = defineCollection({
     summary: bilingual,
     profile: bilingual.optional(),
     programs: z.array(z.enum(['flexibilite', 'serres', 'communautes'])).optional(),
-    supervisor: z.string().optional(),
+    // A name needs no translation; an arrangement described in prose does.
+    // Same shape as a project's partners: either form is accepted.
+    supervisor: z.union([z.string(), bilingual]).optional(),
     funding: bilingual.optional(),
     // ISO date; only meaningful for a dated vacancy.
     deadline: z.string().optional(),

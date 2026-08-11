@@ -462,8 +462,8 @@
     "factAlumni": "diplômés depuis 2003",
     "whyTitle": "Ce qui vous attend",
     "openTitle": "Postes ouverts",
-    "openLead": "Offres précises, avec date limite.",
-    "openNone": "Aucun poste avec date limite n'est ouvert en ce moment. Les candidatures spontanées ci-dessous restent les bienvenues.",
+    "openLead": "Offres précises, rattachées à un projet financé.",
+    "openNone": "Aucun poste précis n'est ouvert en ce moment. Les candidatures spontanées ci-dessous restent les bienvenues.",
     "ongoingTitle": "Candidatures spontanées",
     "ongoingLead": "Les types de postes que le laboratoire accueille régulièrement. Le financement dépend des subventions en cours.",
     "types": {

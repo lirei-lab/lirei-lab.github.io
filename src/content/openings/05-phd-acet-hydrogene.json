@@ -1,0 +1,23 @@
+{
+  "title": {
+    "fr": "Doctorat — Hydrogène et récupération de chaleur pour un réseau nordique autonome",
+    "en": "Doctorate — Hydrogen and heat recovery for an autonomous northern grid"
+  },
+  "type": "phd",
+  "status": "open",
+  "order": 5,
+  "summary": {
+    "fr": "Le LIREI recrute au doctorat sur le volet hydrogène d'un projet de quatre ans consacré à l'alimentation d'une communauté nordique isolée. Il s'agit de déterminer quelles technologies hydrogène conviennent à un stockage de longue durée sous climat froid, de modéliser leur intégration au réseau local, puis de valoriser la chaleur résiduelle de la conversion pour le chauffage de la communauté — jusqu'à l'évaluation de la viabilité économique de l'ensemble.",
+    "en": "LIREI is recruiting a doctoral student for the hydrogen strand of a four-year project on supplying an isolated northern community with energy. The work is to determine which hydrogen technologies suit long-duration storage in a cold climate, model how they integrate into the local grid, and then put the residual heat of conversion to use for community heating — through to assessing whether the whole is economically viable."
+  },
+  "profile": {
+    "fr": "Maîtrise en génie électrique, mécanique ou énergétique, ou dans un domaine connexe. Modélisation de systèmes énergétiques et programmation scientifique. Un intérêt pour la conversion électrochimique — électrolyse, piles à combustible — et pour les systèmes thermiques est un atout. Le français ou l'anglais est requis ; les travaux se publient en anglais. Des séjours dans la communauté partenaire sont prévus et financés.",
+    "en": "A master's degree in electrical, mechanical or energy engineering, or a related field. Modelling of energy systems and scientific programming. An interest in electrochemical conversion — electrolysis, fuel cells — and in thermal systems is an asset. French or English is required; the work is published in English. Stays in the partner community are planned and funded."
+  },
+  "programs": ["communautes"],
+  "funding": {
+    "fr": "Bourse doctorale sur quatre ans, dans le cadre d'un projet du réseau ACET (Accelerating Community Energy Transformation), financé par le Fonds d'excellence en recherche Apogée Canada. Les déplacements sur le terrain sont couverts par le projet.",
+    "en": "A four-year doctoral scholarship, within a project of the ACET network (Accelerating Community Energy Transformation), funded by the Canada First Research Excellence Fund. Fieldwork travel is covered by the project."
+  },
+  "supervisor": "Kodjo Agbossou"
+}

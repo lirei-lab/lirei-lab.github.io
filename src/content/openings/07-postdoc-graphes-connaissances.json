@@ -1,0 +1,28 @@
+{
+  "title": {
+    "fr": "Stage postdoctoral — Graphes de connaissances et prévision énergétique explicable",
+    "en": "Postdoctoral fellowship — Knowledge graphs and explainable energy forecasting"
+  },
+  "type": "postdoc",
+  "status": "open",
+  "order": 7,
+  "summary": {
+    "fr": "Quand on rénove un bâtiment, les économies d'énergie promises et celles réellement constatées ne coïncident pas — c'est l'écart de performance. Ce stage postdoctoral de trois ans, mené avec un partenaire industriel québécois de la rénovation énergétique, s'attaque à cet écart : construire un graphe de connaissances qui unifie les données de projets réels, y greffer des modèles d'apprentissage machine interprétables, et produire des prévisions corrigées du biais d'optimisme en les fondant sur des projets comparables passés plutôt que sur la seule simulation.",
+    "en": "When a building is retrofitted, the energy savings promised and those actually observed do not coincide — the performance gap. This three-year postdoctoral fellowship, run with a Québec industrial partner in energy retrofit, takes on that gap: building a knowledge graph that unifies data from real projects, grafting interpretable machine learning models onto it, and producing forecasts corrected for optimism bias by grounding them in comparable past projects rather than in simulation alone."
+  },
+  "profile": {
+    "fr": "Doctorat en génie informatique, génie électrique, génie du bâtiment ou en science des données appliquée. Web sémantique — RDF, SPARQL, SHACL, ingénierie d'ontologies — et à l'aise avec Python et une base de graphes. En apprentissage automatique, l'interprétabilité est ici une exigence et non un raffinement : les prévisions doivent pouvoir être expliquées à un client. Une familiarité avec les ontologies du bâtiment (Brick, Haystack, ASHRAE 223P), les données de systèmes de gestion (BACnet, Modbus), les modèles BIM ou la mesure et vérification est directement transférable. Le français ou l'anglais est requis ; les travaux se publient en anglais.",
+    "en": "A doctorate in computer, electrical or building engineering, or in applied data science. Semantic web — RDF, SPARQL, SHACL, ontology engineering — and comfortable with Python and a graph database. In machine learning, interpretability is a requirement here rather than a refinement: a forecast has to be explainable to a client. Familiarity with building ontologies (Brick, Haystack, ASHRAE 223P), building management data (BACnet, Modbus), BIM models or measurement and verification transfers directly. French or English is required; the work is published in English."
+  },
+  "programs": [
+    "flexibilite"
+  ],
+  "funding": {
+    "fr": "Financement Mitacs Accélération sur trente-six mois, en unités de quatre à six mois, avec un partenaire industriel. Le travail se partage entre le laboratoire et l'entreprise, qui ouvre l'accès à l'historique de ses projets et à ses spécialistes en thermique et en mesure et vérification.",
+    "en": "Mitacs Accelerate funding over thirty-six months, in units of four to six months, with an industrial partner. The work is shared between the laboratory and the company, which opens access to the history of its projects and to its thermal and measurement-and-verification specialists."
+  },
+  "supervisor": {
+    "fr": "Encadrement mixte : suivi scientifique au LIREI (UQTR), mentorat technique chez le partenaire industriel. Rencontres bimensuelles et présentation des travaux à la fin de chaque unité de stage.",
+    "en": "Joint supervision: scientific guidance at LIREI (UQTR), technical mentoring at the industrial partner. Fortnightly meetings and a presentation of the work at the end of each internship unit."
+  }
+}

@@ -462,8 +462,8 @@
     "factAlumni": "graduates since 2003",
     "whyTitle": "What awaits you",
     "openTitle": "Open positions",
-    "openLead": "Specific postings, with a closing date.",
-    "openNone": "No dated position is open right now. The standing calls below remain welcome.",
+    "openLead": "Specific positions, attached to a funded project.",
+    "openNone": "No specific position is open at the moment. The spontaneous applications below remain welcome.",
     "ongoingTitle": "Spontaneous applications",
     "ongoingLead": "The kinds of position the laboratory regularly hosts. Funding depends on current grants.",
     "types": {

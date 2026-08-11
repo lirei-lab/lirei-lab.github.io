@@ -7,3 +7,7 @@ projets/
 
 # Notes de conception internes
 docs/superpowers/
+
+# Working documents for proposals and contracts: Word and PDF sources that
+# must not reach the public repository. Same rule as projets/.
+src/ecosystem/

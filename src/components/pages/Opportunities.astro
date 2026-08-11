@@ -111,7 +111,7 @@ const offers = ['offerCity', 'offerPeople', 'offerAfter', 'offerTraining'] as co
               {o.data.supervisor && (
                 <>
                   <h4>{t('opportunities.supervisorTitle')}</h4>
-                  <p class="muted">{o.data.supervisor}</p>
+                  <p class="muted">{typeof o.data.supervisor === 'string' ? o.data.supervisor : o.data.supervisor[lang]}</p>
                 </>
               )}
               {o.data.programs && o.data.programs.length > 0 && (
