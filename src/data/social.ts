@@ -18,7 +18,5 @@ export interface SocialAccount {
 }
 
 export const social: SocialAccount[] = [
-  // Waiting on the laboratory's LinkedIn page address. Searching turned up only
-  // personal profiles, and a guessed URL is worse than no link at all:
-  // { id: 'linkedin', url: 'https://www.linkedin.com/company/…', name: 'LinkedIn' },
+  { id: 'linkedin', url: 'https://www.linkedin.com/company/lirei', name: 'LinkedIn' },
 ];
