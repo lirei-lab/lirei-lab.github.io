@@ -31,6 +31,10 @@
     "rights": "All rights reserved.",
     "irh": "Hydrogen Research Institute (IRH)"
   },
+  "social": {
+    "follow": "Follow the laboratory",
+    "label": "The laboratory's social media accounts"
+  },
   "home": {
     "tagline": "Solutions for intelligent energy management",
     "intro": "LIREI is a multidisciplinary team of researchers, members of the Hydrogen Research Institute (IRH) at the Université du Québec à Trois-Rivières. Since 1999, we have been working to optimize energy use in buildings and vehicles, with a particular interest in hydrogen and renewable energy.",

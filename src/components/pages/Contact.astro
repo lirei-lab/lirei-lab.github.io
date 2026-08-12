@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import ContactForm from '../ContactForm.astro';
 import { useTranslations, href, type Lang } from '../../i18n';
+import SocialLinks from '../SocialLinks.astro';
 
 interface Props {
   lang: Lang;
@@ -41,6 +42,7 @@ const partners = [
           {t('site.uqtr')}<br />
           {t('footer.address')}
         </p>
+        <SocialLinks lang={lang} variant="inline" heading />
       </div>
 
       <div class="card">

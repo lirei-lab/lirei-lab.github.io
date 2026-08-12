@@ -3,6 +3,7 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { useTranslations, href, otherLang, type Lang, type RouteKey } from '../i18n';
+import { social } from '../data/social';
 
 interface Props {
   lang: Lang;
@@ -33,6 +34,9 @@ const jsonLd = {
   url: site.href,
   logo: ogImage,
   email: 'lirei.info@uqtr.ca',
+  // Asserts that these profiles are the organisation's own. Omitted entirely
+  // when there are none — an empty sameAs says nothing and validates worse.
+  ...(social.length > 0 && { sameAs: social.map((a) => a.url) }),
   parentOrganization: {
     '@type': 'CollegeOrUniversity',
     name: t('site.uqtr'),

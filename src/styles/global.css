@@ -2856,3 +2856,70 @@ section.card:hover .axis-icon {
   }
 }
 
+
+/* Social accounts ----------------------------------------------------------
+   The icon carries the link; the network's name sits beside it for screen
+   readers, since an icon alone gives them nothing to announce. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.social ul {
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* 40px of target rather than the 20px of drawing: a tap needs more than an
+     icon's worth of room. */
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.social-heading {
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.social--footer {
+  margin-top: 1rem;
+}
+
+.social--footer a {
+  color: var(--blue-100);
+  border-color: var(--blue-700);
+}
+
+.social--footer a:hover {
+  background: var(--blue-700);
+  color: #fff;
+  border-color: var(--green-400);
+}
+
+.social--inline a {
+  color: var(--blue-700);
+  border-color: var(--line);
+}
+
+.social--inline a:hover {
+  background: var(--green-100);
+  color: var(--green-600);
+  border-color: var(--green-600);
+}
