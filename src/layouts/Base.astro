@@ -22,6 +22,16 @@ const pageTitle = `${title} | ${t('site.name')} — ${t('site.uqtr')}`;
 const site = Astro.site ?? new URL('https://lirei.ca');
 const abs = (path: string) => new URL(path, site).href;
 const canonical = abs(Astro.url.pathname);
+
+// Astro writes directory-style URLs, so canonical ends in a slash while the
+// route helpers that build the alternates do not. Two spellings of one address
+// weaken the pairing these tags exist to declare.
+const withSlash = (u: string) => (u.endsWith('/') ? u : `${u}/`);
+// The other language's address for *this* page: `switchHref` when a detail page
+// supplies it, the section landing page otherwise.
+const alternate = withSlash(abs(switchHref ?? href(other, routeKey)));
+const frUrl = lang === 'fr' ? canonical : alternate;
+const enUrl = lang === 'en' ? canonical : alternate;
 const ogImage = abs(`${import.meta.env.BASE_URL.replace(/\/$/, '')}/images/og-lirei.jpg`);
 
 // Structured data, so a search engine can tell what this organisation is
@@ -76,9 +86,12 @@ const jsonLd = {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
     <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/favicon.svg`} />
-    <link rel="alternate" hreflang={lang} href={canonical} />
-    <link rel="alternate" hreflang={other} href={abs(switchHref ?? href(other, routeKey))} />
-    <link rel="alternate" hreflang="x-default" href={abs(href('fr', routeKey))} />
+    <link rel="alternate" hreflang="fr" href={frUrl} />
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <!-- The French version of this page. It used to be the French version of
+         this page's *section*, which told search engines that every project and
+         every posting was the same document as its index. -->
+    <link rel="alternate" hreflang="x-default" href={frUrl} />
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body>

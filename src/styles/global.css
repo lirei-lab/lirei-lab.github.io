@@ -2923,3 +2923,39 @@ section.card:hover .axis-icon {
   color: var(--green-600);
   border-color: var(--green-600);
 }
+
+/* One opening, on its own page ---------------------------------------------
+   Prose measure rather than full width: these are paragraphs to read, not a
+   table to scan. */
+.opening-page {
+  max-width: 42rem;
+}
+
+.opening-page > .lead {
+  color: var(--ink);
+  border-left: 3px solid var(--green-400);
+  padding-left: 1rem;
+}
+
+.opening-page h2 {
+  font-size: 1.2rem;
+  margin-top: 2rem;
+}
+
+.opening-apply {
+  margin-top: 2.5rem;
+}
+
+.opening-more {
+  margin-top: 2.5rem;
+  font-size: 0.92rem;
+}
+
+/* In the list, the title is the link to the posting. */
+.opening h3 a {
+  text-decoration: none;
+}
+
+.opening h3 a:hover {
+  text-decoration: underline;
+}

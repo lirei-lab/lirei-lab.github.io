@@ -1,0 +1,79 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { useTranslations, href, formatDate, otherLang, type Lang } from '../../i18n';
+import { openingSlug } from '../../utils/openings';
+
+interface Props {
+  opening: CollectionEntry<'openings'>;
+  lang: Lang;
+}
+
+const { opening, lang } = Astro.props;
+const t = useTranslations(lang);
+const o = opening.data;
+const slug = openingSlug(opening.id);
+const switchHref = `${href(otherLang(lang), 'opportunities')}/${slug}`;
+
+const blocks = [
+  { key: 'profile', title: 'opportunities.profileTitle', value: o.profile },
+  { key: 'funding', title: 'opportunities.fundingTitle', value: o.funding },
+] as const;
+---
+
+<Base
+  lang={lang}
+  routeKey="opportunities"
+  title={o.title[lang]}
+  description={o.summary[lang]}
+  switchHref={switchHref}>
+  <div class="hero hero--compact">
+    <div class="container">
+      <p class="hero-back"><a href={href(lang, 'opportunities')}>← {t('opportunities.back')}</a></p>
+      <h1>{o.title[lang]}</h1>
+      <p>
+        <span class="tag">{t(`opportunities.types.${o.type}`)}</span>
+        {o.deadline && (
+          <span class="tag blue">{t('opportunities.deadline')} : {formatDate(o.deadline, lang)}</span>
+        )}
+      </p>
+    </div>
+  </div>
+
+  <div class="container">
+    <article class="opening-page">
+      <p class="lead">{o.summary[lang]}</p>
+
+      {blocks.map(({ key, title, value }) => value && (
+        <section>
+          <h2>{t(title)}</h2>
+          <p>{value[lang]}</p>
+        </section>
+      ))}
+
+      {o.supervisor && (
+        <section>
+          <h2>{t('opportunities.supervisorTitle')}</h2>
+          <p>{typeof o.supervisor === 'string' ? o.supervisor : o.supervisor[lang]}</p>
+        </section>
+      )}
+
+      {o.programs && o.programs.length > 0 && (
+        <section>
+          <h2>{t('opportunities.programTitle')}</h2>
+          <p class="opening-programs">
+            {o.programs.map((p) => (
+              <a class="tag" href={href(lang, 'research')}>{t(`projects.programs.${p}`)}</a>
+            ))}
+          </p>
+        </section>
+      )}
+
+      <p class="opening-apply">
+        <a class="btn" href={`${href(lang, 'contact')}?o=${o.type}`}>{t('opportunities.apply')} →</a>
+      </p>
+    </article>
+
+    <p class="opening-more"><a href={href(lang, 'opportunities')}>← {t('opportunities.back')}</a></p>
+  </div>
+</Base>

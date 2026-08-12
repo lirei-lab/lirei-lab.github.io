@@ -1,0 +1,36 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { useTranslations, href, formatDate, type Lang } from '../i18n';
+import { openingSlug } from '../utils/openings';
+
+interface Props {
+  opening: CollectionEntry<'openings'>;
+  lang: Lang;
+}
+
+const { opening, lang } = Astro.props;
+const t = useTranslations(lang);
+const o = opening.data;
+const url = `${href(lang, 'opportunities')}/${openingSlug(opening.id)}`;
+---
+
+<article class="card opening">
+  <div class="opening-head">
+    <span class="tag">{t(`opportunities.types.${o.type}`)}</span>
+    {o.deadline && (
+      <span class="tag blue">{t('opportunities.deadline')} : {formatDate(o.deadline, lang)}</span>
+    )}
+  </div>
+  <h3><a href={url}>{o.title[lang]}</a></h3>
+  <p>{o.summary[lang]}</p>
+  {o.programs && o.programs.length > 0 && (
+    <p class="opening-programs">
+      {o.programs.map((p) => (
+        <a class="tag" href={href(lang, 'research')}>{t(`projects.programs.${p}`)}</a>
+      ))}
+    </p>
+  )}
+  <!-- The card gives the gist and the page gives the terms. Repeating the whole
+       posting here made the list unreadable once there were more than two. -->
+  <p><a class="btn" href={url}>{t('opportunities.details')} →</a></p>
+</article>

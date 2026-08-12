@@ -1,0 +1,17 @@
+---
+import { getCollection } from 'astro:content';
+import OpeningDetail from '../../../components/pages/OpeningDetail.astro';
+import { openingSlug } from '../../../utils/openings';
+
+export async function getStaticPaths() {
+  const openings = await getCollection('openings', (o) => o.data.status !== 'closed');
+  return openings.map((opening) => ({
+    params: { slug: openingSlug(opening.id) },
+    props: { opening },
+  }));
+}
+
+const { opening } = Astro.props;
+---
+
+<OpeningDetail opening={opening} lang="en" />
