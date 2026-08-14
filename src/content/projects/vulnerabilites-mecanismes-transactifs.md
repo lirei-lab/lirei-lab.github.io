@@ -1,6 +1,6 @@
 ---
 title:
-  fr: "Vulnérabilités physiques et économiques des mécanismes transactifs"
+  fr: "Vulnérabilités physiques et économiques des mécanismes transactionnels"
   en: "Physical and economic vulnerabilities of transactive mechanisms"
 summary:
   fr: "Chercher où un mécanisme de flexibilité peut être mis en défaut — par une panne, par un comportement stratégique ou par une attaque — avant qu'il ne le soit en service."
@@ -12,7 +12,7 @@ objective:
   fr: "Identifier les scénarios de vulnérabilité physique, économique et cybernétique des mécanismes d'interaction, et évaluer la performance des approches proposées en présence d'incertitude."
   en: "Identify scenarios of physical, economic and cyber vulnerability in the interaction mechanisms, and assess the performance of the proposed approaches under uncertainty."
 methodology:
-  fr: "Recensement des modes de défaillance propres aux mécanismes transactifs — physiques, économiques et cybernétiques ; analyse des comportements stratégiques susceptibles de détourner les règles de marché ; évaluation de la robustesse des mécanismes retenus par simulation sous incertitude et sous perte de communication ; quantification de l'effet de chaque défaillance sur le service rendu au réseau."
+  fr: "Recensement des modes de défaillance propres aux mécanismes transactionnels — physiques, économiques et cybernétiques ; analyse des comportements stratégiques susceptibles de détourner les règles de marché ; évaluation de la robustesse des mécanismes retenus par simulation sous incertitude et sous perte de communication ; quantification de l'effet de chaque défaillance sur le service rendu au réseau."
   en: "Surveying the failure modes specific to transactive mechanisms — physical, economic and cyber; analysing the strategic behaviours liable to divert the market rules; assessing the robustness of the retained mechanisms by simulation under uncertainty and under loss of communication; quantifying the effect of each failure on the service delivered to the grid."
 competence: smartgrids
 program: flexibilite

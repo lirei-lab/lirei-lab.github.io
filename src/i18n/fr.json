@@ -157,8 +157,8 @@
       },
       {
         "year": "2022-2026",
-        "title": "Énergie transactive et marchés de flexibilité",
-        "desc": "Mécanismes de marché, coordination multi-agents et apprentissage automatique dominent désormais les travaux — 35 % des publications récentes portent sur l'énergie transactive et les marchés — et s'étendent aux serres et aux communautés isolées."
+        "title": "Énergie transactionnelle et marchés de flexibilité",
+        "desc": "Mécanismes de marché, coordination multi-agents et apprentissage automatique dominent désormais les travaux — 35 % des publications récentes portent sur l'énergie transactionnelle et les marchés — et s'étendent aux serres et aux communautés isolées."
       }
     ],
     "acadTitle": "Partenaires",
@@ -240,8 +240,8 @@
       },
       "flexibility": {
         "title": "Marchés et mécanismes transactionnels",
-        "desc": "Mécanismes d'énergie transactive et marchés locaux de flexibilité : optimisation convexe, analyse économique, équité et coordination multi-agents des ressources énergétiques distribuées.",
-        "tags": "énergie transactive, optimisation convexe, marchés de flexibilité, multi-agents"
+        "desc": "Mécanismes d'énergie transactionnelle et marchés locaux de flexibilité : optimisation convexe, analyse économique, équité et coordination multi-agents des ressources énergétiques distribuées.",
+        "tags": "énergie transactionnelle, optimisation convexe, marchés de flexibilité, multi-agents"
       },
       "ev": {
         "title": "Véhicules électriques et mobilité intelligente",

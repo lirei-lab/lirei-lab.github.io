@@ -108,7 +108,7 @@ TOPICS = [
      r'dataset|sub-?metering|data management|energy monitoring|measurement|ambient display', None),
 
     # — Flexibilité, marchés et communautés ————————————————————————————
-    ('transactive', 'flexibility', 'Énergie transactive', 'Transactive energy',
+    ('transactive', 'flexibility', 'Énergie transactionnelle', 'Transactive energy',
      r'transactive', None),
     ('markets', 'flexibility', 'Marchés de flexibilité', 'Flexibility markets',
      r'flexibility (spot )?market|spot market|local (forward|flexibility) market|market[- ]clearing|forward market|retail market|\bbids?\b|bid execution|energy allocation', None),
