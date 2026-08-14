@@ -1,0 +1,18 @@
+{
+  "name": "Alejandro Parrado Duque",
+  "category": "postdoc",
+  "role": {
+    "fr": "Chercheur postdoctoral",
+    "en": "Postdoctoral Researcher"
+  },
+  "topic": {
+    "fr": "Dimensionnement robuste du stockage en micro-réseau nordique",
+    "en": "Robust storage sizing for northern microgrids"
+  },
+  "order": 33,
+  "project": "communautes-isolees",
+  "bio": {
+    "fr": "Chercheur postdoctoral au LIREI. Il a soutenu sa thèse de doctorat en génie électrique à l'UQTR en 2026 : « Développement d'un protocole de négociation considérant l'incertitude des agents résidentiels dans un contexte de gestion transactionnelle ». Ses travaux postdoctoraux prolongent cette expertise de l'incertitude vers l'aval de la chaîne de décision : le dimensionnement robuste et la localisation du stockage électrique et thermique dans les micro-réseaux autonomes en climat nordique, où l'inertie thermique du parc bâti est traitée comme un actif de stockage à part entière.",
+    "en": "Postdoctoral researcher at LIREI. He defended his PhD in electrical engineering at UQTR in 2026: “Développement d'un protocole de négociation considérant l'incertitude des agents résidentiels dans un contexte de gestion transactionnelle”. His postdoctoral work carries that expertise in uncertainty further down the decision chain: the robust sizing and siting of electric and thermal storage in autonomous microgrids in cold climates, where the thermal inertia of the building stock is treated as a storage asset in its own right."
+  }
+}

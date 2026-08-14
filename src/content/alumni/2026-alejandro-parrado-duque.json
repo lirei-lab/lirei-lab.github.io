@@ -3,5 +3,9 @@
   "degree": "phd",
   "year": 2026,
   "thesis": "Développement d'un protocole de négociation considérant l'incertitude des agents résidentiels dans un contexte de gestion transactionnelle",
-  "blog": "https://neo.uqtr.ca/2026/03/24/developpement-dun-protocole-de-negociation-considerant-lincertitude-des-agents-residentiels-dans-un-contexte-de-gestion-transactionnelle/"
+  "blog": "https://neo.uqtr.ca/2026/03/24/developpement-dun-protocole-de-negociation-considerant-lincertitude-des-agents-residentiels-dans-un-contexte-de-gestion-transactionnelle/",
+  "now": {
+    "fr": "Chercheur postdoctoral au LIREI",
+    "en": "Postdoctoral researcher at LIREI"
+  }
 }
