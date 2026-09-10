@@ -1,0 +1,36 @@
+name: Publications
+
+# Looks for new publications once a month and proposes them as a pull request.
+# Nothing reaches the site until someone merges it: the merge is the review.
+on:
+  schedule:
+    - cron: '0 11 1 * *' # the 1st of each month, 7 h in Trois-Rivières (6 h in winter)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: publications
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      # Google Scholar is left out: it turns away cloud runners. Run
+      # `--scholar` from a workstation to cross-check against it.
+      - run: python3 scripts/update-publications.py --write --summary "$RUNNER_TEMP/publications.md"
+      - uses: peter-evans/create-pull-request@v7
+        with:
+          branch: auto/publications
+          delete-branch: true
+          commit-message: 'feat: new publications from Crossref and OpenAlex'
+          title: 'Nouvelles publications à valider'
+          body-path: ${{ runner.temp }}/publications.md
+          labels: publications

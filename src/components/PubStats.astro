@@ -10,8 +10,9 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 
 // Ten complete years: the current year is still being indexed and would read
-// as a collapse rather than as a partial count.
-const END = 2025;
+// as a collapse rather than as a partial count. Taken from the build date, so
+// the window moves on by itself with the first publication added each January.
+const END = new Date().getFullYear() - 1;
 const START = END - 9;
 
 const pubs = await getCollection('publications');
@@ -27,6 +28,9 @@ const journalShare = Math.round((journals / total) * 100);
 const peak = Math.max(...counts);
 const peakYear = years[counts.indexOf(peak)];
 
+const period = (key: string) =>
+  t(key).replace('{start}', String(START)).replace('{end}', String(END)).replace('{current}', String(END + 1));
+
 // Chart geometry (viewBox units = px at 1×).
 const W = 720;
 const H = 260;
@@ -38,15 +42,15 @@ const plotW = W - padL - padR;
 const plotH = H - padT - padB;
 const band = plotW / years.length;
 const barW = Math.min(24, band - 14); // cap thickness; leftover band is air
-const yMax = 25; // headroom above the peak, round gridlines
-const ticks = [0, 5, 10, 15, 20, 25];
+const yMax = Math.max(25, Math.ceil((peak + 1) / 5) * 5); // headroom above the peak, round gridlines
+const ticks = Array.from({ length: yMax / 5 + 1 }, (_, i) => i * 5);
 const yOf = (v: number) => padT + plotH - (v / yMax) * plotH;
 const xOf = (i: number) => padL + band * i + (band - barW) / 2;
 ---
 
 <section class="pub-stats" aria-labelledby="pub-stats-title">
   <h2 id="pub-stats-title">{t('pubs.statsTitle')}</h2>
-  <p class="muted pub-stats-lead">{t('pubs.statsLead')}</p>
+  <p class="muted pub-stats-lead">{period('pubs.statsLead')}</p>
 
   <div class="kpi-row">
     <div class="kpi">
@@ -69,7 +73,7 @@ const xOf = (i: number) => padL + band * i + (band - barW) / 2;
       class="pub-chart"
       viewBox={`0 0 ${W} ${H}`}
       role="img"
-      aria-label={`${t('pubs.chartAlt')} ${years.map((y, i) => `${y}: ${counts[i]}`).join(', ')}.`}>
+      aria-label={`${period('pubs.chartAlt')} ${years.map((y, i) => `${y}: ${counts[i]}`).join(', ')}.`}>
       <!-- recessive gridlines + value axis -->
       {ticks.map((v) => (
         <g>

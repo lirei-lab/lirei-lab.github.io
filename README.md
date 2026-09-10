@@ -84,9 +84,43 @@ Créez `src/content/team/prenom-nom.json` :
 
 `category` : `direction`, `professor`, `staff`, `postdoc` ou `student`. `order` contrôle l'ordre d'affichage dans chaque groupe.
 
-### Ajouter une publication
+### Mettre à jour les publications
 
-Créez `src/content/publications/2026-titre-court.json` :
+Le catalogue se met à jour à partir de [Crossref](https://www.crossref.org/) (la
+notice de l'éditeur : titre, auteurs, revue, DOI) et
+d'[OpenAlex](https://openalex.org/) (qui retrouve des articles que la recherche
+par nom de Crossref classe trop bas) :
+
+```bash
+python3 scripts/update-publications.py            # rapport : ce qui manque, rien n'est écrit
+python3 scripts/update-publications.py --write    # ajoute les fiches et régénère la carte des sujets
+python3 scripts/update-publications.py --scholar  # recoupe aussi avec le profil Google Scholar
+python3 scripts/update-publications.py --since 2019   # remonte plus loin (défaut : l'année précédente)
+```
+
+Le script ne modifie jamais une fiche existante : une publication déjà présente
+(même DOI ou même titre) est ignorée, donc les corrections faites à la main
+sont conservées. Les prépublications (SSRN, Preprints.org) sont écartées ; la
+version publiée les remplace. D'autres chercheurs s'appellent Agbossou : une
+publication n'est retenue que si Crossref indique l'ORCID ou le prénom « Kodjo »,
+ou l'initiale « K. » avec un coauteur connu de l'équipe ou des diplômés.
+
+**Automatiquement, le 1er de chaque mois**, le workflow `.github/workflows/publications.yml`
+lance le script et, s'il trouve du nouveau, ouvre une *pull request* « Nouvelles
+publications à valider » avec la liste et les liens DOI. Relisez-la (type, année,
+auteurs), corrigez au besoin dans la branche, puis fusionnez : le site se
+redéploie. On peut aussi le déclencher à la main dans l'onglet **Actions**. Pour
+que GitHub Actions ait le droit d'ouvrir la PR, activez une fois *Settings →
+Actions → General → Allow GitHub Actions to create and approve pull requests*.
+
+Google Scholar n'a pas d'API et bloque les serveurs : `--scholar` est donc à
+lancer depuis un poste. Ce qui figure sur Scholar sans DOI retrouvable (brevets,
+thèses) est seulement listé ; si Google affiche un captcha, enregistrez la page du
+profil depuis le navigateur et passez-la avec `--scholar-file page.html`.
+
+### Ajouter une publication à la main
+
+Pour une publication sans DOI, créez `src/content/publications/2026-titre-court.json` :
 
 ```json
 {
